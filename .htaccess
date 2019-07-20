@@ -27,9 +27,10 @@ SetOutputFilter DEFLATE
 # Don't compress
 SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+</IfModule>
+
 #Dealing with proxy servers
 <IfModule mod_headers.c>
 Header set Access-Control-Allow-Origin *
 Header append Vary User-Agent
-</IfModule>
 </IfModule>

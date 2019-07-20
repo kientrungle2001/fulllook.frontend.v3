@@ -12,7 +12,7 @@ flApp.controller('practiceDetailController', ['$scope', function($scope) {
 		if(null !== subject) {
 			$scope.subject = subject;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				type: 'get',
 				url: FL_API_URL + '/corecategories/' + subject_id,
 				dataType: 'json',
@@ -52,7 +52,7 @@ flApp.controller('practiceDetailController', ['$scope', function($scope) {
 		if(null !== subject_topics) {
 			$scope.topics = subject_topics;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				type: 'post',
 				url: FL_API_URL + '/subject/getTopics',
 				data: {
@@ -74,7 +74,7 @@ flApp.controller('practiceDetailController', ['$scope', function($scope) {
 		if(null !== subject_vocabularies) {
 			$scope.vocabularies = subject_vocabularies;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				type: 'get',
 				url: FL_API_URL + '/educationdocuments',
 				data: {
@@ -107,7 +107,7 @@ flApp.controller('practiceDetailController', ['$scope', function($scope) {
 			if(null !== vocabulary) {
 				$scope.vocabulary = vocabulary;
 			} else {
-				$.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/educationdocuments/' + $scope.vocabulary_id,
 					type: 'get', dataType: 'json', success: function(vocabulary) {
 						cacheStorage.setItem('vocabulary_' + $scope.vocabulary_id, vocabulary);

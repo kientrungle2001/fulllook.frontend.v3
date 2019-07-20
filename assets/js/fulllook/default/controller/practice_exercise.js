@@ -15,7 +15,7 @@ flApp.controller('practiceExerciseController', ['$scope', function($scope) {
 		if(null !== sub_topic) {
 			$scope.sub_topic = sub_topic;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				url: FL_API_URL + '/corecategories/' + $scope.sub_topic_id,
 				type: 'get', dataType: 'json',
 				success: function(resp) {

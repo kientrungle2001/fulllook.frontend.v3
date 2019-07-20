@@ -10,7 +10,7 @@ flApp.controller('testSetDetailController', ['$scope', function($scope) {
 			if(null !== category) {
 				$scope.category
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/corecategories/' + $scope.category_id,
 					data: {
 						select: 'id,name,name_vn,trial'
@@ -35,7 +35,7 @@ flApp.controller('testSetDetailController', ['$scope', function($scope) {
 				$scope.loadTestSet();
 				$scope.loadTest();
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/educationtests',
 					type: 'get', dataType: 'json', 
 					data: {

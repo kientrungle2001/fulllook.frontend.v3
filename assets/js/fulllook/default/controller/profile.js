@@ -118,7 +118,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	
 
 	$scope.userDetail = [];
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/profile/getUser', 
 		data: {
@@ -133,7 +133,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	});
 	// Lessons
 	$scope.lessonQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countLessons', 
 		data: {
@@ -172,7 +172,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	};
 	$scope.lessonPage = function(page){
 		$scope.lessonPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getLessons', 
 			data: {
@@ -190,7 +190,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.lessonPage(0);
 	// On luyen tong hop
 	$scope.testQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countTests', 
 		data: {
@@ -211,7 +211,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.historyTests = [];	
 	$scope.testPage = function(page){
 		$scope.testPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getTests', 
 			data: {
@@ -229,7 +229,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.testPage(0);
 	// On luyen tieng Anh
 	$scope.testEQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countTests', 
 		data: {
@@ -250,7 +250,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.testEnglish = [];	
 	$scope.testEPage = function(page){
 		$scope.testEPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getTests', 
 			data: {
@@ -268,7 +268,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.testEPage(0);
 	// Thi thu Tran Dai Nghia
 	$scope.tdnTestQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countTests', 
 		data: {
@@ -289,7 +289,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.tdnTests = [];	
 	$scope.tdnTestPage = function(page){
 		$scope.tdnTestPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getTests', 
 			data: {
@@ -307,7 +307,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.tdnTestPage(0);
 	// De thi chinh thuc cac nam
 	$scope.tdnRealTestQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countTests', 
 		data: {
@@ -328,7 +328,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.tdnRealTests = [];	
 	$scope.tdnRealTestPage = function(page){
 		$scope.tdnRealTestPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getTests', 
 			data: {
@@ -347,7 +347,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 
 	// Tong hop de thi
 	$scope.testAllQuantity = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/history/countTestAlls', 
 		data: {
@@ -367,7 +367,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.testAlls = [];	
 	$scope.testAllPage = function(page){
 		$scope.testAllPageSelected = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/history/getTestAlls', 
 			data: {
@@ -424,7 +424,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	};
 	// get AreaCode
 	$scope.areaCodes = [];
-	jQuery.ajax({
+	proxy_ajax({
 		url: FL_API_URL + '/register/getAreaCode', success: function (resp) {
 			$scope.areaCodes = resp;
 			$scope.$apply();
@@ -434,7 +434,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 
 	// Error subject
 	$scope.pageErrorSubject = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/profile/countErrorSubject', 
 		data: {
@@ -454,7 +454,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.errorSubjects = [];	
 	$scope.paginationErrorSubject = function(page){
 		$scope.selectedErrorSubjectsPage = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/profile/getErrorSubject', 
 			data: {
@@ -474,7 +474,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 
 	// Error test
 	$scope.pageErrorTest = 0;
-	jQuery.ajax({
+	proxy_ajax({
 		type: 'post',
 		url: FL_API_URL +'/profile/countErrorTest', 
 		data: {
@@ -494,7 +494,7 @@ flApp.controller('profileController', ['$scope', function($scope) {
 	$scope.errorTests = [];	
 	$scope.paginationErrorSubject = function(page){
 		$scope.selectedErrorTestPage = page;
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/profile/getErrorTest', 
 			data: {

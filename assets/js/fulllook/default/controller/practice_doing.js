@@ -16,7 +16,7 @@ flApp.controller('practiceDoingController', ['$scope', function($scope) {
 			$scope.sub_topic = sub_topic;
 			callback();
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				url: FL_API_URL + '/corecategories/' + $scope.sub_topic_id,
 				type: 'get', dataType: 'json',
 				success: function(resp) {
@@ -36,7 +36,7 @@ flApp.controller('practiceDoingController', ['$scope', function($scope) {
 			$scope.questions = questions;
 			callback();
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				url: FL_API_URL + '/subject/getExerciseQuestions',
 				type: 'post', dataType: 'json',
 				data: {
@@ -134,7 +134,7 @@ flApp.controller('practiceDoingController', ['$scope', function($scope) {
 			questions: questions
 		};
 
-		jQuery.ajax({
+		proxy_ajax({
 			url: FL_API_URL + '/subject/updateUserBooks',
 			type: 'post', dataType: 'json',
 			data: postData,
@@ -179,6 +179,11 @@ flApp.controller('practiceDoingController', ['$scope', function($scope) {
 			explaination = question.explaination;
 		}
 		return explaination;
+	};
+
+	$scope.read_question = function(id) {
+		var url = 'http://s1.nextnobels.com/3rdparty/Filemanager/source/practice/all/'+id+'.mp3';
+		window.read_question($('#sound-'+id)[0], url);
 	};
 
 }]);

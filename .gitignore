@@ -17,3 +17,5 @@ application/logs/*
 /vendor/
 /3rdparty/
 /assets/libraries/
+/curl
+/tmp

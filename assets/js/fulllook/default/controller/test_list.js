@@ -8,7 +8,7 @@ flApp.controller('testListController', ['$scope', function($scope) {
 		if(null !== tests) {
 			$scope.tests = tests;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				type: 'post',
 				url: FL_API_URL +'/common/getTests', 
 				data: {

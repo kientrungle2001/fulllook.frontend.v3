@@ -16,7 +16,7 @@ flApp.controller('testSetDoingController', ['$scope', function($scope) {
 				$scope.questions = questions;
 				callback();
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/test/getQuestionsAnswers',
 					data: {test_id: $scope.test_id},
 					type: 'post', dataType: 'json', success: function(questions) {
@@ -119,7 +119,7 @@ flApp.controller('testSetDoingController', ['$scope', function($scope) {
 			questions: questions
 		};
 
-		jQuery.ajax({
+		proxy_ajax({
 			url: FL_API_URL + '/test/updateUserBooks',
 			type: 'post', dataType: 'json',
 			data: postData,

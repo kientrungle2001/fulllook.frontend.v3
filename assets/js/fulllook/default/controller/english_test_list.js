@@ -6,7 +6,7 @@ flApp.controller('englishTestListController', ['$scope', function($scope) {
 		if(englishTestList) {
 			$scope.englishTests = englishTestList;
 		} else {
-			jQuery.ajax({
+			proxy_ajax({
 				type: 'post',
 				url: FL_API_URL +'/common/getTests', 
 				data: {

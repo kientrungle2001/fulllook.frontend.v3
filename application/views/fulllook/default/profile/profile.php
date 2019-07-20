@@ -204,7 +204,7 @@
 					      <th scope="row">{{$index +1}}</th>
 					      <td >{{getSubject(lesson.categoryId)}}</td>
 					      <td ng-bind="lesson.name"></td>
-					      <td><a href="/book.php?id={{lesson.id}}">Bài {{lesson.exercise_number}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{lesson.id}}">Bài {{lesson.exercise_number}}</a></td>
 					      <td ng-bind="lesson.mark"></td>
 					      <td ng-bind="lesson.lang"></td>
 					      <td ng-bind="lesson.duringTime"></td>
@@ -243,7 +243,7 @@
 					  <tbody>
 					    <tr ng-repeat="test in historyTests">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{test.id}}">{{test.name}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{test.id}}">{{test.name}}</a></td>
 					      <td ng-bind="test.mark"></td>
 					      <td ng-bind="test.lang"></td>
 					      <td ng-bind="test.duringTime"></td>
@@ -284,7 +284,7 @@
 					  <tbody>
 					    <tr ng-repeat="testE in testEnglish">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{testE.id}}">{{testE.name}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{testE.id}}">{{testE.name}}</a></td>
 					      <td ng-bind="testE.mark"></td>
 					      <td ng-bind="testE.lang"></td>
 					      <td ng-bind="testE.duringTime"></td>
@@ -325,7 +325,7 @@
 					  <tbody>
 					    <tr ng-repeat="tdnTest in tdnTests">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{tdnTest.id}}">{{tdnTest.name}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{tdnTest.id}}">{{tdnTest.name}}</a></td>
 					      <td ng-bind="tdnTest.mark"></td>
 					      <td ng-bind="tdnTest.lang"></td>
 					      <td ng-bind="tdnTest.duringTime"></td>
@@ -366,7 +366,7 @@
 					  <tbody>
 					    <tr ng-repeat="tdnRealTest in tdnRealTests">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{tdnRealTest.id}}">{{tdnRealTest.name}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{tdnRealTest.id}}">{{tdnRealTest.name}}</a></td>
 					      <td ng-bind="tdnRealTest.mark"></td>
 					      <td ng-bind="tdnRealTest.lang"></td>
 					      <td ng-bind="tdnRealTest.duringTime"></td>
@@ -407,7 +407,7 @@
 					  <tbody>
 					    <tr ng-repeat="testAll in testAlls">
 					      <th scope="row">{{$index +1}}</th>
-					      <td><a href="/book.php?id={{testAll.id}}">{{testAll.name}}</a></td>
+					      <td><a href="/book/detail?user_book_id={{testAll.id}}">{{testAll.name}}</a></td>
 					      <td ng-bind="testAll.mark"></td>
 					      <td ng-bind="testAll.lang"></td>
 					      <td ng-bind="testAll.duringTime"></td>

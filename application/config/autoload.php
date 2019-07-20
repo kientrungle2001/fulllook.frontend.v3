@@ -59,6 +59,9 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 $autoload['libraries'] = array('user_agent', 'session', 'detector');
+if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' || $_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com') {
+	$autoload['libraries'][] = 'database';
+}
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +92,10 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url');
+if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com') {
+	$autoload['helper'][] = 'wpglobus';
+}
 
 /*
 | -------------------------------------------------------------------
@@ -133,3 +139,7 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array();
+if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-center.com')) {
+	$autoload['model']['pql/options_model'] = 'options_model';
+	$autoload['model']['pql/posts_model'] = 'posts_model';
+}

@@ -17,6 +17,7 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 
 	}
 	$scope.paycard = {};
+	$scope.paycardCaptcha = '/3rdparty/captcha/random_image.php?t=' + (new Date()).getMilliseconds();
 	$scope.payCardFl = function (url) {
 		if (parseInt(sessionUserId) == 0 || sessionUserId == '') {
 			$scope.paycard.message = 'Bạn phải đăng nhập mới được nạp thẻ';
@@ -29,7 +30,7 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 			}
 			$scope.paycard.userId = sessionUserId;
 			$scope.paycard.username = sessionUsername;
-			jQuery.post(url + '/3rdparty/captcha/check_session.php', $scope.paycard.captcha, function (dataResult) {
+			jQuery.post(url + '/3rdparty/captcha/check_session.php', {}, function (dataResult) {
 				if (dataResult) {
 					if ($scope.paycard.captcha == dataResult) {
 						jQuery.post(FL_API_URL + '/payment/payCard', $scope.paycard, function (dataResult) {

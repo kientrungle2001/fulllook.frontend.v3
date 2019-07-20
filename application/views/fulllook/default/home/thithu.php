@@ -1,7 +1,7 @@
 <?php $controller->js('controller/test_set_list.js');?>
 <div id="thithu" class="full" ng-controller="testSetListController">
 	<div class="container">
-		<div class="text-center heading mt-2 mb-4 text-white">
+		<div class="section-title">
 			Thi thử Trần Đại Nghĩa 
 		</div>
 	</div>

@@ -8,7 +8,7 @@ flApp.controller('practiceExerciseListController', ['$scope', function($scope) {
 	if(null !== practice_exercises) {
 		$scope.exerciseNumsList = practice_exercises;
 	} else {
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL + '/subject/getExercises',
 			dataType: 'json',

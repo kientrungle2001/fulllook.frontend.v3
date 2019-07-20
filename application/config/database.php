@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'username' => ($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com') ? 'ken': ($_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn'? 'root':''),
+	'password' => ($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com') ? 'kienkien' : ($_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn'? '123456':''),
+	'database' => ($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com') ? 'phattrienngonngu_com_info': ($_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn'? 'nextnobels':''),
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -94,3 +94,16 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+
+if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com') {
+	$db_config = array(
+	'hostname' => '42.112.21.207',
+	'username' => 'admin_bichvan',
+	'password' => 'nn123456',
+	'database' => 'admin_bichvan',
+	);
+	foreach($db_config as $key => $val) {
+		$db['default'][$key] = $val;
+	}
+}

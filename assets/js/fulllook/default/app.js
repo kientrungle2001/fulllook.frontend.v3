@@ -55,6 +55,30 @@ flApp.filter('toDate', function () {
 		return new Date(input);
 	}
 });
+flApp.directive('testBlock', function() {
+	return {
+		restrict: 'EA',
+		template: function(elem, attr) {
+			return `<a href="/test/detail?test_id={{test.id}}&category_id=`+attr.categoryId+`">
+			<div class="section-button">{{translate(test, 'test.name')}}
+			<span ng-show="test.trial==1" class="badge-free">Free</span>
+			</div>
+		</a>`;
+		}
+	};
+});
+
+flApp.directive('sectionTitle', function() {
+	return {
+		restrict: 'EA',
+		transclude: true,
+		template: function(elem, attr) {
+			return `<div class="section-title">
+			<ng-transclude></ng-transclude>
+			</div>`;
+		}
+	};
+});
 
 function get_browser() {
 	var browser = '';
@@ -155,4 +179,27 @@ cacheStorage = {
 			this.clear();
 		}
 	}
+}
+PROXY_URL = '//' + location.host + '/proxy.php';
+PROXY_ENABLED = true;
+function proxy_ajax(options) {
+	if(PROXY_ENABLED) {
+		options.url = PROXY_URL + '?_real_url=' + encodeURIComponent(options.url);
+		options.data = options.data || {};
+		options.data['data'] = $.extend({}, options.data);
+		options.data['method'] = options.type || 'get';
+		options.type = 'post';
+		options.dataType = 'json';
+	}
+	return $.ajax(options);
+}
+
+function proxy_get(options) {
+	options.type = 'get';
+	return proxy_ajax(options);
+}
+
+function proxy_post(options) {
+	options.type = 'post';
+	return proxy_ajax(options);
 }

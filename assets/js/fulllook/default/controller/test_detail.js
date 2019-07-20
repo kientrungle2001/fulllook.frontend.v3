@@ -9,7 +9,7 @@ flApp.controller('testDetailController', ['$scope', function($scope) {
 			if(null !== category) {
 				$scope.category = category;
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/corecategories/' + $scope.category_id,
 					type: 'get', dataType: 'json', success: function(category) {
 						cacheStorage.setItem('category_' + $scope.category_id, category);
@@ -27,7 +27,7 @@ flApp.controller('testDetailController', ['$scope', function($scope) {
 			if(null !== tests) {
 				$scope.tests = tests;
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/educationtests',
 					type: 'get', dataType: 'json', 
 					data: {
@@ -57,7 +57,7 @@ flApp.controller('testDetailController', ['$scope', function($scope) {
 			if(null !== test) {
 				$scope.test = test;
 			} else {
-				jQuery.ajax({
+				proxy_ajax({
 					url: FL_API_URL + '/educationtests/' + $scope.test_id,
 					type: 'get', dataType: 'json', success: function(test) {
 						cacheStorage.setItem('test_' + $scope.test_id, test)

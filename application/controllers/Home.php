@@ -5,6 +5,7 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
+		debug_print_backtrace(); die();
 		$this->render('home');
 	}
 

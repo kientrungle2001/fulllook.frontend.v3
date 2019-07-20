@@ -11,7 +11,7 @@ flApp.controller('loginController', ['$scope', function($scope) {
 		$scope.areaCodes = areaCodes;
 	} else {
 		$scope.areaCodes = [];
-		jQuery.ajax({url: FL_API_URL +'/register/getAreaCode', success: function(resp) {
+		proxy_ajax({url: FL_API_URL +'/register/getAreaCode', success: function(resp) {
 			cacheStorage.setItem('areaCodes', resp);
 			$scope.areaCodes = resp;
 			$scope.$apply();

@@ -4,7 +4,7 @@ flApp.controller('subjectListController', ['$scope', function($scope) {
 	if(null !== subjects) {
 		$scope.subjects = subjects;
 	} else {
-		jQuery.ajax({
+		proxy_ajax({
 			url: FL_API_URL +'/corecategories',
 			data: {
 				where: {

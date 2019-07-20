@@ -217,7 +217,6 @@ if ( ! is_php('5.4'))
  *
  */
 	$CFG =& load_class('Config', 'core');
-
 	// Do we have any manually set config items in the index.php file?
 	if (isset($assign_to_config) && is_array($assign_to_config))
 	{
@@ -226,6 +225,25 @@ if ( ! is_php('5.4'))
 			$CFG->set_item($key, $value);
 		}
 	}
+	
+	$all_apps = $CFG->item('apps');
+	$current_app = $all_apps[0];
+	foreach($all_apps as $app) {
+		if($app['host'] == $_SERVER['HTTP_HOST']) {
+			$current_app = $app;
+			break;
+		}
+		if(isset($app['aliases'])) {
+			foreach($app['aliases'] as $alias) {
+				if($alias == $_SERVER['HTTP_HOST']) {
+					$current_app = $app;
+					break;
+				}
+			}
+		}
+	}
+	
+	$CFG->set_item('current_app', $current_app);
 
 /*
  * ------------------------------------------------------
@@ -402,14 +420,17 @@ if ( ! is_php('5.4'))
 	$class = ucfirst($RTR->class);
 	$method = $RTR->method;
 
-	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))
+	if (empty($class) OR ( ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php') and !file_exists(APPPATH.'controllers/' .$current_app['name']. '/'.$RTR->directory.$class.'.php')))
 	{
 		$e404 = TRUE;
 	}
 	else
 	{
-		require_once(APPPATH.'controllers/'.$RTR->directory.$class.'.php');
-
+		if(is_file(APPPATH.'controllers/' .$current_app['name']. '/'.$RTR->directory.$class.'.php')) {
+			require_once APPPATH.'controllers/' .$current_app['name']. '/'.$RTR->directory.$class.'.php';
+		} else {
+			require_once(APPPATH.'controllers/'.$RTR->directory.$class.'.php');
+		}
 		if ( ! class_exists($class, FALSE) OR $method[0] === '_' OR method_exists('CI_Controller', $method))
 		{
 			$e404 = TRUE;

@@ -1,0 +1,914 @@
+html, body, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+  }
+  h1, h2, h3, h4, h5, h6{
+	  margin-bottom: 0!important; margin-top: 0!important; 
+  }
+  ul,li,ol,dl{
+	  list-style: none;
+	  margin: 0!important;
+	  padding: 0; 
+  }
+  a{
+	  text-decoration: none!important;
+	color:#444444;
+  }
+  i{
+	  vertical-align: middle;
+  }
+  /*================== css phần header ==================*/
+  body {
+	  background: url(../images/dark_geometric.png) repeat;
+	  font-size: 12px;
+	  font-family: arial;
+	  line-height: 18px;
+	  color: #434343;
+  }
+  #container{
+	width: 998px;
+	margin: auto;
+	border-left: 1px solid #323232;
+	border-right: 1px solid #323232;
+	background: white;
+  }
+  /*==============slogan===============*/
+  #slogan {
+	  height: 35px;
+	  position: relative;
+	  background: #e0c18f;
+	  border-bottom: 2px solid #f86201;
+  }
+  .text_left_top {
+	  font-weight: bold;
+	  font-family: tahoma;
+	  font-size: 11px;
+	  color: black;
+	  background: url(../images/bichvan_02.png) no-repeat;
+		  background-position-x: 0%;
+		  background-position-y: 0%;
+	  background-position: 0px 0px;
+	  padding: 8px 0px 11px 62px;
+	  position: absolute;
+	  top: 1px;
+	  text-transform: uppercase;
+	  left: 16px;
+  }
+  .text_right_top {
+	  background: url(../images/bichvan_04.png) no-repeat;
+		  background-position-x: 0%;
+		  background-position-y: 0%;
+	  background-position: 0px 0px;
+	  padding: 7px 0px 5px 43px;
+	  font-size: 11px;
+	  font-family: tahoma;
+	  font-weight: bold;
+	  position: absolute;
+	  top: 2px;
+	  text-transform: uppercase;
+	  color: black;
+	  right: 10px;
+  }
+  #top {
+	  height: 155px;
+	  position: relative;
+  }
+  #like_top {
+	  position: absolute;
+	  top: 10px;
+	  right: 150px;
+  }
+  .item_like_top {
+	  float: left;
+	  margin-right: 5px;
+  }
+  .item_like_top .share {
+	display: block;
+	width: 29px;
+	height: 29px;
+	border-radius: 16px;
+	border: 1px solid #F7A876;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+	background: url("../images/sprite-icons-social.png") no-repeat -124px 0;
+	background: url("../images/sprite-icons-social.png") no-repeat -124px 0,-webkit-gradient(linear,left top,left bottom,from(#F7A876),to(#f86201)) 0 0;
+	background: url("../images/sprite-icons-social.png") no-repeat -124px 0,-moz-linear-gradient(top,#F7A876,#f86201);
+	background: url("../images/sprite-icons-social.png") no-repeat -124px 0,-ms-linear-gradient(top,#F7A876,#f86201);
+	background: url("../images/sprite-icons-social.png") no-repeat -124px 0,-o-linear-gradient(top,#F7A876,#f86201);
+	text-indent: -99999px;
+  }
+  .item_like_top .twi {
+	background-position: -155px 0 !important;
+  }
+  .item_like_top .face {
+	background-position: -186px 0 !important;
+  }
+  .item_like_top .g {
+	background-position: -217px 0 !important;
+  }
+  #logo {
+	position: absolute;
+	top: 7px;
+	left: 20px;
+  }
+  .bt_gh {
+	-moz-box-shadow: 1px 1px 2px #e7e7e7;
+	-webkit-box-shadow: 1px 1px 2px #e7e7e7;
+	box-shadow: 1px 1px 2px #e7e7e7;
+	position: absolute;
+	top: 8px;
+	left: 867px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	border: 1px solid #d1d1d1;
+	background: #f4f4f4;
+	background: -moz-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#ededed));
+	background: -webkit-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: -o-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: -ms-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: linear-gradient(to bottom, #f4f4f4 0%,#ededed 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ededed',GradientType=0 );
+	behavior: url(dh.htc);
+  }
+  .bt_gh a {
+	float: left;
+	background: url(../images/icon_giohang.png) no-repeat;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 9px 5px;
+	font-size: 13px;
+	-moz-box-shadow: inset 1px 1px 1px #fafafa;
+	-webkit-box-shadow: inset 1px 1px 1px #fafafa;
+	box-shadow: inset 1px 1px 1px #fafafa;
+	color: #333333;
+	padding: 10px 5px 9px 43px;
+		padding-right: 5px;
+	padding-right: 0px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	behavior: url(dh.htc);
+  }
+  #num_order {
+	font-family: tahoma;
+	font-size: 13px;
+	float: left;
+	padding-top: 7px;
+	font-weight: bold;
+  }
+  #menu_s {
+	position: absolute;
+	top: 54px;
+	right: 21px;
+  }
+  #menu_s a {
+	font-weight: bold;
+	color: #444444;
+	font-size: 12px;
+  }
+  #bg_search {
+	width: 492px;
+	height: 39px;
+	border: 1px solid #d1d1d1;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	position: absolute;
+	top: 97px;
+	left: 207px;
+	behavior: url(dh.htc);
+  }
+  #txts {
+	border-left: 1px solid #d1d1d1;
+	width: 433px;
+	font-style: italic;
+	padding: 11px 10px 12px 10px;
+	position: absolute;
+	top: 98px;
+	border: 0px;
+	background: none;
+	left: 208px;
+  }
+  #cate_top {
+	position: absolute;
+	font-weight: bold;
+	font-size: 13px;
+	border: 0px;
+		border-right-color: currentcolor;
+		border-right-style: none;
+		border-right-width: 0px;
+	background: #eeeeee;
+	top: 97px;
+	width: 108px;
+	left: 207px;
+	border-right: 1px solid #d1d1d1;
+	padding: 10px 5px 13px 5px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	-moz-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+	behavior: url(dh.htc)
+  }
+  #subs {
+	background: url(../images/search.png) top left no-repeat;
+	height: 39px;
+	width: 39px;
+	position: absolute;
+	top: 98px;
+	left: 661px;
+	border: none;
+	cursor: pointer;
+  }
+  #cate_title {
+	padding: 12px 0px 0px 12px;
+	border: 1px solid #535353;
+	background: #444444;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 153px 17px;
+	width: 164px;
+	height: 27px;
+	position: absolute;
+	top: 97px;
+	left: 16px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	behavior: url(dh.htc);
+  }
+  #cate_title p {
+	  color: #ffffff;
+	  font-size: 11px;
+  }
+  #cate_title p span {
+	font-size: 16px;
+	text-transform: initial;
+	font-weight: bolder;
+  }
+  #login_but {
+	padding: 8px 3px 10px 3px;
+	position: absolute;
+	top: 100p;
+	right: 100px;
+	-moz-box-shadow: 1px 1px 2px #e7e7e7;
+	-webkit-box-shadow: 1px 1px 2px #e7e7e7;
+	box-shadow: 1px 1px 2px #e7e7e7;
+	position: absolute;
+	top: 96px;
+	right: 10px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	border: 1px solid #d1d1d1;
+	background: #f4f4f4;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#ededed));
+	background: -webkit-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: -o-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: -ms-linear-gradient(top, #f4f4f4 0%,#ededed 100%);
+	background: linear-gradient(to bottom, #f4f4f4 0%,#ededed 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ededed',GradientType=0 );
+	behavior: url(dh.htc);
+  }
+  #login_but a {
+	font-size: 13px;
+	color: #333333;
+	display: block;
+	backg1round: url(../images/bichvan_11.png) no-repeat;
+	background-position: 145px 6px;
+	padding: 3px 5px 0px 5px;
+  }
+  .but_log_re {
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: bold;
+	color: black;
+	font-family: tahoma;
+  } 
+  #sup_all {
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	}
+	#ct_sup {
+	width: 998px;
+	margin: auto;
+	height: 37px;
+	background:#fff;
+	border-top:1px solid #ccc;
+	height: 37px;
+	position: relative; 
+  } 
+  #ct_sup {
+	  width: 998px;
+	  margin: auto;
+	  height: 37px;
+	  background: #fff;
+	  border-top: 1px solid #ccc;
+	  height: 37px;
+	  position: relative;
+  }
+  #hotline_f {
+	font-style: italic;
+	background: url(../images/baogiavattu_55.png) no-repeat;
+	background-position: 0px 0px;
+	padding: 4px 0px 0px 93px;
+	position: absolute;
+	top: 9px;
+	left: 16px;
+	font-size: 17px;
+	color: #e40d0d;
+	font-weight: bold;
+  }  
+  #email_f {
+	font-style: italic;
+	background: url(../images/baogiavattu_58.png) no-repeat;
+	background-position: 0px 0px;
+	padding: 4px 0px 0px 82px;
+	position: absolute;
+	top: 9px;
+	left: 255px;
+	font-size: 17px;
+	color:#e40d0d;
+	font-weight: bold;
+  } 
+  #menu_foot {
+	padding: 7px 15px;
+	height: 20px;
+	border-bottom: 2px solid #f1f1f1;
+	border-top: 2px solid #f1f1f1;
+  }
+  #menu_f_left {
+	float: left;
+  }
+  #menu_f_left a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #444444;
+  }
+  #menu_f_left a:hover{
+	color:#f96302;
+  }
+  #info {
+	float: left;
+	width: 340px;
+	padding: 15px;
+	padding-right: 15px;
+	padding-right: 0px;
+  }
+  #info p {
+	color: #444444;
+	font-weight: bold;
+	padding-bottom: 3px;
+  }
+  .box_end {
+	float: left;
+	width: 190px;
+	padding: 15px 0px;
+	margin-left: 10px;
+  }
+  .box_end b {
+	display: block;
+	margin-bottom: 5px;
+  }
+  .box_end ul > li > a:hover{
+	color:#f96302;
+  }
+  .key_w {
+	padding: 10px;
+  }
+  .key_w > ul > li > a:hover{
+	color:#f96302;
+  }
+  .key_w li {
+	height: 20px;
+	list-style: none;
+	display: inline-block;
+	width: 150px;
+	margin-right: 10px;
+	overflow: hidden;
+  }
+  #left{
+	width: 208px;
+	float: left;
+	background: linear-gradient(to right, #efefef 0%,#efefef 88%,#e1e1e1 100%);
+  }
+  .list_cate_left {
+	background: url(../images/bichvan_03.png) bottom left no-repeat;
+  }
+  .list_cate_left .cate_far_left {
+	color: #444444;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: url(../images/bichvan_15.png) no-repeat;
+	  background-position-x: 0%;
+	  background-position-y: 0%;
+	background-position: 16px 10px;
+	padding: 7px 5px 7px 30px;
+	display: block;
+  }
+  .list_cate_left > .cate_far_left:hover{
+	color: #f96302;
+  }
+  .mega-menu {
+	line-height: 16px;
+	position: relative;
+  }
+  .mega-menu li:hover .sub-container {
+	display: block;
+	background-color: #4B4B4B;
+  }
+  .mega-menu li {
+	list-style: none;
+  }
+  .mega-menu li:hover{
+	background-color: #4b4b4b;
+  }
+  .mega-menu li a {
+	display: block;
+	color: #444444;
+	font-weight: bold;
+	background: url(../images/bichvan_19.png) no-repeat;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 35px 13px;
+	padding: 7px 5px 7px 48px;
+  }
+  .mega-menu li a:hover{
+	color: #fff;
+	background: none;
+  }
+  .mega-menu li:hover a.dc-mega{
+	background: none;
+	color: #fff;
+  }
+  .mega-menu li:hover .sub-container ul.sub li a{
+	background: url(../images/bichvan_23.png) no-repeat;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 20px 13px;
+	color: #fff;
+  }
+  .sub-container ul.sub li a{
+	padding: 7px 5px 7px 32px!important;
+  }
+  .mega-menu li a .dc-mega-icon {
+	display: block;
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	width: 6px;
+	height: 8px;
+  }
+  .mega-menu li .sub-container {
+	position: absolute;
+	background: #4B4B4B;
+	padding: 10px 10px 10px 4px;
+	border: 1px solid #4b4b4b;
+		border-left-color: rgb(75, 75, 75);
+		border-left-style: solid;
+		border-left-width: 1px;
+	border-left: none;
+	top: 0;
+	z-index: 1000;
+	width: 190px;
+	display: none;
+	left: 208px;
+  }
+  .sub-container ul.sub li:hover{
+	background: #efefef;
+  }
+  .sub-container ul.sub li a{}
+  .sub-container ul.sub li:hover > a{
+	color: #f96302!important;
+	background: none!important;
+  }
+  .sub-container ul.sub li.cate4 a{
+	background: none!important;
+  }
+  .sub-container ul.sub li.cate4:hover{
+	background: none!important;
+  }
+  .s_top {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #444444;
+	padding: 5px 5px 4px 17px;
+	background: #dadada;
+	border: 1px solid #c7c7c7;
+  }
+  .s_mid {
+	border-top: 1px solid white;
+	padding: 20px 10px;
+  }
+  .title_search {
+	color: #444444;
+	font-weight: bold;
+	padding-bottom: 5px;
+  }
+  .input_search input {
+	margin-bottom: 5px;
+	border: 1px solid #d4d4d4;
+	background: white;
+	padding: 2px;
+	width: 182px;
+	height: 24px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	behavior: url(dh.htc);
+  }
+  .input_search #bt_search {
+	margin-top: 8px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	width: 80px;
+	float: right;
+	padding: 5px 5px 5px 5px;
+	background: #464646;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #464646 0%, #252525 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#464646), color-stop(100%,#252525));
+	background: -webkit-linear-gradient(top, #464646 0%,#252525 100%);
+	background: -o-linear-gradient(top, #464646 0%,#252525 100%);
+	background: -ms-linear-gradient(top, #464646 0%,#252525 100%);
+	background: linear-gradient(to bottom, #464646 0%,#252525 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#464646', endColorstr='#252525',GradientType=0 );
+	-moz-box-shadow: inset 1px 1px 1px #a3a3a3;
+	-webkit-box-shadow: inset 1px 1px 1px #a3a3a3;
+	box-shadow: inset 1px 1px 1px #a3a3a3;
+	border: 1px solid #393939;
+	height: 28px;
+	behavior: url(dh.htc);
+  }
+  .input_search select {
+	margin-bottom: 5px;
+	border: 1px solid #d4d4d4;
+	background: white;
+	padding: 2px;
+	width: 187px;
+	height: 27px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	behavior: url(dh.htc);
+  }
+  .s_top {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #444444;
+	padding: 5px 5px 4px 17px;
+	background: #dadada;
+	border: 1px solid #c7c7c7;
+  }
+  .new_left {
+	background: url(../images/bichvan_03.png) left top no-repeat;
+  }
+  .new_left a {
+	background: url(../images/bichvan_23.png) no-repeat;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 22px 12px;
+	padding: 5px 5px 5px 36px;
+	display: block;
+	color: #434343;
+  }
+  .new_left a:hover{
+	color: #f96302;
+  }
+  #right {
+	  width: 790px;
+	  float: left;
+  }
+  #wap_slider {
+	height: 257px;
+	overflow: hidden;
+  }
+  .slider-wrapper {
+	position: relative;
+	width: 790px;
+	height: 257px;
+	overflow: hidden;
+  }
+  .nivo-controlNav a {
+	display: none;
+	position: relative;
+	z-index: 9;
+	width: 9px;
+	height: 9px;
+	float: left;
+	margin-right: 2px;
+	overflow: hidden;
+	display: block;
+	background: #d6d6d6;
+	cursor: pointer;
+  }
+  .nivo-controlNav {
+	width: 512px;
+	bottom: 10px;
+	text-indent: 10000px;
+	z-index: 9;
+	position: absolute;
+	left: 10px;
+  }
+  .nivo-controlNav a.active {
+	background: #0c629e;
+  }
+  .b_top {
+	border-top: 2px solid #f1f1f1;
+	border-bottom: 2px solid #f1f1f1;
+	padding: 10px 5px 9px 25px;
+  }
+  .b_top h2 {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #444444;
+  }
+  .b_top h2 a:hover{
+	color: #f96302;
+  }
+  .cate2_s {
+	width: 176px !important;
+  }
+  .item_cate2 {
+	height: 188px;
+	overflow: hidden;
+	width: 240px;
+	float: left;
+	padding-left: 17px;
+  }
+  .item_cate2:hover img {
+	border: 1px solid #f96302;
+  }
+  .item_cate2 img {
+	padding: 3px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	-moz-box-shadow: 0px 0px 5px #ccc;
+	-webkit-box-shadow: 0px 0px 5px #ccc;
+	box-shadow: 0px 0px 5px #ccc;
+	behavior: url(dh.htc);
+  }
+  .name_cate2:hover{
+	color: #f96302;
+  }
+  .item_cate2 .name_cate2 {
+	font-weight: bold;
+	text-transform: uppercase;
+	float: left;
+	background: url(../images/bichvan_15.png) center right no-repeat;
+	padding-right: 15px;
+	padding-top: 2px;
+  }
+  .box_new {
+	margin-left: 20px;
+	float: left;
+	width: 385px;
+  }
+  #content_new_home {
+	padding-left: 12px;
+	padding-right: 12px;
+  }
+  #content_new_home img {
+	padding: 3px;
+	margin-bottom: 10px;
+	border: 1px solid #f1f1f1;
+	-moz-box-shadow: 0px 0px 5px #f1f1f1;
+	-webkit-box-shadow: 0px 0px 5px #f1f1f1;
+	box-shadow: 0px 0px 5px #f1f1f1;
+	float: left;
+	margin-right: 10px;
+	behavior: url(dh.htc);
+  }
+  #content_new_home p {
+	text-align: justify;
+  }
+  .detail_new_home {
+	clear: both;
+	font-size: 11px;
+	color: #f96302;
+  }
+  .detail_new_home:hover{
+	color: #000;
+  }
+  #link_br {
+	font-family: Verdana, Geneva, sans-serif;
+	padding-bottom: 8px;
+	padding-left: 18px;
+	padding-top: 10px;
+	position: relative;
+	border: 1px solid #dfdfdf;
+	  border-left-color: rgb(223, 223, 223);
+	  border-left-style: solid;
+	  border-left-width: 1px;
+	margin-bottom: 10px;
+	border-left: none;
+  }
+  #link_br span {
+	float: left;
+	font-size: 15px;
+	padding-right: 4px;
+  }
+  #link_br a {
+	font-weight: bold;
+	font-size: 11px;
+	float: left;
+	padding-right: 4px;
+  }
+  #link_br .a_active {
+	color: #f96302;
+  }
+  #link_br a:hover {
+	color: #1276AB;
+  }
+  #content_new {
+	padding: 0px 15px;
+  }
+  #news_title {
+	padding-bottom: 0px;
+  }
+  #news_title h1 {
+	font-size: 16px;
+	padding: 0px;
+	margin: 0px;
+	line-height: 20px;
+  }
+  #time {
+	background-position: 0px 0px;
+	color: #8A8A8A;
+	font-style: italic;
+	font-size: 10px;
+	height: 25px;
+  }
+  #time span {
+	color: #39C;
+  }
+  .new_n {
+	border: 1px dashed #36C;
+	padding: 10px 20px 10px 12px;
+	margin-bottom: 10px;
+  }
+  .new_n b {
+	color: #e53838;
+	display: block;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+  }
+  .new_n p {
+	margin-left: 15px;
+	background: url(../images/bichvan_19.png) no-repeat;
+		background-position-x: 0%;
+		background-position-y: 0%;
+	background-position: 2px 8px;
+	padding: 0px 10px 1px 20px;
+  }
+  .new_n p a {
+	color: #36C;
+  }
+  #news_detail {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: justify;
+	line-height: 20px;
+	overflow: hidden;
+  }
+  #tags {
+	border: 1px dashed #dfdfdf;
+	padding: 10px;
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	display: flex;
+  }
+  #tags a {
+	text-decoration: none;
+	color: #01723A;
+	font-size: 11px;
+  }
+  h3.cufon{
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 10px 0px;
+  }
+  .error{
+	color:red;
+	text-align:center;
+  }
+  #content_n {
+	margin-top: 10px;
+	border-top: 1px dashed #ccc;
+	margin-bottom: 10px;
+	padding-top: 10px;
+  }
+  .block_img {
+	width: 220px;
+	float: left;
+  }
+  .thumb {
+	width: 200px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	behavior: url(dh.htc);
+  }
+  #ct_new {
+	text-align: justify;
+  }
+  #ct_new p {
+	margin: 0px;
+	line-height: 18px;
+  }
+  #shor_n {
+	  max-height: 107px;
+	  overflow: hidden;
+  }
+  #name_new a {
+	font-family: tahoma;
+	font-size: 12px;
+	color: #1276AB;
+	font-weight: bold;
+  }
+  #ct_new p span {
+	display: block;
+	font-size: 11px;
+	color: #999999;
+	font-style: italic;
+  }
+  #xemtiep {
+	text-align: right;
+	font-size: 11px;
+  font-weight: bold;
+  }
+  #xemtiep a:hover {
+	color: #ffd200;
+  }
+  .baogiasp{
+	width: 100%;
+	text-align: center;
+	line-height: 35px;
+	margin-top: 15px;
+	display: inline-block;
+  }
+  .baogiasp_title{
+	  width: 100%;
+	  font-size: 25px;
+	  text-transform: uppercase;
+	  height: auto;
+	  box-sizing: border-box;
+	  padding: 20px 30px;
+	  background-color: #0099CC;
+	  color: #fff;
+	  font-weight: bold;
+	  transition: color 0.5 ease;
+  }
+  .baogiasp_title:hover p a{
+	color: #010101;
+  }
+  .baogiasp_title:hover a{
+	color: #000;
+  }
+  .baogiasp_title p a{
+	color: #fff;
+	font-weight: bold;
+  }
+  .baogiasp_chitiet{
+	width: 50%;
+	float: left;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	background-color: rgb(102, 204, 204);
+	font-size: 20px;
+	box-sizing: border-box;
+	max-height: 90px;
+  }
+  .baogiasp_chitiet p{
+	margin-top: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	width: 100%;
+  }
+  .baogiasp_chitiet a{
+	color: #fff;
+	text-transform: uppercase;
+	width: 100%;
+	padding-bottom: 10px!important;
+	font-weight: bold;
+	transition: color 0.7s;
+  }
+  .baogiasp_chitiet:hover a{
+	color: #000;
+  }

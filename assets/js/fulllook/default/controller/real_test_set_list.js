@@ -4,7 +4,7 @@ flApp.controller('realTestSetListController', ['$scope', function($scope) {
 		$scope.realTestSets = realTestSets;
 	} else {
 		$scope.realTestSets = [];
-		jQuery.ajax({
+		proxy_ajax({
 			type: 'post',
 			url: FL_API_URL +'/common/getTestSets', 
 			data: {
