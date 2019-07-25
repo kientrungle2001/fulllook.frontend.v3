@@ -167,9 +167,13 @@ flApp.controller('testSetDoingController', ['$scope', function($scope) {
 	};
 
 	$scope.formatWritting = function(content) {
-		content = content.replace(/\[i[\d]+\]/ig, '<input />');
-		content = content.replace(/\[i[\d]+\[[\d]+\]\]/ig, '<input />');
-		content = content.replace(/\[t[\d]+\]/ig, '<textarea style="width: 100%;" rows="4" cols="50"></textarea>');
+		content = content.replace(/\[i[\d]+\]/ig, '<input ng-model="user_answers[question.id]" ng-change="log_answers(user_answers)" />');
+		content = content.replace(/\[i[\d]+\[[\d]+\]\]/ig, '<input ng-model="user_answers[question.id]" ng-change="log_answers(user_answers)" />');
+		content = content.replace(/\[t[\d]+\]/ig, '<textarea style="width: 100%;" rows="4" cols="50" ng-model="user_answers[question.id]"></textarea>');
 		return content;
+	};
+
+	$scope.log_answers = function(user_answers) {
+		console.log(user_answers);
 	};
 }]);

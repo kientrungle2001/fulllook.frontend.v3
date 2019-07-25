@@ -1,10 +1,18 @@
 <?php $controller->js('controller/english_test_list.js');?>
 <div id="ontienganh" class="full" ng-controller="englishTestListController">
 	<div class="container" ng-init="categoryId='1411'; loadData();">
-		<section-title>Ôn luyện Tiếng anh</section-title>
+		<div class="text-center heading mt-2 mb-4 text-white fs40">
+		Ôn luyện Tiếng anh
+		</div>
+	</div>
+	<div class="container">
 		<div class="row" ng-init="selectedEnglishTestPage = 0">
-			<div class="section-block" ng-repeat="test in englishTests" ng-show="inPage($index, selectedEnglishTestPage, 30)">
-				<test-block category_id="1411" />
+			<div class="col-12 col-md-2" ng-repeat="test in englishTests" ng-show="inPage($index, selectedEnglishTestPage, 30)">
+				<a href="/test/detail?test_id={{test.id}}&category_id=1411">
+					<div class="btn ltth full mb-3 btn-primary">{{translate(test, 'test.name')}} 
+					<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+					</div>
+				</a>
 			</div>
 		</div>
 		<div class="row">

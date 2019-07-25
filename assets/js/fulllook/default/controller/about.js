@@ -187,6 +187,7 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 		owner: 'CÔNG TY CỔ PHẦN GIÁO DỤC PHÁT TRIỂN TRÍ TUỆ VÀ SÁNG TẠO NEXT NOBELS',
 		branch: 'Sở giao dịch'
 	},
+	/*
 	{
 		image: 'http://s1.nextnobels.com/default/skin/nobel/themes/story/media/vietin.jpg',
 		name: 'Ngân hàng TMCP công thương Việt Nam(Vietinbank)',
@@ -194,6 +195,7 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 		owner: 'CÔNG TY CỔ PHẦN GIÁO DỤC PHÁT TRIỂN TRÍ TUỆ VÀ SÁNG TẠO NEXT NOBELS',
 		branch: 'Thăng Long'
 	},
+	*/
 	{
 		image: 'http://s1.nextnobels.com/default/skin/nobel/themes/story/media/agri.jpg',
 		name: 'Ngân hàng Nông nghiệp và phát triển nông thôn Việt Nam(Agribank)',
@@ -211,10 +213,19 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 	{
 		image: 'http://s1.nextnobels.com/default/skin/nobel/themes/story/media/bidv.jpg',
 		name: 'Ngân hàng TMCP Đầu tư và phát triển Việt Nam(BIDV)',
+		account: '16010000162395',
+		owner: 'Phạm Thị Phương Thu',
+		branch: 'Sở giao dịch 3 thành phố Hà Nội'
+	},
+	/*
+	{
+		image: 'http://s1.nextnobels.com/default/skin/nobel/themes/story/media/bidv.jpg',
+		name: 'Ngân hàng TMCP Đầu tư và phát triển Việt Nam(BIDV)',
 		account: '26010000705319',
 		owner: 'CÔNG TY CỔ PHẦN GIÁO DỤC PHÁT TRIỂN TRÍ TUỆ VÀ SÁNG TẠO NEXT NOBELS',
 		branch: 'Tây Hà Nội'
 	},
+	
 	{
 		image: 'http://s1.nextnobels.com/default/skin/nobel/themes/story/media/donga.jpg',
 		name: 'Ngân hàng TMCP Đông Á',
@@ -222,5 +233,6 @@ flApp.controller('aboutController', ['$scope', function ($scope) {
 		owner: 'CÔNG TY CỔ PHẦN GIÁO DỤC PHÁT TRIỂN TRÍ TUỆ VÀ SÁNG TẠO NEXT NOBELS',
 		branch: 'Cầu Giấy'
 	},
+	*/
 	];
 }]);

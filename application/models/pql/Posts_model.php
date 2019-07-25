@@ -2,6 +2,27 @@
 class Posts_model extends Abstract_Table_Model
 {
 	public $table = 'bv_posts';
+	public $pkey = 'ID';
+	public function get_post($id) {
+		$one = $this->get_one($id);
+		if($one) {
+			$rows = [$one];
+			$this->load_meta($rows);
+			return $rows[0];
+		}
+		return null;
+	}
+	public function get_post_thumbnail_img($post) {
+		$thumbnail = null;
+		if(isset($post['_thumbnail_id']) && $post['_thumbnail_id']) {
+			$thumbnail = $this->get_post($post['_thumbnail_id']);
+		}
+		$img = '';
+		if($thumbnail) {
+			$img = $thumbnail['_wp_attached_file'];
+		}
+		return $img;
+	}
 	public function get_posts($conds) {
 		$this->select('bv_posts.*');
 		$this->join('bv_term_relationships', 'bv_term_relationships.object_id = bv_posts.ID');

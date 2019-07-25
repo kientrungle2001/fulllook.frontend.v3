@@ -13,10 +13,10 @@
 				<div class="nobel-list-md choice">
 					<div class="row">
 						<div class="col" ng-show="language != 'vn'">
-							<div class="ptnn-title full" mathjax-bind="question.name"></div>
+							<div class="ptnn-title full" mathjax-bind="formatWritting(question.name)"></div>
 						</div>
 						<div class="col" ng-show="language == 'vn' || language == 'ev'">
-							<div class="ptnn-title full" mathjax-bind="question.name_vn"></div>
+							<div class="ptnn-title full" mathjax-bind="formatWritting(question.name_vn)"></div>
 						</div>
 					</div>
 

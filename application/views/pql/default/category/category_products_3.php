@@ -1,4 +1,4 @@
-<?php 
+<?php
 $posts_model = $controller->posts_model;
 $terms_model = $controller->terms_model;
 $options_model = $controller->options_model;
@@ -11,16 +11,24 @@ $posts = $posts_model->get_posts(array(
 ));
 
 ?>
-	<div class="b_top">
-	<h2><a href="/san-pham/<?= wpglobus($third_category['slug'])?>-c.html"><?= wpglobus($third_category['name'])?></a></h2>
-	</div>
-	<br>
-	<!--content-box-->
-	<?php foreach($posts as $post):?>
+<div class="b_top">
+	<h2><a href="/san-pham/<?= wpglobus($third_category['slug']) ?>-c.html"><?= wpglobus($third_category['name']) ?></a></h2>
+</div>
+<br>
+<!--content-box-->
+<?php foreach ($posts as $post) :
+	$img = $posts_model->get_post_thumbnail_img($post);
+	?>
 	<div class="cate2_s item_cate2 ">
-		<a href="-hdpe-dmspc.html"><img src="/assets/css/pql/default/images/d2_thumb.png" width="167" height="131" border="0" alt="Phụ Tùng HDPE"></a>
-		<a href="/san-pham/<?= $post['post_name']?>-p.html" class="name_cate2"><?= $post['post_title']?></a>
+		<a href="-hdpe-dmspc.html">
+			<?php if ($img) : ?>
+				<img src="http://pql.nn-center.com/_pql/wp-content/uploads/<?= $img ?>" width="230" height="134" border="0" alt="<?= $post['post_title'] ?>">
+			<?php else : ?>
+				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= $post['post_title'] ?>">
+			<?php endif; ?>
+		</a>
+		<a href="/san-pham/<?= $post['post_name'] ?>-p.html" class="name_cate2"><?= $post['post_title'] ?></a>
 		<br clear="all">
 	</div>
-	<?php endforeach;?>
-	<div style="clear:both"></div><br>
+<?php endforeach; ?>
+<div style="clear:both"></div><br>

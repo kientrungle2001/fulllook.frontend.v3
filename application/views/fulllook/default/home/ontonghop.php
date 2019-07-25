@@ -1,10 +1,19 @@
 <?php $controller->js('controller/test_list.js');?>
 <div id="tonghop" class="full">
+	<div class="container">
+		<div class="text-center heading mt-2 mb-4 text-white  fs40">
+		Ôn luyện tổng hợp
+		</div>
+	</div>
 	<div class="container" ng-controller="testListController">
-		<section-title>Ôn luyện tổng hợp</section-title>
 		<div class="row" ng-init="selectedTestPage = 0">
-			<div class="section-block" ng-repeat="test in tests" ng-show="inPage($index, selectedTestPage, 30)">
-				<test-block category_id="1412" />
+			<div class="col-12 col-md-2" ng-repeat="test in tests" ng-show="inPage($index, selectedTestPage, 30)">
+			<a href="/test/detail?test_id={{test.id}}&category_id=1412">
+				<div class="btn ltth full mb-3 btn-primary">{{translate(test, 'test.name')}}
+				<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
+				</div>
+				
+			</a>
 			</div>
 		</div>
 		<div class="row">

@@ -163,4 +163,10 @@ flApp.controller('testDoingController', ['$scope', function($scope) {
 		return explaination;
 	};
 	
+	$scope.formatWritting = function(content) {
+		content = content.replace(/\[i[\d]+\]/ig, '<input />');
+		content = content.replace(/\[i[\d]+\[[\d]+\]\]/ig, '<input />');
+		content = content.replace(/\[t[\d]+\]/ig, '<textarea style="width: 100%;" rows="4" cols="50"></textarea>');
+		return content;
+	};
 }]);

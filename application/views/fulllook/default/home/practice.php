@@ -1,23 +1,22 @@
 <?php $controller->js('controller/subject_list.js');?>
 <div id="practice" class="full">
 	<div class="container">
-		<div class="practice-title">
+		<div style="margin-bottom: 15px;" class="text-center fs40 heading">
 		Luyện tập các môn
 		</div>
 	</div>
 
-	<div class="container" ng-controller="subjectListController">
-		<div class="row">
-			<div class="box-practice-outer" ng-repeat="subject in subjects">
-				<a href="/practice/detail?subject_id={{subject.id}}">
-					<div class="box-practice-inner">
-						<div class="box-practice-img">
-							<img ng-src="http://s1.nextnobels.com{{subject.img}}" alt="{{translate(subject, 'category.name')}}" class="img-fluid">
-						</div>
-						<div class="box-practice-title">{{translate(subject, 'category.name')}}</div>
+	<div class="practice-section container" ng-controller="subjectListController">
+		<div class="box-practice text-center" ng-repeat="subject in subjects">
+			<a href="/practice/detail?subject_id={{subject.id}}" class="subjectclick" data-subject="{{subject.id}}" data-alias="{{subject.alias}}" data-class="5">
+				<div class="white text-uppercase relative">
+					<div class="full">
+						<img ng-src="http://s1.nextnobels.com{{subject.img}}" alt="{{translate(subject, 'category.name')}}" class=" img-fluid center-block">
 					</div>
-				</a>
-			</div>
+					<div class="top20 text-center full absolute">{{translate(subject, 'category.name')}}</div>
+					
+				</div>
+			</a>
 		</div>
 	</div>
 </div>

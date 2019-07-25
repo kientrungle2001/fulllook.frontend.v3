@@ -57,6 +57,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				]
 			};
 		});
+		app.directive("mathjaxBindTemplate", function() {
+			return {
+				restrict: "A",
+				controller: ["$scope", "$element", "$attrs",
+					function($scope, $element, $attrs) {
+						$scope.$watch($attrs.mathjaxBindTemplate, function(texExpression) {
+							$element.html(texExpression);
+							if (typeof MathJax != 'undefined') {
+								MathJax.Hub.Queue(["Typeset", MathJax.Hub, $element[0]]);
+							}
+						});
+					}
+				]
+			};
+		});
 	}(angular));
 	</script>
 	<script type="text/x-mathjax-config">

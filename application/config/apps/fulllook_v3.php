@@ -101,8 +101,8 @@ $config['packages'][] =
 					[
 						'name' => 'bootstrap',
 						'version' => '4.3.1',
-						//'file' => 'dist/css/bootstrap.min.css'
-						'file' => 'scss/css/bootstrap.css?_=' . time()
+						'file' => 'dist/css/bootstrap.min.css'
+						//'file' => 'scss/css/bootstrap.css?_=' . time()
 					],
 					[
 						'name' => 'font-awesome',

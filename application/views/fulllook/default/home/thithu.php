@@ -1,7 +1,7 @@
 <?php $controller->js('controller/test_set_list.js');?>
 <div id="thithu" class="full" ng-controller="testSetListController">
 	<div class="container">
-		<div class="section-title">
+		<div class="text-center heading mt-2 mb-4 text-white">
 			Thi thử Trần Đại Nghĩa 
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 				<div class="box-body">
 
 					<div class="link-box text-center" ng-repeat="test in testSet.children | orderBy: 'ordering'">
-						<a href="/testSet/detail?category_id=1413&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
+						<a href="/testSet/test?category_id=1413&test_set_id={{testSet.id}}&test_id={{test.id}}" class="text-color">
 							{{translate(test, 'test.name')}}  
 							<span ng-show="test.trial==1" class="badge badge-pill badge-danger">Free</span>
 						</a>
