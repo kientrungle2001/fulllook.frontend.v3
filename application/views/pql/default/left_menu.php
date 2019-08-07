@@ -1,6 +1,9 @@
 <?php
+
 $controller->load->model('pql/terms_model', 'terms_model');
 $terms_model = $controller->terms_model;
+/** var Links_model $links_model  */
+$links_model = $controller->links_model;
 if(0):
 #
 $roots = $terms_model->get_roots();
@@ -68,7 +71,7 @@ foreach($tree_menu_items as $root_item) {
 	$root_object = $menu_item_object_indexeds[$root_object_id];
 	?>
 	<div class="list_cate_left">
-		<a href="/san-pham/<?= $root_object['slug']?>" class="cate_far_left"><?= wpglobus($root_object['name'], $language) ?></a>
+		<a href="<?= $links_model->get_product_category_link($language, $root_object) ?>" class="cate_far_left"><?= wpglobus($root_object['name'], $language) ?></a>
 	</div>
 	<?php
 	$root_children = getTreeChildren($menu_items, $root_item);
@@ -78,7 +81,7 @@ foreach($tree_menu_items as $root_item) {
 		//pre('--------' . $root_child_object['name']);
 		?>
 		<ul class="mega-menu right">
-			<li><a href="/san-pham/<?= $root_child_object['slug']?>" class="dc-mega"><?= $root_child_object['name'] ?><span class="dc-mega-icon"></span></a>
+			<li><a href="<?= $links_model->get_product_category_link($language, $root_child_object) ?>" class="dc-mega"><?= wpglobus($root_child_object['name'], $language)  ?><span class="dc-mega-icon"></span></a>
 				<div class="sub-container non-mega">
 					<ul class="sub">
 		<?php
@@ -86,17 +89,15 @@ foreach($tree_menu_items as $root_item) {
 		foreach($children as $child) {
 			$child_object_id = $child['_menu_item_object_id'];
 			$child_object = $menu_item_object_indexeds[$child_object_id];
-			//pre('------------' . $child_object['name']);
 			?>
-			<li><a href="/san-pham/<?= $child_object['slug']?>"><?= $child_object['name'] ?></a></li>
+			<li><a href="<?= $links_model->get_product_category_link($language, $child_object) ?>"><?= wpglobus($child_object['name'], $language) ?></a></li>
 			<?php
 			$sub_children = getTreeChildren($menu_item, $child);
 			foreach($sub_children as $sub_child) {
 				$sub_child_object_id = $sub_child['_menu_item_object_id'];
 				$sub_child_object = $menu_item_object_indexeds[$sub_child_object_id];
-				// pre('----------------' . $sub_child_object['name']);
 				?>
-				<li class="cate4"><a href="/san-pham/<?= $sub_child_object['slug']?>"> + <?= $sub_child_object['name'] ?></a></li>
+				<li class="cate4"><a href="<?= $links_model->get_product_category_link($language, $sub_child_object) ?>"> + <?= wpglobus($sub_child_object['name'], $language)  ?></a></li>
 				<?php
 			}
 		}

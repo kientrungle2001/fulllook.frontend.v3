@@ -149,8 +149,21 @@ flApp.controller('testSetDoingController', ['$scope', function($scope) {
 					return true;
 				}
 			}
+			if(question.ref_question_answers.length == 0) {
+				var teacher_answers = $scope.getTeacherAnswers(question);
+				var right_answers = teacher_answers.i[1].split('|');
+				for(var ir = 0; ir < right_answers.length; ir++) {
+					if(right_answers[ir] == answerId) {
+						return true;
+					}
+				}
+			}
 		}
 		return false;
+	};
+
+	$scope.getTeacherAnswers = function(question) {
+		return JSON.parse(question.teacher_answers);
 	};
 
 	$scope.getExplaination = function(question) {

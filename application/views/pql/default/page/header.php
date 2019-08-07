@@ -1,21 +1,30 @@
 <?php 
-$posts_model = $controller->posts_model;
-$options_model = $controller->options_model;
-#
+/** @var MY_Controller $controller */
+/** @var Posts_model $posts_model  */
+/** @var Options_model $options_model */
+/** @var Links_model $links_model  */
+/** @var Terms_model $terms_model */
 $top_menu_items = $posts_model->get_nav_items(7);
-$facebook = $posts_model->get_option('travel[facebook-link]');
-$twitter = $posts_model->get_option('travel[twitter-link]');
-$plus = $posts_model->get_option('travel[gplus-link]');
-$con = $posts_model->get_option('travel[con-link]');
 #
-$hotline = $options_model->get_option_tree('hotline');
-$email = $options_model->get_option_tree('email');
-$instagram = $options_model->get_option_tree('instagram');
+$blogname = $options_model->get_blogname();
+#
+$facebook = $options_model->get_facebook_url();
+$twitter = $options_model->get_twitter_url();
+$plus = $options_model->get_gplus_url();
+$con = $options_model->get_contact_url();
+#
+$logo = $options_model->get_logo();
+$hotline = $options_model->get_hotline();
+$email = $options_model->get_email();
+$instagram = $options_model->get_instagram();
+
+$free_shipping_note = $options_model->get_free_shipping_note();
+$online_order_note = $options_model->get_online_order_note();
 ?>
 <!--slogan-->
 <div id="slogan">
-	<p class="text_left_top">Miễn phí vận chuyển đến chân công trình và dự án trên toàn quốc</p>
-	<p class="text_right_top">Đặt hàng trực tuyến / nhận hàng trực tiếp</p>
+	<p class="text_left_top"> <?= wpglobus($free_shipping_note, $language)?></p>
+	<p class="text_right_top"><?= wpglobus($online_order_note, $language)?></p>
 </div>
 <!--slogan-->
 <!--top-->
@@ -30,12 +39,14 @@ $instagram = $options_model->get_option_tree('instagram');
 		<?php if($plus): ?>
 		<div class="item_like_top"><a rel="nofollow" href="<?= $plus['value']?>" target="_blank" class="g share"></a></div>
 		<?php endif; ?>
+		<div class="item_like_top"><a rel="nofollow" href="/" class="vn share">VN</a></div>
+		<div class="item_like_top"><a rel="nofollow" href="/en" class="en share">EN</a></div>
 	</div>
 	<div id="logo">
-		<a href="#"><img src="/assets/css/pql/default/images/nhua-tien-phong.png" alt="Nhựa tiền phong" title="Nhà phân phối ống nhựa tiền Phong" border="0" /></a>
+		<a href="/<?= $language == 'en' ? $language : ''?>"><img src="<?= $logo?>" alt="<?= wpglobus($blogname['value'], $language) ?>" title="<?= wpglobus($blogname['value'], $language) ?>" border="0" /></a>
 	</div>
 	<div class="bt_gh" id="but_gh">
-		<a href="gio-hang.html" class="cufon">Giỏ Hàng</a>
+		<a href="<?= $links_model->get_language_link($language, '/cart')?>" class="cufon"><?= wpglobus('{:vi}Giỏ hàng{:}{:en}Cart{:}', $language)?></a>
 		<span id="num_order">(</span>
 		<span id="num_order" class="num">0</span>
 		<span id="num_order" style="padding-right:3px">)</span>
@@ -46,19 +57,19 @@ $instagram = $options_model->get_option_tree('instagram');
 				continue;
 			}
 			?>
-<?php if($index > 0):?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif;?> <a href="<?= $top_menu_item['_menu_item_url']?>"><?= wpglobus($top_menu_item['post_title']) ?></a>
+<?php if($index > 0):?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif;?> <a href="<?= $links_model->get_language_link($language, $top_menu_item['_menu_item_url']) ?>"><?= wpglobus($top_menu_item['post_title'], $language) ?></a>
 		<?php endforeach;?>
 	</div>
 	<div id="bg_search"></div>
 	<form method="post" action="#">
-		<input type="text" id="txts" name="txts" placeholder="Tìm kiếm ..." />
+		<input type="text" id="txts" name="txts" placeholder="<?= wpglobus('{:vi}Tìm kiếm{:}{:en}Search{:}', $language)?> ..." />
 		<select name="cate_top" id="cate_top" class="cufon" style="display:none;">
-			<option value="0">Danh mục</option>
+			<option value="0"><?= wpglobus('{:vi}Danh Mục{:}{:en}Catalog{:}', $language)?></option>
 		</select>
 		<input type="submit" id="subs" value="" />
 	</form>
 	<div id="cate_title">
-		<p class="cufon"><span>Danh Mục Sản Phẩm</span></p>
+		<p class="cufon"><span><?= wpglobus('{:vi}Danh Mục Sản Phẩm{:}{:en}Product Catalog{:}', $language)?></span></p>
 	</div>
 	<?php if($hotline):?>
 	<div id="login_but">

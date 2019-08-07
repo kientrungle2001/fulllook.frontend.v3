@@ -174,11 +174,13 @@ cacheStorage = {
 		if(!time_all_item_keys) {
 			time_all_item_keys = current_time;
 		}
-		if(current_time - time_all_item_keys > 30 * 60 * 1000) {
+		if(current_time - time_all_item_keys > this.max_checkout_time) {
 			// timeout
 			this.clear();
 		}
-	}
+	},
+	max_checkout_time: 30 * 60 * 1000,
+	max_checkout_time: -1
 }
 PROXY_URL = '//' + location.host + '/proxy.php';
 PROXY_ENABLED = true;

@@ -9,6 +9,18 @@ class MY_Controller extends CI_Controller {
 		return $this->view($this->layout, $data, $return);
 	}
 
+	public function load_pql_models(&$data) {
+		$this->options_model->controller = $this;
+		$this->posts_model->controller = $this;
+		$this->terms_model->controller = $this;
+		$this->links_model->controller = $this;
+		$data['options_model'] = $this->options_model;
+		$data['posts_model'] = $this->posts_model;
+		$data['terms_model'] = $this->terms_model;
+		$data['links_model'] = $this->links_model;
+		
+	}
+
 	public function load_config_from_db($key) {
 		$this->load->model('config_model');
 		$config = $this->config_model->get_variable('controller', $key);
@@ -20,7 +32,15 @@ class MY_Controller extends CI_Controller {
 		
 	}
 
-	public function view($view, $data = null, $return = false) {
+	public function view($view, $data = null, $return = false, $cachable = false, $key = false) {
+		if($cachable) {
+			$content = $this->cache->file->get($key);
+			if(false !== $content) {
+				if($return) return $content;
+				echo $content;
+				return ;
+			}
+		}
 		if(!$data) {
 			$data = [];
 		}
@@ -30,7 +50,14 @@ class MY_Controller extends CI_Controller {
 		$data['controller'] = $this;
 		$data['data'] = $data;
 		$view_path = $this->get_view($view);
-		return $this->load->view($view_path, $data, $return);
+		$content = $this->load->view($view_path, $data, true);
+		if($cachable) {
+			$this->cache->file->save($key, $content, 1800);
+		}
+		if($return)
+			return $content;
+		echo $content;
+		return ;
 	}
 	public function get_view($view) {
 		$app_name = $this->app('name');
@@ -184,7 +211,6 @@ class MY_Controller extends CI_Controller {
 		}
 		return null;
 	}
-
 }
 
 class MY_AdminController extends MY_Controller {

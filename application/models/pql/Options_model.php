@@ -26,4 +26,52 @@ class Options_model extends Abstract_Table_Model
 		}
 		return null;
 	}
+
+	public function get_blogname() {
+		return $this->controller->posts_model->get_option('blogname');
+	}
+
+	public function get_facebook_url() {
+		return $this->controller->posts_model->get_option('travel[facebook-link]');
+	}
+
+	public function get_twitter_url() {
+		return $this->controller->posts_model->get_option('travel[twitter-link]');
+	}
+
+	public function get_gplus_url() {
+		return $this->controller->posts_model->get_option('travel[gplus-link]');
+	}
+
+	public function get_contact_url() {
+		return $this->controller->posts_model->get_option('travel[con-link]');
+	}
+
+	public function get_logo() {
+		return $this->get_option_tree('logo');
+	}
+
+	public function get_email() {
+		return $this->get_option_tree('email');
+	}
+
+	public function get_hotline() {
+		return $this->get_option_tree('hotline');
+	}
+
+	public function get_instagram() {
+		return $this->get_option_tree('instagram');
+	}
+
+	public function get_slogan() {
+		return $this->get_option('travel[fpheading]');
+	}
+
+	public function get_free_shipping_note() {
+		return $this->get_option_tree('free_shipping_note');
+	}
+
+	public function get_online_order_note() {
+		return $this->get_option_tree('online_order_note');
+	}
 }

@@ -15,12 +15,12 @@ $posts = $posts_model->get_posts(array(
 	?>
 <div class="box_new" style="margin-left:0px">
 	<div class="b_top">
-		<h2 style="height:35px;overflow:hidden"><?= wpglobus($post['post_title'])?></h2>
+	<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><h2 style="height:35px;overflow:hidden"><?= wpglobus($post['post_title'])?></h2></a>
 	</div><br>
 	<div id="content_new_home">
-		<a href="#/gia-ongbang-gia-san-pham-catalogue-ctbv.html"><img src="http://pql.nn-center.com/_pql/wp-content/uploads/<?= $img?>" border="0" alt="<?= wpglobus($post['post_title'])?>" width="180" height="140px"> </a>
-		<p style="height:162px;overflow:hidden">Công ty CP Nhựa Thiếu Niên Tiền Phong luôn đi đầu trong lĩnh vực công nghệ mới cũng như đầu tư máy móc thiết bị hiện đại nhằm đem đến cho khách hàng các sản phẩm ống nhựa có chất lượng cao nhằm đáp ứng các nhu cầu của khách hàng như cam kết trong chính sách chất lượng sản phẩm của công ty đã đề ra:</p>
-		<a href="#/gia-ongbang-gia-san-pham-catalogue-ctbv.html" class="detail_new_home">&gt; Chi tiết</a>
+		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><img src="http://pql.nn-center.com/_pql/wp-content/uploads/<?= $img?>" border="0" alt="<?= wpglobus($post['post_title'])?>" width="180" height="140px"> </a>
+		<p style="height:162px;overflow:hidden"><?= strip_tags(wpglobus($post['post_content'], $language))?></p>
+		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>" class="detail_new_home">&gt; Chi tiết</a>
 	</div>
 </div>
 <?php endforeach;?>

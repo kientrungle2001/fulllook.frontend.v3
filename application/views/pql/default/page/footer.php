@@ -25,30 +25,30 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 				continue;
 			}
 			?>
-<?php if($index > 0):?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif;?> <a href="<?= $top_menu_item['_menu_item_url']?>"><?= wpglobus($top_menu_item['post_title']) ?></a>
+<?php if($index > 0):?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif;?> <a href="<?= $top_menu_item['_menu_item_url']?>"><?= wpglobus($top_menu_item['post_title'], $language) ?></a>
 		<?php endforeach;?>
 		</div> 
 		<div style="clear:both"></div> 
 	</div>
 	<div id="info"> 
 		<p>© Copyrights 2013 <?= $company_name?></p>
-		<p>Địa chỉ: <?= $address?></p>
-		<p>VPGD: <?= $office_address?></p>
+		<p><?= wpglobus('{:vi}Địa chỉ{:}{:en}Address{:}', $language)?>: <?= $address?></p>
+		<p><?= wpglobus('{:vi}Văn phòng giao dịch{:}{:en}Office{:}', $language)?>: <?= $office_address?></p>
 		<p>Tel: <?= $tel?> - Fax: <?= $fax?></p>
 		<p>Email: <?= $email?></p>
-		<p>Mã số thuế: <?= $tax_code?></p>
-		<p>Số đăng ký kinh doanh: <?= $business_number?></p>
+		<p><?= wpglobus('{:vi}Mã số thuế{:}{:en}Tax Code{:}', $language)?>: <?= $tax_code?></p>
+		<p><?= wpglobus('{:vi}Số ĐKKD{:}{:en}Business Number{:}', $language)?>: <?= $business_number?></p>
 		<p><?= $business_author?></p>
 	</div>
 	<?php foreach($footer_tree_menu_items as $footer_tree_menu_item):
 	if($footer_tree_menu_item['treeLevel'] == 1): ?>
 	<div class="box_end">
-	<b><?= $footer_tree_menu_item['post_title']?></b>
+	<b><?= wpglobus($footer_tree_menu_item['post_title'], $language) ?></b>
 		<ul>
 			<?php 
 			foreach($footer_tree_menu_item['childrenIndexes'] as $index):?>
 			<li style="list-style:none">
-			<a href="<?= $footer_menu_items[$index]['_menu_item_url']?>"><?= wpglobus($footer_menu_items[$index]['post_title'])?></a></li>
+			<a href="<?= $footer_menu_items[$index]['_menu_item_url']?>"><?= wpglobus($footer_menu_items[$index]['post_title'], $language)?></a></li>
 			<?php endforeach;?>
 		</ul>
 	</div>
@@ -69,7 +69,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 	<div class="key_w">
 		<ul>
 			<?php foreach($footer_link_items as $link_item):?>
-			<li><a href="<?= $link_item['_menu_item_target']?>"><?= wpglobus($link_item['post_title'])?></a></li>
+			<li><a href="<?= $link_item['_menu_item_target']?>"><?= wpglobus($link_item['post_title'], $language)?></a></li>
 			<?php endforeach;?>
 		</ul>
 	</div>
@@ -78,15 +78,24 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 	<div id="ct_sup">
 		<div id="hotline_f">  <?= $hotline?></div>
 		<div id="email_f"> <?= $email?></div>
-		<div style="width: 430px;position: absolute;top: 11px;right: 0px;">
+		<div style="width: 430px;position: absolute;top: 5px;right: 0px;">
 		<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
-			</div>
+		<div class="fb-like" data-href="http://pql.nn-center.com/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
 		<!-- AddThis Button END -->
 		</div>
 	</div>
 </div>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d4588657d27204601c91c0e/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->

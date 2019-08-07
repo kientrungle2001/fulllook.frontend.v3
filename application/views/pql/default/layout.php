@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Trang chủ</title>
+	<title><?= $page_title?></title>
 	<script>
 	serverTime = <?php echo time() ?>;
 	setInterval(function() {
@@ -64,6 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body class="<?php echo $controller->router->fetch_class();?>-page" ng-app="adminApp">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0&appId=180896868946666&autoLogAppEvents=1"></script>
 	<div id="container" ng-controller="loginController">
 		<?php $controller->view('page/header', $data);?>
 		<?php $controller->view($view, $data);?>

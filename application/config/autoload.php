@@ -82,7 +82,7 @@ if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == '
 |	$autoload['drivers'] = array('cache' => 'cch');
 |
 */
-$autoload['drivers'] = array();
+$autoload['drivers'] = array('cache');
 
 /*
 | -------------------------------------------------------------------
@@ -142,4 +142,6 @@ $autoload['model'] = array();
 if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-center.com')) {
 	$autoload['model']['pql/options_model'] = 'options_model';
 	$autoload['model']['pql/posts_model'] = 'posts_model';
+	$autoload['model']['pql/links_model'] = 'links_model';
+	$autoload['model']['pql/terms_model'] = 'terms_model';
 }

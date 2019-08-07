@@ -4,7 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MY_Controller {
 
 	public function index($language = 'vi'){
-		$this->render('home', array('language' => $language));
+		$data = array();
+		$this->load_pql_models($data);
+		#
+		$blogname = $this->options_model->get_blogname();
+		$slogan = $this->options_model->get_slogan();
+		#
+		$page_title = 'Trang chủ | ' . wpglobus($blogname['value'], $language);
+		$page_description = wpglobus($slogan['value'], $language);
+		$page_keywords = '';
+		$data = array_merge($data, array(
+			'language' => $language,
+			'page_title' => $page_title,
+			'page_description' => $page_description,
+			'page_keywords' => $page_keywords
+		));
+		
+		$this->render('home', $data);
 	}
 
 	public function login_callback() {
