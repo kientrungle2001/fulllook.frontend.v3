@@ -27,8 +27,16 @@ class Options_model extends Abstract_Table_Model
 		return null;
 	}
 
-	public function get_blogname() {
+	public function get_blog_name() {
 		return $this->controller->posts_model->get_option('blogname');
+	}
+
+	public function get_blog_description() {
+		return $this->get_option_tree('blog_description');
+	}
+
+	public function get_blog_keywords() {
+		return $this->get_option_tree('blog_keywords');
 	}
 
 	public function get_facebook_url() {

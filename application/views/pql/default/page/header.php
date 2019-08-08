@@ -6,7 +6,7 @@
 /** @var Terms_model $terms_model */
 $top_menu_items = $posts_model->get_nav_items(7);
 #
-$blogname = $options_model->get_blogname();
+$blogname = $options_model->get_blog_name();
 #
 $facebook = $options_model->get_facebook_url();
 $twitter = $options_model->get_twitter_url();

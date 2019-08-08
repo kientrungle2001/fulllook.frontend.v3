@@ -7,12 +7,19 @@ class Home extends MY_Controller {
 		$data = array();
 		$this->load_pql_models($data);
 		#
-		$blogname = $this->options_model->get_blogname();
+		$blogname = $this->options_model->get_blog_name();
 		$slogan = $this->options_model->get_slogan();
 		#
+		$description = $this->options_model->get_blog_description();
+		if(!$description) {
+			$description = $slogan['value'];
+		}
+		#
+		$keywords = $this->options_model->get_blog_keywords();
+		#
 		$page_title = 'Trang chủ | ' . wpglobus($blogname['value'], $language);
-		$page_description = wpglobus($slogan['value'], $language);
-		$page_keywords = '';
+		$page_description = wpglobus($description, $language);
+		$page_keywords = $keywords;
 		$data = array_merge($data, array(
 			'language' => $language,
 			'page_title' => $page_title,
