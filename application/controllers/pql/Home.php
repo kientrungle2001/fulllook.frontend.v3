@@ -12,12 +12,12 @@ class Home extends MY_Controller {
 		#
 		$description = $this->options_model->get_blog_description();
 		if(!$description) {
-			$description = $slogan['value'];
+			$description = $slogan;
 		}
 		#
 		$keywords = $this->options_model->get_blog_keywords();
 		#
-		$page_title = 'Trang chủ | ' . wpglobus($blogname['value'], $language);
+		$page_title = 'Trang chủ | ' . wpglobus($blogname, $language);
 		$page_description = wpglobus($description, $language);
 		$page_keywords = $keywords;
 		$data = array_merge($data, array(

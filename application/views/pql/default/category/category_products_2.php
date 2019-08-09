@@ -8,8 +8,10 @@ $second_section_category = $options_model->get_option_tree('second_section_categ
 $second_category = $terms_model->get_one($second_section_category);
 $second_category_taxonomy = $terms_model->get_term_taxonomy($second_section_category);
 $posts = $posts_model->get_posts(array(
-	'term_taxonomy_id' => $second_category_taxonomy['term_taxonomy_id']
-));
+	'term_taxonomy_id' => $second_category_taxonomy['term_taxonomy_id'],
+	'post_type' => 'post',
+	'post_status' => 'publish'
+), 0, 3);
 
 ?>
 <div class="b_top">

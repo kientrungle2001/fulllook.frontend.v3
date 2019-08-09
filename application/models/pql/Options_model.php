@@ -28,7 +28,7 @@ class Options_model extends Abstract_Table_Model
 	}
 
 	public function get_blog_name() {
-		return $this->controller->posts_model->get_option('blogname');
+		return $this->get_option_tree('blog_name');
 	}
 
 	public function get_blog_description() {
@@ -72,7 +72,7 @@ class Options_model extends Abstract_Table_Model
 	}
 
 	public function get_slogan() {
-		return $this->get_option('travel[fpheading]');
+		return $this->get_option_tree('blog_slogan');
 	}
 
 	public function get_free_shipping_note() {

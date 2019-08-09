@@ -43,7 +43,7 @@ $online_order_note = $options_model->get_online_order_note();
 		<div class="item_like_top"><a rel="nofollow" href="/en" class="en share">EN</a></div>
 	</div>
 	<div id="logo">
-		<a href="/<?= $language == 'en' ? $language : ''?>"><img src="<?= $logo?>" alt="<?= wpglobus($blogname['value'], $language) ?>" title="<?= wpglobus($blogname['value'], $language) ?>" border="0" /></a>
+		<a href="/<?= $language == 'en' ? $language : ''?>"><img src="<?= $logo?>" alt="<?= wpglobus($blogname, $language) ?>" title="<?= wpglobus($blogname, $language) ?>" border="0" /></a>
 	</div>
 	<div class="bt_gh" id="but_gh">
 		<a href="<?= $links_model->get_language_link($language, '/cart')?>" class="cufon"><?= wpglobus('{:vi}Giỏ hàng{:}{:en}Cart{:}', $language)?></a>

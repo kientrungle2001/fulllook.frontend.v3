@@ -8,8 +8,10 @@ $first_section_category = $options_model->get_option_tree('first_section_categor
 $first_category = $terms_model->get_one($first_section_category);
 $first_category_taxonomy = $terms_model->get_term_taxonomy($first_section_category);
 $posts = $posts_model->get_posts(array(
-	'term_taxonomy_id' => $first_category_taxonomy['term_taxonomy_id']
-));
+	'term_taxonomy_id' => $first_category_taxonomy['term_taxonomy_id'],
+	'post_type' => 'post',
+	'post_status' => 'publish'
+), 0, 3);
 ?>
 <div class="b_top">
 	<h2><a href="<?= $links_model->get_product_category_link($language, $first_category)?>"><?= wpglobus($first_category['name'], $language) ?></a></h2>

@@ -8,8 +8,10 @@ $third_section_category = $options_model->get_option_tree('third_section_categor
 $third_category = $terms_model->get_one($third_section_category);
 $third_category_taxonomy = $terms_model->get_term_taxonomy($third_section_category);
 $posts = $posts_model->get_posts(array(
-	'term_taxonomy_id' => $third_category_taxonomy['term_taxonomy_id']
-));
+	'term_taxonomy_id' => $third_category_taxonomy['term_taxonomy_id'],
+	'post_type' => 'post',
+	'post_status' => 'publish'
+), 0, 3);
 
 ?>
 <div class="b_top">
