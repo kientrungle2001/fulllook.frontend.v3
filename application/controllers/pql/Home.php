@@ -9,6 +9,7 @@ class Home extends MY_Controller {
 		#
 		$blogname = $this->options_model->get_blog_name();
 		$slogan = $this->options_model->get_slogan();
+		$logo = $this->options_model->get_logo();
 		#
 		$description = $this->options_model->get_blog_description();
 		if(!$description) {
@@ -17,14 +18,15 @@ class Home extends MY_Controller {
 		#
 		$keywords = $this->options_model->get_blog_keywords();
 		#
-		$page_title = 'Trang chủ | ' . wpglobus($blogname, $language);
+		$page_title = wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language) . ' | ' . wpglobus($blogname, $language);
 		$page_description = wpglobus($description, $language);
-		$page_keywords = $keywords;
+		$page_keywords = wpglobus($keywords, $language) ;
 		$data = array_merge($data, array(
-			'language' => $language,
-			'page_title' => $page_title,
-			'page_description' => $page_description,
-			'page_keywords' => $page_keywords
+			'language' 			=> $language,
+			'page_title' 		=> $page_title,
+			'page_description' 	=> $page_description,
+			'page_keywords' 	=> $page_keywords,
+			'page_image' 		=> $logo
 		));
 		
 		$this->render('home', $data);
@@ -53,5 +55,14 @@ class Home extends MY_Controller {
 		$this->session->paymentDate = null;
 		$this->session->expiredDate = null;
 		header('Location: /');
+	}
+
+	public function sitemap($language = 'vi') {
+		$data = array('language' => $language);
+		$this->load_pql_models($data);
+		$xml = $this->view('sitemap', $data, true);
+		echo FCPATH. 'sitemap_' . $language . '.xml<br />';
+		echo 'sitemap_' . $language . '.xml generated. <a href="/sitemap_' . $language . '.xml">Link here</a>';
+		file_put_contents(FCPATH. 'sitemap_' . $language . '.xml', $xml);
 	}
 }

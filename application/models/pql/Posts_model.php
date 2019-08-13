@@ -24,7 +24,7 @@ class Posts_model extends Abstract_Table_Model
 		return $img;
 	}
 	public function get_posts($conds, $start = null, $offset = null) {
-		$this->select('bv_posts.*');
+		$this->select('bv_posts.*, bv_term_relationships.*');
 		$this->join('bv_term_relationships', 'bv_term_relationships.object_id = bv_posts.ID');
 		$this->where($conds);
 		$this->db->order_by('bv_posts.menu_order asc');

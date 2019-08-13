@@ -1,7 +1,7 @@
 <?php 
 /** @var MY_Controller $controller */
 $return = false;
-$cache = true;
+$cache = false;
 $key = 'left_sidebar';
 $controller->view('left', $data, $return, $cache, $language.$key);?>
 <div id="right">

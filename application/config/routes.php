@@ -68,6 +68,9 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	$route['tin-tuc'] = 'news/category/vi/170';
 	$route['en/tin-tuc'] = 'news/category/en/170';
 	#
+	$route['lien-he'] = 'contact/index/vi';
+	$route['en/lien-he'] = 'contact/index/en';
+	#
 	$route['tin-tuc/[\w\d-_]+-c(:num)'] = 'news/category/vi/$1';
 	$route['en/tin-tuc/[\w\d-_]+-c(:num)'] = 'news/category/en/$1';
 	$route['tin-tuc/[\w\d-_]+-c(:num)/[\w\d-_]+-n(:num).html'] = 'news/detail/vi/$1/$2';

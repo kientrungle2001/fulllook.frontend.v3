@@ -17,6 +17,7 @@ $posts = $controller->posts_model->get_posts(array(
 	</div>
 
 	<div id="content_new">
+		<h1><?= wpglobus($category['name'], $language)?></h1>
 		<?php foreach($posts as $post):
 			$img = $controller->posts_model->get_post_thumbnail_img($post); 
 			?>
@@ -27,9 +28,9 @@ $posts = $controller->posts_model->get_posts(array(
 				</a>
 			</div>
 			<div id="ct_new">
-				<p id="name_new">
+				<h2 id="name_new">
 					<a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>"><?= wpglobus($post['post_title'], $language) ?></a><span>(<?= $post['post_modified']?>)</span>
-				</p>
+				</h2>
 				<p id="shor_n"><?= $post['post_content'] ?></p>
 				<p id="xemtiep"><a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>">Xem tiếp »</a></p>
 			</div>

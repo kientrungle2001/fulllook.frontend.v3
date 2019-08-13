@@ -14,24 +14,26 @@ $posts = $posts_model->get_posts(array(
 ), 0, 3);
 
 ?>
+<div itemscope itemtype="http://schema.org/ItemList">
 <div class="b_top">
-	<h2><a href="<?= $links_model->get_product_category_link($language, $second_category)?>"><?= wpglobus($second_category['name'], $language) ?></a></h2>
+	<h2><a itemprop="url" href="<?= $links_model->get_product_category_link($language, $second_category)?>"><?= wpglobus($second_category['name'], $language) ?></a></h2>
 </div>
 <br>
 <!--content-box-->
 <?php foreach ($posts as $post) :
 	$img = $posts_model->get_post_thumbnail_img($post);
 	?>
-	<div class="cate2_s item_cate2 h-product">
-		<a href="<?= $links_model->get_product_link($language, $second_category, $post)?>">
+	<div class="cate2_s item_cate2 h-product" itemtype="http://schema.org/Product">
+		<a itemprop="url" href="<?= $links_model->get_product_link($language, $second_category, $post)?>">
 			<?php if ($img) : ?>
-				<img src="<?= $links_model->get_image_url($img) ?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo">
+				<img src="<?= $links_model->get_image_url($img) ?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo" itemprop="image">
 			<?php else : ?>
-				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>">
+				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" itemprop="image">
 			<?php endif; ?>
 		</a>
-		<a href="<?= $links_model->get_product_link($language, $second_category, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language) ?></a>
+		<h3><a href="<?= $links_model->get_product_link($language, $second_category, $post)?>" class="name_cate2 p-name" itemprop="name"><?= wpglobus($post['post_title'], $language) ?></a></h3>
 		<br clear="all">
 	</div>
 <?php endforeach; ?>
 <div style="clear:both"></div><br>
+</div>

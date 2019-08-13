@@ -11,6 +11,15 @@ class Links_model
 		. '/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
 	}
 
+	public function get_product_link_canonical($language, $product) {
+		$language_prefix = '';
+		if($language == 'en') {
+			$language_prefix = '/en';
+		}
+		
+		return $language_prefix . '/san-pham/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
+	}
+
 	public function get_product_category_link($language, $category) {
 		$language_prefix = '';
 		if($language == 'en') {

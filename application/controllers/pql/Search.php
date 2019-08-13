@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contact extends MY_Controller {
+class Search extends MY_Controller {
 
-	public function index($language = 'vi'){
+	public function result($language = 'vi'){
+		$keyword = $this->input->get('keyword');
+		#
 		$data = array();
 		$this->load_pql_models($data);
 		#
@@ -18,7 +20,7 @@ class Contact extends MY_Controller {
 		#
 		$keywords = $this->options_model->get_blog_keywords();
 		#
-		$page_title = wpglobus('{:vi}Liên hệ{:}{:en}Contact{:}', $language) . ' | ' . wpglobus($blogname, $language);
+		$page_title = wpglobus('{:vi}Tìm kiếm{:}{:en}Search{:}', $language) . ' | ' . wpglobus($blogname, $language);
 		$page_description = wpglobus($description, $language);
 		$page_keywords = wpglobus($keywords, $language) ;
 		$data = array_merge($data, array(
@@ -26,8 +28,10 @@ class Contact extends MY_Controller {
 			'page_title' 		=> $page_title,
 			'page_description' 	=> $page_description,
 			'page_keywords' 	=> $page_keywords,
-			'page_image' 		=> $logo
+			'page_image' 		=> $logo,
+			'keyword' 			=> $keyword
 		));
-		$this->render('contact/index', $data);
+		
+		$this->render('search', $data);
 	}
 }

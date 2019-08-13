@@ -15,7 +15,7 @@ $posts = $posts_model->get_posts(array(
 	?>
 <div class="box_new" style="margin-left:0px">
 	<div class="b_top">
-	<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><h2 style="height:35px;overflow:hidden"><?= wpglobus($post['post_title'])?></h2></a>
+	<h2 style="height:35px;overflow:hidden"><a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><?= wpglobus($post['post_title'])?></a></h2>
 	</div><br>
 	<div id="content_new_home">
 		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><img src="http://pql.nn-center.com/_pql/wp-content/uploads/<?= $img?>" border="0" alt="<?= wpglobus($post['post_title'])?>" width="180" height="140px"> </a>

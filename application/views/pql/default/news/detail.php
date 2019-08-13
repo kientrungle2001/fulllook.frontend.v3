@@ -9,7 +9,7 @@ $news = $controller->posts_model->get_post($newsId);
 ?>
 <div id="right" class="h-news">
 	<div class="b_top">
-		<h2 class="p-name"><?= wpglobus($news['post_title'], $language) ?></h2>
+		<h1 class="p-name"><?= wpglobus($news['post_title'], $language) ?></h1>
 	</div>
 	<div id="link_br" style="margin:0px;border:none">
 		<a href="/"><?= wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language)?></a>
