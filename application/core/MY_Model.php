@@ -11,6 +11,11 @@ class Abstract_Table_Model extends MY_Model
 	public $table;
 	public $pkey;
 	
+	/**
+	 * Lấy kết quả query có format theo metadata
+	 * @param $result CI_Result
+	 * @return array
+	 */
 	public function result_array($result) {
 		$items = $result->result_array();
 		foreach($items as &$item) {
@@ -19,6 +24,9 @@ class Abstract_Table_Model extends MY_Model
 		return $items;
 	}
 
+	/**
+	 * Lấy một bản ghi
+	 */
 	public function row_array($result) {
 		$row = $result->row_array();
 		if($row) {
@@ -27,6 +35,11 @@ class Abstract_Table_Model extends MY_Model
 		return $row;
 	}
 
+	/**
+	 * Lấy tất cả các bản ghi theo điều kiện
+	 * @param $conds mixed
+	 * @return array
+	 */
 	public function fetch_all($conds = false) {
 		if(false === $conds) {
 			return $this->result_array($this->get());
@@ -34,6 +47,10 @@ class Abstract_Table_Model extends MY_Model
 			$this->where($conds);
 			return $this->result_array($this->get());
 		}
+	}
+
+	public function get_all($conds = false) {
+		return $this->fetch_all($conds);
 	}
 	
 	public function get($start = null, $offset = null) {

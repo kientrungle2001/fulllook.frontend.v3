@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+<<?php echo '';?>?xml version="1.0" encoding="UTF-8"?<?php echo '';?>><rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:atom="http://www.w3.org/2005/Atom"
@@ -18,11 +18,11 @@ $page_feed_url = $page_url . '/feed';
 ?>
 <channel>
 	<title><?= $page_title?></title>
-	<atom:link href="<?= $page_feed_url?>" rel="self" type="application/rss+xml" />
-	<link><?= $page_url?></link>
+	<atom:link href="http://<?= $_SERVER['HTTP_HOST']?><?= $page_feed_url?>" rel="self" type="application/rss+xml" />
+	<link>http://<?= $_SERVER['HTTP_HOST']?><?= $page_url?></link>
 	<description><?= $page_title?></description>
 	<lastBuildDate>
-	<?= date('Y-m-d H:00:00')?>	</lastBuildDate>
+	<?= date(DATE_RSS, strtotime(date('Y-m-d H:00:00')))?>	</lastBuildDate>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
@@ -33,10 +33,12 @@ $page_feed_url = $page_url . '/feed';
 		?>
 	<item>
 		<title><?= wpglobus($post['post_title'], $language)?></title>
-		<link><?= $controller->links_model->get_product_link($language, $category, $post)?></link>
-		<pubDate><?= $post['post_modified']?></pubDate>
+		<link>http://<?= $_SERVER['HTTP_HOST']?><?= $controller->links_model->get_product_link($language, $category, $post)?></link>
+		<guid isPermaLink="false">http://<?= $_SERVER['HTTP_HOST']?>/product/detail/<?= $language?>/<?= $category['term_id']?>/<?= $post['ID']?></guid>
+		<pubDate><?= date(DATE_RSS, strtotime(trim($post['post_modified'])))?></pubDate>
 		<category><![CDATA[<?= $page_title?>]]></category>
-		<category><![CDATA[<?= wpglobus($post['post_content'], $language) ?>]]></category>
+		<description><![CDATA[<?= wpglobus($post['post_content'], $language) ?>]]></description>
+		<content:encoded><![CDATA[<?= wpglobus($post['post_content'], $language) ?>]]></content:encoded>
 	<?php if($img): ?>
 		
 	<?php endif;?>
