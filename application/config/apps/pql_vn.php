@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['apps'][] = [
 	'name' => 'pql',
 	'host'	=>	'pql.vn',
-	'aliases' => ['pql.com', 'pql.nn-center.com'],
+	'aliases' => ['pql.com', 'pql.nn-center.com', 'mobo.com.vn', 'www.mobo.com.vn'],
 	'view_packages' => ['default'],
 	'css_packages' => ['default'],
 	'js_packages' => ['default'],

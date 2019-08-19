@@ -67,6 +67,14 @@ class Options_model extends Abstract_Table_Model
 		return $this->get_option_tree('hotline');
 	}
 
+	public function get_hotline_2() {
+		return $this->get_option_tree('hotline_2');
+	}
+
+	public function get_hotline_3() {
+		return $this->get_option_tree('hotline_3');
+	}
+
 	public function get_instagram() {
 		return $this->get_option_tree('instagram');
 	}

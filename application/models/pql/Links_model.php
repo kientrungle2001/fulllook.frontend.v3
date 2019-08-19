@@ -7,8 +7,7 @@ class Links_model
 			$language_prefix = '/en';
 		}
 		
-		return $language_prefix . '/san-pham/' . wpglobus($category['slug'], $language) . '-c' . $category['term_id'] 
-		. '/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
+		return $language_prefix . '/' . wpglobus($product['post_name'], $language).'-cp' . $category['term_id'] . '-p' . $product['ID'] . '.html';
 	}
 
 	public function get_product_link_canonical($language, $product) {
@@ -17,7 +16,7 @@ class Links_model
 			$language_prefix = '/en';
 		}
 		
-		return $language_prefix . '/san-pham/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
+		return $language_prefix . '/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
 	}
 
 	public function get_product_category_link($language, $category) {
@@ -25,7 +24,7 @@ class Links_model
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/san-pham/' . wpglobus($category['slug'], $language) . '-c' . $category['term_id'];
+		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cp' . $category['term_id'];
 	}
 
 	public function get_news_link($language, $category, $news) {
@@ -34,8 +33,7 @@ class Links_model
 			$language_prefix = '/en';
 		}
 		
-		return $language_prefix . '/tin-tuc/' . wpglobus($category['slug'], $language) . '-c' . $category['term_id'] 
-		. '/' . wpglobus($news['post_name'], $language) . '-n' . $news['ID'] . '.html';
+		return $language_prefix . '/' . wpglobus($news['post_name'], $language). '-cn' . $category['term_id'] . '-n' . $news['ID'] . '.html';
 	}
 
 	public function get_news_category_link($language, $category) {
@@ -43,7 +41,7 @@ class Links_model
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/tin-tuc/' . wpglobus($category['slug'], $language) . '-c' . $category['term_id'];
+		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cn' . $category['term_id'];
 	}
 
 	public function get_image_url($img) {

@@ -13,27 +13,46 @@ $posts = $posts_model->get_posts(array(
 	'post_status' => 'publish'
 ), 0, 3);
 ?>
-<div itemscope itemtype="http://schema.org/ItemList">
+<div>
 <div class="b_top">
-	<h2><a itemprop="url" href="<?= $links_model->get_product_category_link($language, $first_category)?>"><?= wpglobus($first_category['name'], $language) ?></a></h2>
+	<h2><a href="<?= $links_model->get_product_category_link($language, $first_category)?>"><?= wpglobus($first_category['name'], $language) ?></a></h2>
 </div>
 <br>
 <!--content-box-->
-<?php foreach ($posts as $post) :
+<?php 
+	$jsonlds = array();
+	foreach ($posts as $post_index => $post) :
 	$img = $posts_model->get_post_thumbnail_img($post);
+	$jsonlds[] = array(
+		"@type" => "ListItem",
+		"image"	=> $links_model->get_image_url($img),
+		"url"	=> $links_model->get_product_link($language, $first_category, $post),
+		"name" 	=> wpglobus($post['post_title'], $language),
+		"position" => ($post_index + 1)
+	);
 	?>
 	<div class="item_cate2 h-product" itemtype="http://schema.org/Product">
-		<a itemprop="url" href="<?= $links_model->get_product_link($language, $first_category, $post)?>">
+		<a href="<?= $links_model->get_product_link($language, $first_category, $post)?>">
 			<?php if ($img) : ?>
-				<img src="<?= $links_model->get_image_url($img)?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo" itemprop="image">
+				<img src="<?= $links_model->get_image_url($img)?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo">
 			<?php else : ?>
-				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= $post['post_title'] ?>" itemprop="image">
+				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>">
 			<?php endif; ?>
 		</a>
-		<h3><a href="<?= $links_model->get_product_link($language, $first_category, $post)?>" class="name_cate2 p-name" itemprop="name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
+		<h3><a href="<?= $links_model->get_product_link($language, $first_category, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
 		<br clear="all">
 	</div>
 <?php endforeach; ?>
 <div style="clear:both"></div>
 <!--content-box--><br>
 </div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ItemList",
+    "url": "<?= $links_model->get_product_category_link($language, $first_category)?>",
+    "numberOfItems": "3",
+	"itemListElement": <?= json_encode($jsonlds);?>
+}
+</script>

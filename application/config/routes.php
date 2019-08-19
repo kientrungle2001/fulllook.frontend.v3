@@ -53,26 +53,54 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['/'] = 'home/index';
-if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com') {
+if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
+		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
+	
+	# home
 	$route['en'] = 'home/index/en';
 	$route['vi'] = 'home/index/vi';
+	
+	# category
 	$route['san-pham/[\w\d-_]+-c(:num)'] = 'product/category/vi/$1';
 	$route['en/san-pham/[\w\d-_]+-c(:num)'] = 'product/category/en/$1';
+	# short
+	$route['[\w\d-_]+-cp(:num)'] = 'product/category/vi/$1';
+	$route['en/[\w\d-_]+-cp(:num)'] = 'product/category/en/$1';
+	
+	# product
 	$route['san-pham/[\w\d-_]+-c(:num)/[\w\d-_]+-p(:num).html'] = 'product/detail/vi/$1/$2';
 	$route['en/san-pham/[\w\d-_]+-c(:num)/[\w\d-_]+-p(:num).html'] = 'product/detail/en/$1/$2';
+	# short
+	$route['[\w\d-_]+-cp(:num)-p(:num).html'] = 'product/detail/vi/$1/$2';
+	$route['en/[\w\d-_]+-cp(:num)-p(:num).html'] = 'product/detail/en/$1/$2';
 
-	$route['san-pham/[\w\d-_]+-c(:num)/feed'] = 'product/feed/vi/$1';
-	$route['en/san-pham/[\w\d-_]+-c(:num)/feed'] = 'product/feed/en/$1';
+	# product feed
+	$route['[\w\d-_]+-cp(:num)/feed'] = 'product/feed/vi/$1';
+	$route['en/[\w\d-_]+-cp(:num)/feed'] = 'product/feed/en/$1';
 
-	#
+	# news
 	$route['tin-tuc'] = 'news/category/vi/170';
 	$route['en/tin-tuc'] = 'news/category/en/170';
-	#
+	
+	# contact
 	$route['lien-he'] = 'contact/index/vi';
 	$route['en/lien-he'] = 'contact/index/en';
-	#
+	
+	# news category
 	$route['tin-tuc/[\w\d-_]+-c(:num)'] = 'news/category/vi/$1';
 	$route['en/tin-tuc/[\w\d-_]+-c(:num)'] = 'news/category/en/$1';
+	#short
+	$route['[\w\d-_]+-cn(:num)'] = 'news/category/vi/$1';
+	$route['en/[\w\d-_]+-cn(:num)'] = 'news/category/en/$1';
+	
+	# news detail
 	$route['tin-tuc/[\w\d-_]+-c(:num)/[\w\d-_]+-n(:num).html'] = 'news/detail/vi/$1/$2';
 	$route['en/tin-tuc/[\w\d-_]+-c(:num)/[\w\d-_]+-n(:num).html'] = 'news/detail/en/$1/$2';
+	# short
+	$route['[\w\d-_]+-cn(:num)-n(:num).html'] = 'news/detail/vi/$1/$2';
+	$route['en/[\w\d-_]+-cn(:num)-n(:num).html'] = 'news/detail/en/$1/$2';
+
+	# news feed
+	$route['[\w\d-_]+-cn(:num)/feed'] = 'news/feed/vi/$1';
+	$route['en/[\w\d-_]+-cn(:num)/feed'] = 'news/feed/en/$1';
 }

@@ -17,7 +17,7 @@ $posts = $controller->posts_model->get_posts(array(
 	</div>
 
 	<div id="content_new">
-		<h1><?= wpglobus($category['name'], $language)?></h1>
+		<h1><?= wpglobus($category['name'], $language)?> <a href="<?= $controller->links_model->get_news_category_link($language, $category)?>/feed" style="color: brown; float:right; font-size: 0.8em;"><img src="https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png" style="width: 16px; height: 16px; position: relative; top: 3px;"> rss</a></h1>
 		<?php foreach($posts as $post):
 			$img = $controller->posts_model->get_post_thumbnail_img($post); 
 			?>

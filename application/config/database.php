@@ -96,7 +96,8 @@ $db['default'] = array(
 );
 
 
-if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com') {
+if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
+		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
 	$db_config = array(
 	'hostname' => '42.112.21.207',
 	'username' => 'admin_bichvan',

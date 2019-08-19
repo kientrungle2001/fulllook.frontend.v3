@@ -15,6 +15,8 @@ $con = $options_model->get_contact_url();
 #
 $logo = $options_model->get_logo();
 $hotline = $options_model->get_hotline();
+$hotline_2 = $options_model->get_hotline_2();
+$hotline_3 = $options_model->get_hotline_3();
 $email = $options_model->get_email();
 $instagram = $options_model->get_instagram();
 
@@ -73,7 +75,7 @@ $online_order_note = $options_model->get_online_order_note();
 	</div>
 	<?php if($hotline):?>
 	<div id="login_but">
-		<a href="#" class="but_log_re">Hotline: <?= $hotline?></a>
+		<a href="#" class="but_log_re" onclick="return false;">Hotline: <?= $hotline?>, <?= $hotline_2?>, <?= $hotline_3?></a>
 	</div>
-		<?php endif;?>
+	<?php endif;?>
 </div>
