@@ -103,4 +103,8 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# news feed
 	$route['[\w\d-_]+-cn(:num)/feed'] = 'news/feed/vi/$1';
 	$route['en/[\w\d-_]+-cn(:num)/feed'] = 'news/feed/en/$1';
+
+	# search
+	$route['tim-kiem'] = 'search/result/vi';
+	$route['en/tim-kiem'] = 'search/result/en';
 }

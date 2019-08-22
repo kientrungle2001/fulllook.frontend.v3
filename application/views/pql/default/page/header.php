@@ -62,20 +62,45 @@ $online_order_note = $options_model->get_online_order_note();
 <?php if($index > 0):?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif;?> <a href="<?= $links_model->get_language_link($language, $top_menu_item['_menu_item_url']) ?>"><?= wpglobus($top_menu_item['post_title'], $language) ?></a>
 		<?php endforeach;?>
 	</div>
+	
 	<div id="bg_search"></div>
-	<form method="post" action="#">
-		<input type="text" id="txts" name="txts" placeholder="<?= wpglobus('{:vi}Tìm kiếm{:}{:en}Search{:}', $language)?> ..." />
-		<select name="cate_top" id="cate_top" class="cufon" style="display:none;">
-			<option value="0"><?= wpglobus('{:vi}Danh Mục{:}{:en}Catalog{:}', $language)?></option>
-		</select>
+	
+	<form method="get" action="/tim-kiem">
+		
+		<input type="text" id="txts" name="tu_khoa" placeholder="<?= wpglobus('{:vi}Tìm kiếm{:}{:en}Search{:}', $language)?> ..." />
 		<input type="submit" id="subs" value="" />
 	</form>
 	<div id="cate_title">
 		<p class="cufon"><span><?= wpglobus('{:vi}Danh Mục Sản Phẩm{:}{:en}Product Catalog{:}', $language)?></span></p>
 	</div>
-	<?php if($hotline):?>
-	<div id="login_but">
-		<a href="#" class="but_log_re" onclick="return false;">Hotline: <?= $hotline?>, <?= $hotline_2?>, <?= $hotline_3?></a>
-	</div>
-	<?php endif;?>
+	
 </div>
+<?php if($hotline):?>
+<div id="hotline">
+	<a href="#" class="but_hotline" onclick="return false;"><strong>Hotline:</strong> <span><?= $hotline?></span>, <span><?= $hotline_2?></span>, <span><?= $hotline_3?></span></a>
+	<br /><br />
+</div>
+<?php endif;?>
+
+<style>
+#hotline {
+	text-align: right;
+	padding-right: 15px;
+	font-size: 16px;
+}
+#bg_search {
+	width: 770px;
+}
+#txts {
+	width: 755px;
+}
+
+#subs {
+	right: 15px;
+	left: auto;
+}
+#hotline a span {
+	color: red;
+	font-weight: bold;
+}
+</style>

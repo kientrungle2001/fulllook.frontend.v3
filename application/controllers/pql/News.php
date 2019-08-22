@@ -97,4 +97,11 @@ class News extends MY_Controller {
 		);
 		$this->render('news/detail', $data);
 	}
+
+	public function feed($language = 'vi', $catId = null){
+		$data = array('language' => $language, 'catId' => $catId);
+		$this->load_pql_models($data);
+		header("Content-type: text/xml");
+		$this->view('news/feed', $data);
+	}
 }

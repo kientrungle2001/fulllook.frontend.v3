@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Search extends MY_Controller {
 
 	public function result($language = 'vi'){
-		$keyword = $this->input->get('keyword');
+		$keyword = $this->input->get('tu_khoa');
 		#
 		$data = array();
 		$this->load_pql_models($data);
