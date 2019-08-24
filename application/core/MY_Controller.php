@@ -211,6 +211,38 @@ class MY_Controller extends CI_Controller {
 		}
 		return null;
 	}
+
+	public function getCatName($cat, $language) {
+		return wpglobus($cat['name'], $language);
+	}
+
+	public function getProductCatLink($cat, $language) {
+		return $this->links_model->get_product_category_link($language, $cat);
+	}
+
+	public function getNewsCatLink($cat, $language) {
+		return $this->links_model->get_news_category_link($language, $cat);
+	}
+
+	public function getHomeTitle($language) {
+		return wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language);
+	}
+
+	public function getProductImage($product) {
+		return $this->getPostImage($product);
+	}
+
+	public function getProductLink($product, $category, $language) {
+		return $this->links_model->get_product_link($language, $category, $product);
+	}
+
+	public function getProductTitle($product, $language) {
+		return wpglobus($product['post_title'], $language);
+	}
+
+	public function getPostImage($post) {
+		return $this->posts_model->get_post_thumbnail_img($post);
+	}
 }
 
 class MY_AdminController extends MY_Controller {

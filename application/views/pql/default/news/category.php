@@ -9,15 +9,19 @@ $posts = $controller->posts_model->get_posts(array(
 ?>
 <?php $controller->view('left', $data);?>
 <div id="right">
+	
+	<div class="b_top">
+		<h1><?= wpglobus($category['name'], $language)?> <a href="<?= $controller->links_model->get_news_category_link($language, $category)?>/feed" style="color: brown; float:right; font-size: 0.8em;"><img src="https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png" style="width: 16px; height: 16px; position: relative; top: 3px;"> rss</a></h1>
+	</div>
 	<div id="link_br">
-	<a href="/<?= $language?>"><?= wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language)?></a>
+		<a href="/<?= $language?>"><?= wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language)?></a>
 		<span>»</span>
 		<a class="a_active" href="<?= $controller->links_model->get_news_category_link($language, $category) ?>"><?= wpglobus($category['name'], $language)?></a>
 		<br clear="all">
 	</div>
 
 	<div id="content_new">
-		<h1><?= wpglobus($category['name'], $language)?> <a href="<?= $controller->links_model->get_news_category_link($language, $category)?>/feed" style="color: brown; float:right; font-size: 0.8em;"><img src="https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png" style="width: 16px; height: 16px; position: relative; top: 3px;"> rss</a></h1>
+		
 		<?php foreach($posts as $post):
 			$img = $controller->posts_model->get_post_thumbnail_img($post); 
 			?>
@@ -29,9 +33,9 @@ $posts = $controller->posts_model->get_posts(array(
 			</div>
 			<div id="ct_new">
 				<h2 id="name_new">
-					<a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>"><?= wpglobus($post['post_title'], $language) ?></a><span>(<?= $post['post_modified']?>)</span>
+					<a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>"><?= wpglobus($post['post_title'], $language) ?></a><span> <i style="font-size: 11px;">(<?= $post['post_modified']?>)</i></span>
 				</h2>
-				<p id="shor_n"><?= $post['post_content'] ?></p>
+				<p id="shor_n"><?= $post['post_excerpt'] ?></p>
 				<p id="xemtiep"><a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>">Xem tiếp »</a></p>
 			</div>
 			<div style="clear:both"></div>
@@ -39,3 +43,13 @@ $posts = $controller->posts_model->get_posts(array(
 		<?php endforeach;?>
 	</div>
 </div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ItemList",
+    "url": "<?= $controller->getNewsCatLink($category, $language)?>",
+    "numberOfItems": "<?= count($posts) ?>",
+	"itemListElement": <?= json_encode($jsonlds);?>
+}
+</script>

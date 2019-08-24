@@ -14,9 +14,9 @@
 	<meta property="og:title" content="<?= $page_title?>" />
 	<meta property="og:site_name" content="<?= $_SERVER['HTTP_HOST'] ?>" />
 	<meta property="og:url" content="http://<?= $_SERVER['HTTP_HOST'] ?>/" />
-	<meta property="og:description" content="<?= $page_description ?>" />
+	<meta property="og:description" content="<?= html_escape(strip_tags($page_description)) ?>" />
 	<meta name="keywords" content="<?= $page_keywords ?>" />
-	<meta name="description" content="<?= $page_description ?>" />
+	<meta name="description" content="<?= html_escape(strip_tags($page_description)) ?>" />
 	<script>
 		serverTime = <?php echo time() ?>;
 		setInterval(function() {

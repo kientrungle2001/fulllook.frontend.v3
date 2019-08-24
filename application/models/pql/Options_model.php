@@ -90,4 +90,8 @@ class Options_model extends Abstract_Table_Model
 	public function get_online_order_note() {
 		return $this->get_option_tree('online_order_note');
 	}
+
+	public function get_term_taxonomy_image($term_taxonomy_id) {
+		return $this->get_option('z_taxonomy_image' . $term_taxonomy_id,0);
+	}
 }

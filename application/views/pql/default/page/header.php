@@ -73,34 +73,9 @@ $online_order_note = $options_model->get_online_order_note();
 	<div id="cate_title">
 		<p class="cufon"><span><?= wpglobus('{:vi}Danh Mục Sản Phẩm{:}{:en}Product Catalog{:}', $language)?></span></p>
 	</div>
-	
+	<?php if($hotline):?>
+	<div id="login_but">
+		<a href="#" class="but_log_re"><strong>Hotline:</strong> <span><?= $hotline?></span></a>   
+	</div>
+	<?php endif;?>
 </div>
-<?php if($hotline):?>
-<div id="hotline">
-	<a href="#" class="but_hotline" onclick="return false;"><strong>Hotline:</strong> <span><?= $hotline?></span>, <span><?= $hotline_2?></span>, <span><?= $hotline_3?></span></a>
-	<br /><br />
-</div>
-<?php endif;?>
-
-<style>
-#hotline {
-	text-align: right;
-	padding-right: 15px;
-	font-size: 16px;
-}
-#bg_search {
-	width: 770px;
-}
-#txts {
-	width: 755px;
-}
-
-#subs {
-	right: 15px;
-	left: auto;
-}
-#hotline a span {
-	color: red;
-	font-weight: bold;
-}
-</style>

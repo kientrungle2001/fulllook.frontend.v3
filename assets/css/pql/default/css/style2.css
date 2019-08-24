@@ -2,16 +2,11 @@ html, body, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p{
   margin: 0;
   padding: 0;
   border: 0;
+  /*font-size: 100%;*/
 }
 h1, h2, h3, h4, h5, h6{
 	margin-bottom: 0!important; margin-top: 0!important; 
 }
-h6 {font-size: 11px;}
-h5 {font-size: 11px;}
-h4 {font-size: 12px;}
-h3 {font-size: 12px;}
-h2 {font-size: 13px;}
-h1 {font-size: 13px;}
 ul,li,ol,dl{
 	list-style: none;
 	margin: 0!important;
@@ -284,7 +279,7 @@ body {
   font-size: 13px;
   color: #333333;
   display: block;
-  background: url(../images/bichvan_11.png) no-repeat;
+  backg1round: url(../images/bichvan_11.png) no-repeat;
   background-position: 145px 6px;
   padding: 3px 5px 0px 5px;
 }
@@ -647,7 +642,7 @@ body {
   width: 176px !important;
 }
 .item_cate2 {
-  height: 200px;
+  height: 190px;
   overflow: hidden;
   width: 240px;
   float: left;
@@ -719,7 +714,6 @@ body {
     border-left-width: 1px;
   margin-bottom: 10px;
   border-left: none;
-  margin:0px;border:none;
 }
 #link_br span {
   float: left;
@@ -1023,64 +1017,4 @@ font-weight: bold;
 .item_like_top .share.vn {
   background: url('../images/vn.png');
   background-size: 100%;
-}
-
-.link_feed {
-  color: brown; float:right; font-size: 0.8em;
-}
-
-.link_feed img {
-  width: 16px; height: 16px; position: relative; top: 3px;
-}
-.sub_categories {
-  padding: 0 15px;
-}
-.sub_categories .category {
-  float: left;
-  width: 230px;
-  padding: 3px;
-  margin: 3px;
-  border: 1px solid #ccc;
-  height: 45px;
-  text-align: center;
-  vertical-align: middle;
-  background: #1276AB;
-}
-.sub_categories .category a {
-  color: #fff;
-}
-
-.sub_categories .category a img {
-  width: 60px; height: auto; display: block; float: left;
-}
-
-.sub_categories .category a span {
-  display:block; float: left; width: 170px; padding-top: 10px;
-}
-
-.sub_categories .category_link {
-  color: #1276AB;
-}
-.sub_categories .category_link a {
-  color: #f96302;
-}
-
-.sub_categories .category_link a:hover {
-  color: #1276AB;
-}
-
-#text-cate {
-  text-align: justify;
-}
-
-hr {
-  color: #f1f1f1;
-  background: #f1f1f1;
-  border: 1px solid #f1f1f1;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.clear {
-  clear: both;
 }

@@ -61,8 +61,7 @@ class Home extends MY_Controller {
 		$data = array('language' => $language);
 		$this->load_pql_models($data);
 		$xml = $this->view('sitemap', $data, true);
-		echo FCPATH. 'sitemap_' . $language . '.xml<br />';
-		echo 'sitemap_' . $language . '.xml generated. <a href="/sitemap_' . $language . '.xml">Link here</a>';
-		file_put_contents(FCPATH. 'sitemap_' . $language . '.xml', $xml);
+		file_put_contents(FCPATH. 'sitemap.xml', $xml);
+		echo 'sitemap.xml generated. <a href="/sitemap.xml">Link here</a>';
 	}
 }
