@@ -7,6 +7,9 @@ $contact_title = $controller->options_model->get_option_tree('contact_title');
 $contact_content = $controller->options_model->get_option_tree('contact_content');
 $controller->view('left', $data);?>
 <div id="right">
+	<div class="b_top">
+		<h1 id="name_new"><?= wpglobus($contact_title, $language)?></h1>
+	</div>
 	<div id="link_br">
 	<a href="/<?= $language?>"><?= wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language)?></a>
 		<span>»</span>
@@ -17,12 +20,9 @@ $controller->view('left', $data);?>
 	</div>
 
 	<div id="content_new">
-
+		
 		<div id="content_n" style="border:none;">
 			<div id="ct_new">
-				<h1 id="name_new">
-					<?= wpglobus($contact_title, $language)?>				
-				</h1>
 				<p id="shor_n">
 				<?= wpglobus($contact_content, $language)?>
 				</p>

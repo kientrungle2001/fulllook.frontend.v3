@@ -45,7 +45,7 @@ class Links_model
 	}
 
 	public function get_image_url($img) {
-		return 'http://pql.nn-center.com/_pql/wp-content/uploads/' . $img;
+		return 'http://'.$_SERVER['HTTP_HOST'].'/_pql/wp-content/uploads/' . $img;
 	}
 
 	public function get_language_link($language, $link) {

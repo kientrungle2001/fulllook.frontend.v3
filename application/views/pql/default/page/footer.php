@@ -1,6 +1,8 @@
 <?php 
 $email = $controller->options_model->get_option_tree('email');
 $hotline = $controller->options_model->get_option_tree('hotline');
+$hotline_2 = $options_model->get_hotline_2();
+$hotline_3 = $options_model->get_hotline_3();
 $company_name = $controller->options_model->get_option_tree('company_name');
 $address = $controller->options_model->get_option_tree('address');
 $office_address = $controller->options_model->get_option_tree('office_address');
@@ -76,7 +78,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 </div>
 <div id="sup_all">
 	<div id="ct_sup">
-		<div id="hotline_f">  <?= $hotline?></div>
+		<div id="hotline_f">  <?= $hotline?>, <?= $hotline_2?>, <?= $hotline_3?></div>
 		<div id="email_f"> <?= $email?></div>
 		<div style="width: 430px;position: absolute;top: 5px;right: 0px;">
 		<!-- AddThis Button BEGIN -->

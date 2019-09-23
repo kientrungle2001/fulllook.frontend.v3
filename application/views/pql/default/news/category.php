@@ -33,7 +33,7 @@ $posts = $controller->posts_model->get_posts(array(
 			</div>
 			<div id="ct_new">
 				<h2 id="name_new">
-					<a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>"><?= wpglobus($post['post_title'], $language) ?></a><span> <i style="font-size: 11px;">(<?= $post['post_modified']?>)</i></span>
+					<a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>"><?= wpglobus($post['post_title'], $language) ?></a>
 				</h2>
 				<p id="shor_n"><?= $post['post_excerpt'] ?></p>
 				<p id="xemtiep"><a href="<?= $controller->links_model->get_news_link($language, $category, $post) ?>">Xem tiếp »</a></p>

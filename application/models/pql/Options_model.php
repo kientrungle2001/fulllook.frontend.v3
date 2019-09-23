@@ -94,4 +94,33 @@ class Options_model extends Abstract_Table_Model
 	public function get_term_taxonomy_image($term_taxonomy_id) {
 		return $this->get_option('z_taxonomy_image' . $term_taxonomy_id,0);
 	}
+
+	public function get_wpseo_taxonomy_meta() {
+		return $this->get_option('wpseo_taxonomy_meta');
+	}
+
+	public function get_wpseo_category_field($category, $field) {
+		$meta = $this->get_wpseo_taxonomy_meta();
+		$meta_category = $meta['category'];
+		if(is_numeric($category)) {
+			if(isset($meta_category[$category]) && isset($meta_category[$category][$field])) {
+				return $meta_category[$category][$field];
+			}
+		}
+		return null;
+	}
+
+	// 'wpseo_desc'
+	public function get_wpseo_category_description($category) {
+		return $this->get_wpseo_category_field($category, 'wpseo_desc');
+	}
+
+	public function get_wpseo_category_keywords($category) {
+		return $this->get_wpseo_category_field($category, 'wpseo_focuskw');
+	}
+
+	public function get_wpseo_category_title($category) {
+		return $this->get_wpseo_category_field($category, 'wpseo_bctitle');
+	}
+
 }

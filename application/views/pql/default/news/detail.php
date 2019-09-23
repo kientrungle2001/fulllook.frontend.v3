@@ -29,11 +29,14 @@ $news = $controller->posts_model->get_post($newsId);
 				src="<?= $controller->links_model->get_image_url($img)?>">
 		</div>
 		<div id="text-cate" class="e-description">
-			<?= wpglobus($news['post_content'], $language)?>	
+			<?= replace_br(wpglobus($news['post_content'], $language))?>	
 		</div>
 		
 	</div>
 	<div style="clear:both"></div>
+	<div id="news-comments">
+	<div class="fb-comments" data-href="http://<?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
+	</div>
 </div>
 
 <?php

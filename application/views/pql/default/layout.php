@@ -6,7 +6,8 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-	<meta rel="canonical" href="http://<?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>"/>
+	<meta rel="canonical" href="http://<?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
+	<link rel="canonical" href="http://<?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><?= $page_title ?></title>
 	<meta property="og:type" content="og:article" />
@@ -27,6 +28,7 @@
 	<?php
 	$controller->css_libraries();
 	$controller->css('css/style.css');
+	$controller->css('css/responsive.css');
 	?>
 	<?php $controller->js_libraries(); ?>
 </head>

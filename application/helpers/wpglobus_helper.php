@@ -1,8 +1,32 @@
 <?php
-function wpglobus($str, $language = 'VI') {
+function wpglobus($str, $language = 'vi') {
+	if(null === $str) return null;
 	preg_match("/\{:$language\}([^\{]+)\{:\}/i", $str, $match);
 	if(isset($match[1]))
-		return $match[1];
+		return replace_host($match[1]);
+	return replace_host(split_by_sep($str, $language));
+}
+
+function split_by_sep($str, $language = 'vi') {
+	if(null === $str) return null;
+	$spliteds = explode('[[language]]', $str);
+	if($language == 'en') {
+		if(isset($spliteds[1])) {
+			return $spliteds[1];
+		}
+	}
+	return $spliteds[0];
+}
+
+function replace_host($str) {
+	if(null === $str) return null;
+	return str_replace('pql.nn-center.com', $_SERVER['HTTP_HOST'], $str);
+}
+
+function replace_br($str) {
+	$str = nl2br($str);
+	$str = preg_replace('/\<br \/\>\s*\<br \/\>/', '<br />', $str);
+	$str = preg_replace('/(\<\/h[\d]\>\s*)\<br \/\>/', '$1', $str);
 	return $str;
 }
 

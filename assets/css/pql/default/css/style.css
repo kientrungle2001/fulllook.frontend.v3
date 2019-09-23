@@ -304,30 +304,22 @@ body {
   #ct_sup {
   width: 998px;
   margin: auto;
-  height: 37px;
   background:#fff;
   border-top:1px solid #ccc;
-  height: 37px;
+  height: 50px;
   position: relative; 
-} 
-#ct_sup {
-    width: 998px;
-    margin: auto;
-    height: 37px;
-    background: #fff;
-    border-top: 1px solid #ccc;
-    height: 37px;
-    position: relative;
 }
 #hotline_f {
   font-style: italic;
   background: url(../images/baogiavattu_55.png) no-repeat;
   background-position: 0px 0px;
   padding: 4px 0px 0px 93px;
+  /*
   position: absolute;
   top: 9px;
   left: 16px;
-  font-size: 17px;
+  */
+  font-size: 13px;
   color: #e40d0d;
   font-weight: bold;
 }  
@@ -336,10 +328,12 @@ body {
   background: url(../images/baogiavattu_58.png) no-repeat;
   background-position: 0px 0px;
   padding: 4px 0px 0px 82px;
+  /*
   position: absolute;
   top: 9px;
   left: 255px;
-  font-size: 17px;
+  */
+  font-size: 13px;
   color:#e40d0d;
   font-weight: bold;
 } 
@@ -1041,7 +1035,7 @@ font-weight: bold;
   padding: 3px;
   margin: 3px;
   border: 1px solid #ccc;
-  height: 45px;
+  height: 60px;
   text-align: center;
   vertical-align: middle;
   background: #1276AB;
@@ -1083,4 +1077,19 @@ hr {
 
 .clear {
   clear: both;
+}
+
+.mobile {
+  display: none;
+}
+
+h3, h4, h5, h6, h7 {
+  font-weight: normal;
+}
+
+.aligncenter {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
