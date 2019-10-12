@@ -123,7 +123,7 @@ CACHE_ENABLED = false;
 cacheStorage = {
 	getItem: function(key) {
 		if(!CACHE_ENABLED)
-			return false;
+			return null;
 		this._checkTimeout();
 		return this._getItem(key);
 	},
@@ -141,7 +141,7 @@ cacheStorage = {
 	},
 	removeItem: function(key) {
 		if(!CACHE_ENABLED)
-			return false;
+			return null;
 		this._checkTimeout();
 		var all_item_keys = this._getItem('all_item_keys');
 		if(null === all_item_keys) all_item_keys = [];
@@ -153,7 +153,7 @@ cacheStorage = {
 		return this._removeItem(key);
 	},
 	clear: function() {
-		if(!CACHE_ENABLED) return false;
+		if(!CACHE_ENABLED) return null;
 		var that = this;
 		var all_item_keys = this._getItem('all_item_keys');
 		if(null !== all_item_keys) {
