@@ -9,7 +9,7 @@
 		    <li class="breadcrumb-item active" aria-current="page">{{category.name}}</li>
 		  </ol>
 		</nav>
-    <div class="bg-white p-3">
+    <div class="bg-white p-3 mb-3">
       <div class="row mb-3" ng-repeat="news in newsLists">
         <div class="col-md-3 col-12">
           <a href="/news/detail?news_id={{news.id}}"><img src="http://s1.nextnobels.com/{{news.img}}" class="img-fluid img-thumbnail" /></a>
