@@ -8,4 +8,8 @@ class News extends MY_Controller {
 		$this->render('news/index');
   }
 
+  public function detail() {
+    $this->render('news/detail');
+  }
+
 }
