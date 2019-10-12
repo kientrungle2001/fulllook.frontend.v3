@@ -16,6 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	test_id = '<?php echo intval($controller->input->get('test_id', true)); ?>';
 	test_set_id = '<?php echo intval($controller->input->get('test_set_id', true)); ?>';
 	category_id = '<?php echo intval($controller->input->get('category_id', true)); ?>';
+	news_category_id = '<?php echo intval($controller->input->get('news_category_id', true)); ?>';
+	news_id = '<?php echo intval($controller->input->get('news_id', true)); ?>';
 	exercise_number = '<?php echo intval($controller->input->get('exercise_number', true)); ?>';
 	serverTime = <?php echo time() ?>;
 
