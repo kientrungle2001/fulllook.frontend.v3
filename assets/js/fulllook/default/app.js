@@ -119,13 +119,17 @@ function get_os() {
 	return OSName;
 }
 
-
+CACHE_ENABLED = false;
 cacheStorage = {
 	getItem: function(key) {
+		if(!CACHE_ENABLED)
+			return false;
 		this._checkTimeout();
 		return this._getItem(key);
 	},
 	setItem: function(key, value) {
+		if(!CACHE_ENABLED)
+			return value;
 		this._checkTimeout();
 		var all_item_keys = this._getItem('all_item_keys');
 		if(null === all_item_keys) all_item_keys = [];
@@ -136,6 +140,8 @@ cacheStorage = {
 		return this._setItem(key, value);
 	},
 	removeItem: function(key) {
+		if(!CACHE_ENABLED)
+			return false;
 		this._checkTimeout();
 		var all_item_keys = this._getItem('all_item_keys');
 		if(null === all_item_keys) all_item_keys = [];
@@ -147,6 +153,7 @@ cacheStorage = {
 		return this._removeItem(key);
 	},
 	clear: function() {
+		if(!CACHE_ENABLED) return false;
 		var that = this;
 		var all_item_keys = this._getItem('all_item_keys');
 		if(null !== all_item_keys) {
