@@ -3,7 +3,7 @@ $config['apps'][] =
 	[
 		'name' => 'fulllook',
 		'host'	=>	'flv3.vn',
-		'aliases' => ['tdn.nextnobels.com', 'luyenthitrandainghia.com'],
+		'aliases' => ['tdn.nextnobels.com', 'luyenthitrandainghia.com', 'tdn.nn-center.com'],
 		'view_packages' => ['fulllook'],
 		'css_packages' => ['fulllook'],
 		'js_packages' => ['fulllook'],
