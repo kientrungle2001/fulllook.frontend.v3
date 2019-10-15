@@ -30,7 +30,11 @@
 	$controller->css('css/style.css');
 	$controller->css('css/responsive.css');
 	?>
-	<?php $controller->js_libraries(); ?>
+	<?php 
+	
+	$controller->js_libraries(); 
+	$controller->js('locks.js');
+	?>
 </head>
 
 <body class="<?php echo $controller->router->fetch_class(); ?>-page" ng-app="adminApp">

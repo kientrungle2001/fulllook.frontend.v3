@@ -21,6 +21,7 @@ class Options_model extends Abstract_Table_Model
 		static $options = null;
 		if(null === $options)
 			$options = $this->get_option('option_tree');
+		// var_dump($options);
 		if(isset($options[$key])) {
 			return $options[$key];
 		}
