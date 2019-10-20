@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<?php
 	$controller->js('array.js');
+	$controller->js('constants.js');
 	$controller->js('app.js');
 	$controller->js('controller/login.js');
 	?>

@@ -19,3 +19,4 @@ application/logs/*
 /assets/libraries/
 /curl
 /tmp
+.favorites.json
