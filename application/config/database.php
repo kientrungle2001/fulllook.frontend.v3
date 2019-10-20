@@ -108,3 +108,15 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 		$db['default'][$key] = $val;
 	}
 }
+
+if($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn') {
+	$db_config = array(
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '123456',
+	'database' => 'qlhs2',
+	);
+	foreach($db_config as $key => $val) {
+		$db['default'][$key] = $val;
+	}
+}

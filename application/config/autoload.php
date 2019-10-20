@@ -59,7 +59,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 $autoload['libraries'] = array('user_agent', 'session', 'detector');
-if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' || $_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'mobo.com.vn') {
+if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' || $_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'admin.qlhs.vn') {
 	$autoload['libraries'][] = 'database';
 }
 

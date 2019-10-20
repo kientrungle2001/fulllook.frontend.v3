@@ -1,11 +1,10 @@
 <?php 
 $items = [
-	['link' => '/admin/test', 'label' => 'Đề thi'],
-	['link' => '/admin/category', 'label' => 'Danh mục'],
-	['link' => '/admin/question', 'label' => 'Câu hỏi'],
-	['link' => '/admin/document', 'label' => 'Tài liệu'],
-	['link' => '/admin/user', 'label' => 'Người dùng'],
-	['link' => '/admin/news', 'label' => 'Tin tức'],
+	['link' => '/dia_diem', 'label' => 'Địa điểm'],
+	['link' => '/nhan_vien', 'label' => 'Nhân viên'],
+	['link' => '/phong_ban', 'label' => 'Phòng ban'],
+	['link' => '/chuc_vu', 'label' => 'Chức vụ'],
+	['link' => '/nha_cung_cap', 'label' => 'Nhà cung cấp'],
 	['link' => '/admin/config', 'label' => 'Cấu hình'],
 ];
 ?>
