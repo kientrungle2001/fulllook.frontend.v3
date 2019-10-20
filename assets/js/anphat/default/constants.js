@@ -1,4 +1,5 @@
-ANPHAT_API_URL = 'http://laramongo.vn:81';
+ANPHAT_API_URL = 'http://laramongo.vn:81/api';
+ANPHAT_API_VERSION = 'v1';
 AJAX_CONSTANTS =  {
   type: {
     post: 'POST',
@@ -11,8 +12,26 @@ ANPHAT_CONSTANTS = {
   api: {
     v1: {
       dia_diem: {
-        danh_sach: '/v1/dia_diem/danh_sach'
-      }
+        url: '/v1/dia_diem'
+      },
+      nhan_vien: {
+        url: '/v1/nhan_vien'
+      },
+      phong_ban: {
+        url: '/v1/phong_ban'
+      },
+      chuc_vu: {
+        url: '/v1/chuc_vu'
+      },
+      nha_cung_cap: {
+        url: '/v1/nha_cung_cap'
+      },
+      loai_dich_vu: {
+        url: '/v1/loai_dich_vu'
+      },
+      dich_vu: {
+        url: '/v1/dich_vu'
+      },
     }
   }
 };

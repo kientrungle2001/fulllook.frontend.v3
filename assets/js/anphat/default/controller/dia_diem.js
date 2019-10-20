@@ -1,8 +1,8 @@
 anphatApp.controller('dia_diem_controller', ['$scope', function($scope) {
   $scope.tai_danh_sach_tinh = function() {
     proxy_ajax({
-      url: ANPHAT_API_URL + ANPHAT_CONSTANTS.api.v1.dia_diem.danh_sach,
-      type: AJAX_CONSTANTS.type.post,
+      url: ANPHAT_API_URL + ANPHAT_CONSTANTS.api.v1.dia_diem.url,
+      type: AJAX_CONSTANTS.type.get,
       data: {
         dieu_kien: {
           loai_dia_diem: 'tinh',
