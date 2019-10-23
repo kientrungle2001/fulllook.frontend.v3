@@ -25,13 +25,13 @@
       <th><span class="fa fa-pencil"></span> <span class="fa fa-trash"></span></th>
       <th>DS Huyện</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Hà Nội</td>
+    <tr ng-repeat="tinh in danh_sach_tinh">
+      <td>{{$index + 1}}</td>
+      <td>{{tinh.ten_dia_diem}}</td>
       <td>034</td>
       <td><span class="fa fa-circle text-success"></span></td>
       <td><span class="fa fa-pencil text-primary"></span> <span class="fa fa-trash text-danger"></span></td>
-      <td><a href="#">DS Huyện</a></td>
+      <td><a href="#" onclick="return false;" ng-click="tai_danh_sach_huyen(tinh)">DS Huyện</a></td>
     </tr>
   </table>
   </div>
@@ -54,12 +54,17 @@
       <th>ID</th>
       <th>Tên huyện</th>
       <th>Mã huyện</th>
+      <th>Tỉnh</th>
       <th><span class="fa fa-circle"></span></th>
       <th><span class="fa fa-pencil"></span> <span class="fa fa-trash"></span></th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td></td>
+    <tr ng-repeat="huyen in danh_sach_huyen">
+      <td>{{$index + 1}}</td>
+      <td>{{huyen.ten_dia_diem}}</td>
+      <td>{{huyen.ma_dia_diem}}</td>
+      <td>{{tinh_dang_chon.ten_dia_diem}}</td>
+      <td><span class="fa fa-circle text-success"></span></td>
+      <td><span class="fa fa-pencil text-primary"></span> <span class="fa fa-trash text-danger"></span></td>
     </tr>
   </table>
   </div>
