@@ -32,6 +32,9 @@ class MY_Controller extends CI_Controller {
 		
 	}
 
+	public function tag($view, $data = null, $return = false, $cachable = false, $key = false) {
+		return $this->view('tag/'.$view, $data, $return, $cachable, $key);
+	}
 	public function view($view, $data = null, $return = false, $cachable = false, $key = false) {
 		if($cachable) {
 			$content = $this->cache->file->get($key);
@@ -46,8 +49,9 @@ class MY_Controller extends CI_Controller {
 		}
 		$data['agent'] = isset($this->agent) ? $this->agent : null;
 		$data['db'] = isset($this->db) ? $this->db : null;
-		$data['config'] = isset($this->config) ? $this->config : null;
+		$data['cf'] = $data['config'] = isset($this->config) ? $this->config : null;
 		$data['controller'] = $this;
+		$data['c'] = $this;
 		$data['data'] = $data;
 		$view_path = $this->get_view($view);
 		$content = $this->load->view($view_path, $data, true);
@@ -88,7 +92,7 @@ class MY_Controller extends CI_Controller {
 			$css_libraries = $this->package($package, 'css_libraries');
 			foreach($css_libraries as $library) {
 				// $css_path = '/assets/css/' . $app_name . '/' . $package . '/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
-				$css_path = base_url() . '/assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
+				$css_path = base_url() . 'assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
 				echo '<link href="'.$css_path.'" rel="stylesheet" />';
 			}
 		}
@@ -101,11 +105,11 @@ class MY_Controller extends CI_Controller {
 			foreach($js_libraries as $library) {
 				// $js_path = '/assets/js/' . $app_name . '/' . $package . '/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
 				if(isset($library['file'])) {
-					$js_path = base_url() . '/assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
+					$js_path = base_url() . 'assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $library['file'];
 					echo '<script src="'.$js_path.'"></script>';
 				} elseif(isset($library['files'])) {
 					foreach($library['files'] as $file) {
-						$js_path = base_url() . '/assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $file;
+						$js_path = base_url() . 'assets/libraries/' . $library['name'] . '/' . $library['version'] . '/' . $file;
 						echo '<script src="'.$js_path.'"></script>';
 					}
 				}
@@ -118,12 +122,12 @@ class MY_Controller extends CI_Controller {
 		$css_packages = $this->device('css_packages');
 		foreach($css_packages as $css_package) {
 			if(is_file($file = FCPATH.'assets/css/' . $app_name . '/' . $css_package . '/' . $css)) {
-				$css_path = base_url() . '/assets/css/' . $app_name . '/' . $css_package . '/' . $css . '?_=' . filemtime($file);
+				$css_path = base_url() . 'assets/css/' . $app_name . '/' . $css_package . '/' . $css . '?_=' . filemtime($file);
 				echo '<link href="'.$css_path.'" rel="stylesheet" />';
 			}
 		}
 		if(is_file($file = FCPATH.'assets/css/' . $app_name . '/' . $css)) {
-			$css_path = base_url() . '/assets/css/' . $app_name . '/' . $css . '?_=' . filemtime($file);
+			$css_path = base_url() . 'assets/css/' . $app_name . '/' . $css . '?_=' . filemtime($file);
 			echo '<link href="'.$css_path.'" rel="stylesheet" />';
 		}
 	}
@@ -136,14 +140,14 @@ class MY_Controller extends CI_Controller {
 		
 		foreach($js_packages as $js_package) {
 			if(is_file($file = FCPATH.'assets/js/' . $app_name . '/' . $js_package . '/' . $js)) {
-				$js_path = base_url() . '/assets/js/' . $app_name . '/' . $js_package . '/' . $js . '?_='.filemtime($file);
+				$js_path = base_url() . 'assets/js/' . $app_name . '/' . $js_package . '/' . $js . '?_='.filemtime($file);
 				echo '<script src="'.$js_path.'"></script>';
 				return ;
 			}
 		}
 
 		if(is_file($file = FCPATH . 'assets/js/' . $app_name . '/' . $js)) {
-			$js_path = base_url() . '/assets/js/' . $app_name . '/' . $js . '?_=' . filemtime($file);
+			$js_path = base_url() . 'assets/js/' . $app_name . '/' . $js . '?_=' . filemtime($file);
 			echo '<script src="'.$js_path.'"></script>';
 		}
 	}
@@ -356,7 +360,7 @@ class MY_TableController extends MY_Controller {
 							if($this->filters[$key]['type'] == 'like') {
 								$conds = [];
 								foreach($value as $v) {
-									$conds[] = $key. " like '%,$v,%'";
+									$conds[] = ($cond = '(' . $key. " like '%,$v,%'" . ' or ' . $key. " like '%[$v]%'" . ')');
 								}
 								$table_model->db->where(implode(' or ', $conds));
 							}
@@ -371,6 +375,9 @@ class MY_TableController extends MY_Controller {
 						if(isset($this->filters) && isset($this->filters[$key])) {
 							if($this->filters[$key]['type'] == 'like') {
 								$table_model->db->like($key, ','.$value.',');	
+							}
+							if($this->filters[$key]['type'] == 'like_raw') {
+								$table_model->db->like($key, $value);
 							}
 						} else {
 							# has not filters
@@ -427,6 +434,11 @@ class MY_TableController extends MY_Controller {
 					if(isset($this->filters) && isset($this->filters[$key])) {
 						if($this->filters[$key]['type'] == 'like') {
 							$this->db->like($key, ','.$value.',');	
+						}
+						if($this->filters[$key]['type'] == 'like_raw') {
+							if(@$_REQUEST['showDebug'])
+								echo $key . $value;
+							$table_model->db->like($key, $value);
 						}
 					} else {
 						# has not filters

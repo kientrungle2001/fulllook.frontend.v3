@@ -40,7 +40,7 @@ $product = $controller->posts_model->get_post($productId);
 	</div>
 	<div style="clear:both"></div>
 	<div id="product-comments">
-	<div class="fb-comments" data-href="http://<?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
+	<div class="fb-comments" data-href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
 	</div>
 </div>
 

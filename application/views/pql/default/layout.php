@@ -6,15 +6,15 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-	<meta rel="canonical" href="http://<?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
-	<link rel="canonical" href="http://<?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
+	<meta rel="canonical" href="<?= SITE_PROTOCOL?><?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
+	<link rel="canonical" href="<?= SITE_PROTOCOL?><?= str_replace('www.','',$_SERVER['HTTP_HOST'])?><?= $_SERVER['REQUEST_URI']?>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><?= $page_title ?></title>
 	<meta property="og:type" content="og:article" />
 	<meta property="og:image" content="<?= $page_image ?>" />
 	<meta property="og:title" content="<?= $page_title?>" />
 	<meta property="og:site_name" content="<?= $_SERVER['HTTP_HOST'] ?>" />
-	<meta property="og:url" content="http://<?= $_SERVER['HTTP_HOST'] ?>/" />
+	<meta property="og:url" content="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST'] ?>/" />
 	<meta property="og:description" content="<?= html_escape(strip_tags($page_description)) ?>" />
 	<meta name="keywords" content="<?= $page_keywords ?>" />
 	<meta name="description" content="<?= html_escape(strip_tags($page_description)) ?>" />

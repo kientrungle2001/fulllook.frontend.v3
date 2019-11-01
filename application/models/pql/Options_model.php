@@ -23,7 +23,7 @@ class Options_model extends Abstract_Table_Model
 			$options = $this->get_option('option_tree');
 		// var_dump($options);
 		if(isset($options[$key])) {
-			return $options[$key];
+			return is_string($options[$key])?str_replace('http://', SITE_PROTOCOL, $options[$key]):$options[$key];
 		}
 		return null;
 	}
@@ -93,7 +93,7 @@ class Options_model extends Abstract_Table_Model
 	}
 
 	public function get_term_taxonomy_image($term_taxonomy_id) {
-		return $this->get_option('z_taxonomy_image' . $term_taxonomy_id,0);
+		return str_replace('http://', SITE_PROTOCOL, $this->get_option('z_taxonomy_image' . $term_taxonomy_id,0));
 	}
 
 	public function get_wpseo_taxonomy_meta() {

@@ -212,7 +212,6 @@ function &DB($params = '', $query_builder_override = NULL)
 			$DB = new $driver($params);
 		}
 	}
-
 	$DB->initialize();
 	return $DB;
 }

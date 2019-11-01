@@ -23,10 +23,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+$protocol = null;
+if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $protocol = 'https://';
+}
+else {
+  $protocol = 'http://';
+}
+define('SITE_PROTOCOL', $protocol);
+
 if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com') {
-	$config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/v2';
+	$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/v2';
 } else {
-	$config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'];
+	$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'];
 }
 
 $config['apps'] = [];

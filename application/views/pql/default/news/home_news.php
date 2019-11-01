@@ -18,7 +18,7 @@ $posts = $posts_model->get_posts(array(
 	<h2 style="height:35px;overflow:hidden"><a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><?= wpglobus($post['post_title'])?></a></h2>
 	</div><br>
 	<div id="content_new_home">
-		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><img src="http://pql.nn-center.com/_pql/wp-content/uploads/<?= $img?>" border="0" alt="<?= wpglobus($post['post_title'])?>" width="180" height="140px"> </a>
+		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>"><img src="<?= SITE_PROTOCOL?>pql.nn-center.com/_pql/wp-content/uploads/<?= $img?>" border="0" alt="<?= wpglobus($post['post_title'])?>" width="180" height="140px"> </a>
 		<p style="height:162px;overflow:hidden"><?= strip_tags(wpglobus($post['post_content'], $language))?></p>
 		<a href="<?= $controller->links_model->get_news_link($language, $home_news_category, $post)?>" class="detail_new_home">&gt; Chi tiết</a>
 	</div>

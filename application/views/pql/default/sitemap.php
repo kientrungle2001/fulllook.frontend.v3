@@ -1,5 +1,5 @@
 <?php echo '<'.'?xml version="1.0" encoding="UTF-8"?'.'>'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="<?= SITE_PROTOCOL?>www.sitemaps.org/schemas/sitemap/0.9">
 <?php
 	
     //[ID] => 28
@@ -30,12 +30,12 @@ foreach($tree_menu_items as $root_item) {
 	$root_object = $menu_item_object_indexeds[$root_object_id];
 	?>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $root_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $root_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $root_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $root_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
@@ -47,12 +47,12 @@ foreach($tree_menu_items as $root_item) {
 		//pre('--------' . $root_child_object['name']);
 		?>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $root_child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $root_child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $root_child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $root_child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
@@ -63,12 +63,12 @@ foreach($tree_menu_items as $root_item) {
 			$child_object = $menu_item_object_indexeds[$child_object_id];
 			?>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
@@ -79,13 +79,13 @@ foreach($tree_menu_items as $root_item) {
 				$sub_child_object = $menu_item_object_indexeds[$sub_child_object_id];
 				?>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $sub_child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('vi', $sub_child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
 
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $sub_child_object) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_category_link('en', $sub_child_object) ?></loc>
 	<changefreq>monthly</changefreq>
 	<priority>0.2</priority>
 </url>
@@ -107,7 +107,7 @@ foreach($posts as $post):
 	$category = $term[0];
 ?>
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_link('vi', $category, $post) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_link('vi', $category, $post) ?></loc>
 	<lastmod><?= $post['post_modified']?></lastmod>
 
 	<changefreq>weekly</changefreq>
@@ -115,7 +115,7 @@ foreach($posts as $post):
 </url>
 
 <url>
-	<loc>http://<?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_link('en', $category, $post) ?></loc>
+	<loc><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $links_model->get_product_link('en', $category, $post) ?></loc>
 	<lastmod><?= $post['post_modified']?></lastmod>
 
 	<changefreq>weekly</changefreq>

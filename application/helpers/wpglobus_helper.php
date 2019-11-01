@@ -1,6 +1,7 @@
 <?php
 function wpglobus($str, $language = 'vi') {
 	if(null === $str) return null;
+	$str = str_replace('http://', SITE_PROTOCOL, $str);
 	preg_match("/\{:$language\}([^\{]+)\{:\}/i", $str, $match);
 	if(isset($match[1]))
 		return replace_host($match[1]);

@@ -19,20 +19,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$controller->css_libraries();
 	$controller->css('style.css');
 ?>
-	<?php $controller->js_libraries(); ?>
+	<?php $c->js_libraries(); ?>
 
 	<?php
-	$controller->js('array.js');
-	$controller->js('app.js');
-	$controller->js('controller/login.js');
+	$c->js('array.js');
+	$c->js('constants.js');
+	$c->js('app.js');
+	$c->js('controller/login.js');
+	
 	?>
 </head>
 
-<body class="<?php echo $controller->router->fetch_class();?>-page" ng-app="anphatApp">
+<body class="<?php echo $c->router->fetch_class();?>-page" ng-app="qlhsApp">
 	<div ng-controller="loginController">
-		<?php $controller->view('page/header', $data);?>
-		<?php $controller->view($view, $data);?>
-		<?php $controller->view('page/footer', $data);?>
+		<?php $c->view('page/header', $data);?>
+		<?php $c->view($view, $data);?>
+		<?php $c->view('page/footer', $data);?>
 	</div>
 </body>
 

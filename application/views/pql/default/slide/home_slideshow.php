@@ -7,7 +7,7 @@ $home_slides = $controller->options_model->get_option_tree('home_slides');
 			
 			<div id="slider_s" class="nivoSlider" style="position: relative; height: 257px; background: url(&quot;<?= $home_slide?>&quot;) no-repeat;">
 			<?php foreach($home_slides as $slide):?>
-				<a href="<?= $slide['link']?>" class="nivo-imageLink" style="display: block;"><img src="<?= $slide['image']?>" width="790" height="257" border="0" alt="<?= $slide['title']?>" style="display: none;"></a>
+				<a href="<?= $slide['link']?>" class="nivo-imageLink" style="display: block;"><img src="<?= str_replace('http://', SITE_PROTOCOL, $slide['image'])?>" width="790" height="257" border="0" alt="<?= $slide['title']?>" style="display: none;"></a>
 			<?php endforeach?>
 				<div class="nivo-caption" style="opacity: 0;">
 					<p></p>

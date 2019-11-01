@@ -21,6 +21,7 @@ class Posts_model extends Abstract_Table_Model
 		if($thumbnail) {
 			$img = $thumbnail['_wp_attached_file'];
 		}
+		$img = str_replace('http://', SITE_PROTOCOL, $img);
 		return $img;
 	}
 	public function get_posts($conds, $start = null, $offset = null) {
@@ -55,7 +56,7 @@ class Posts_model extends Abstract_Table_Model
 		foreach($posts as &$post) {
 			foreach($metas as $meta) {
 				if($post['ID'] == $meta['post_id']) {
-					$post[$meta['meta_key']] = $meta['meta_value'];
+					$post[$meta['meta_key']] = str_replace('http://', SITE_PROTOCOL, $meta['meta_value']);
 				}
 			}
 		}
@@ -70,7 +71,7 @@ class Posts_model extends Abstract_Table_Model
 		foreach($changesets as $changeset):
 			$arr = json_decode($changeset['post_content'], true);
 			foreach($arr as $key => $val):
-				$rs[$key] = $val;
+				$rs[$key] = is_string($val)?str_replace('http://', SITE_PROTOCOL, $val):$val;
 			endforeach;
 		endforeach;
 		return $rs;
@@ -78,7 +79,7 @@ class Posts_model extends Abstract_Table_Model
 
 	public function get_option($key) {
 		$customize = $this->get_customize_changesets();
-		if(isset($customize[$key])) return $customize[$key];
+		if(isset($customize[$key])) return is_string($customize[$key])?str_replace('http://', SITE_PROTOCOL, $customize[$key]):$customize[$key];
 		return null;
 	}
 }

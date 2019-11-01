@@ -1,5 +1,6 @@
 anphatApp = angular.module('anphatApp', ["ngSanitize", "ui.bootstrap", 'ui.tinymce', 'ui.select2']);
 
+/** Filters */
 anphatApp.filter('sanitizer', ['$sce', function ($sce) {
 	return function (url) {
 		return $sce.trustAsHtml(url);
@@ -17,6 +18,121 @@ anphatApp.filter('toDate', function () {
 		return new Date(input);
 	}
 });
+
+/** Factories */
+
+/** Dia diem */
+anphatApp.factory('tai_danh_sach_dia_diem', function() {
+	return function(params, $callback) {
+		proxy_ajax({
+      url: APC.api.v1.dia_diem.url,
+      type: AJAX_CONSTANTS.type.get,
+      data: {
+        dieu_kien: {
+					loai_dia_diem: params.loai_dia_diem,
+					id_khu_vuc: params.id_khu_vuc || null,
+          trang_thai: params.trang_thai
+        },
+        sap_xep: 'thu_tu',
+        thu_tu: 'asc',
+        kich_co_trang: params.kich_co_trang,
+        trang_hien_thoi: params.trang_hien_thoi
+      },
+      success: function(danh_sach_dia_diem) {
+        $callback(danh_sach_dia_diem);
+      }
+    });
+	};
+});
+
+anphatApp.factory('them_dia_diem', function() {
+	return function(params, $callback) {
+		proxy_ajax({
+			url: APC.api.v1.dia_diem.url,
+			type: AJC.type.post,
+			data: {
+				du_lieu: params
+			}, success: function(resp) {
+				$callback(resp);
+			}
+		});
+	};
+});
+
+/** Tong quat */
+
+anphatApp.factory('tai_danh_sach', function() {
+	return function(params, $callback) {
+		proxy_ajax({
+      url: APC.api.v1.tong_quat.url,
+			type: AJAX_CONSTANTS.type.get,
+			headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
+    	},
+      data: {
+				goi_du_lieu: JSON.stringify(params)
+			}, success: function(danh_sach) {
+        $callback(danh_sach);
+      }
+    });
+	};
+});
+
+anphatApp.factory('them_ban_ghi', function() {
+	return function(params, $callback) {
+		proxy_ajax({
+			url: APC.api.v1.tong_quat.url,
+			type: AJC.type.post,
+			headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
+    	},
+			data: {
+				goi_du_lieu: JSON.stringify(params)
+			}, success: function(ban_ghi) {
+				$callback(ban_ghi);
+			}
+		});
+	};
+});
+
+anphatApp.factory('xoa_ban_ghi', function() {
+	return function(id, params, $callback) {
+		proxy_ajax({
+			url: APC.api.v1.tong_quat.url + '/' + id,
+			type: AJC.type.del,
+			headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
+    	},
+			data: {
+				goi_du_lieu: JSON.stringify(params)
+			}, success: function(ban_ghi) {
+				$callback(ban_ghi);
+			}
+		});
+	};
+});
+
+anphatApp.factory('sua_ban_ghi', function() {
+	return function(id, params, $callback) {
+		proxy_ajax({
+			url: APC.api.v1.tong_quat.url + '/' + id,
+			type: AJC.type.put,
+			headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
+    	},
+			data: {
+				goi_du_lieu: JSON.stringify(params)
+			}, success: function(ban_ghi) {
+				$callback(ban_ghi);
+			}
+		});
+	};
+});
+
 
 Array.prototype.pushIfNotExisted = function(item) {
 	if(this.indexOf(item) === -1) {

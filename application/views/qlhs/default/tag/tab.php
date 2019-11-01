@@ -1,0 +1,1 @@
+<a class="nav-item nav-link <?= $cls ?>" id="nav-<?= $id?>-tab" data-toggle="tab" href="#nav-<?= $id?>" role="tab" aria-controls="nav-<?= $id?>" aria-selected="true"><?= $title?></a>

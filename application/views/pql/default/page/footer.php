@@ -61,7 +61,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
  	<div class="box_end" style="text-align:center">
 		<a href="/assets/css/pql/default/upload/images/nha-phan-phoi-ongtienphong.png" title="sản phẩm chính hãng Tiền Phong">
 			<img src="/assets/css/pql/default/images/ongtien-phong.jpg" border="0" alt="sản phẩm chính hãng Tiền Phong" title="sản phẩm chính hãng Tiền Phong" style="width:148px"></a>
-			<a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=4171" rel="nofollow" title="THông báo"><img src="/assets/css/pql/default/images/da-dang-ky-bo-cong-thuong.png" border="0" alt="Thông báo" title="Thông báo" style="width:148px">
+			<a href="<?= SITE_PROTOCOL?>online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=4171" rel="nofollow" title="THông báo"><img src="/assets/css/pql/default/images/da-dang-ky-bo-cong-thuong.png" border="0" alt="Thông báo" title="Thông báo" style="width:148px">
 			</a>
 	</div>
 	<div style="clear:both"></div>
@@ -82,7 +82,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 		<div id="email_f"> <?= $email?></div>
 		<div style="width: 430px;position: absolute;top: 5px;right: 0px;">
 		<!-- AddThis Button BEGIN -->
-		<div class="fb-like" data-href="http://pql.nn-center.com/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+		<div class="fb-like" data-href="<?= SITE_PROTOCOL?>pql.nn-center.com/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
 		<!-- AddThis Button END -->
 		</div>
 	</div>

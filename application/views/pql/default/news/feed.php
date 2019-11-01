@@ -18,8 +18,8 @@ $page_feed_url = $page_url . '/feed';
 ?>
 <channel>
 	<title><?= $page_title?></title>
-	<atom:link href="http://<?= $_SERVER['HTTP_HOST']?><?= $page_feed_url?>" rel="self" type="application/rss+xml" />
-	<link>http://<?= $_SERVER['HTTP_HOST']?><?= $page_url?></link>
+	<atom:link href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $page_feed_url?>" rel="self" type="application/rss+xml" />
+	<link><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $page_url?></link>
 	<description><?= $page_title?></description>
 	<lastBuildDate>
 	<?= date(DATE_RSS, strtotime(date('Y-m-d H:00:00')))?>	</lastBuildDate>
@@ -33,8 +33,8 @@ $page_feed_url = $page_url . '/feed';
 		?>
 	<item>
 		<title><?= wpglobus($post['post_title'], $language)?></title>
-		<link>http://<?= $_SERVER['HTTP_HOST']?><?= $controller->links_model->get_news_link($language, $category, $post)?></link>
-		<guid isPermaLink="false">http://<?= $_SERVER['HTTP_HOST']?>/news/detail/<?= $language?>/<?= $category['term_id']?>/<?= $post['ID']?></guid>
+		<link><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $controller->links_model->get_news_link($language, $category, $post)?></link>
+		<guid isPermaLink="false"><?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?>/news/detail/<?= $language?>/<?= $category['term_id']?>/<?= $post['ID']?></guid>
 		<pubDate><?= date(DATE_RSS, strtotime(trim($post['post_modified'])))?></pubDate>
 		<category><![CDATA[<?= $page_title?>]]></category>
 		<description><![CDATA[<?= wpglobus($post['post_content'], $language) ?>]]></description>
