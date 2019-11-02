@@ -1,5 +1,5 @@
 <?php
-require_once FCPATH . '3rdparty/Mobile-Detect/2.8.33/Mobile_Detect.php';
+require_once FCPATH . '3rdparty/Mobile-Detect/2.8.34/Mobile_Detect.php';
 class Detector {
 	public $_detector;
 	
