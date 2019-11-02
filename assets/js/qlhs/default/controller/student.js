@@ -52,13 +52,30 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
     // do save student
     jQuery('#modal_add_student').modal('hide');
     proxy_post({
-      url: '/api/student'
+      url: QLHS_CONSTANTS.api.v1.student.url + '/insert/student',
+      data: {
+        item: angular.copy(row)
+      },
+      success: function(resp) {
+        console.log(resp);
+        $scope.tai_danh_sach();
+      }
     });
   };
 
   $scope.update = function(row) {
     // do save student
     jQuery('#modal_edit_student').modal('hide');
+    proxy_post({
+      url: QLHS_CONSTANTS.api.v1.student.url + '/update/student/' + row.id,
+      data: {
+        item: angular.copy(row)
+      },
+      success: function(resp) {
+        console.log(resp);
+        $scope.tai_danh_sach();
+      }
+    });
   };
 
   $scope.tai_danh_sach();

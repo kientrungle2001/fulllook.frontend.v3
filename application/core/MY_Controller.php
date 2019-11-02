@@ -408,46 +408,46 @@ class MY_TableController extends MY_Controller {
 			}
 		}
 		
-	# filters
-	if($where) {
-		foreach ($where as $key => $value) {
-			if(is_array($value)) {
+		# filters
+		if($where) {
+			foreach ($where as $key => $value) {
+				if(is_array($value)) {
 
-				if(count($value)) {
-					# has filters
-					if(isset($this->filters) && isset($this->filters[$key])) {
-						if($this->filters[$key]['type'] == 'like') {
-							$conds = [];
-							foreach($value as $v) {
-								$conds[] = $key. " like '%,$v,%'";
+					if(count($value)) {
+						# has filters
+						if(isset($this->filters) && isset($this->filters[$key])) {
+							if($this->filters[$key]['type'] == 'like') {
+								$conds = [];
+								foreach($value as $v) {
+									$conds[] = $key. " like '%,$v,%'";
+								}
+								$this->db->where(implode(' or ', $conds));
 							}
-							$this->db->where(implode(' or ', $conds));
+						} else {
+							#has not filters
+							$this->db->where_in($key, $value);
 						}
-					} else {
-						#has not filters
-						$this->db->where_in($key, $value);
 					}
-				}
-			} else {
-				if($value !== '') {
-					# has filters
-					if(isset($this->filters) && isset($this->filters[$key])) {
-						if($this->filters[$key]['type'] == 'like') {
-							$this->db->like($key, ','.$value.',');	
+				} else {
+					if($value !== '') {
+						# has filters
+						if(isset($this->filters) && isset($this->filters[$key])) {
+							if($this->filters[$key]['type'] == 'like') {
+								$this->db->like($key, ','.$value.',');	
+							}
+							if($this->filters[$key]['type'] == 'like_raw') {
+								if(@$_REQUEST['showDebug'])
+									echo $key . $value;
+								$table_model->db->like($key, $value);
+							}
+						} else {
+							# has not filters
+							$this->db->where($key, $value);
 						}
-						if($this->filters[$key]['type'] == 'like_raw') {
-							if(@$_REQUEST['showDebug'])
-								echo $key . $value;
-							$table_model->db->like($key, $value);
-						}
-					} else {
-						# has not filters
-						$this->db->where($key, $value);
 					}
 				}
 			}
 		}
-	}
 
 		$count_items = $this->db->count_all_results($table);
 		foreach($items as &$item) {
@@ -481,7 +481,7 @@ class MY_TableController extends MY_Controller {
 		$table_model->remove($id);
 		echo 1;
 	}
-	public function add($table = null) {
+	public function insert($table = null) {
 		$this->load->model($this->table_model);
 		$table_model = $this->{$this->table_model};
 		$item = $this->input->post('item');
