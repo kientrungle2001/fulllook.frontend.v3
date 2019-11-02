@@ -15,8 +15,8 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
-/3rdparty/
-/assets/libraries/
-/curl
+#/3rdparty/
+#/assets/libraries/
+#/curl
 /tmp
 .favorites.json
