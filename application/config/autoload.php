@@ -151,4 +151,5 @@ if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-cent
 if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn')) {
 			$autoload['model']['qlhs/student_model'] = 'student_model';
 			$autoload['model']['qlhs/classes_model'] = 'classes_model';
+			$autoload['model']['qlhs/class_student_model'] = 'class_student_model';
 }

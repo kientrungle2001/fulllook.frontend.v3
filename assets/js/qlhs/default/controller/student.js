@@ -22,8 +22,50 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
       }
     });
   };
+  $scope.selected_tab = 'info';
+  $scope.selected_row = null;
   $scope.select_row = function(row) {
     $scope.selected_row = row;
+    $scope.fetch_data();
+  };
+  $scope.select_tab = function(tab) {
+    $scope.selected_tab = tab;
+    $scope.fetch_data();
+  };
+  $scope.fetch_data = function() {
+    if($scope.selected_tab && $scope.selected_row) {
+      if(typeof $scope['select_tab_' + $scope.selected_tab] !== 'undefined') {
+        $scope['select_tab_' + $scope.selected_tab].call($scope);
+      }
+    }
+  };
+  $scope.select_tab_info = function() {
+    console.log('show_info');
+  };
+  $scope.select_tab_class_schedule = function() {
+    console.log('class_schedule');
+  };
+  $scope.select_tab_class_schedule_list = function() {
+    console.log('class_schedule_list');
+    $scope.tai_danh_sach_xep_lop();
+  };
+  $scope.tai_danh_sach_xep_lop = function() {
+    proxy_get({
+      url: QLHS_CONSTANTS.api.v1.class_student.url + '/items/class_student',
+      type: AJAX_CONSTANTS.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: $scope.pageNum,
+        pageSize: $scope.pageSize,
+        where: {
+          studentId: $scope.selected_row.id
+        }
+      },
+      success: function(resp) {
+        $scope.danh_sach_xep_lop = resp.rows;
+        $scope.$apply();
+      }
+    });
   };
   $scope.is_selected_row = function(row) {
     if($scope.selected_row)
@@ -76,6 +118,30 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
         $scope.tai_danh_sach();
       }
     });
+  };
+
+  $scope.remove = function(row) {
+    if(confirm('Delete #' + row.id + '?')) {
+      proxy_post({
+        url: QLHS_CONSTANTS.api.v1.student.url + '/remove/student/' + row.id,
+        success: function(resp) {
+          $scope.tai_danh_sach();
+        }
+      });
+    }
+    
+  };
+
+  $scope.add_class_schedule = function(class_schedule) {
+    // TODO:
+  };
+
+  $scope.change_class_schedule = function(class_schedule) {
+    // TODO:
+  };
+
+  $scope.stop_class_schedule = function(class_schedule) {
+    // TODO:
   };
 
   $scope.tai_danh_sach();

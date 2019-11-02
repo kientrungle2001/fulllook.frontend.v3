@@ -9,7 +9,7 @@
     <div class="form-group col-md-6">
       <select class="form-control form-control-sm" placeholder="Lớp" ng-model="selected_class" ng-change="tai_danh_sach()">
         <option ng-value="null">Lớp</option>
-        <option ng-repeat="cl in classes" ng-value="cl.id">{{cl.code || cl.name}}</option>
+        <option ng-repeat="cl in classes" ng-value="cl.id">{{cl.name}}</option>
       </select>
     </div>
   </div>

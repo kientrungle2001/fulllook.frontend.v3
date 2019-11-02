@@ -9,7 +9,7 @@ class Abstract_Table_Model extends MY_Model
 {
 	
 	public $table;
-	public $pkey;
+	public $pkey = 'id';
 	
 	/**
 	 * Lấy kết quả query có format theo metadata

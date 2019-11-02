@@ -1,8 +1,8 @@
 <h1 class="text-center">Xếp lớp</h1>
 <nav>
   <div class="nav nav-tabs" id="nav-xep-lop-tab" role="tablist">
-    <?php $c->tag('tab', ['id' => 'xep-lop-form', 'cls' => 'active', 'title' => 'Xếp lớp']); ?>
-    <?php $c->tag('tab', ['id' => 'xep-lop-danh-sach', 'cls' => '', 'title' => 'Danh sách xếp lớp']); ?>
+    <?php $c->tag('tab', ['id' => 'xep-lop-form', 'cls' => 'active', 'title' => 'Xếp lớp', 'func' => 'class_schedule']); ?>
+    <?php $c->tag('tab', ['id' => 'xep-lop-danh-sach', 'cls' => '', 'title' => 'Danh sách xếp lớp', 'func' => 'class_schedule_list']); ?>
   </div>
 </nav>
 <div class="tab-content" id="nav-xep-lop-tabContent">

@@ -17,6 +17,9 @@ QLHS_CONSTANTS = {
       classes: {
         url: QLHS_API_URL + '/classes'
       },
+      class_student: {
+        url: QLHS_API_URL + '/class_student'
+      },
       phong_ban: {
         url: '/v1/phong_ban'
       },

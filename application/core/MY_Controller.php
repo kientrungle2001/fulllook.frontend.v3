@@ -472,24 +472,23 @@ class MY_TableController extends MY_Controller {
 		$table_model = $this->{$this->table_model};
 		$item = $this->input->post('item');
 		$table_model->update($id, $item);
-		echo 1;
+		$item = $table_model->get_one($id);
+		echo json_encode($item);
 	}
 	public function remove($table = null, $id = null) {
 		$this->load->model($this->table_model);
 		$table_model = $this->{$this->table_model};
-		$id = $this->input->post('id');
 		$table_model->remove($id);
-		echo 1;
+		echo $id;
 	}
 	public function insert($table = null) {
 		$this->load->model($this->table_model);
 		$table_model = $this->{$this->table_model};
 		$item = $this->input->post('item');
 		$table_model->insert($item);
-		$result = [
-			'id' => $table_model->db->insert_id()
-		];
-		echo json_encode($result);
+		$id = $table_model->db->insert_id();
+		$item = $table_model->get_one($id);
+		echo json_encode($item);
 	}
 
 	public function format(&$item) {
