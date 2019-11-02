@@ -22,5 +22,4 @@ class Detector {
 	public function getDetector() {
 		return $this->_detector;
 	}
-
 }
