@@ -2,10 +2,9 @@
 <?php $c->js('controller/classes.js')?>
 <div ng-controller="classes_list_controller">
 <div class="container-fluid content-wrapper" ng-controller="student_controller">
+<?php $c->view('student/add/form')?>
+<?php $c->view('student/edit/form')?>
  <div class="row">
-  <div class="col-md-5 d-none">
-    <?php $c->view('student/detail/add')?>
-  </div>
   <div class="col-md-10">
     <h5>Danh sách học sinh</h5>
     <?php $c->view('student/detail/filter');?>

@@ -13,5 +13,6 @@ class Student_model extends Abstract_Table_Model
 		'documentLevel' => ['type' => 'int'],
 		'document' => ['type' => 'bool'],
 		'display' => ['type' => 'bool'],
+		'assignId'	=> ['type' => 'int']
 	];
 }

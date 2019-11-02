@@ -90,6 +90,23 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     jQuery('#' + ten_dialog).modal('hide');
   };
 
+  $scope.mo_dialog_them_ban_ghi = function(ten_dialog) {
+    jQuery('#' + ten_dialog).modal('show');
+  };
+
+  $scope.dong_dialog_them_ban_ghi = function(ten_dialog) {
+    jQuery('#' + ten_dialog).modal('hide');
+  };
+
+  $scope.hien_thi_bo_loc = false;
+  $scope.chuyen_doi_hien_thi_bo_loc = function() {
+    $scope.hien_thi_bo_loc = !$scope.hien_thi_bo_loc;
+  }
+
+  $scope.loc_du_lieu = function(bo_loc) {
+    console.log(bo_loc);
+  };
+
   // lay du lieu
   $scope.tai_danh_sach();
 }]);

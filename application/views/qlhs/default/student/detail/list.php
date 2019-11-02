@@ -5,7 +5,7 @@
     <td>{{row.phone}}</td>
     <td>{{row.note}}</td>
     <td>{{row.startStudyDate | vndate}}</td>
-    <td class="text-nowrap"><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+    <td class="text-nowrap"><a href="#" ng-click="edit(row)">Sửa</a> | <a href="#">Xóa</a></td>
   </tr>
   <tr ng-class="{'table-active': is_selected_row(row), 'table-inactive': !is_selected_row(row)}" ng-click="select_row(row)"
     ng-show="is_detail_visible(row)">

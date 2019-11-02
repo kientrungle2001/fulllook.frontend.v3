@@ -36,9 +36,30 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
   };
   $scope.is_detail_visible = function(row) {
     return !!$scope.detail_rows[row.id];
-  }
+  };
   $scope.open_sign_row = function(row) {
     return $scope.is_detail_visible(row) ? '-' : '+';
-  }
+  };
+  $scope.add = function() {
+    jQuery('#modal_add_student').modal('show');
+  };
+  $scope.edit = function(row) {
+    $scope.erow = angular.copy(row);
+    jQuery('#modal_edit_student').modal('show');
+  };
+
+  $scope.insert = function(row) {
+    // do save student
+    jQuery('#modal_add_student').modal('hide');
+    proxy_post({
+      url: '/api/student'
+    });
+  };
+
+  $scope.update = function(row) {
+    // do save student
+    jQuery('#modal_edit_student').modal('hide');
+  };
+
   $scope.tai_danh_sach();
 }]);

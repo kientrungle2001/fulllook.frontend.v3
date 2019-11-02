@@ -252,10 +252,12 @@ function proxy_ajax(options) {
 
 function proxy_get(options) {
 	options.type = 'get';
+	options.dataType = 'json';
 	return proxy_ajax(options);
 }
 
 function proxy_post(options) {
 	options.type = 'post';
+	options.dataType = 'json';
 	return proxy_ajax(options);
 }

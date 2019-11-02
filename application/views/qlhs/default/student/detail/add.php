@@ -1,53 +1,67 @@
 <form class="form">
-  <h5>Thêm học sinh</h5>
-  <div class="form-group">
-    <input class="form-control form-control-sm" placeholder="Họ và tên">
-  </div>
+  
   <div class="form-row">
     <div class="form-group col-md-8">
-      <input class="form-control form-control-sm" placeholder="Mã HS">
+    <label>Họ và tên</label>
+      <input class="form-control form-control-sm" placeholder="Họ và tên" ng-model="<?= $model?>.name">
     </div>
-    <div class="form-group col-md-16">
-      <input class="form-control form-control-sm" placeholder="SĐT">
+    <div class="form-group col-md-4">
+    <label>Mã HS</label>
+      <input class="form-control form-control-sm" placeholder="Mã HS" ng-model="<?= $model?>.code">
     </div>
-  </div>
-  <div class="form-group">
-    <input class="form-control form-control-sm" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <input class="form-control form-control-sm" placeholder="Phụ huynh">
-  </div>
-  <div class="form-group">
-    <input class="form-control form-control-sm" placeholder="Địa chỉ">
+    <div class="form-group col-md-4">
+    <label>SĐT</label>
+      <input class="form-control form-control-sm" placeholder="SĐT" ng-model="<?= $model?>.phone">
+    </div>
+    <div class="form-group col-md-8">
+    <label>Email</label>
+      <input class="form-control form-control-sm" placeholder="Email" ng-model="<?= $model?>.email">
+    </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-12">
-      <input class="form-control form-control-sm" placeholder="Trường">
+    <div class="form-group col-md-4">
+    <label>Phụ huynh</label>
+      <input class="form-control form-control-sm" placeholder="Phụ huynh" ng-model="<?= $model?>.parentName">
     </div>
-    <div class="form-group col-md-12">
-      <input type="date" class="form-control form-control-sm" placeholder="Ngày sinh">
+    <div class="form-group col-md-8">
+    <label>Địa chỉ</label>
+      <input class="form-control form-control-sm" placeholder="Địa chỉ" ng-model="<?= $model?>.address">
+    </div>
+    <div class="form-group col-md-8">
+    <label>Trường</label>
+      <input class="form-control form-control-sm" placeholder="Trường" ng-model="<?= $model?>.school">
+    </div>
+    <div class="form-group col-md-4">
       <label>Ngày sinh</label>
+      <input type="text" class="form-control form-control-sm" placeholder="Ngày sinh" ng-model="<?= $model?>.birthDate">
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-12">
-      <input type="date" class="form-control form-control-sm" placeholder="Ngày nhập học">
-      <label>Ngày nhập học</label>
+    <div class="form-group col-md-4">
+    <label>Ngày nhập học</label>
+      <input type="text" class="form-control form-control-sm" placeholder="Ngày nhập học" ng-model="<?= $model?>.startStudyDate">
+      
     </div>
-    <div class="form-group col-md-12">
-      <input type="date" class="form-control form-control-sm" placeholder="Ngày dừng học">
-      <label>Ngày dừng học</label>
+    <div class="form-group col-md-4">
+    <label>Ngày dừng học</label>
+      <input type="text" class="form-control form-control-sm" placeholder="Ngày dừng học" ng-model="<?= $model?>.endStudyDate">
+    </div>
+    <div class="form-group col-md-8">
+    <label>Nhân viên tư vấn</label>
+    <select class="form-control form-control-sm" ng-model="<?= $model?>.assignId"><option ng-value="0">Nhân viên tư vấn</option></select>
+    </div>
+    <div class="form-group col-md-4">
+    <label>Trạng thái</label>
+      <select class="form-control form-control-sm" ng-model="<?= $model?>.status"><option ng-value="null">Trạng thái</option>
+      <option ng-value="true">Đang học</option>
+      <option ng-value="false">Dừng học</option>
+      </select>
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-12">
-    <select class="form-control form-control-sm"><option value="">Nhân viên tư vấn</option></select>
+  <div class="form-group col-md-24">
+    <label>Ghi chú</label>
+      <textarea class="form-control form-control-sm" placeholder="Ghi chú" ng-model="<?= $model?>.note"></textarea>
     </div>
-    <div class="form-group col-md-12">
-      <select class="form-control form-control-sm"><option value="">Trạng thái</option></select>
-    </div>
-  </div>
-  <div class="text-right">
-  <button class="btn btn-primary">Thêm học sinh</button>
   </div>
 </form>
