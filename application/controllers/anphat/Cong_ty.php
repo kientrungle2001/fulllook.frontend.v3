@@ -5,6 +5,7 @@ class Cong_ty extends MY_Controller {
   function index() {
     $data = [
       'module' => 'cong_ty',
+      'module_sub' => true,
       'tieu_de' => 'Công ty',
       'kich_co' => 12,
       'kich_co_nut_them' => 6,
@@ -45,7 +46,16 @@ class Cong_ty extends MY_Controller {
           'model' => 'bo_loc.id_tinh',
           'repeat' => 'ban_ghi in danh_sach_tinh',
           'option_value' => 'ban_ghi._id.$oid',
-          'option_label' => 'ban_ghi.ten_dia_diem'
+          'option_label' => 'ban_ghi.ten_dia_diem',
+          'change' => 'tai_danh_sach_huyen(ban_ghi)',
+          'tham_so' => [
+            'ten_bang' => 'dia_diem',
+            'dieu_kien' => [
+              'loai_dia_diem' => 'tinh',
+              'trang_thai' => true
+            ]
+          ],
+          'ten_danh_sach' => 'danh_sach_tinh'
         ],
         [
           'loai_truong_loc' => 'so_xuong',
@@ -54,7 +64,8 @@ class Cong_ty extends MY_Controller {
           'model' => 'bo_loc.id_huyen',
           'repeat' => 'ban_ghi in danh_sach_huyen',
           'option_value' => 'ban_ghi._id.$oid',
-          'option_label' => 'ban_ghi.ten_dia_diem'
+          'option_label' => 'ban_ghi.ten_dia_diem',
+          'tham_so' => false
         ],
         [
           'loai_truong_loc' => 'nut_bam',

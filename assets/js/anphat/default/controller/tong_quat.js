@@ -107,6 +107,13 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     console.log(bo_loc);
   };
 
+  $scope.tai_danh_sach_bo_loc = function(tham_so, ten_danh_sach) {
+    tai_danh_sach(tham_so, function(ket_qua) {
+      $scope[ten_danh_sach] = ket_qua.du_lieu;
+      $scope.$apply();
+    });
+  };
+
   // lay du lieu
   $scope.tai_danh_sach();
 }]);
