@@ -16,9 +16,7 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 !/3rdparty/
-!/assets/libraries/
-/assets/libraries/MathJax
-/assets/libraries/AdminLTE
+/assets/libraries/
 !/curl
 /tmp
 .favorites.json
