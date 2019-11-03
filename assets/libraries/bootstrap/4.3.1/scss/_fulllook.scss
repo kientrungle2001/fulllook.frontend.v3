@@ -1,0 +1,67 @@
+.col-xs-12 {
+	@extend .col-12;
+}
+
+.full {
+	float: left;
+	width: 100%;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.heading {
+	font: {
+		family: 'iCiel';
+		size: 40px;
+	}
+	color: $nn-cyan;
+	text-transform: uppercase;
+}
+
+.practice-section {
+	@extend .container ;
+}
+
+.practice-title {
+	@extend .text-center, .heading, .mt-2, .mb-4 ;
+}
+.box-practice-outer {
+	@extend .col-xl-c5-1, .col-lg-c5-1, .col-md-3, .col-sm-3, .col-2, .mt-3 ;
+}
+.box-practice-inner {
+	@extend .text-white, .text-uppercase, .relative, .clearfix ; 
+}
+
+.box-practice-title {
+	@extend  .text-center, .text-uppercase, .text-white, .full, .absolute, .pl-2, .pr-2 ;
+	font: {
+		size: 16px;
+		weight: bold;
+	}
+	top: 20px;
+}
+
+.section-title {
+	@extend .practice-title, .text-white ;
+}
+
+.section-block {
+	@extend .col-6, .col-sm-4, .col-md-2 ;
+}
+
+.section-button {
+	@extend .btn, .mb-3, .btn-info, .btn-block ;
+	border: {
+		radius: 30px;
+	}
+}
+
+.badge-free {
+	@extend .badge, .badge-pill, .badge-danger ;
+}
