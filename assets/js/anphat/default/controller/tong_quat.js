@@ -104,7 +104,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   }
 
   $scope.loc_du_lieu = function(bo_loc) {
-    console.log(bo_loc);
+    console.log(angular.copy(bo_loc));
   };
 
   $scope.tai_danh_sach_bo_loc = function(tham_so, ten_danh_sach) {
@@ -112,6 +112,19 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       $scope[ten_danh_sach] = ket_qua.du_lieu;
       $scope.$apply();
     });
+  };
+  
+  $scope.tai_danh_sach_bo_loc_thay_doi = function(tham_so_thay_doi, ten_danh_sach_thay_doi, dieu_kien_thay_doi, gia_tri) {
+    if(gia_tri) {
+      tham_so_thay_doi.dieu_kien[dieu_kien_thay_doi] = gia_tri;
+      tai_danh_sach(tham_so_thay_doi, function(ket_qua) {
+        $scope[ten_danh_sach_thay_doi] = ket_qua.du_lieu;
+        $scope.$apply();
+      });
+    } else {
+      $scope[ten_danh_sach_thay_doi] = [];
+      $scope.$apply();
+    }
   };
 
   // lay du lieu
