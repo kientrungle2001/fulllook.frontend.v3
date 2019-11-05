@@ -6,7 +6,7 @@ class Cong_ty extends MY_Controller {
     $data = [
       'module' => 'cong_ty',
       'module_sub' => true,
-	  'modal_size' => 'lg',
+	    'modal_size' => 'lg',
       'tieu_de' => 'Công ty',
       'kich_co' => 12,
       'kich_co_nut_them' => 6,
@@ -33,20 +33,14 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.dia_chi',
-          'tieu_de' => 'Địa chỉ'
+          'model' => 'ban_ghi.ghi_chu',
+          'tieu_de' => 'Ghi chú'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.so_dien_thoai',
-          'tieu_de' => 'Số điện thoại'
-        ],
-        [
-          'loai_truong_tieu_de' => 'van_ban',
-          'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.email',
-          'tieu_de' => 'Email'
+          'model' => 'ban_ghi.ngay_lien_he',
+          'tieu_de' => 'Ngày liên hệ'
         ]
       ],
       'truong_them_sua' => [
@@ -108,20 +102,14 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
-          'tieu_de' =>  'Địa chỉ',
-          'model' => 'dia_chi'
+          'tieu_de' =>  'Ghi chú',
+          'model' => 'ghi_chu'
         ],
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
-          'tieu_de' =>  'Số điện thoại',
-          'model' => 'so_dien_thoai'
-        ],
-        [
-          'loai_truong_them_sua' => 'van_ban',
-          'kich_co' => 6,
-          'tieu_de' =>  'Email',
-          'model' => 'email'
+          'tieu_de' =>  'Ngày liên hệ',
+          'model' => 'ngay_lien_he'
         ]
       ],
       'truong_loc' => [
