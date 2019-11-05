@@ -81,7 +81,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   };
 
   /** Mở dialog sửa bản ghi */
-  $scope.mo_dialog_sua_ban_ghi = function(ban_ghi, ten_dialog) {
+  $scope.mo_dialog_sua_ban_ghi = function(ban_ghi, ten_dialog, truong_them_sua) {
     $scope.ban_ghi_cap_nhat = angular.copy(ban_ghi);
     jQuery('#' + ten_dialog).modal('show');
   };
@@ -123,7 +123,6 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       });
     } else {
       $scope[ten_danh_sach_thay_doi] = [];
-      $scope.$apply();
     }
   };
 

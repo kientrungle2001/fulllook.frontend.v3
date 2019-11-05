@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cong_ty extends MY_Controller {
+class Co_quan_thue extends MY_Controller {
   function index() {
     $data = [
-      'module' => 'cong_ty',
+      'module' => 'co_quan_thue',
       'module_sub' => true,
 	  'modal_size' => 'lg',
-      'tieu_de' => 'Công ty',
+      'tieu_de' => 'Cơ quan thuế',
       'kich_co' => 12,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
@@ -15,14 +15,14 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ten_cong_ty',
-          'tieu_de' => 'Tên công ty'
+          'model' => 'ban_ghi.ten_co_quan_thue',
+          'tieu_de' => 'Tên Cơ quan thuế'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ma_cong_ty',
-          'tieu_de' => 'Mã công ty'
+          'model' => 'ban_ghi.ma_co_quan_thue',
+          'tieu_de' => 'Mã Cơ quan thuế'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -53,14 +53,14 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
-          'tieu_de' =>  'Tên công ty',
-          'model' => 'ten_cong_ty'
+          'tieu_de' =>  'Tên Cơ quan thuế',
+          'model' => 'ten_co_quan_thue'
         ],
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
-          'tieu_de' =>  'Mã công ty',
-          'model' => 'ma_cong_ty'
+          'tieu_de' =>  'Mã Cơ quan thuế',
+          'model' => 'ma_co_quan_thue'
         ],
         [
           'loai_truong_them_sua' => 'van_ban',

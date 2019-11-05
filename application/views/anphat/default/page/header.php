@@ -13,12 +13,14 @@ $items = [
 		['link' => '/phong_ban', 'label' => 'Phòng ban'],
 	]],
 	['link' => '#', 'label' => 'Dịch vụ', 'children' => [
-		['link' => '/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
+		['link' => '/loai_dich_vu', 'label' => 'Loại dịch vụ'],
 		['link' => '/dich_vu', 'label' => 'Dịch vụ'],
 		['link' => '/loai_chinh_sach', 'label' => 'Loại chính sách'],
-		['link' => '/loai_dich_vu', 'label' => 'Loại dịch vụ'],
+		['link' => '/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
 		['link' => '/nha_cung_cap', 'label' => 'Nhà cung cấp'],
+		['link' => '/loai_danh_sach', 'label' => 'Loại danh sách'],
 		['link' => '/danh_sach_khai_thac', 'label' => 'Danh sách khai thác'],
+		['link' => '/co_quan_thue', 'label' => 'Cơ quan thuế'],
 	]]
 ];
 ?>

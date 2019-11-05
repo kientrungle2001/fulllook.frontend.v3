@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Loai_dich_vu extends MY_Controller {
+class Loai_danh_sach extends MY_Controller {
   function index() {
     $data = [
-      'module' => 'loai_dich_vu',
+      'module' => 'loai_danh_sach',
 	  'modal_size' => 'normal',
-      'tieu_de' => 'Loại dịch vụ',
+      'tieu_de' => 'Loại danh sách',
       'kich_co' => 12,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
@@ -14,14 +14,14 @@ class Loai_dich_vu extends MY_Controller {
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ten_loai_dich_vu',
-          'tieu_de' => 'Tên Loại DV'
+          'model' => 'ban_ghi.ten_loai_danh_sach',
+          'tieu_de' => 'Tên Loại DS'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ma_loai_dich_vu',
-          'tieu_de' => 'Mã Loại DV'
+          'model' => 'ban_ghi.ma_loai_danh_sach',
+          'tieu_de' => 'Mã Loại DS'
         ],
 		[
           'loai_truong_tieu_de' => 'van_ban',
@@ -34,14 +34,14 @@ class Loai_dich_vu extends MY_Controller {
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 24,
-          'tieu_de' =>  'Tên Loại DV',
-          'model' => 'ten_loai_dich_vu'
+          'tieu_de' =>  'Tên Loại DS',
+          'model' => 'ten_loai_danh_sach'
         ],
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 24,
-          'tieu_de' =>  'Mã Loại DV',
-          'model' => 'ma_loai_dich_vu'
+          'tieu_de' =>  'Mã Loại DS',
+          'model' => 'ma_loai_danh_sach'
         ],
 		[
           'loai_truong_them_sua' => 'van_ban',
