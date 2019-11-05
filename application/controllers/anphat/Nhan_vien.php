@@ -47,6 +47,12 @@ class Nhan_vien extends MY_Controller {
           'model' => 'ban_ghi.ngay_roi_cong_ty',
           'tieu_de' => 'Ngày rời công ty'
         ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.ghi_chu',
+          'tieu_de' => 'Ghi chú'
+        ],
       ],
       'truong_them_sua' => [
         [
@@ -116,9 +122,15 @@ class Nhan_vien extends MY_Controller {
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
-          'tieu_de' =>  'Ngày liên hệ',
-          'model' => 'ngay_lien_he'
-        ]
+          'tieu_de' =>  'Ngày vào công ty',
+          'model' => 'ngay_vao_cong_ty'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kich_co' => 6,
+          'tieu_de' =>  'Ngày rời công ty',
+          'model' => 'ngay_roi_cong_ty'
+        ],
       ],
       'truong_loc' => [
         [
