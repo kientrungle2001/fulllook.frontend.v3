@@ -5,7 +5,7 @@ class Cong_ty extends MY_Controller {
   function index() {
     $data = [
       'module' => 'cong_ty',
-      'module_sub' => true,
+      'module_sub' => false,
 	    'modal_size' => 'lg',
       'tieu_de' => 'Công ty',
       'kich_co' => 12,

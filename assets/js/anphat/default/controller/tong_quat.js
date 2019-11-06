@@ -13,9 +13,13 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   $scope.tai_danh_sach = function() {
     tai_danh_sach({
       ten_bang: $scope.ten_bang,
+      tu_khoa: $scope.tu_khoa,
+      tim_kiem_theo: $scope.tim_kiem_theo,
       dieu_kien: $scope.dieu_kien || {},
       kich_co_trang: $scope.kich_co_trang_ban_ghi || 100,
-      trang_hien_thoi: $scope.trang_hien_thoi_ban_ghi || 0
+      trang_hien_thoi: $scope.trang_hien_thoi_ban_ghi || 0,
+      sap_xep: $scope.sap_xep,
+      thu_tu: $scope.thu_tu
     }, function(danh_sach) {
       $scope.danh_sach_ban_ghi = danh_sach.du_lieu;
       $scope.$apply();
