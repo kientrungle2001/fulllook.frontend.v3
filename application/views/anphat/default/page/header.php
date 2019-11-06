@@ -21,7 +21,15 @@ $items = [
 		['link' => '/loai_danh_sach', 'label' => 'Loại danh sách'],
 		['link' => '/danh_sach_khai_thac', 'label' => 'Danh sách khai thác'],
 		['link' => '/co_quan_thue', 'label' => 'Cơ quan thuế'],
-	]]
+		
+	]],
+	['link' => '#', 'label' => 'Tổng quát', 'children' => [
+		['link' => '/thuc_don', 'label' => 'Thực đơn'],
+		['link' => '/luoc_do', 'label' => 'Lược đồ'],
+		['link' => '/loai_thuoc_tinh', 'label' => 'Loại thuộc tính'],
+		['link' => '/bo_thuoc_tinh', 'label' => 'Bộ thuộc tính'],
+		['link' => '/thuoc_tinh', 'label' => 'Thuộc tính'],
+	]],
 ];
 ?>
 <header>

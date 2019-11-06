@@ -15,9 +15,9 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       ten_bang: $scope.ten_bang,
       tu_khoa: $scope.tu_khoa,
       tim_kiem_theo: $scope.tim_kiem_theo,
-      dieu_kien: $scope.dieu_kien || {},
-      kich_co_trang: $scope.kich_co_trang_ban_ghi || 100,
-      trang_hien_thoi: $scope.trang_hien_thoi_ban_ghi || 0,
+      dieu_kien: jQuery.extend(angular.copy($scope.dieu_kien) || {}, angular.copy($scope.bo_loc)),
+      kich_co_trang: $scope.kich_co_trang || 100,
+      trang_hien_thoi: $scope.trang_hien_thoi || 0,
       sap_xep: $scope.sap_xep,
       thu_tu: $scope.thu_tu
     }, function(danh_sach) {
@@ -107,8 +107,14 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     $scope.hien_thi_bo_loc = !$scope.hien_thi_bo_loc;
   }
 
-  $scope.loc_du_lieu = function(bo_loc) {
-    console.log(angular.copy(bo_loc));
+  $scope.bo_loc = {};
+  $scope.loc_du_lieu = function() {
+    for(var k in $scope.bo_loc) {
+      if(null === $scope.bo_loc[k]) {
+        delete $scope.bo_loc[k];
+      }
+    }
+    $scope.tai_danh_sach();
   };
 
   $scope.tai_danh_sach_bo_loc = function(tham_so, ten_danh_sach) {
@@ -128,6 +134,21 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     } else {
       $scope[ten_danh_sach_thay_doi] = [];
     }
+  };
+
+  $scope.trang_hien_thoi = 0;
+  $scope.kich_co_trang = 10;
+
+  $scope.den_trang_truoc = function() {
+    if($scope.trang_hien_thoi > 0) {
+      $scope.trang_hien_thoi--;
+      $scope.tai_danh_sach();
+    }
+  };
+
+  $scope.den_trang_tiep = function() {
+    $scope.trang_hien_thoi++;
+    $scope.tai_danh_sach();
   };
 
   // lay du lieu

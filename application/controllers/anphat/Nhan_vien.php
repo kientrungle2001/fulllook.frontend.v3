@@ -136,7 +136,7 @@ class Nhan_vien extends MY_Controller {
         [
           'loai_truong_loc' => 'so_xuong',
           'kich_co' => 12,
-          'tieu_de' => 'Tỉnh',
+          'tieu_de' => 'Phòng ban',
           'model' => 'bo_loc.id_phong_ban',
           'repeat' => 'ban_ghi in danh_sach_phong_ban',
           'option_value' => 'ban_ghi._id.$oid',
@@ -155,7 +155,7 @@ class Nhan_vien extends MY_Controller {
         [
           'loai_truong_loc' => 'so_xuong',
           'kich_co' => 12,
-          'tieu_de' => 'Tỉnh',
+          'tieu_de' => 'Chức vụ',
           'model' => 'bo_loc.id_chuc_vu',
           'repeat' => 'ban_ghi in danh_sach_chuc_vu',
           'option_value' => 'ban_ghi._id.$oid',
