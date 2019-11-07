@@ -7,7 +7,7 @@ class Loai_thuoc_tinh extends MY_Controller {
       'module' => 'loai_thuoc_tinh',
       'modal_size' => 'normal',
         'tieu_de' => 'Loại Thuộc tính',
-        'kich_co' => 12,
+        'kich_co' => 24,
         'kich_co_nut_them' => 6,
         'kich_co_nut_loc' => 6,
         'truong_danh_sach' => [
@@ -23,7 +23,19 @@ class Loai_thuoc_tinh extends MY_Controller {
             'model' => 'ban_ghi.ma_loai_thuoc_tinh',
             'tieu_de' => 'Mã Loại Thuộc tính'
           ],
-      [
+          [
+            'loai_truong_tieu_de' => 'van_ban',
+            'loai_truong_danh_sach' => 'van_ban',
+            'model' => 'ban_ghi.pham_vi_loai_thuoc_tinh',
+            'tieu_de' => 'Phạm vi Loại Thuộc tính'
+          ],
+          [
+            'loai_truong_tieu_de' => 'van_ban',
+            'loai_truong_danh_sach' => 'van_ban',
+            'model' => 'ban_ghi.tham_so_loai_thuoc_tinh',
+            'tieu_de' => 'Tham số Loại Thuộc tính'
+          ],
+          [
             'loai_truong_tieu_de' => 'van_ban',
             'loai_truong_danh_sach' => 'van_ban',
             'model' => 'ban_ghi.thu_tu',
@@ -43,9 +55,21 @@ class Loai_thuoc_tinh extends MY_Controller {
             'tieu_de' =>  'Mã Loại Thuộc tính',
             'model' => 'ma_loai_thuoc_tinh'
           ],
-      [
+          [
             'loai_truong_them_sua' => 'van_ban',
-        'kieu_du_lieu' => 'number',
+            'kich_co' => 24,
+            'tieu_de' =>  'Phạm vi Loại Thuộc tính',
+            'model' => 'pham_vi_loai_thuoc_tinh'
+          ],
+          [
+            'loai_truong_them_sua' => 'doan_viet',
+            'kich_co' => 24,
+            'tieu_de' =>  'Tham số Loại Thuộc tính',
+            'model' => 'tham_so_loai_thuoc_tinh'
+          ],
+          [
+            'loai_truong_them_sua' => 'van_ban',
+            'kieu_du_lieu' => 'number',
             'kich_co' => 24,
             'tieu_de' =>  'Thứ tự',
             'model' => 'thu_tu'
