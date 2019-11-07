@@ -32,8 +32,8 @@ class Loai_thuoc_tinh extends MY_Controller {
           [
             'loai_truong_tieu_de' => 'van_ban',
             'loai_truong_danh_sach' => 'van_ban',
-            'model' => 'ban_ghi.tham_so_loai_thuoc_tinh',
-            'tieu_de' => 'Tham số Loại Thuộc tính'
+            'model' => 'ban_ghi.loai_thuoc_tinh_goc',
+            'tieu_de' => 'Loại Thuộc tính gốc(true/false)'
           ],
           [
             'loai_truong_tieu_de' => 'van_ban',
@@ -46,26 +46,37 @@ class Loai_thuoc_tinh extends MY_Controller {
           [
             'loai_truong_them_sua' => 'van_ban',
             'kich_co' => 24,
+            'kieu_du_lieu' => 'text',
             'tieu_de' =>  'Tên Loại Thuộc tính',
             'model' => 'ten_loai_thuoc_tinh'
           ],
           [
             'loai_truong_them_sua' => 'van_ban',
             'kich_co' => 24,
+            'kieu_du_lieu' => 'text',
             'tieu_de' =>  'Mã Loại Thuộc tính',
             'model' => 'ma_loai_thuoc_tinh'
           ],
           [
             'loai_truong_them_sua' => 'van_ban',
             'kich_co' => 24,
+            'kieu_du_lieu' => 'text',
             'tieu_de' =>  'Phạm vi Loại Thuộc tính',
             'model' => 'pham_vi_loai_thuoc_tinh'
           ],
           [
             'loai_truong_them_sua' => 'doan_viet',
             'kich_co' => 24,
+            'kieu_du_lieu' => 'textarea',
             'tieu_de' =>  'Tham số Loại Thuộc tính',
             'model' => 'tham_so_loai_thuoc_tinh'
+          ],
+          [
+            'loai_truong_them_sua' => 'van_ban',
+            'kich_co' => 24,
+            'kieu_du_lieu' => 'checkbox',
+            'tieu_de' =>  'Loại Thuộc tính gốc',
+            'model' => 'loai_thuoc_tinh_goc'
           ],
           [
             'loai_truong_them_sua' => 'van_ban',
