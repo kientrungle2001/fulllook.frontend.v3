@@ -55,6 +55,7 @@ class MY_Controller extends CI_Controller {
 		$data['data'] = $data;
 		$view_path = $this->get_view($view);
 		$content = $this->load->view($view_path, $data, true);
+		unset($data);
 		if($cachable) {
 			$this->cache->file->save($key, $content, 1800);
 		}

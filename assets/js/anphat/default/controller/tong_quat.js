@@ -22,11 +22,42 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       thu_tu: $scope.thu_tu
     }, function(danh_sach) {
       $scope.danh_sach_ban_ghi = danh_sach.du_lieu;
+      $scope.truong_danh_sach.forEach(function(truong) {
+        $scope.tai_danh_sach_tham_chieu(truong);
+      });
       $scope.$apply();
     });
   };
 
+  $scope.tai_danh_sach_tham_chieu = function(truong) {
+    if(truong.loai_truong_danh_sach == 'tham_chieu') {
+      var _ids = [];
+      for(var i = 0; i < $scope.danh_sach_ban_ghi.length; i++) {
+        _ids.pushIfNotExisted($scope.danh_sach_ban_ghi[i][truong.tham_chieu]);
+      }
+      tai_danh_sach({
+        ten_bang: truong.ten_bang,
+        _ids: _ids,
+        dieu_kien: {trang_thai: true},
+        kich_co_trang: 100,
+        trang_hien_thoi: 0
+      }, function(ket_qua) {
+        $scope[truong.danh_sach_tham_chieu] = ket_qua.du_lieu;
+        $scope.$apply();
+      });
+    }
+  };
+
   $scope._tai_danh_sach = tai_danh_sach;
+
+  $scope.hien_thi_tham_chieu = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
+    console.log(danh_sach_tham_chieu);
+    for(var i = 0; i < danh_sach_tham_chieu.length; i++) {
+      if(danh_sach_tham_chieu[i]._id.$oid === id) {
+        return danh_sach_tham_chieu[i][gia_tri_tham_chieu];
+      }
+    }
+  };
 
   /** Them Xoa Sua */
   $scope.ban_ghi_moi = {
@@ -137,7 +168,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   };
 
   $scope.trang_hien_thoi = 0;
-  $scope.kich_co_trang = 10;
+  $scope.kich_co_trang = 100;
 
   $scope.den_trang_truoc = function() {
     if($scope.trang_hien_thoi > 0) {

@@ -1,0 +1,1 @@
+{{hien_thi_tham_chieu(<?= $model?>, '<?= $tham_chieu?>', '<?= $gia_tri_tham_chieu?>', <?= $danh_sach_tham_chieu?>)}}

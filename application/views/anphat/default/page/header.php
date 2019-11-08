@@ -27,7 +27,9 @@ $items = [
 		['link' => '/thuc_don', 'label' => 'Thực đơn'],
 		['link' => '/luoc_do', 'label' => 'Lược đồ'],
 		['link' => '/loai_thuoc_tinh', 'label' => 'Loại thuộc tính'],
+		['link' => '/loai_thuoc_tinh_tham_so', 'label' => 'Tham số của Loại thuộc tính'],
 		['link' => '/bo_thuoc_tinh', 'label' => 'Bộ thuộc tính'],
+		['link' => '/bo_thuoc_tinh_danh_sach', 'label' => 'Bộ thuộc tính danh sách'],
 		['link' => '/thuoc_tinh', 'label' => 'Thuộc tính'],
 	]],
 ];
