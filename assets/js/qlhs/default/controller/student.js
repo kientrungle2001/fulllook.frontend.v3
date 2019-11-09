@@ -187,8 +187,17 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
     return false;
   }
   $scope.detail_rows = {};
+  $scope.order_rows = {};
   $scope.toggle_detail_row = function(row) {
     $scope.detail_rows[row.id] = !$scope.detail_rows[row.id];
+    if($scope.detail_rows[row.id]) {
+      $scope.tai_danh_sach_hoc_phi();
+      setTimeout(function() {
+        $scope.order_rows[row.id] = angular.copy($scope.danh_sach_hoc_phi);
+        $scope.$apply();
+      }, 200);
+      
+    }
   };
   $scope.is_detail_visible = function(row) {
     return !!$scope.detail_rows[row.id];
