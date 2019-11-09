@@ -11,6 +11,6 @@
     <td>{{xep_lop.subjectName}}</td>
     <td>{{xep_lop.startClassDate}}</td>
     <td>{{xep_lop.endClassDate}}</td>
-    <td><span class="fa fa-trash text-danger"></span></td>
+    <td><a class="fa fa-edit text-success"></a> <a class="fa fa-trash text-danger"></a></td>
   </tr>
 </table>

@@ -11,6 +11,7 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
         pageNum: $scope.pageNum,
         pageSize: $scope.pageSize,
         where: {
+          classed: 1,
           currentClassIds: $scope.selected_class ?  $scope.selected_class : null
         }
       },
@@ -22,6 +23,30 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
       }
     });
   };
+
+  // Phân trang
+  $scope.go_to_first = function() {
+    $scope.pageNum = 0;
+    $scope.tai_danh_sach();
+  };
+
+  $scope.go_to_last = function() {
+    $scope.pageNum = $scope.pages - 1;
+    $scope.tai_danh_sach();
+  };
+  
+  $scope.go_to_next = function() {
+    $scope.pageNum++;
+    $scope.tai_danh_sach();
+  };
+
+  $scope.go_to_prev = function() {
+    if($scope.pageNum > 0) {
+      $scope.pageNum--;
+      $scope.tai_danh_sach();
+    }
+  }
+
   $scope.selected_tab = 'info';
   $scope.selected_row = null;
   $scope.select_row = function(row) {
@@ -43,20 +68,19 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
     console.log('show_info');
   };
   $scope.select_tab_class_schedule = function() {
-    console.log('class_schedule');
+    // Do Nothing
   };
   $scope.select_tab_class_schedule_list = function() {
-    console.log('class_schedule_list');
     $scope.tai_danh_sach_xep_lop();
   };
   $scope.tai_danh_sach_xep_lop = function() {
     proxy_get({
-      url: QLHS_CONSTANTS.api.v1.class_student.url + '/items/class_student',
-      type: AJAX_CONSTANTS.get, dataType: 'json',
+      url: QC.api.v1.class_student.url + '/items/class_student',
+      type: AJC.get, dataType: 'json',
       data: {
         sort: 'id desc',
-        pageNum: $scope.pageNum,
-        pageSize: $scope.pageSize,
+        pageNum: 0,
+        pageSize: 100,
         where: {
           studentId: $scope.selected_row.id
         }
@@ -67,6 +91,96 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
       }
     });
   };
+  $scope.select_tab_advice = function() {
+    $scope.tai_danh_sach_tu_van();
+  };
+  $scope.tai_danh_sach_tu_van = function() {
+    proxy_get({
+      url: QC.api.v1.advice.url + '/items/advice',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 1000,
+        where: {
+          studentId: $scope.selected_row.id
+        }
+      },
+      success: function(resp) {
+        $scope.danh_sach_tu_van = resp.rows;
+        $scope.$apply();
+      }
+    });
+  };
+
+  $scope.select_tab_fee = function() {
+    $scope.tai_danh_sach_hoc_phi();
+  };
+  $scope.tai_danh_sach_hoc_phi = function() {
+    proxy_get({
+      url: QC.api.v1.general_order.url + '/items/general_order',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 1000,
+        where: {
+          studentId: $scope.selected_row.id
+        }
+      },
+      success: function(resp) {
+        $scope.danh_sach_hoc_phi = resp.rows;
+        $scope.$apply();
+      }
+    });
+  };
+
+  $scope.select_tab_timesheet = function() {
+    $scope.tai_danh_sach_thoi_khoa_bieu();
+  };
+
+  $scope.tai_danh_sach_thoi_khoa_bieu = function() {
+    proxy_get({
+      url: QC.api.v1.student_schedule.url + '/items/student_schedule',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 1000,
+        where: {
+          studentId: $scope.selected_row.id
+        }
+      },
+      success: function(resp) {
+        $scope.danh_sach_thoi_khoa_bieu = resp.rows;
+        $scope.$apply();
+      }
+    });
+  };
+
+  $scope.select_tab_using = function() {
+    $scope.tai_danh_sach_da_su_dung();
+  };
+
+  $scope.tai_danh_sach_da_su_dung = function() {
+    proxy_get({
+      url: QC.api.v1.student_order.url + '/items/student_order',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 1000,
+        where: {
+          studentId: $scope.selected_row.id
+        }
+      },
+      success: function(resp) {
+        $scope.danh_sach_da_su_dung = resp.rows;
+        $scope.$apply();
+      }
+    });
+  };
+
   $scope.is_selected_row = function(row) {
     if($scope.selected_row)
       return $scope.selected_row.id == row.id;

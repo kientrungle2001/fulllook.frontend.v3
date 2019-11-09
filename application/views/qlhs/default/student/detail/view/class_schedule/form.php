@@ -43,7 +43,7 @@
   </div>
 
   <div class="col-md-4">
-    <button class="btn btn-primary form-control" ng-click="change_class_schedule(class_schedule_change)">Xếp lớp</button>
+    <button class="btn btn-primary form-control" ng-click="change_class_schedule(class_schedule_change)">Chuyển lớp</button>
   </div>
 </div>
 <hr />
