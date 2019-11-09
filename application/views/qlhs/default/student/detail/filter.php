@@ -1,6 +1,7 @@
 <form class="form">
   <div class="form-row">
-    <div class="form-group col-md-6"><input class="form-control form-control-sm" placeholder="Tìm kiếm"></div>
+    <div class="form-group col-md-6"><input class="form-control form-control-sm" 
+    placeholder="Tìm kiếm" ng-model="keyword" ng-change="tai_danh_sach()"></div>
     <div class="form-group col-md-12">
     <button class="btn btn-primary" ng-click="add()">Thêm</button>
     <a class="btn btn-success" href="/student/muster">Điểm danh</a>

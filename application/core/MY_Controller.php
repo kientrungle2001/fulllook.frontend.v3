@@ -335,6 +335,18 @@ class MY_TableController extends MY_Controller {
 		$joins = $this->input->get_post('joins', true);
 		
 		$where = $this->input->get_post('where', true);
+
+		$keyword = $this->input->get_post('keyword', true);
+		$keyword_escape = $this->db->escape('%'.$keyword.'%');
+		$where_keyword = null;
+		if($keyword) {
+			$search_fields = $this->input->get_post('search_fields', true);
+			$keyword_conds = [];
+			foreach($search_fields as $field) {
+				$keyword_conds[] = "`$field` like $keyword_escape";
+			}
+			$where_keyword = '('. implode(' or ', $keyword_conds) . ')';
+		}
 		
 		if(!$pageSize) $pageSize = 10;
 		if(!$pageNum) $pageNum = 0;
@@ -348,6 +360,10 @@ class MY_TableController extends MY_Controller {
 			foreach($joins as $join) {
 				$table_model->join($join[0], $join[1], isset($join[2]) ? $join[2] : 'inner');
 			}
+		}
+
+		if($where_keyword) {
+			$table_model->where($where_keyword);
 		}
 
 		# filters
@@ -409,6 +425,10 @@ class MY_TableController extends MY_Controller {
 			}
 		}
 		
+		if($where_keyword) {
+			$table_model->where($where_keyword);
+		}
+
 		# filters
 		if($where) {
 			foreach ($where as $key => $value) {

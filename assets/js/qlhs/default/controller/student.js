@@ -7,6 +7,8 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
       url: QLHS_CONSTANTS.api.v1.student.url + '/items/student',
       type: AJAX_CONSTANTS.get, dataType: 'json',
       data: {
+        keyword: $scope.keyword,
+        search_fields: ['name','code', 'phone', 'email'],
         sort: 'id desc',
         pageNum: $scope.pageNum,
         pageSize: $scope.pageSize,
