@@ -8,7 +8,7 @@ class Cong_ty extends MY_Controller {
       'module_sub' => false,
 	    'modal_size' => 'lg',
       'tieu_de' => 'Công ty',
-      'kich_co' => 12,
+      'kich_co' => 24,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
       'truong_danh_sach' => [
@@ -21,14 +21,14 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ma_cong_ty',
-          'tieu_de' => 'Mã công ty'
+          'model' => 'ban_ghi.ma_so_thue',
+          'tieu_de' => 'Mã số thuế'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
-          'model' => 'ban_ghi.ma_so_thue',
-          'tieu_de' => 'Mã số thuế'
+          'model' => 'ban_ghi.dia_chi',
+          'tieu_de' => 'Địa chỉ'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
