@@ -63,31 +63,21 @@ anphatApp.factory('them_dia_diem', function() {
 
 anphatApp.factory('tai_danh_sach', function() {
 	return function(params, $callback) {
-		proxy_ajax({
-      url: APC.api.v1.tong_quat.url,
-			type: AJAX_CONSTANTS.type.get,
-			headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
-    	},
-      data: {
+		auth_get({
+      		url: APC.api.v1.tong_quat.url,
+      		data: {
 				goi_du_lieu: JSON.stringify(params)
 			}, success: function(danh_sach) {
-        $callback(danh_sach);
-      }
-    });
+        		$callback(danh_sach);
+      		}
+    	});
 	};
 });
 
 anphatApp.factory('them_ban_ghi', function() {
 	return function(params, $callback) {
-		proxy_ajax({
+		auth_post({
 			url: APC.api.v1.tong_quat.url,
-			type: AJC.type.post,
-			headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
-    	},
 			data: {
 				goi_du_lieu: JSON.stringify(params)
 			}, success: function(ban_ghi) {
@@ -99,13 +89,8 @@ anphatApp.factory('them_ban_ghi', function() {
 
 anphatApp.factory('xoa_ban_ghi', function() {
 	return function(id, params, $callback) {
-		proxy_ajax({
+		auth_del({
 			url: APC.api.v1.tong_quat.url + '/' + id,
-			type: AJC.type.del,
-			headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
-    	},
 			data: {
 				goi_du_lieu: JSON.stringify(params)
 			}, success: function(ban_ghi) {
@@ -117,18 +102,48 @@ anphatApp.factory('xoa_ban_ghi', function() {
 
 anphatApp.factory('sua_ban_ghi', function() {
 	return function(id, params, $callback) {
-		proxy_ajax({
+		auth_put({
 			url: APC.api.v1.tong_quat.url + '/' + id,
-			type: AJC.type.put,
-			headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Bearer " + localStorage.getItem('bearer_token')
-    	},
 			data: {
 				goi_du_lieu: JSON.stringify(params)
 			}, success: function(ban_ghi) {
 				$callback(ban_ghi);
 			}
+		});
+	};
+});
+
+anphatApp.factory('loai_thuoc_tinh', function() {
+	return function(ma_loai_thuoc_tinh, pham_vi_loai_thuoc_tinh, $callback) {
+		auth_get_one('loai_thuoc_tinh', {
+			ma_loai_thuoc_tinh: 'tong_quat',
+			pham_vi_loai_thuoc_tinh: pham_vi_loai_thuoc_tinh,
+			trang_thai: true
+		}, function(tong_quat) {
+			auth_get_one('loai_thuoc_tinh', {
+				ma_loai_thuoc_tinh: ma_loai_thuoc_tinh,
+				pham_vi_loai_thuoc_tinh: pham_vi_loai_thuoc_tinh,
+				trang_thai: true
+			}, function(loai_thuoc_tinh) {
+				var _ids = [];
+				if(tong_quat)
+					_ids.push(tong_quat._id.$oid);
+				if(loai_thuoc_tinh)
+					_ids.push(loai_thuoc_tinh._id.$oid);
+				if(_ids.length) {
+					auth_get_many('loai_thuoc_tinh_tham_so', {
+						trang_thai: true,
+						id_loai_thuoc_tinh: {
+							'$in': _ids
+						}
+					}, function(ket_qua) {
+						$callback(ket_qua);
+					});
+				} else {
+					$callback(null);
+				}
+				
+			});
 		});
 	};
 });
@@ -322,6 +337,34 @@ function proxy_ajax(options) {
 	return $.ajax(options);
 }
 
+function auth_ajax(options) {
+	options.headers = {
+		"Content-Type": "application/x-www-form-urlencoded",
+		"Authorization": "Bearer " + localStorage.getItem('bearer_token')
+	};
+	return proxy_ajax(options);
+}
+
+function auth_get(options) {
+	options.type = 'get';
+	auth_ajax(options);
+}
+
+function auth_post(options) {
+	options.type = 'post';
+	auth_ajax(options);
+}
+
+function auth_put(options) {
+	options.type = 'put';
+	auth_ajax(options);
+}
+
+function auth_del(options) {
+	options.type = 'delete';
+	auth_ajax(options);
+}
+
 function proxy_get(options) {
 	options.type = 'get';
 	return proxy_ajax(options);
@@ -330,4 +373,48 @@ function proxy_get(options) {
 function proxy_post(options) {
 	options.type = 'post';
 	return proxy_ajax(options);
+}
+
+function proxy_put(options) {
+	options.type = 'put';
+	return proxy_ajax(options);
+}
+
+function proxy_del(options) {
+	options.type = 'delete';
+	return proxy_ajax(options);
+}
+
+function auth_get_many(ten_bang, dieu_kien, $callback) {
+	auth_get({
+		url: APC.api.v1.tong_quat.url,
+		data: {
+			goi_du_lieu: JSON.stringify({
+				ten_bang: ten_bang,
+				dieu_kien: dieu_kien,
+				kich_co_trang: 1000,
+				trang_hien_thoi: 0
+			})
+		},
+		success: function(ket_qua) {
+			$callback(ket_qua.du_lieu);
+		}
+	});
+}
+
+function auth_get_one(ten_bang, dieu_kien, $callback) {
+	auth_get({
+		url: APC.api.v1.tong_quat.url,
+		data: {
+			goi_du_lieu: JSON.stringify({
+				ten_bang: ten_bang,
+				dieu_kien: dieu_kien,
+				kich_co_trang: 1,
+				trang_hien_thoi: 0
+			})
+		},
+		success: function(ket_qua) {
+			$callback(ket_qua.du_lieu[0] || null);
+		}
+	});
 }

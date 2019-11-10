@@ -34,12 +34,14 @@ class Loai_dich_vu extends MY_Controller {
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 24,
+          'kieu_du_lieu' => 'text',
           'tieu_de' =>  'Tên Loại DV',
           'model' => 'ten_loai_dich_vu'
         ],
         [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 24,
+          'kieu_du_lieu' => 'text',
           'tieu_de' =>  'Mã Loại DV',
           'model' => 'ma_loai_dich_vu'
         ],

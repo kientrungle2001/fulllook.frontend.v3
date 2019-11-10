@@ -25,6 +25,26 @@ class loai_thuoc_tinh_tham_so extends MY_Controller
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_loai_thuoc_tinh',
+          'tham_chieu' => 'id_loai_thuoc_tinh',
+          'gia_tri_tham_chieu' => 'pham_vi_loai_thuoc_tinh',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh',
+          'ten_bang' => false,
+          'tieu_de' => 'Phạm vi loại thuộc tính'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_loai_thuoc_tinh',
+          'tham_chieu' => 'id_loai_thuoc_tinh',
+          'gia_tri_tham_chieu' => 'ma_loai_thuoc_tinh',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh',
+          'ten_bang' => false,
+          'tieu_de' => 'Mã loại thuộc tính'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
           'model' => 'ban_ghi.ten_loai_thuoc_tinh_tham_so',
           'tieu_de' => 'Tên Tham số'
