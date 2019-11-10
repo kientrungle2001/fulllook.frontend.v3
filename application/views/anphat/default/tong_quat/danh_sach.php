@@ -29,7 +29,7 @@
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-  <li class="page-item">Kích cỡ trang: <select class="btn btn-primary btn-sm" ng-model="kich_co_trang">
+  <li class="page-item">Kích cỡ trang: <select class="btn btn-primary btn-sm" ng-model="kich_co_trang" ng-change="tai_danh_sach()">
     <option ng-value="10">10</option>
     <option ng-value="20">20</option>
     <option ng-value="50">50</option>

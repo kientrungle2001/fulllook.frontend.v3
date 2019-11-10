@@ -32,6 +32,28 @@ class Cong_ty extends MY_Controller {
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'id_field' => 'id',
+          'model' => 'ban_ghi.id_tinh',
+          'tham_chieu' => 'id_tinh',
+          'gia_tri_tham_chieu' => 'ten_dia_diem',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_tinh',
+          'ten_bang' => 'tinh_thanh_pho',
+          'tieu_de' => 'Tỉnh/TP'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'id_field' => 'id',
+          'model' => 'ban_ghi.id_huyen',
+          'tham_chieu' => 'id_huyen',
+          'gia_tri_tham_chieu' => 'ten_dia_diem',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_huyen',
+          'ten_bang' => 'quan_huyen',
+          'tieu_de' => 'Quận huyện'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
           'model' => 'ban_ghi.ghi_chu',
           'tieu_de' => 'Ghi chú'
@@ -69,24 +91,26 @@ class Cong_ty extends MY_Controller {
           'model' => 'id_tinh',
           'repeat' => 'tinh in danh_sach_them_sua_tinh',
           'option_label' => 'tinh.ten_dia_diem',
-          'option_value' => 'tinh._id.$oid',
+          'option_value' => 'tinh.id',
           'tham_so' => [
-            'ten_bang' => 'dia_diem',
+            'ten_bang' => 'tinh_thanh_pho',
             'dieu_kien' => [
-              'loai_dia_diem' => 'tinh',
-              'trang_thai' => true
+              'id' => [
+                '$ne' => -1
+              ]
             ]
           ],
           'tham_so_thay_doi' => [
-            'ten_bang' => 'dia_diem',
+            'ten_bang' => 'quan_huyen',
             'dieu_kien' => [
-              'loai_dia_diem' => 'huyen',
-              'trang_thai' => true
+              'id' => [
+                '$ne' => -1
+              ]
             ]
           ],
           'ten_danh_sach' => 'danh_sach_them_sua_tinh',
           'ten_danh_sach_thay_doi' => 'danh_sach_them_sua_huyen',
-          'dieu_kien_thay_doi' => 'id_khu_vuc'
+          'dieu_kien_thay_doi' => 'id_tinh'
         ],
         [
           'loai_truong_them_sua' => 'so_xuong',
@@ -95,7 +119,7 @@ class Cong_ty extends MY_Controller {
           'model' => 'id_huyen',
           'repeat' => 'huyen in danh_sach_them_sua_huyen',
           'option_label' => 'huyen.ten_dia_diem',
-          'option_value' => 'huyen._id.$oid',
+          'option_value' => 'huyen.id',
           'tham_so' => false,
           'tham_so_thay_doi' => false
         ],
@@ -119,26 +143,28 @@ class Cong_ty extends MY_Controller {
           'tieu_de' => 'Tỉnh',
           'model' => 'bo_loc.id_tinh',
           'repeat' => 'ban_ghi in danh_sach_tinh',
-          'option_value' => 'ban_ghi._id.$oid',
+          'option_value' => 'ban_ghi.id',
           'option_label' => 'ban_ghi.ten_dia_diem',
           'change' => 'tai_danh_sach_huyen(ban_ghi)',
           'tham_so' => [
-            'ten_bang' => 'dia_diem',
+            'ten_bang' => 'tinh_thanh_pho',
             'dieu_kien' => [
-              'loai_dia_diem' => 'tinh',
-              'trang_thai' => true
+              'id' => [
+                '$ne' => 1
+              ]
             ]
           ],
           'tham_so_thay_doi' => [
-            'ten_bang' => 'dia_diem',
+            'ten_bang' => 'quan_huyen',
             'dieu_kien' => [
-              'loai_dia_diem' => 'huyen',
-              'trang_thai' => true
+              'id' => [
+                '$ne' => 1
+              ]
             ]
           ],
           'ten_danh_sach' => 'danh_sach_tinh',
           'ten_danh_sach_thay_doi' => 'danh_sach_huyen',
-          'dieu_kien_thay_doi' => 'id_khu_vuc'
+          'dieu_kien_thay_doi' => 'id_tinh'
         ],
         [
           'loai_truong_loc' => 'so_xuong',
@@ -146,7 +172,7 @@ class Cong_ty extends MY_Controller {
           'tieu_de' => 'Huyện',
           'model' => 'bo_loc.id_huyen',
           'repeat' => 'ban_ghi in danh_sach_huyen',
-          'option_value' => 'ban_ghi._id.$oid',
+          'option_value' => 'ban_ghi.id',
           'option_label' => 'ban_ghi.ten_dia_diem',
           'tham_so' => false,
           'tham_so_thay_doi' => false

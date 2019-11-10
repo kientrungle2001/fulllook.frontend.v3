@@ -18,7 +18,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       tu_khoa: $scope.tu_khoa,
       tim_kiem_theo: $scope.tim_kiem_theo,
       dieu_kien: jQuery.extend(angular.copy($scope.dieu_kien) || {}, angular.copy($scope.bo_loc)),
-      kich_co_trang: $scope.kich_co_trang || 100,
+      kich_co_trang: $scope.kich_co_trang || 10,
       trang_hien_thoi: $scope.trang_hien_thoi || 0,
       sap_xep: $scope.sap_xep,
       thu_tu: $scope.thu_tu
@@ -47,7 +47,8 @@ anphatApp.controller('tong_quat_controller', ['$scope',
         tai_danh_sach({
           ten_bang: truong.ten_bang,
           _ids: _ids,
-          dieu_kien: {trang_thai: true},
+          id_field: truong.id_field || null,
+          dieu_kien: truong.dieu_kien || null,
           kich_co_trang: 100,
           trang_hien_thoi: 0
         }, function(ket_qua) {
@@ -63,7 +64,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   $scope.hien_thi_tham_chieu = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
     if(!danh_sach_tham_chieu) return '';
     for(var i = 0; i < danh_sach_tham_chieu.length; i++) {
-      if(danh_sach_tham_chieu[i]._id.$oid === id) {
+      if(danh_sach_tham_chieu[i]._id.$oid === id || danh_sach_tham_chieu[i].id === id) {
         return danh_sach_tham_chieu[i][gia_tri_tham_chieu];
       }
     }
@@ -178,7 +179,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   };
 
   $scope.trang_hien_thoi = 0;
-  $scope.kich_co_trang = 100;
+  $scope.kich_co_trang = 10;
 
   $scope.den_trang_truoc = function() {
     if($scope.trang_hien_thoi > 0) {
