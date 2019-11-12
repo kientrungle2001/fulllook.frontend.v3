@@ -64,7 +64,8 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   $scope.hien_thi_tham_chieu = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
     if(!danh_sach_tham_chieu) return '';
     for(var i = 0; i < danh_sach_tham_chieu.length; i++) {
-      if(danh_sach_tham_chieu[i]._id.$oid === id || danh_sach_tham_chieu[i].id === id) {
+      if(danh_sach_tham_chieu[i]._id.$oid === id || 
+          (danh_sach_tham_chieu[i].id && (danh_sach_tham_chieu[i].id === id))) {
         return danh_sach_tham_chieu[i][gia_tri_tham_chieu];
       }
     }
@@ -157,6 +158,26 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       }
     }
     $scope.tai_danh_sach();
+  };
+
+  $scope.chon_ban_ghi = function(danh_sach, id, ten_ban_ghi) {
+    if(!id) {
+      return $scope[ten_ban_ghi] = null;
+    }
+    for(var i = 0; i < danh_sach.length; i++) {
+      if(danh_sach[i].id && danh_sach[i].id == id) {
+        return $scope[ten_ban_ghi] = danh_sach[i];
+      } else {
+        if(danh_sach[i]._id.$oid && danh_sach[i]._id.$oid == id) {
+          return $scope[ten_ban_ghi] = danh_sach[i];
+        }
+      }
+    }
+    return $scope[ten_ban_ghi] = null;
+  };
+
+  $scope.chon_ban_ghi_them_sua = function(danh_sach, ten_model, ten_ban_ghi) {
+
   };
 
   $scope.tai_danh_sach_bo_loc = function(tham_so, ten_danh_sach) {

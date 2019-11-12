@@ -1,4 +1,4 @@
-ANPHAT_API_URL = 'http://laramongo.vn:81/api';
+ANPHAT_API_URL = 'http://laramongo.vn/api';
 ANPHAT_API_VERSION = 'v1';
 AJC = AJAX_CONSTANTS =  {
   type: {

@@ -90,6 +90,7 @@ class Cong_ty extends MY_Controller {
           'tieu_de' =>  'Tỉnh',
           'model' => 'id_tinh',
           'repeat' => 'tinh in danh_sach_them_sua_tinh',
+          'change' => "chon_ban_ghi_them_sua(danh_sach_them_sua_tinh, 'id_tinh', 'tinh_dang_chon')",
           'option_label' => 'tinh.ten_dia_diem',
           'option_value' => 'tinh.id',
           'tham_so' => [
@@ -100,17 +101,10 @@ class Cong_ty extends MY_Controller {
               ]
             ]
           ],
-          'tham_so_thay_doi' => [
-            'ten_bang' => 'quan_huyen',
-            'dieu_kien' => [
-              'id' => [
-                '$ne' => -1
-              ]
-            ]
-          ],
+          'tham_so_thay_doi' => false,
           'ten_danh_sach' => 'danh_sach_them_sua_tinh',
-          'ten_danh_sach_thay_doi' => 'danh_sach_them_sua_huyen',
-          'dieu_kien_thay_doi' => 'id_tinh'
+          'ten_danh_sach_thay_doi' => false,
+          'dieu_kien_thay_doi' => false
         ],
         [
           'loai_truong_them_sua' => 'so_xuong',
@@ -145,7 +139,7 @@ class Cong_ty extends MY_Controller {
           'repeat' => 'ban_ghi in danh_sach_tinh',
           'option_value' => 'ban_ghi.id',
           'option_label' => 'ban_ghi.ten_dia_diem',
-          'change' => 'tai_danh_sach_huyen(ban_ghi)',
+          'change' => "chon_ban_ghi(danh_sach_tinh, bo_loc.id_tinh, 'tinh_dang_chon')",
           'tham_so' => [
             'ten_bang' => 'tinh_thanh_pho',
             'dieu_kien' => [
@@ -154,28 +148,24 @@ class Cong_ty extends MY_Controller {
               ]
             ]
           ],
-          'tham_so_thay_doi' => [
-            'ten_bang' => 'quan_huyen',
-            'dieu_kien' => [
-              'id' => [
-                '$ne' => 1
-              ]
-            ]
-          ],
+          'tham_so_thay_doi' => false,
           'ten_danh_sach' => 'danh_sach_tinh',
-          'ten_danh_sach_thay_doi' => 'danh_sach_huyen',
-          'dieu_kien_thay_doi' => 'id_tinh'
+          'ten_danh_sach_thay_doi' => false,
+          'dieu_kien_thay_doi' => false,
+          'option_model' => 'id_tinh_dang_chon'
         ],
         [
           'loai_truong_loc' => 'so_xuong',
           'kich_co' => 12,
           'tieu_de' => 'Huyện',
           'model' => 'bo_loc.id_huyen',
-          'repeat' => 'ban_ghi in danh_sach_huyen',
+          'repeat' => 'ban_ghi in tinh_dang_chon.quan_huyen',
           'option_value' => 'ban_ghi.id',
           'option_label' => 'ban_ghi.ten_dia_diem',
           'tham_so' => false,
-          'tham_so_thay_doi' => false
+          'tham_so_thay_doi' => false,
+          'change' => false,
+          'option_model' => 'id_huyen_dang_chon'
         ],
         [
           'loai_truong_loc' => 'nut_bam',
