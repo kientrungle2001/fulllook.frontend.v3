@@ -21,6 +21,15 @@ anphatApp.filter('toDate', function () {
 
 /** Factories */
 
+/** Phan trang */
+
+anphatApp.factory('phan_trang', [function() {
+	return {
+		trang_hien_thoi: 0,
+		kich_co_trang: 10
+	};
+}]);
+
 /** Dia diem */
 anphatApp.factory('tai_danh_sach_dia_diem', function() {
 	return function(params, $callback) {

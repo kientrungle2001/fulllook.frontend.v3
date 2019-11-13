@@ -3,14 +3,17 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   'them_ban_ghi',
   'sua_ban_ghi',
   'xoa_ban_ghi',
-  'loai_thuoc_tinh', 
+  'loai_thuoc_tinh',
+  'phan_trang', 
   function($scope,  
     tai_danh_sach, 
     them_ban_ghi,
     sua_ban_ghi,
     xoa_ban_ghi,
-    loai_thuoc_tinh
+    loai_thuoc_tinh,
+    phan_trang
     ) {
+  $scope.phan_trang = phan_trang;
   /** Tai danh sach */
   $scope.tai_danh_sach = function() {
     tai_danh_sach({
@@ -18,18 +21,30 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       tu_khoa: $scope.tu_khoa,
       tim_kiem_theo: $scope.tim_kiem_theo,
       dieu_kien: jQuery.extend(angular.copy($scope.dieu_kien) || {}, angular.copy($scope.bo_loc)),
-      kich_co_trang: $scope.kich_co_trang || 10,
-      trang_hien_thoi: $scope.trang_hien_thoi || 0,
+      kich_co_trang: $scope.phan_trang.kich_co_trang || 10,
+      trang_hien_thoi: $scope.phan_trang.trang_hien_thoi || 0,
       sap_xep: $scope.sap_xep,
       thu_tu: $scope.thu_tu
     }, function(danh_sach) {
       $scope.danh_sach_ban_ghi = danh_sach.du_lieu;
-      $scope.truong_danh_sach.forEach(function(truong) {
-        $scope.tai_danh_sach_tham_chieu(truong);
-      });
+      if($scope.truong_danh_sach) {
+        $scope.truong_danh_sach.forEach(function(truong) {
+          $scope.tai_danh_sach_tham_chieu(truong);
+        });
+      }
+      
       $scope.$apply();
     });
   };
+
+  if($scope.du_lieu_tai_tu_dong) {
+    $scope.du_lieu_tai_tu_dong.forEach(function(du_lieu){
+      tai_danh_sach(du_lieu.goi_du_lieu, function(ket_qua) {
+        $scope[du_lieu.ten_danh_sach] = ket_qua.du_lieu;
+        $scope.$apply();
+      });
+    });
+  }
 
   /*
   loai_thuoc_tinh('so_xuong', 'truong_them_sua', function(ket_qua) {
@@ -67,6 +82,18 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       if(danh_sach_tham_chieu[i]._id.$oid === id || 
           (danh_sach_tham_chieu[i].id && (danh_sach_tham_chieu[i].id === id))) {
         return danh_sach_tham_chieu[i][gia_tri_tham_chieu];
+      }
+    }
+  };
+
+  $scope.hien_thi_tham_chieu_huyen = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
+    if(!danh_sach_tham_chieu) return '';
+    for(var i = 0; i < danh_sach_tham_chieu.length; i++) {
+      for(var j = 0; j < danh_sach_tham_chieu[i].quan_huyen.length; j++) {
+        if(danh_sach_tham_chieu[i].quan_huyen[j]._id.$oid === id || 
+          (danh_sach_tham_chieu[i].quan_huyen[j].id && (danh_sach_tham_chieu[i].quan_huyen[j].id === id))) {
+            return danh_sach_tham_chieu[i].quan_huyen[j][gia_tri_tham_chieu];
+        }
       }
     }
   };
@@ -199,18 +226,19 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     }
   };
 
-  $scope.trang_hien_thoi = 0;
-  $scope.kich_co_trang = 10;
-
+  /**
+   * Phan trang
+   */
+  
   $scope.den_trang_truoc = function() {
-    if($scope.trang_hien_thoi > 0) {
-      $scope.trang_hien_thoi--;
+    if($scope.phan_trang.trang_hien_thoi > 0) {
+      $scope.phan_trang.trang_hien_thoi--;
       $scope.tai_danh_sach();
     }
   };
 
   $scope.den_trang_tiep = function() {
-    $scope.trang_hien_thoi++;
+    $scope.phan_trang.trang_hien_thoi++;
     $scope.tai_danh_sach();
   };
 

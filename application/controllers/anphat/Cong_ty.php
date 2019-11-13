@@ -11,6 +11,24 @@ class Cong_ty extends MY_Controller {
       'kich_co' => 24,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
+      'du_lieu_tai_tu_dong' => [
+        [
+          'ten_danh_sach' => 'danh_sach_tinh_thanh_pho',
+          'goi_du_lieu' => [
+            'ten_bang' => 'tinh_thanh_pho',
+            'sap_xep' => 'id',
+            'thu_tu' => 'asc'
+          ]
+        ],
+        [
+          'ten_danh_sach' => 'danh_sach_nhan_vien',
+          'goi_du_lieu' => [
+            'ten_bang' => 'nhan_vien',
+            'sap_xep' => '_id',
+            'thu_tu' => 'desc'
+          ]
+        ]
+      ],
       'truong_danh_sach' => [
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -32,24 +50,19 @@ class Cong_ty extends MY_Controller {
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
-          'loai_truong_danh_sach' => 'tham_chieu',
-          'id_field' => 'id',
+          'loai_truong_danh_sach' => 'tham_chieu_tinh',
           'model' => 'ban_ghi.id_tinh',
-          'tham_chieu' => 'id_tinh',
-          'gia_tri_tham_chieu' => 'ten_dia_diem',
-          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_tinh',
-          'ten_bang' => 'tinh_thanh_pho',
           'tieu_de' => 'Tỉnh/TP'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
-          'loai_truong_danh_sach' => 'tham_chieu',
+          'loai_truong_danh_sach' => 'tham_chieu_huyen',
           'id_field' => 'id',
           'model' => 'ban_ghi.id_huyen',
           'tham_chieu' => 'id_huyen',
           'gia_tri_tham_chieu' => 'ten_dia_diem',
           'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_huyen',
-          'ten_bang' => 'quan_huyen',
+          //'ten_bang' => 'quan_huyen',
           'tieu_de' => 'Quận huyện'
         ],
         [
@@ -89,20 +102,13 @@ class Cong_ty extends MY_Controller {
           'kich_co' => 6,
           'tieu_de' =>  'Tỉnh',
           'model' => 'id_tinh',
-          'repeat' => 'tinh in danh_sach_them_sua_tinh',
-          'change' => "chon_ban_ghi_them_sua(danh_sach_them_sua_tinh, 'id_tinh', 'tinh_dang_chon')",
+          'repeat' => 'tinh in danh_sach_tinh_thanh_pho',
+          'change' => "chon_ban_ghi_them_sua(danh_sach_tinh_thanh_pho, 'id_tinh', 'tinh_dang_chon')",
           'option_label' => 'tinh.ten_dia_diem',
           'option_value' => 'tinh.id',
-          'tham_so' => [
-            'ten_bang' => 'tinh_thanh_pho',
-            'dieu_kien' => [
-              'id' => [
-                '$ne' => -1
-              ]
-            ]
-          ],
+          'tham_so' => false,
           'tham_so_thay_doi' => false,
-          'ten_danh_sach' => 'danh_sach_them_sua_tinh',
+          'ten_danh_sach' => 'danh_sach_tinh_thanh_pho',
           'ten_danh_sach_thay_doi' => false,
           'dieu_kien_thay_doi' => false
         ],
@@ -136,20 +142,13 @@ class Cong_ty extends MY_Controller {
           'kich_co' => 12,
           'tieu_de' => 'Tỉnh',
           'model' => 'bo_loc.id_tinh',
-          'repeat' => 'ban_ghi in danh_sach_tinh',
+          'repeat' => 'ban_ghi in danh_sach_tinh_thanh_pho',
           'option_value' => 'ban_ghi.id',
           'option_label' => 'ban_ghi.ten_dia_diem',
-          'change' => "chon_ban_ghi(danh_sach_tinh, bo_loc.id_tinh, 'tinh_dang_chon')",
-          'tham_so' => [
-            'ten_bang' => 'tinh_thanh_pho',
-            'dieu_kien' => [
-              'id' => [
-                '$ne' => 1
-              ]
-            ]
-          ],
+          'change' => "chon_ban_ghi(danh_sach_tinh_thanh_pho, bo_loc.id_tinh, 'tinh_dang_chon')",
+          'tham_so' => false,
           'tham_so_thay_doi' => false,
-          'ten_danh_sach' => 'danh_sach_tinh',
+          'ten_danh_sach' => 'danh_sach_tinh_thanh_pho',
           'ten_danh_sach_thay_doi' => false,
           'dieu_kien_thay_doi' => false,
           'option_model' => 'id_tinh_dang_chon'
