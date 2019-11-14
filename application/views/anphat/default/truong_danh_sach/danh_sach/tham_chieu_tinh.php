@@ -1,0 +1,1 @@
+{{hien_thi_tham_chieu(<?= $model?>, 'id_tinh', 'ten_dia_diem', danh_sach_tinh_thanh_pho)}}

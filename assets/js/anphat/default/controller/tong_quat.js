@@ -98,6 +98,15 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     }
   };
 
+  $scope.lay_danh_sach_quan_huyen = function(id_tinh) {
+    if(!id_tinh) return [];
+    if(!$scope.danh_sach_tinh_thanh_pho) return [];
+    for(var i=0; i< $scope.danh_sach_tinh_thanh_pho.length; i++) {
+      if($scope.danh_sach_tinh_thanh_pho[i].id == id_tinh)
+        return $scope.danh_sach_tinh_thanh_pho[i].quan_huyen;
+    }
+  };
+
   /** Them Xoa Sua */
   $scope.ban_ghi_moi = {
     trang_thai: true
