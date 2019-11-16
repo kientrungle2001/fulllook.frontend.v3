@@ -258,15 +258,146 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
   };
 
   $scope.add_class_schedule = function(class_schedule) {
+    console.log(class_schedule);
     // TODO:
+    var that = this;
+    if(!$scope.selected_row) {
+      alert('Chọn một học sinh để xếp lớp');
+      return false;
+    }
+    if(!class_schedule.classId) {
+      alert('Chọn một lớp để xếp lớp');
+      return false;
+    }
+    if(!class_schedule.startClassDate) {
+      alert('Chọn ngày để xếp lớp');
+      return false;
+    }
+    class_schedule.studentId = $scope.selected_row.id;
+    proxy_post({
+      url: QC.api.v1.class_student.url + '/insert/class_student',
+      data: {
+        item: angular.copy(class_schedule)
+      },
+      success: function(resp) {
+        that.tai_danh_sach();
+      }
+    });
   };
+
+  $scope.remove_class_schedule = function(class_schedule) {
+    var that = this;
+    if(confirm('Bạn có muốn xóa xếp lớp?')) {
+      proxy_post({
+        url: QC.api.v1.class_student.url + '/remove/class_student/' + class_schedule.id,
+        success: function(resp) {
+          that.tai_danh_sach_xep_lop();
+        }
+      });
+    }
+  };
+
+  $scope.edit_class_schedule = function(xep_lop) {
+    // TODO:
+    $scope.selected_class_schedule = angular.copy(xep_lop);
+    $('#edit_class_schedule').modal('show');
+  };
+
+  $scope.update_class_schedule = function(class_schedule) {
+    var that = this;
+    proxy_post({
+      url: QC.api.v1.class_student.url + '/update/class_student/' + class_schedule.id,
+      data: {
+        item: angular.copy(class_schedule)
+      },
+      success: function(resp) {
+        that.tai_danh_sach_xep_lop();
+      }
+    });
+  }
 
   $scope.change_class_schedule = function(class_schedule) {
     // TODO:
+    // update old class schedule
+    var that = this;
+    if(!$scope.selected_row) {
+      alert('Chọn một học sinh để xếp lớp');
+      return false;
+    }
+    if(!class_schedule.fromClassId) {
+      alert('Chọn một lớp để chuyển');
+      return false;
+    }
+    if(!class_schedule.toClassId) {
+      alert('Chọn một lớp cần chuyển tới');
+      return false;
+    }
+    if(!class_schedule.changeDate) {
+      alert('Chọn ngày để xếp lớp');
+      return false;
+    }
+    proxy_post({
+      url: QC.api.v1.class_student.url + '/update_all/class_student/' + class_schedule.id,
+      data: {
+        item: {
+          classId: class_schedule.fromClassId,
+          endClassDate: class_schedule.changeDate
+        },
+        where: {
+          studentId: $scope.selected_row.id,
+          classId: class_schedule.fromClassId
+        }
+      },
+      success: function() {
+        proxy_post({
+          url: QC.api.v1.class_student.url + '/insert/class_student',
+          data: {
+            item: {
+              studentId: $scope.selected_row.id,
+              classId: class_schedule.fromClassId,
+              startClassDate: class_schedule.changeDate
+            }
+          },
+          success: function() {
+            that.tai_danh_sach_xep_lop();
+          }
+        });
+      }
+    });
+    // add new class schedule
   };
 
   $scope.stop_class_schedule = function(class_schedule) {
     // TODO:
+    var that = this;
+    if(!$scope.selected_row) {
+      alert('Chọn một học sinh để dừng học');
+      return false;
+    }
+    if(!class_schedule.fromClassId) {
+      alert('Chọn một lớp để dừng học');
+      return false;
+    }
+    if(!class_schedule.stopDate) {
+      alert('Chọn ngày để dừng học');
+      return false;
+    }
+    proxy_post({
+      url: QC.api.v1.class_student.url + '/update_all/class_student/' + class_schedule.id,
+      data: {
+        item: {
+          classId: class_schedule.fromClassId,
+          endClassDate: class_schedule.stopDate
+        },
+        where: {
+          studentId: $scope.selected_row.id,
+          classId: class_schedule.fromClassId
+        }
+      },
+      success: function() {
+        that.tai_danh_sach_xep_lop();
+      }
+    });
   };
 
   $scope.tai_danh_sach();

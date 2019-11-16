@@ -493,14 +493,45 @@ class MY_TableController extends MY_Controller {
 		$table_model = $this->{$this->table_model};
 		$item = $this->input->post('item');
 		$table_model->update($id, $item);
+		if(isset($this->indexes)) {
+			// $joinTable, $referenceId, $referenceField, $referenceValue
+			foreach($this->indexes as $index) {
+				$table_model->reindex($index[0], $index[1], $index[2], $index[3], [$id]);
+			}
+		}
 		$item = $table_model->get_one($id);
 		echo json_encode($item);
 	}
+
+	public function update_all($table = null) {
+		$this->load->model($this->table_model);
+		$table_model = $this->{$this->table_model};
+		$item = $this->input->post('item');
+		$where = $this->input->post('where');
+		$rows = $table_model->select('id')->get_all($where);
+		$table_model->update($where, $item);
+		$ids = [];
+		foreach($rows as $row) {
+			$ids[] = $row['id'];
+		}
+		if(isset($this->indexes)) {
+			// $joinTable, $referenceId, $referenceField, $referenceValue
+			foreach($this->indexes as $index) {
+				$table_model->reindex($index[0], $index[1], $index[2], $index[3], $ids);
+			}
+		}
+		echo 1;
+	}
+
 	public function remove($table = null, $id = null) {
 		$this->load->model($this->table_model);
 		$table_model = $this->{$this->table_model};
 		$table_model->remove($id);
 		echo $id;
+	}
+
+	public function remove_all($table = null) {
+
 	}
 	public function insert($table = null) {
 		$this->load->model($this->table_model);
@@ -508,6 +539,12 @@ class MY_TableController extends MY_Controller {
 		$item = $this->input->post('item');
 		$table_model->insert($item);
 		$id = $table_model->db->insert_id();
+		if(isset($this->indexes)) {
+			// $joinTable, $referenceId, $referenceField, $referenceValue
+			foreach($this->indexes as $index) {
+				$table_model->reindex($index[0], $index[1], $index[2], $index[3], [$id]);
+			}
+		}
 		$item = $table_model->get_one($id);
 		echo json_encode($item);
 	}

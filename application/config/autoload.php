@@ -149,11 +149,5 @@ if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-cent
 }
 
 if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn')) {
-			$autoload['model']['qlhs/student_model'] = 'student_model';
-			$autoload['model']['qlhs/classes_model'] = 'classes_model';
-			$autoload['model']['qlhs/class_student_model'] = 'class_student_model';
-			$autoload['model']['qlhs/advice_model'] = 'advice_model';
-			$autoload['model']['qlhs/general_order_model'] = 'general_order_model';
-			$autoload['model']['qlhs/student_schedule_model'] = 'student_schedule_model';
-			$autoload['model']['qlhs/student_order_model'] = 'student_order_model';
+	require_once 'autoload/qlhs.php';
 }

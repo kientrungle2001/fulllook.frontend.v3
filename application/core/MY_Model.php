@@ -188,7 +188,7 @@ class Abstract_Table_Model extends MY_Model
 	public function reindex($joinTable, $referenceId, $referenceField, $referenceValue, $ids = null) {
 		$table = $this->table;
 		$sql = "update `$table`, `$joinTable` set `$table`.`$referenceField`=`$joinTable`.`$referenceValue` where `$table`.`$referenceId`=`$joinTable`.`id`";
-		if(null !== $ids) {
+		if(!!$ids) {
 			if(is_array($ids)) {
 				if(count($ids)) {
 					$sql .= " and `$table`.id in (". implode(',', $ids) . ")";
