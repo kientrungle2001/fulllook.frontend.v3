@@ -26,7 +26,7 @@ anphatApp.filter('toDate', function () {
 anphatApp.factory('phan_trang', [function() {
 	return {
 		trang_hien_thoi: 0,
-		kich_co_trang: 10
+		kich_co_trang: 50
 	};
 }]);
 

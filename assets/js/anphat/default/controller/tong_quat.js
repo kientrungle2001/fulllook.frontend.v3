@@ -21,7 +21,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       tu_khoa: $scope.tu_khoa,
       tim_kiem_theo: $scope.tim_kiem_theo,
       dieu_kien: jQuery.extend(angular.copy($scope.dieu_kien) || {}, angular.copy($scope.bo_loc)),
-      kich_co_trang: $scope.phan_trang.kich_co_trang || 10,
+      kich_co_trang: $scope.phan_trang.kich_co_trang || 50,
       trang_hien_thoi: $scope.phan_trang.trang_hien_thoi || 0,
       sap_xep: $scope.sap_xep,
       thu_tu: $scope.thu_tu

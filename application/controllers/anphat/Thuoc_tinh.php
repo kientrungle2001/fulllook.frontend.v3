@@ -9,7 +9,7 @@ class Thuoc_tinh extends MY_Controller
       'module' => 'thuoc_tinh',
       'modal_size' => 'normal',
       'tieu_de' => 'Thuộc tính',
-      'kich_co' => 12,
+      'kich_co' => 16,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
       'truong_danh_sach' => [
@@ -38,12 +38,32 @@ class Thuoc_tinh extends MY_Controller
         [
           'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'tham_chieu',
-          'model' => 'ban_ghi.id_loai_thuoc_tinh',
-          'tham_chieu' => 'id_loai_thuoc_tinh',
+          'model' => 'ban_ghi.id_loai_thuoc_tinh_danh_sach',
+          'tham_chieu' => 'id_loai_thuoc_tinh_danh_sach',
           'gia_tri_tham_chieu' => 'ten_loai_thuoc_tinh',
-          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh_danh_sach',
           'ten_bang' => 'loai_thuoc_tinh',
-          'tieu_de' => 'Loại thuộc tính'
+          'tieu_de' => 'Loại thuộc tính danh sách'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_loai_thuoc_tinh_them_sua',
+          'tham_chieu' => 'id_loai_thuoc_tinh_them_sua',
+          'gia_tri_tham_chieu' => 'ten_loai_thuoc_tinh',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh_them_sua',
+          'ten_bang' => 'loai_thuoc_tinh',
+          'tieu_de' => 'Loại thuộc tính thêm sửa'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_loai_thuoc_tinh_loc',
+          'tham_chieu' => 'id_loai_thuoc_tinh_loc',
+          'gia_tri_tham_chieu' => 'ten_loai_thuoc_tinh',
+          'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_loai_thuoc_tinh_loc',
+          'ten_bang' => 'loai_thuoc_tinh',
+          'tieu_de' => 'Loại thuộc tính lọc'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -87,9 +107,27 @@ class Thuoc_tinh extends MY_Controller
         [
           'loai_truong_them_sua' => 'so_xuong',
           'kich_co' => 24,
-          'tieu_de' =>  'Loại thuộc tính',
-          'model' => 'id_loai_thuoc_tinh',
-          'repeat' => 'loai_thuoc_tinh in danh_sach_them_sua_loai_thuoc_tinh',
+          'tieu_de' =>  'Loại thuộc tính danh sách',
+          'model' => 'id_loai_thuoc_tinh_danh_sach',
+          'repeat' => 'loai_thuoc_tinh in danh_sach_them_sua_loai_thuoc_tinh_danh_sach',
+          'option_label' => 'loai_thuoc_tinh.ten_loai_thuoc_tinh',
+          'option_value' => 'loai_thuoc_tinh._id.$oid',
+          'tham_so' => [
+            'ten_bang' => 'loai_thuoc_tinh',
+            'dieu_kien' => [
+              'trang_thai' => true,
+              'pham_vi_loai_thuoc_tinh' => 'truong_danh_sach'
+            ]
+          ],
+          'ten_danh_sach' => 'danh_sach_them_sua_loai_thuoc_tinh_danh_sach',
+          'tham_so_thay_doi' => false
+        ],
+        [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 24,
+          'tieu_de' =>  'Loại thuộc tính thêm sửa',
+          'model' => 'id_loai_thuoc_tinh_them_sua',
+          'repeat' => 'loai_thuoc_tinh in danh_sach_them_sua_loai_thuoc_tinh_them_sua',
           'option_label' => 'loai_thuoc_tinh.ten_loai_thuoc_tinh',
           'option_value' => 'loai_thuoc_tinh._id.$oid',
           'tham_so' => [
@@ -99,7 +137,25 @@ class Thuoc_tinh extends MY_Controller
               'pham_vi_loai_thuoc_tinh' => 'truong_them_sua'
             ]
           ],
-          'ten_danh_sach' => 'danh_sach_them_sua_loai_thuoc_tinh',
+          'ten_danh_sach' => 'danh_sach_them_sua_loai_thuoc_tinh_them_sua',
+          'tham_so_thay_doi' => false
+        ],
+        [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 24,
+          'tieu_de' =>  'Loại thuộc tính lọc',
+          'model' => 'id_loai_thuoc_tinh_loc',
+          'repeat' => 'loai_thuoc_tinh in danh_sach_them_sua_loai_thuoc_tinh_loc',
+          'option_label' => 'loai_thuoc_tinh.ten_loai_thuoc_tinh',
+          'option_value' => 'loai_thuoc_tinh._id.$oid',
+          'tham_so' => [
+            'ten_bang' => 'loai_thuoc_tinh',
+            'dieu_kien' => [
+              'trang_thai' => true,
+              'pham_vi_loai_thuoc_tinh' => 'truong_loc'
+            ]
+          ],
+          'ten_danh_sach' => 'danh_sach_them_sua_loai_thuoc_tinh_loc',
           'tham_so_thay_doi' => false
         ],
         [
