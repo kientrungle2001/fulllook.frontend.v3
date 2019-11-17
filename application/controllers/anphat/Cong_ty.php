@@ -27,7 +27,31 @@ class Cong_ty extends MY_Controller {
             'sap_xep' => '_id',
             'thu_tu' => 'desc'
           ]
-        ]
+        ],
+        [
+          'ten_danh_sach' => 'danh_sach_nha_cung_cap',
+          'goi_du_lieu' => [
+            'ten_bang' => 'nha_cung_cap',
+            'sap_xep' => 'id',
+            'thu_tu' => 'asc'
+          ]
+        ],
+        [
+          'ten_danh_sach' => 'danh_sach_loai_danh_sach',
+          'goi_du_lieu' => [
+            'ten_bang' => 'loai_danh_sach',
+            'sap_xep' => 'id',
+            'thu_tu' => 'asc'
+          ]
+        ],
+        [
+          'ten_danh_sach' => 'danh_sach_danh_sach_khai_thac',
+          'goi_du_lieu' => [
+            'ten_bang' => 'danh_sach_khai_thac',
+            'sap_xep' => 'id',
+            'thu_tu' => 'asc'
+          ]
+        ],
       ],
       'truong_danh_sach' => [
         [
@@ -64,6 +88,46 @@ class Cong_ty extends MY_Controller {
           'danh_sach_tham_chieu' => 'danh_sach_tham_chieu_huyen',
           //'ten_bang' => 'quan_huyen',
           'tieu_de' => 'Quận huyện'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_nhan_vien',
+          'tham_chieu' => 'id_nhan_vien',
+          'gia_tri_tham_chieu' => 'ten_nhan_vien',
+          'danh_sach_tham_chieu' => 'danh_sach_nhan_vien',
+          //'ten_bang' => 'quan_huyen',
+          'tieu_de' => 'Nhân viên'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_nha_cung_cap',
+          'tham_chieu' => 'id_nha_cung_cap',
+          'gia_tri_tham_chieu' => 'ten_nha_cung_cap',
+          'danh_sach_tham_chieu' => 'danh_sach_nha_cung_cap',
+          //'ten_bang' => 'quan_huyen',
+          'tieu_de' => 'Nhà cung cấp'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_loai_danh_sach',
+          'tham_chieu' => 'id_loai_danh_sach',
+          'gia_tri_tham_chieu' => 'ten_loai_danh_sach',
+          'danh_sach_tham_chieu' => 'danh_sach_loai_danh_sach',
+          //'ten_bang' => 'quan_huyen',
+          'tieu_de' => 'Loại danh sách'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'tham_chieu',
+          'model' => 'ban_ghi.id_danh_sach_khai_thac',
+          'tham_chieu' => 'id_danh_sach_khai_thac',
+          'gia_tri_tham_chieu' => 'ten_danh_sach_khai_thac',
+          'danh_sach_tham_chieu' => 'danh_sach_danh_sach_khai_thac',
+          //'ten_bang' => 'quan_huyen',
+          'tieu_de' => 'Danh sách khai thác'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -109,6 +173,42 @@ class Cong_ty extends MY_Controller {
           'kich_co' => 6
         ],
         [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 6,
+          'tieu_de' => 'Nhân viên',
+          'model' => 'id_nhan_vien',
+          'repeat' => 'nhan_vien in danh_sach_nhan_vien',
+          'option_value' => 'nhan_vien._id.$oid',
+          'option_label' => 'nhan_vien.ten_nhan_vien'
+        ],
+        [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 6,
+          'tieu_de' => 'Loại danh sách',
+          'model' => 'id_loai_danh_sach',
+          'repeat' => 'loai_danh_sach in danh_sach_loai_danh_sach',
+          'option_value' => 'loai_danh_sach._id.$oid',
+          'option_label' => 'loai_danh_sach.ten_loai_danh_sach'
+        ],
+        [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 6,
+          'tieu_de' => 'Danh sách khai thác',
+          'model' => 'id_danh_sach_khai_thac',
+          'repeat' => 'danh_sach_khai_thac in danh_sach_danh_sach_khai_thac',
+          'option_value' => 'danh_sach_khai_thac._id.$oid',
+          'option_label' => 'danh_sach_khai_thac.ten_danh_sach_khai_thac'
+        ],
+        [
+          'loai_truong_them_sua' => 'so_xuong',
+          'kich_co' => 6,
+          'tieu_de' => 'Nhà cung cấp',
+          'model' => 'id_nha_cung_cap',
+          'repeat' => 'nha_cung_cap in danh_sach_nha_cung_cap',
+          'option_value' => 'nha_cung_cap._id.$oid',
+          'option_label' => 'nha_cung_cap.ten_nha_cung_cap'
+        ],
+        [
           'loai_truong_them_sua' => 'van_ban',
           'kich_co' => 6,
           'tieu_de' =>  'Ghi chú',
@@ -129,6 +229,42 @@ class Cong_ty extends MY_Controller {
         [
           'loai_truong_loc' => 'so_xuong_quan_huyen',
           'kich_co' => 4
+        ],
+        [
+          'loai_truong_loc' => 'so_xuong',
+          'kich_co' => 4,
+          'tieu_de' => 'Nhân viên',
+          'repeat' => 'nhan_vien in danh_sach_nhan_vien',
+          'option_value' => 'nhan_vien._id.$oid',
+          'option_label' => 'nhan_vien.ten_nhan_vien',
+          'model' => "bo_loc.id_nhan_vien"
+        ],
+        [
+          'loai_truong_loc' => 'so_xuong',
+          'kich_co' => 4,
+          'tieu_de' => 'Loại danh sách',
+          'repeat' => 'loai_danh_sach in danh_sach_loai_danh_sach',
+          'option_value' => 'loai_danh_sach._id.$oid',
+          'option_label' => 'loai_danh_sach.ten_loai_danh_sach',
+          'model' => "bo_loc.id_loai_danh_sach"
+        ],
+        [
+          'loai_truong_loc' => 'so_xuong',
+          'kich_co' => 4,
+          'tieu_de' => 'Danh sách khai thác',
+          'repeat' => 'danh_sach_khai_thac in danh_sach_danh_sach_khai_thac',
+          'option_value' => 'danh_sach_khai_thac._id.$oid',
+          'option_label' => 'danh_sach_khai_thac.ten_danh_sach_khai_thac',
+          'model' => "bo_loc.id_danh_sach_khai_thac"
+        ],
+        [
+          'loai_truong_loc' => 'so_xuong',
+          'kich_co' => 4,
+          'tieu_de' => 'Nhà cung cấp',
+          'repeat' => 'nha_cung_cap in danh_sach_nha_cung_cap',
+          'option_value' => 'nha_cung_cap._id.$oid',
+          'option_label' => 'nha_cung_cap.ten_nha_cung_cap',
+          'model' => "bo_loc.id_nha_cung_cap"
         ],
         [
           'loai_truong_loc' => 'nut_bam',
