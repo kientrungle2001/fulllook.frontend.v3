@@ -11,7 +11,8 @@ $posts = $controller->posts_model->get_posts(array(
 <div id="right">
 	
 	<div class="b_top">
-		<h1><?= wpglobus($category['name'], $language)?> <a href="<?= $controller->links_model->get_news_category_link($language, $category)?>/feed" style="color: brown; float:right; font-size: 0.8em;"><img src="https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png" style="width: 16px; height: 16px; position: relative; top: 3px;"> rss</a></h1>
+		<h1><?= wpglobus($category['name'], $language)?> </h1>
+		<a href="<?= $controller->links_model->get_news_category_link($language, $category)?>/feed" class="link_feed"><img src="https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png"> rss</a>
 	</div>
 	<div id="link_br">
 		<a href="/<?= $language?>"><?= wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language)?></a>

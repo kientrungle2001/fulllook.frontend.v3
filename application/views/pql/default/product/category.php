@@ -29,10 +29,11 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			}
 			?>
 			<?= $category_title ?> 
-			<a href="<?= $controller->getProductCatLink($category, $language)?>/feed" class="link_feed">
-				<img src="<?= $feed_img?>"> rss
-			</a>
+			
 		</h1>
+		<a href="<?= $controller->getProductCatLink($category, $language)?>/feed" class="link_feed">
+				<img src="<?= $feed_img?>"> rss
+		</a>
 	</div>
 	<div id="link_br">
 		<a href="/<?= $language?>"><?= $controller->getHomeTitle($language)?></a>
@@ -73,7 +74,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 		
 	</div>
 	<div class="b_top" style="margin-top: 15px;margin-bottom: 15px;">
-		<h2>Catalog</h2>
+		<div class="h2">Catalog</div>
 	</div>
 	
 	<?php 

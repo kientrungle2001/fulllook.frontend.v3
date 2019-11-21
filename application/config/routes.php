@@ -66,6 +66,9 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# short
 	$route['[\w\d-_]+-cp(:num)'] = 'product/category/vi/$1';
 	$route['en/[\w\d-_]+-cp(:num)'] = 'product/category/en/$1';
+	# short with html
+	$route['[\w\d-_]+-cp(:num).html'] = 'product/category/vi/$1';
+	$route['en/[\w\d-_]+-cp(:num).html'] = 'product/category/en/$1';
 	
 	# product
 	$route['san-pham/[\w\d-_]+-c(:num)/[\w\d-_]+-p(:num).html'] = 'product/detail/vi/$1/$2';
@@ -77,6 +80,9 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# product feed
 	$route['[\w\d-_]+-cp(:num)/feed'] = 'product/feed/vi/$1';
 	$route['en/[\w\d-_]+-cp(:num)/feed'] = 'product/feed/en/$1';
+	# product feed with html
+	$route['[\w\d-_]+-cp(:num).html/feed'] = 'product/feed/vi/$1';
+	$route['en/[\w\d-_]+-cp(:num).html/feed'] = 'product/feed/en/$1';
 
 	# news
 	$route['tin-tuc'] = 'news/category/vi/170';
@@ -92,6 +98,9 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	#short
 	$route['[\w\d-_]+-cn(:num)'] = 'news/category/vi/$1';
 	$route['en/[\w\d-_]+-cn(:num)'] = 'news/category/en/$1';
+	#short with html
+	$route['[\w\d-_]+-cn(:num).html'] = 'news/category/vi/$1';
+	$route['en/[\w\d-_]+-cn(:num).html'] = 'news/category/en/$1';
 	
 	# news detail
 	$route['tin-tuc/[\w\d-_]+-c(:num)/[\w\d-_]+-n(:num).html'] = 'news/detail/vi/$1/$2';
@@ -103,6 +112,9 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# news feed
 	$route['[\w\d-_]+-cn(:num)/feed'] = 'news/feed/vi/$1';
 	$route['en/[\w\d-_]+-cn(:num)/feed'] = 'news/feed/en/$1';
+	# news feed with html
+	$route['[\w\d-_]+-cn(:num).html/feed'] = 'news/feed/vi/$1';
+	$route['en/[\w\d-_]+-cn(:num).html/feed'] = 'news/feed/en/$1';
 
 	# search
 	$route['tim-kiem'] = 'search/result/vi';
