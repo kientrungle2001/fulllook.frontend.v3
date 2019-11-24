@@ -8,4 +8,8 @@ class Student extends MY_TableController {
 			'type' => 'like_raw'
 		]
 	];
+
+	public $indexes = [
+		['teacher', 'assignId', 'assignName', 'name']
+	];
 }

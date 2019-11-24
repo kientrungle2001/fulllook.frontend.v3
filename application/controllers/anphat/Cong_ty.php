@@ -276,4 +276,68 @@ class Cong_ty extends MY_Controller {
     ];
     $this->render('tong_quat/tong_quan', $data);
   }
+
+  function danh_sach() {
+    $bo_thuoc_tinh = $this->laramongo->get('bo_thuoc_tinh',[
+      'ma_bo_thuoc_tinh' => 'bo_thuoc_tinh_cong_ty'
+    ]);
+    // echo '<pre>';
+    // print_r($bo_thuoc_tinh);
+    /**
+     * 
+                Array
+                (
+                    [_id] => Array
+                        (
+                            [$oid] => 5dc5a51452de4c38ce5ec692
+                        )
+
+                    [trang_thai] => 1
+                    [id_bo_thuoc_tinh] => 5dc59e436dcb64135f4985c9
+                    [id_thuoc_tinh] => 5dc30e5442deb6392142f124
+                    [thu_tu] => 1
+                    [thuoc_tinh] => Array
+                        (
+                            [_id] => Array
+                                (
+                                    [$oid] => 5dc30e5442deb6392142f124
+                                )
+
+                            [trang_thai] => 1
+                            [ten_thuoc_tinh] => Tên công ty
+                            [ma_thuoc_tinh] => ten_cong_ty
+                            [thu_tu] => 1
+                            [id_luoc_do] => 5dc30e2142deb6392142f122
+                            [id_loai_thuoc_tinh] => 5dc30e3442deb6392142f123
+                            [id_loai_thuoc_tinh_danh_sach] => 5dc43cfbfd0e6812ec175cc6
+                            [id_loai_thuoc_tinh_loc] => 
+                            [id_loai_thuoc_tinh_them_sua] => 5dc30e3442deb6392142f123
+                        )
+
+                )
+     */
+    $data = [
+      'module' => $bo_thuoc_tinh['luoc_do']['ma_luoc_do'],
+      'module_sub' => false,
+	    'modal_size' => 'lg',
+      'tieu_de' => $bo_thuoc_tinh['ten_bo_thuoc_tinh'],
+      'kich_co' => 24,
+      'kich_co_nut_them' => 6,
+      'kich_co_nut_loc' => 6,
+      'truong_danh_sach' => [],
+      'truong_loc' => [],
+      'truong_them_sua' => []
+    ];
+    foreach($bo_thuoc_tinh['danh_sach_thuoc_tinh'] as $thuoc_tinh) {
+      $thuoc_tinh = $thuoc_tinh['thuoc_tinh'];
+      $data['truong_danh_sach'][] = [
+        'loai_truong_tieu_de' => 'van_ban',
+        'loai_truong_danh_sach' => 'van_ban',
+        'model' => 'ban_ghi.' . $thuoc_tinh['ma_thuoc_tinh'],
+        'tieu_de' => $thuoc_tinh['ten_thuoc_tinh']
+      ];
+    }
+    // print_r($data);
+    $this->render('tong_quat/tong_quan', $data);
+  }
 }

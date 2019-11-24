@@ -32,6 +32,9 @@ QC = QLHS_CONSTANTS = {
       student_order: {
         url: QU + '/student_order'
       },
+      teacher: {
+        url: QU + '/teacher'
+      },
     }
   }
 };

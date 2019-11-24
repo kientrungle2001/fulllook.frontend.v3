@@ -48,7 +48,10 @@
     </div>
     <div class="form-group col-md-8">
     <label>Nhân viên tư vấn</label>
-    <select class="form-control form-control-sm" ng-model="<?= $model?>.assignId"><option ng-value="0">Nhân viên tư vấn</option></select>
+    <select class="form-control form-control-sm" ng-model="<?= $model?>.assignId">
+      <option ng-value="0">Nhân viên tư vấn</option>
+      <option ng-value="teacher.id" ng-repeat="teacher in teachers">{{teacher.name}}</option>
+    </select>
     </div>
     <div class="form-group col-md-4">
     <label>Trạng thái</label>

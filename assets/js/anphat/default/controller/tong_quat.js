@@ -134,6 +134,29 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     });
   };
 
+  $scope.sua_ban_ghi_cua_bang = function(ten_bang, ban_ghi, callback) {
+    var ban_ghi_params = angular.copy(ban_ghi);
+    var id = ban_ghi_params._id.$oid;
+    delete ban_ghi_params._id;
+    sua_ban_ghi(
+      id,
+      {ten_bang: ten_bang, du_lieu: ban_ghi_params}, function(resp) {
+      if(callback) return callback(resp);
+      $scope.tai_danh_sach();
+    });
+  }
+
+  $scope.cap_nhat_ban_ghi_cua_bang = function(id, ten_bang, ban_ghi, callback) {
+    var ban_ghi_params = angular.copy(ban_ghi);
+    delete ban_ghi_params._id;
+    sua_ban_ghi(
+      id,
+      {ten_bang: ten_bang, du_lieu: ban_ghi_params}, function(resp) {
+      if(callback) return callback(resp);
+      $scope.tai_danh_sach();
+    });
+  }
+
   $scope._sua_ban_ghi = sua_ban_ghi;
 
   $scope.xoa_ban_ghi = function(ban_ghi, callback) {
@@ -253,4 +276,10 @@ anphatApp.controller('tong_quat_controller', ['$scope',
 
   // lay du lieu
   $scope.tai_danh_sach();
+
+  $scope.chuyen_trang = function(url) {
+    return function() {
+      window.location = url;
+    };
+  };
 }]);

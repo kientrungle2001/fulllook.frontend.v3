@@ -109,12 +109,12 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	}
 }
 
-if($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn') {
+if($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn' || $_SERVER['HTTP_HOST'] == 'demo.qlhs.nn-center.com') {
 	$db_config = array(
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'qlhs2',
+	'hostname' => '42.112.21.207',
+	'username' => 'admin_qlhs_demo',
+	'password' => 'nn123456',
+	'database' => 'admin_qlhs_demo',
 	);
 	foreach($db_config as $key => $val) {
 		$db['default'][$key] = $val;

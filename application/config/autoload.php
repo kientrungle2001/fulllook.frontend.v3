@@ -64,6 +64,10 @@ if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == '
 }
 $autoload['libraries'][] = 'curl';
 
+if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn') {
+	$autoload['libraries'][] = 'laramongo';
+}
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers

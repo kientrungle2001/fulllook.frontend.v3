@@ -1,4 +1,4 @@
-qlhsApp.controller('student_controller', ['$scope', function($scope) {
+qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', function($scope, tai_danh_sach_giao_vien) {
   $scope.pageNum = 0;
   $scope.pageSize = 10;
   $scope.pageSizes = [10, 20, 30, 40, 50, 100, 200];
@@ -24,6 +24,10 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
         $scope.$apply();
       }
     });
+  };
+
+  $scope.tai_danh_sach_giao_vien = function() {
+    tai_danh_sach_giao_vien($scope);
   };
 
   // Phân trang
@@ -401,4 +405,5 @@ qlhsApp.controller('student_controller', ['$scope', function($scope) {
   };
 
   $scope.tai_danh_sach();
+  $scope.tai_danh_sach_giao_vien();
 }]);

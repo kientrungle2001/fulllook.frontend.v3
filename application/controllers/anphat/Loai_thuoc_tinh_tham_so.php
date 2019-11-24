@@ -9,7 +9,7 @@ class loai_thuoc_tinh_tham_so extends MY_Controller
       'module' => 'loai_thuoc_tinh_tham_so',
       'modal_size' => 'normal',
       'tieu_de' => 'Tham số của loại thuộc tính',
-      'kich_co' => 12,
+      'kich_co' => 24,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
       'truong_danh_sach' => [
@@ -129,6 +129,15 @@ class loai_thuoc_tinh_tham_so extends MY_Controller
         ],
       ],
       'truong_loc' => [
+        [
+          'loai_truong_loc' => 'so_xuong',
+          'kich_co' => 6,
+          'tieu_de' => 'Loai thuoc tinh',
+          'model' => 'bo_loc.id_loai_thuoc_tinh',
+          'repeat' => 'loai_thuoc_tinh in danh_sach_tham_chieu_loai_thuoc_tinh',
+          'option_value' => 'loai_thuoc_tinh._id.$oid',
+          'option_label' => 'loai_thuoc_tinh.ten_loai_thuoc_tinh + \' \' + loai_thuoc_tinh.pham_vi_loai_thuoc_tinh'
+        ],
         [
           'loai_truong_loc' => 'nut_bam',
           'kich_co' => 6,
