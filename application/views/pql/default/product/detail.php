@@ -33,9 +33,37 @@ $product = $controller->posts_model->get_post($productId);
 			<img class="u-photo" title="<?= wpglobus($product['post_title'],$language)?>" 
 				src="<?= $controller->links_model->get_image_url($img)?>">
 		</div>
-		<div id="text-cate" class="e-description">
-			<?= replace_br(wpglobus($product['post_content'], $language))?>	
+		<div id="text-cate">
+			<table class="price_table">
+				<tr>
+					<th>Mã sản phẩm: </th>
+					<td><?= $product['sku']?></td>
+				</tr>
+				<tr>
+					<th>Giá: </th>
+					<td><?= $product['price']?></td>
+				</tr>
+				<tr>
+					<th>Thương hiệu: </th>
+					<td><?= $product['brand']?></td>
+				</tr>
+				<tr>
+					<th>Xuất xứ: </th>
+					<td><?= $product['origin']?></td>
+				</tr>
+				<tr>
+					<th>Tình trạng: </th>
+					<td><?= $product['stock']?></td>
+				</tr>
+				<tr>
+					<th>Thêm vào giỏ: </th>
+					<td>
+						Số lượng: <input type="text" name="quantity" id="quantity" size="3" value="1"> <button onclick="addToCart('<?= $product['sku']?>', '<?= wpglobus($product['post_title'], $language) ?>', '<?= $product['price']?>');">Đặt mua</button>
+					</td>
+				</tr>
+			</table>
 		</div>
+		<div class="e-description clear"><?= replace_br(wpglobus($product['post_content'], $language))?></div>
 		
 	</div>
 	<div style="clear:both"></div>
@@ -56,4 +84,38 @@ $jsonld = array(
 ?>
 <script type="application/ld+json">
 <?= json_encode($jsonld)?>
+</script>
+<style>
+.price_table tr td, .price_table tr th{
+	border-bottom: 1px solid #ccc;
+}
+
+.price_table tr th {
+	text-align: right;
+}
+
+.price_table tr td {
+	color: #f96302;
+}
+#quantity {
+	width: 60px;
+}
+</style>
+<script>
+	function addToCart(sku, name, price) {
+		var quantity = jQuery('#quantity').val();
+		quantity = parseFloat(quantity);
+		jQuery.ajax({
+			url: '/cart/addToCart',
+			type: 'post',
+			dataType: 'json',
+			data: {
+				sku: sku, name: name, price: price, quantity: quantity
+			},
+			success: function(resp) {
+				jQuery('#but_gh .num').text(resp);
+				alert('Bạn đã đặt hàng thành công');
+			}
+		});
+	}
 </script>
