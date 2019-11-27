@@ -86,8 +86,9 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     }
   };
 
-  $scope.hien_thi_tham_chieu_huyen = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
+  $scope.hien_thi_tham_chieu_huyen = function(id, gia_tri_tham_chieu, danh_sach_tham_chieu) {
     if(!danh_sach_tham_chieu) return '';
+    if(!id) return '';
     for(var i = 0; i < danh_sach_tham_chieu.length; i++) {
       for(var j = 0; j < danh_sach_tham_chieu[i].quan_huyen.length; j++) {
         if(danh_sach_tham_chieu[i].quan_huyen[j]._id.$oid === id || 
