@@ -381,6 +381,10 @@ class Cong_ty extends MY_Controller {
         if(isset($thuoc_tinh['cau_hinh_them_sua'])) {
           $data['truong_them_sua'][] = $thuoc_tinh['cau_hinh_them_sua'];
         }
+
+        if(isset($thuoc_tinh['cau_hinh_loc'])) {
+          $data['truong_loc'][] = $thuoc_tinh['cau_hinh_loc'];
+        }
       }
     }
 

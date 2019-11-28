@@ -41,6 +41,12 @@ class Bo_thuoc_tinh extends MY_Controller
           'model' => 'ban_ghi.thu_tu',
           'tieu_de' => 'Thứ tự'
         ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'lien_ket',
+          'model' => 'bo_thuoc_tinh/danh_sach_thuoc_tinh',
+          'tieu_de' => 'DS Thuộc tính'
+        ],
       ],
       'truong_them_sua' => [
         [
