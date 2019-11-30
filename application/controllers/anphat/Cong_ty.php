@@ -388,6 +388,13 @@ class Cong_ty extends MY_Controller {
       }
     }
 
+    $data['truong_loc'][] = [
+      'loai_truong_loc' => 'nut_bam',
+      'kich_co' => 3,
+      'tieu_de' => 'Thực hiện',
+      'model' => "loc_du_lieu(bo_loc);"
+    ];
+
     //echo '<pre>'; print_r($data); die();
     $this->render('tong_quat/tong_quan', $data);
   }

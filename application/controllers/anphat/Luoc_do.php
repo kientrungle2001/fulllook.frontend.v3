@@ -9,7 +9,7 @@ class Luoc_do extends MY_Controller
       'module' => 'luoc_do',
       'modal_size' => 'normal',
       'tieu_de' => 'Lược đồ',
-      'kich_co' => 12,
+      'kich_co' => 16,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
       'truong_danh_sach' => [
@@ -30,6 +30,18 @@ class Luoc_do extends MY_Controller
           'loai_truong_danh_sach' => 'van_ban',
           'model' => 'ban_ghi.thu_tu',
           'tieu_de' => 'Thứ tự'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'lien_ket',
+          'model' => 'luoc_do/thuoc_tinh',
+          'tieu_de' => 'Thuộc tính'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'lien_ket',
+          'model' => 'luoc_do/bo_thuoc_tinh',
+          'tieu_de' => 'Bộ thuộc tính'
         ],
       ],
       'truong_them_sua' => [

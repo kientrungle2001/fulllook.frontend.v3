@@ -63,6 +63,8 @@ $product = $controller->posts_model->get_post($productId);
 				</tr>
 			</table>
 		</div>
+		<hr class="clear" />
+		
 		<div class="e-description clear"><?= replace_br(wpglobus($product['post_content'], $language))?></div>
 		
 	</div>
@@ -91,7 +93,15 @@ $jsonld = array(
 }
 
 .price_table tr th {
-	text-align: right;
+	text-align: left;
+}
+
+.price_table tr th:before {
+	content: ' ';
+	display: inline-block;
+	width: 16px;
+	height: 9px;
+	background: url('/assets/css/pql/default/images/bichvan_15.png') no-repeat;
 }
 
 .price_table tr td {

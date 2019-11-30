@@ -8,8 +8,24 @@ class Loai_thuoc_tinh extends MY_Controller {
       'modal_size' => 'normal',
         'tieu_de' => 'Loại Thuộc tính',
         'kich_co' => 24,
-        'kich_co_nut_them' => 6,
-        'kich_co_nut_loc' => 6,
+        'kich_co_nut_them' => 3,
+        'kich_co_nut_loc' => 3,
+        'du_lieu_tinh' => [
+          'danh_sach_pham_vi_loai_thuoc_tinh' => [
+            [
+              'value' => 'truong_danh_sach',
+              'label' => 'Trường danh sách'
+            ],
+            [
+              'value' => 'truong_loc',
+              'label' => 'Trường lọc'
+            ],
+            [
+              'value' => 'truong_them_sua',
+              'label' => 'Trường thêm sửa'
+            ],
+          ]
+        ],
         'truong_danh_sach' => [
           [
             'loai_truong_tieu_de' => 'van_ban',
@@ -88,8 +104,17 @@ class Loai_thuoc_tinh extends MY_Controller {
         ],
         'truong_loc' => [
           [
+            'loai_truong_loc' => 'so_xuong',
+            'kich_co' => 3,
+            'tieu_de' => 'Phạm vi loại thuộc tính',
+            'repeat' => 'ban_ghi in du_lieu_tinh.danh_sach_pham_vi_loai_thuoc_tinh',
+            'option_label' => 'ban_ghi.label',
+            'option_value' => 'ban_ghi.value',
+            'model' => 'bo_loc.pham_vi_loai_thuoc_tinh'
+          ],
+          [
             'loai_truong_loc' => 'nut_bam',
-            'kich_co' => 6,
+            'kich_co' => 3,
             'tieu_de' => 'Thực hiện',
             'model' => "loc_du_lieu(bo_loc);"
           ],

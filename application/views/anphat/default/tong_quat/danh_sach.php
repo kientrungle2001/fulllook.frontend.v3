@@ -1,6 +1,7 @@
 
 <table class="table table-sm table-bordered">
   <tr>
+  <th><input type="checkbox" ng-model="trang_thai_chon_tat_ca" ng-change="chon_tat_ca()" /></th>
     <th>ID</th>
     <?php foreach($truong_danh_sach as $truong):?>
     <th>
@@ -11,6 +12,7 @@
     <th><span class="fa fa-pencil"></span> <span class="fa fa-trash"></span></th>
   </tr>
   <tr ng-repeat="ban_ghi in danh_sach_ban_ghi">
+  <td><input type="checkbox" ng-model="cac_ban_ghi_dang_chon[ban_ghi._id.$oid]" /></td>
     <td>{{$index + 1}}</td>
     <?php foreach($truong_danh_sach as $truong):?>
       <td>

@@ -45,6 +45,12 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       });
     });
   }
+  $scope.cac_ban_ghi_dang_chon = {};
+  $scope.chon_tat_ca = function() {
+    $scope.danh_sach_ban_ghi.forEach(function(ban_ghi) {
+      $scope.cac_ban_ghi_dang_chon[ban_ghi._id.$oid] = $scope.trang_thai_chon_tat_ca;
+    });
+  };
 
   /*
   loai_thuoc_tinh('so_xuong', 'truong_them_sua', function(ket_qua) {

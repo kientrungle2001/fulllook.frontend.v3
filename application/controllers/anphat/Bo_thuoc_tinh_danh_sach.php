@@ -85,6 +85,15 @@ class Bo_thuoc_tinh_danh_sach extends MY_Controller
             ],
             'truong_loc' => [
                 [
+                    'loai_truong_loc' => 'so_xuong',
+                    'kich_co' => 6,
+                    'tieu_de' =>'Bộ thuộc tính',
+                    'model' => 'bo_loc.id_bo_thuoc_tinh',
+                    'repeat' => 'ban_ghi in danh_sach_tham_chieu_bo_thuoc_tinh',
+                    'option_value' => 'ban_ghi._id.$oid',
+                    'option_label' => 'ban_ghi.ten_bo_thuoc_tinh'
+                ],
+                [
                     'loai_truong_loc' => 'nut_bam',
                     'kich_co' => 6,
                     'tieu_de' => 'Thực hiện',

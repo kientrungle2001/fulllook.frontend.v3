@@ -6,6 +6,9 @@ $c->js('controller/'.$module.'.js');
 <?php if(isset($du_lieu_tai_tu_dong)):?>
 <span class="d-none" ng-init="du_lieu_tai_tu_dong=<?= htmlentities(json_encode($du_lieu_tai_tu_dong)) ?>;"></span>
 <?php endif;?>
+<?php if(isset($du_lieu_tinh)):?>
+<span class="d-none" ng-init="du_lieu_tinh=<?= htmlentities(json_encode($du_lieu_tinh)) ?>;"></span>
+<?php endif;?>
 <span class="d-none" ng-init="truong_danh_sach=<?= htmlentities(json_encode($truong_danh_sach)) ?>;"></span>
 <span class="d-none" ng-init="truong_them_sua=<?= htmlentities(json_encode($truong_them_sua)) ?>;"></span>
 <span class="d-none" ng-init="truong_loc=<?= htmlentities(json_encode($truong_loc)) ?>;"></span>

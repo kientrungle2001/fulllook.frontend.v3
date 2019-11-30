@@ -26,7 +26,7 @@ i{
 }
 /*================== css phần header ==================*/
 body {
-	background: url(../images/dark_geometric.png) repeat;
+	/*background: url(../images/dark_geometric.png) repeat;*/
 	font-size: 12px;
 	font-family: arial;
 	line-height: 18px;
@@ -35,8 +35,12 @@ body {
 #container{
   width: 998px;
   margin: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  /*
   border-left: 1px solid #323232;
   border-right: 1px solid #323232;
+  */
   background: white;
 }
 /*==============slogan===============*/
@@ -916,9 +920,10 @@ font-weight: bold;
 #info_cate {
     padding: 10px 20px;
 }
-#text_cate {
+#text_cate, #text-cate {
     width: 510px;
     float: left;
+    padding-left: 15px;
 }
 #img_cate {
     float: left;
@@ -927,8 +932,8 @@ font-weight: bold;
 }
 #img_cate img {
     border: 1px solid #ccc;
-    width: 167px;
-    height: 131px;
+    width: 240px;
+    height: auto;
     padding: 2px;
 }
 #list_orderby {
