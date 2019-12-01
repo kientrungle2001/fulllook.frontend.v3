@@ -33,7 +33,7 @@ $product = $controller->posts_model->get_post($productId);
 			<img class="u-photo" title="<?= wpglobus($product['post_title'],$language)?>" 
 				src="<?= $controller->links_model->get_image_url($img)?>">
 		</div>
-		<div id="text-cate">
+		<div id="text-cate-detail">
 			<table class="price_table">
 				<tr>
 					<th>Mã sản phẩm: </th>
@@ -128,4 +128,9 @@ $jsonld = array(
 			}
 		});
 	}
+	$(document).ready(function(){
+		$('#img_cate').zoom({
+			magnify: 1
+		});
+	});
 </script>

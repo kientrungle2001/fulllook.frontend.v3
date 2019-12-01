@@ -11,6 +11,9 @@
 	#right, .slider-wrapper {
 		width: 972px;
 	}
+	#text-cate {
+		width: 942px;
+	}
 	.sub_categories .category {
 		width: 215px;
 	}
@@ -30,6 +33,9 @@
 	}
 	#right, .slider-wrapper {
 		width: 790px;
+	}
+	#text-cate {
+		width: 760px;
 	}
 	.sub_categories .category {
 		width: 230px;
@@ -52,6 +58,9 @@
 @media (max-width: 810px) {
 	#right {
 		width: 550px;
+	}
+	#text-cate {
+		width: 520px;
 	}
 	#bg_search {
 		width: 362px;
@@ -158,7 +167,7 @@
 		display: none;
 	}
 
-	#right {
+	#right,#text-cate,#text-cate-detail {
 		width: 100%;
 	}
 	img {

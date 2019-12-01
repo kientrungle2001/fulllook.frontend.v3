@@ -396,6 +396,7 @@ body {
   width: 150px;
   margin-right: 10px;
   overflow: hidden;
+  text-align: center;
 }
 #left{
   width: 208px;
@@ -920,7 +921,7 @@ font-weight: bold;
 #info_cate {
     padding: 10px 20px;
 }
-#text_cate, #text-cate {
+#text_cate, #text-cate, #text-cate-detail {
     width: 510px;
     float: left;
     padding-left: 15px;
