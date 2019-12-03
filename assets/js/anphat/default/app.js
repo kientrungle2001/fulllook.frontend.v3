@@ -230,7 +230,14 @@ Array.prototype.indexOfMatched = function(str) {
 
 String.prototype.indexOfMatched = function(str) {
 	return this.indexOf(''+str);
-}
+};
+
+Array.prototype.combine = function(arr) {
+	for(var i = 0; i < arr.length; i++) {
+		this.push(arr[i]);
+	}
+	return this;
+};
 
 function get_browser() {
 	var browser = '';

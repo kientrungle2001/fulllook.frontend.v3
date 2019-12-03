@@ -34,7 +34,8 @@ anphatApp.controller('tong_quat_controller', ['$scope',
           sap_xep: $scope.sap_xep,
           thu_tu: $scope.thu_tu
         }, function(danh_sach) {
-          $scope.tron_vao_mang($scope.danh_sach_ban_ghi, danh_sach.du_lieu);
+          $scope.danh_sach_ban_ghi.combine(danh_sach.du_lieu);
+          // $scope.tron_vao_mang($scope.danh_sach_ban_ghi, danh_sach.du_lieu);
           $scope.$apply();
         });
       }
@@ -70,12 +71,6 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       });
     }
     
-  };
-
-  $scope.tron_vao_mang = function(mang, du_lieu) {
-    for(var i = 0; i < du_lieu.length; i++) {
-      mang.push(du_lieu[i]);
-    }
   };
 
   if($scope.du_lieu_tai_tu_dong) {
@@ -262,6 +257,10 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     for(var k in $scope.bo_loc) {
       if(null === $scope.bo_loc[k]) {
         delete $scope.bo_loc[k];
+      } else {
+        if(typeof $scope.bo_loc[k] == 'object' && $scope.bo_loc[k].constructor.name == 'Array' && $scope.bo_loc[k].length == 0) {
+          delete $scope.bo_loc[k];
+        }
       }
     }
     $scope.tai_danh_sach();
@@ -309,6 +308,16 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   /**
    * Phan trang
    */
+  
+  $scope.den_trang_dau = function() {
+    $scope.phan_trang.trang_hien_thoi = 0;
+    $scope.tai_danh_sach();
+  };
+
+  $scope.den_trang_cuoi = function() {
+    $scope.phan_trang.trang_hien_thoi = $scope.tong_so_trang;
+    $scope.tai_danh_sach();
+  };
   
   $scope.den_trang_truoc = function() {
     if($scope.phan_trang.trang_hien_thoi > 0) {
