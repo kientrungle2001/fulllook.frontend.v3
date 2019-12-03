@@ -1,5 +1,5 @@
-ANPHAT_API_URL = 'http://laramongo.vn/api';
-ANPHAT_API_VERSION = 'v1';
+AP_API_URL = ANPHAT_API_URL = 'http://laramongo.vn/api';
+AP_API_VERSION = ANPHAT_API_VERSION = 'v1';
 AJC = AJAX_CONSTANTS =  {
   type: {
     post: 'POST',
@@ -18,7 +18,7 @@ APC = ANPHAT_CONSTANTS = {
         url: ANPHAT_API_URL + '/v1/dia_diem'
       },
       nhan_vien: {
-        url: '/v1/nhan_vien'
+        url: ANPHAT_API_URL + '/v1/nhan_vien'
       },
       phong_ban: {
         url: '/v1/phong_ban'
@@ -38,3 +38,5 @@ APC = ANPHAT_CONSTANTS = {
     }
   }
 };
+
+AP_API = APC.api.v1;
