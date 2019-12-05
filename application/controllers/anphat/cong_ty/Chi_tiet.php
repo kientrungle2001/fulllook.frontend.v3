@@ -83,7 +83,9 @@ class Chi_tiet extends MY_Action
       'tieu_de' => 'Thực hiện',
       'model' => "loc_du_lieu(bo_loc);"
     ];
-    
+
+    $cong_ty = $this->controller->laramongo->get('cong_ty', $id);
+    $data['cong_ty'] = $cong_ty;
     //echo '<pre>'; print_r($data); die();
     $this->controller->render('cong_ty/chi_tiet', $data);
   }

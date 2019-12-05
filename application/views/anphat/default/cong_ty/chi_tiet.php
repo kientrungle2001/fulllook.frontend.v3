@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="cong_ty_chi_tiet_controller">
   <h1>Chi tiết công ty <a class="text-primary fs-16" href="/cong_ty/danh_sach">Quay lại danh sách</a></h1>
   <hr>
   <div class="row">
@@ -23,6 +23,34 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="thong_tin_cong_ty" role="tabpanel" aria-labelledby="thong_tin_cong_ty-tab">
           <h2>Thông tin công ty</h2>
+          <div class="row">
+            <div class="col-md-2 font-weight-bold">Tên công ty</div>
+            <div class="col-md-6">{{cong_ty.ten_cong_ty}}</div>
+            <div class="col-md-2 font-weight-bold">Mã số thuế</div>
+            <div class="col-md-6">{{cong_ty.ma_so_thue}}</div>
+            <div class="col-md-2 font-weight-bold">Ngày liên hệ</div>
+            <div class="col-md-6">{{cong_ty.ngay_lien_he}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 font-weight-bold">Địa chỉ</div>
+            <div class="col-md-6">{{cong_ty.dia_chi}}</div>
+            <div class="col-md-2 font-weight-bold">Tỉnh thành</div>
+            <div class="col-md-6">{{cong_ty.id_tinh}}</div>
+            <div class="col-md-2 font-weight-bold">Quận huyện</div>
+            <div class="col-md-6">{{cong_ty.id_huyen}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 font-weight-bold">Nhân viên</div>
+            <div class="col-md-6">{{cong_ty.id_nhan_vien}}</div>
+            <div class="col-md-2 font-weight-bold">&nbsp;</div>
+            <div class="col-md-6">&nbsp;</div>
+            <div class="col-md-2 font-weight-bold">&nbsp;</div>
+            <div class="col-md-6">&nbsp;</div>
+          </div>
+          
+        </div>
+        <div class="tab-pane fade" id="thong_tin_nguoi_lien_he" role="tabpanel" aria-labelledby="thong_tin_nguoi_lien_he-tab">
+          <h2>Thông tin liên hệ</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, eveniet earum. Sed accusantium eligendi molestiae quo hic velit nobis et, tempora placeat ratione rem blanditiis voluptates vel ipsam? Facilis, earum!</p>
         </div>
         <div class="tab-pane fade" id="thong_tin_han" role="tabpanel" aria-labelledby="thong_tin_han-tab">
@@ -40,3 +68,9 @@
   </div>
 </div>
 <!-- /.container -->
+
+<script>
+anphatApp.controller('cong_ty_chi_tiet_controller', ['$scope', function($scope){
+  $scope.cong_ty = <?= json_encode($cong_ty);?>;
+}]);
+</script>
