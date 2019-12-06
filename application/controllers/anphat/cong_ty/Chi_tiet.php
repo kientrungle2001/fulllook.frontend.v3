@@ -85,6 +85,37 @@ class Chi_tiet extends MY_Action
     ];
 
     $cong_ty = $this->controller->laramongo->get('cong_ty', $id);
+    
+    if($cong_ty['id_nhan_vien']) {
+      $cong_ty['nhan_vien'] = $this->controller->laramongo->get('nhan_vien', $cong_ty['id_nhan_vien']);
+    } else {
+      $cong_ty['nhan_vien'] = null;
+    }
+    if($cong_ty['id_tinh']) {
+      $cong_ty['tinh'] = $this->controller->laramongo->get('tinh_thanh_pho', ['id' => $cong_ty['id_tinh']]);
+    } else {
+      $cong_ty['tinh'] = null;
+    }
+    if($cong_ty['id_huyen']) {
+      $cong_ty['huyen'] = $this->controller->laramongo->get('quan_huyen', ['id' => $cong_ty['id_huyen']]);
+    } else {
+      $cong_ty['huyen'] = null;
+    }
+    if($cong_ty['id_nha_cung_cap']) {
+      $cong_ty['nha_cung_cap'] = $this->controller->laramongo->get('nha_cung_cap', $cong_ty['id_nha_cung_cap']);
+    } else {
+      $cong_ty['nha_cung_cap'] = null;
+    }
+    if($cong_ty['id_loai_danh_sach']) {
+      $cong_ty['loai_danh_sach'] = $this->controller->laramongo->get('loai_danh_sach', $cong_ty['id_loai_danh_sach']);
+    } else {
+      $cong_ty['loai_danh_sach'] = null;
+    }
+    if($cong_ty['id_danh_sach_khai_thac']) {
+      $cong_ty['danh_sach_khai_thac'] = $this->controller->laramongo->get('danh_sach_khai_thac', $cong_ty['id_danh_sach_khai_thac']);
+    } else {
+      $cong_ty['danh_sach_khai_thac'] = null;
+    }
     $data['cong_ty'] = $cong_ty;
     //echo '<pre>'; print_r($data); die();
     $this->controller->render('cong_ty/chi_tiet', $data);

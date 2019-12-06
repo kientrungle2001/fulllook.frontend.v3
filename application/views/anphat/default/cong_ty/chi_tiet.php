@@ -35,31 +35,109 @@
             <div class="col-md-2 font-weight-bold">Địa chỉ</div>
             <div class="col-md-6">{{cong_ty.dia_chi}}</div>
             <div class="col-md-2 font-weight-bold">Tỉnh thành</div>
-            <div class="col-md-6">{{cong_ty.id_tinh}}</div>
+            <div class="col-md-6">{{tinh.ten_dia_diem}}</div>
             <div class="col-md-2 font-weight-bold">Quận huyện</div>
-            <div class="col-md-6">{{cong_ty.id_huyen}}</div>
+            <div class="col-md-6">{{huyen.ten_dia_diem}}</div>
           </div>
           <div class="row">
             <div class="col-md-2 font-weight-bold">Nhân viên</div>
-            <div class="col-md-6">{{cong_ty.id_nhan_vien}}</div>
-            <div class="col-md-2 font-weight-bold">&nbsp;</div>
-            <div class="col-md-6">&nbsp;</div>
-            <div class="col-md-2 font-weight-bold">&nbsp;</div>
-            <div class="col-md-6">&nbsp;</div>
+            <div class="col-md-6">{{nhan_vien.ten_nhan_vien}}</div>
+            <div class="col-md-2 font-weight-bold">Nhà cung cấp</div>
+            <div class="col-md-6">{{nha_cung_cap.ten_nha_cung_cap}}</div>
+            <div class="col-md-2 font-weight-bold">Loại danh sách</div>
+            <div class="col-md-6">{{loai_danh_sach.ten_loai_danh_sach}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2 font-weight-bold">Danh sách khai thác</div>
+            <div class="col-md-6">{{danh_sach_khai_thac.ten_danh_sach_khai_thac}}</div>
+            <div class="col-md-2 font-weight-bold">Ngày tạo</div>
+            <div class="col-md-6">{{'21/12/2019'}}</div>
+            <div class="col-md-2 font-weight-bold">Ngày sửa</div>
+            <div class="col-md-6">{{'22/12/2019'}}</div>
           </div>
           
         </div>
         <div class="tab-pane fade" id="thong_tin_nguoi_lien_he" role="tabpanel" aria-labelledby="thong_tin_nguoi_lien_he-tab">
           <h2>Thông tin liên hệ</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, eveniet earum. Sed accusantium eligendi molestiae quo hic velit nobis et, tempora placeat ratione rem blanditiis voluptates vel ipsam? Facilis, earum!</p>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Chức vụ</th>
+                <th>Nhân viên</th>
+                <th>Hành động</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Nguyên Văn A</td>
+                <td>0989123123</td>
+                <td>nguyenvana@gmail.com</td>
+                <td>TP kế toán</td>
+                <td>Nguyễn Văn Hữu</td>
+                <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="tab-pane fade" id="thong_tin_han" role="tabpanel" aria-labelledby="thong_tin_han-tab">
           <h2>Thông tin hạn</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, eveniet earum. Sed accusantium eligendi molestiae quo hic velit nobis et, tempora placeat ratione rem blanditiis voluptates vel ipsam? Facilis, earum!</p>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <tr>
+                <th>STT</th>
+                <th>Nguồn dữ liệu</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+                <th>NCC</th>
+                <th>Gọi</th>
+                <th>SĐT</th>
+                <th>Email</th>
+                <th>Hành động</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>BHXH</td>
+                <td>11/08/2016</td>
+                <td>09/08/2019</td>
+                <td>VNPT</td>
+                <td>Call</td>
+                <td>0663761448</td>
+                <td>nguyenvana@gmail.com</td>
+                <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="tab-pane fade" id="thong_tin_cuoc_goi" role="tabpanel" aria-labelledby="thong_tin_cuoc_goi-tab">
           <h2>Cuộc gọi</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, eveniet earum. Sed accusantium eligendi molestiae quo hic velit nobis et, tempora placeat ratione rem blanditiis voluptates vel ipsam? Facilis, earum!</p>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Số điện thoại</th>
+                <th>Ngày liên hệ</th>
+                <th>Ngày hẹn</th>
+                <th>Ghi chú</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Nguyên Văn A</td>
+                <td>0989123123</td>
+                <td>03/12/2019</td>
+                <td>05/12/2019</td>
+                <td>Hẹn trao đổi nội dung hợp đồng chữ ký số</td>
+                <td>Hẹn</td>
+                <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
+              </tr>
+            </table>
+          </div>
 
         </div>
       </div>
@@ -72,5 +150,11 @@
 <script>
 anphatApp.controller('cong_ty_chi_tiet_controller', ['$scope', function($scope){
   $scope.cong_ty = <?= json_encode($cong_ty);?>;
+  $scope.nhan_vien = <?= json_encode($cong_ty['nhan_vien']);?>;
+  $scope.tinh = <?= json_encode($cong_ty['tinh']);?>;
+  $scope.huyen = <?= json_encode($cong_ty['huyen']);?>;
+  $scope.nha_cung_cap = <?= json_encode($cong_ty['nha_cung_cap']);?>;
+  $scope.loai_danh_sach = <?= json_encode($cong_ty['loai_danh_sach']);?>;
+  $scope.danh_sach_khai_thac = <?= json_encode($cong_ty['danh_sach_khai_thac']);?>;
 }]);
 </script>
