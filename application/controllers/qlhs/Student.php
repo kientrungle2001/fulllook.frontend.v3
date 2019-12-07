@@ -11,6 +11,10 @@ class Student extends MY_Controller {
 		$this->render('student/muster');
 	}
 
+	public function report() {
+		$this->render('student/report');
+	}
+
 	public function reformat() {
 		
 		$tables = $this->get_all_tables();

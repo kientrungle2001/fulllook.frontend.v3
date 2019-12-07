@@ -1,1 +1,1 @@
-<a class="nav-item nav-link <?= $cls ?>" id="nav-<?= $id?>-tab" data-toggle="tab" href="#nav-<?= $id?>" role="tab" aria-controls="nav-<?= $id?>" aria-selected="true" ng-click="select_tab('<?= $func?>')"><?= $title?></a>
+<a class="nav-item nav-link <?= $cls ?>" id="nav-<?= $id?>-tab" data-toggle="tab" href="#nav-<?= $id?>" role="tab" aria-controls="nav-<?= $id?>" aria-selected="true" <?php if(isset($func) && $func):?>ng-click="select_tab('<?= $func?>')"<?php endif;?>><?= $title?></a>

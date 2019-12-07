@@ -5,15 +5,15 @@
       <h2 class="lead">Thêm điểm danh</h2>
       <form>
         <div class="form-group">
-          <label for="studyDate">Ngày điểm danh</label>
-          <select class="form-control form-control-sm">
-            <option>Chọn ngày</option>
-          </select>
-        </div>
-        <div class="form-group">
           <label for="classId">Lớp</label>
           <select placeholder="Lớp" class="form-control form-control-sm">
             <option ng-value="null">Chọn lớp</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="studyDate">Ngày điểm danh</label>
+          <select class="form-control form-control-sm">
+            <option>Chọn ngày</option>
           </select>
         </div>
         <div class="form-group">
@@ -52,10 +52,12 @@
     <div class="col-md-18">
       <div class="row">
         <div class="col-md-12">
-        <input type="text" placeholder="Chọn ngày">
         <select>
           <option ng-value="null">Chọn lớp</option>
         </select>
+        <select>
+            <option>Chọn ngày</option>
+          </select>
         </div>
         <div class="col-md-12 text-right">Sắp xếp: <select>
           <option ng-value="null">Lớp - Ngày điểm danh tăng</option>

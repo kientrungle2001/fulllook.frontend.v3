@@ -20,3 +20,5 @@ application/logs/*
 !/curl
 /tmp
 .favorites.json
+mongo
+.vscode
