@@ -7,6 +7,10 @@ class Student extends MY_Controller {
 		$this->render('student/index');
 	}
 
+	public function muster() {
+		$this->render('student/muster');
+	}
+
 	public function reformat() {
 		
 		$tables = $this->get_all_tables();

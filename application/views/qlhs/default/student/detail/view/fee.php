@@ -1,4 +1,5 @@
-<h1>Học phí</h1>
+<h1>Học phí <button class="btn btn-primary" 
+  onclick="jQuery('#modal_fee').modal('show')">Thêm</button></h1>
 <table class="table table-hover">
   <tr>
     <th>Người thanh toán</th>

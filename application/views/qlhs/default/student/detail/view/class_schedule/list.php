@@ -1,5 +1,5 @@
 <div class="text-right">
-  <a href="#" onclick="return false" ng-click="tai_danh_sach_xep_lop()" class="fa fa-refresh text-primary">Tải lại</a>
+  <a href="#" onclick="return false" ng-click="get_class_schedules()" class="fa fa-refresh text-primary">Tải lại</a>
 </div>
 <table class="table table-hover">
   <tr>

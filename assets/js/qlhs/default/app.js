@@ -40,7 +40,7 @@ qlhsApp.filter('vnprice', function() {
 });
 
 /** Factories */
-qlhsApp.factory('tai_danh_sach_lop', function() {
+qlhsApp.factory('get_classes', function() {
 	return function($scope) {
 		proxy_get({
       url: QLHS_CONSTANTS.api.v1.classes.url + '/items/classes',
@@ -48,7 +48,7 @@ qlhsApp.factory('tai_danh_sach_lop', function() {
       data: {
         sort: 'id desc',
         pageNum: 0,
-        pageSize: 30,
+        pageSize: 1000,
         where: {
           status: 1,
           online: 0
@@ -62,7 +62,7 @@ qlhsApp.factory('tai_danh_sach_lop', function() {
 	};
 });
 
-qlhsApp.factory('tai_danh_sach_giao_vien', function() {
+qlhsApp.factory('get_teachers', function() {
 	return function($scope) {
 		proxy_get({
       url: QLHS_CONSTANTS.api.v1.teacher.url + '/items/teacher',

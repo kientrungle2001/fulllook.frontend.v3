@@ -38,3 +38,5 @@ QC = QLHS_CONSTANTS = {
     }
   }
 };
+
+QA = QC.api[QV];

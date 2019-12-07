@@ -1,6 +1,6 @@
-qlhsApp.controller('classes_list_controller', ['$scope', 'tai_danh_sach_lop', function($scope, tai_danh_sach_lop) {
-  $scope.tai_danh_sach_lop = function() {
-    tai_danh_sach_lop($scope);
+qlhsApp.controller('classes_list_controller', ['$scope', 'get_classes', function($scope, get_classes) {
+  $scope.get_classes = function() {
+    get_classes($scope);
   };
-  $scope.tai_danh_sach_lop();
+  $scope.get_classes();
 }]);

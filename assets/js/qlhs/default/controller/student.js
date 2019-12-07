@@ -1,11 +1,13 @@
-qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', function($scope, tai_danh_sach_giao_vien) {
+qlhsApp.controller('student_controller', ['$scope', 
+  'get_teachers', function($scope, 
+    get_teachers) {
   $scope.pageNum = 0;
   $scope.pageSize = 10;
   $scope.pageSizes = [10, 20, 30, 40, 50, 100, 200];
-  $scope.tai_danh_sach = function() {
+  $scope.get_list = function() {
     proxy_get({
-      url: QLHS_CONSTANTS.api.v1.student.url + '/items/student',
-      type: AJAX_CONSTANTS.get, dataType: 'json',
+      url: QA.student.url + '/items/student',
+      type: AJC.get, dataType: 'json',
       data: {
         keyword: $scope.keyword,
         search_fields: ['name','code', 'phone', 'email'],
@@ -26,30 +28,30 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
     });
   };
 
-  $scope.tai_danh_sach_giao_vien = function() {
-    tai_danh_sach_giao_vien($scope);
+  $scope.get_teachers = function() {
+    get_teachers($scope);
   };
 
   // Phân trang
   $scope.go_to_first = function() {
     $scope.pageNum = 0;
-    $scope.tai_danh_sach();
+    $scope.get_list();
   };
 
   $scope.go_to_last = function() {
     $scope.pageNum = $scope.pages - 1;
-    $scope.tai_danh_sach();
+    $scope.get_list();
   };
   
   $scope.go_to_next = function() {
     $scope.pageNum++;
-    $scope.tai_danh_sach();
+    $scope.get_list();
   };
 
   $scope.go_to_prev = function() {
     if($scope.pageNum > 0) {
       $scope.pageNum--;
-      $scope.tai_danh_sach();
+      $scope.get_list();
     }
   }
 
@@ -77,9 +79,9 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
     // Do Nothing
   };
   $scope.select_tab_class_schedule_list = function() {
-    $scope.tai_danh_sach_xep_lop();
+    $scope.get_class_schedules();
   };
-  $scope.tai_danh_sach_xep_lop = function() {
+  $scope.get_class_schedules = function() {
     proxy_get({
       url: QC.api.v1.class_student.url + '/items/class_student',
       type: AJC.get, dataType: 'json',
@@ -98,9 +100,9 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
     });
   };
   $scope.select_tab_advice = function() {
-    $scope.tai_danh_sach_tu_van();
+    $scope.get_advices();
   };
-  $scope.tai_danh_sach_tu_van = function() {
+  $scope.get_advices = function() {
     proxy_get({
       url: QC.api.v1.advice.url + '/items/advice',
       type: AJC.get, dataType: 'json',
@@ -120,9 +122,9 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
   };
 
   $scope.select_tab_fee = function() {
-    $scope.tai_danh_sach_hoc_phi();
+    $scope.get_student_fees();
   };
-  $scope.tai_danh_sach_hoc_phi = function() {
+  $scope.get_student_fees = function() {
     proxy_get({
       url: QC.api.v1.general_order.url + '/items/general_order',
       type: AJC.get, dataType: 'json',
@@ -142,10 +144,10 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
   };
 
   $scope.select_tab_timesheet = function() {
-    $scope.tai_danh_sach_thoi_khoa_bieu();
+    $scope.get_student_schedules();
   };
 
-  $scope.tai_danh_sach_thoi_khoa_bieu = function() {
+  $scope.get_student_schedules = function() {
     proxy_get({
       url: QC.api.v1.student_schedule.url + '/items/student_schedule',
       type: AJC.get, dataType: 'json',
@@ -165,10 +167,10 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
   };
 
   $scope.select_tab_using = function() {
-    $scope.tai_danh_sach_da_su_dung();
+    $scope.get_usings();
   };
 
-  $scope.tai_danh_sach_da_su_dung = function() {
+  $scope.get_usings = function() {
     proxy_get({
       url: QC.api.v1.student_order.url + '/items/student_order',
       type: AJC.get, dataType: 'json',
@@ -197,7 +199,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
   $scope.toggle_detail_row = function(row) {
     $scope.detail_rows[row.id] = !$scope.detail_rows[row.id];
     if($scope.detail_rows[row.id]) {
-      $scope.tai_danh_sach_hoc_phi();
+      $scope.get_student_fees();
       setTimeout(function() {
         $scope.order_rows[row.id] = angular.copy($scope.danh_sach_hoc_phi);
         $scope.$apply();
@@ -229,7 +231,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
       },
       success: function(resp) {
         console.log(resp);
-        $scope.tai_danh_sach();
+        $scope.get_list();
       }
     });
   };
@@ -244,7 +246,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
       },
       success: function(resp) {
         console.log(resp);
-        $scope.tai_danh_sach();
+        $scope.get_list();
       }
     });
   };
@@ -254,7 +256,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
       proxy_post({
         url: QLHS_CONSTANTS.api.v1.student.url + '/remove/student/' + row.id,
         success: function(resp) {
-          $scope.tai_danh_sach();
+          $scope.get_list();
         }
       });
     }
@@ -284,7 +286,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
         item: angular.copy(class_schedule)
       },
       success: function(resp) {
-        that.tai_danh_sach();
+        that.get_list();
       }
     });
   };
@@ -295,7 +297,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
       proxy_post({
         url: QC.api.v1.class_student.url + '/remove/class_student/' + class_schedule.id,
         success: function(resp) {
-          that.tai_danh_sach_xep_lop();
+          that.get_class_schedules();
         }
       });
     }
@@ -315,7 +317,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
         item: angular.copy(class_schedule)
       },
       success: function(resp) {
-        that.tai_danh_sach_xep_lop();
+        that.get_class_schedules();
       }
     });
   }
@@ -363,7 +365,7 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
             }
           },
           success: function() {
-            that.tai_danh_sach_xep_lop();
+            that.get_class_schedules();
           }
         });
       }
@@ -399,11 +401,11 @@ qlhsApp.controller('student_controller', ['$scope', 'tai_danh_sach_giao_vien', f
         }
       },
       success: function() {
-        that.tai_danh_sach_xep_lop();
+        that.get_class_schedules();
       }
     });
   };
 
-  $scope.tai_danh_sach();
-  $scope.tai_danh_sach_giao_vien();
+  $scope.get_list();
+  $scope.get_teachers();
 }]);
