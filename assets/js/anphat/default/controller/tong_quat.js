@@ -203,15 +203,17 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   $scope._sua_ban_ghi = sua_ban_ghi;
 
   $scope.xoa_ban_ghi = function(ban_ghi, callback) {
-    var ban_ghi_params = angular.copy(ban_ghi);
-    var id = ban_ghi_params._id.$oid;
-    delete ban_ghi_params._id;
-    xoa_ban_ghi(
-      id,
-      {ten_bang: $scope.ten_bang}, function(resp) {
-      if(callback) return callback(resp);
-      $scope.tai_danh_sach();
-    });
+    if(confirm('Bạn có muốn xóa bản ghi này?')) {
+      var ban_ghi_params = angular.copy(ban_ghi);
+      var id = ban_ghi_params._id.$oid;
+      delete ban_ghi_params._id;
+      xoa_ban_ghi(
+        id,
+        {ten_bang: $scope.ten_bang}, function(resp) {
+        if(callback) return callback(resp);
+        $scope.tai_danh_sach();
+      });
+    }
   };
 
   $scope._xoa_ban_ghi = xoa_ban_ghi;

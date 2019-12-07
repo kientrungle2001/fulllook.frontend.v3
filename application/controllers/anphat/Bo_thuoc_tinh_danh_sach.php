@@ -39,6 +39,24 @@ class Bo_thuoc_tinh_danh_sach extends MY_Controller
                     'model' => 'ban_ghi.thu_tu',
                     'tieu_de' => 'Thứ tự'
                 ],
+                [
+                    'loai_truong_tieu_de' => 'van_ban',
+                    'loai_truong_danh_sach' => 'van_ban',
+                    'model' => 'ban_ghi.cho_phep_danh_sach',
+                    'tieu_de' => 'Danh sách'
+                ],
+                [
+                    'loai_truong_tieu_de' => 'van_ban',
+                    'loai_truong_danh_sach' => 'van_ban',
+                    'model' => 'ban_ghi.cho_phep_them_sua',
+                    'tieu_de' => 'Thêm sửa'
+                ],
+                [
+                    'loai_truong_tieu_de' => 'van_ban',
+                    'loai_truong_danh_sach' => 'van_ban',
+                    'model' => 'ban_ghi.cho_phep_loc',
+                    'tieu_de' => 'Lọc'
+                ],
             ],
             'truong_them_sua' => [
                 [
@@ -82,12 +100,33 @@ class Bo_thuoc_tinh_danh_sach extends MY_Controller
                     'tieu_de' =>  'Thứ tự',
                     'model' => 'thu_tu'
                 ],
+                [
+                    'loai_truong_them_sua' => 'van_ban',
+                    'kieu_du_lieu' => 'checkbox',
+                    'kich_co' => 24,
+                    'tieu_de' =>  'Danh sách',
+                    'model' => 'cho_phep_danh_sach'
+                ],
+                [
+                    'loai_truong_them_sua' => 'van_ban',
+                    'kieu_du_lieu' => 'checkbox',
+                    'kich_co' => 24,
+                    'tieu_de' =>  'Thêm sửa',
+                    'model' => 'cho_phep_them_sua'
+                ],
+                [
+                    'loai_truong_them_sua' => 'van_ban',
+                    'kieu_du_lieu' => 'checkbox',
+                    'kich_co' => 24,
+                    'tieu_de' =>  'Lọc',
+                    'model' => 'cho_phep_loc'
+                ],
             ],
             'truong_loc' => [
                 [
                     'loai_truong_loc' => 'so_xuong',
                     'kich_co' => 6,
-                    'tieu_de' =>'Bộ thuộc tính',
+                    'tieu_de' => 'Bộ thuộc tính',
                     'model' => 'bo_loc.id_bo_thuoc_tinh',
                     'repeat' => 'ban_ghi in danh_sach_tham_chieu_bo_thuoc_tinh',
                     'option_value' => 'ban_ghi._id.$oid',

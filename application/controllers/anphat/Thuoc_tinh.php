@@ -89,6 +89,24 @@ class Thuoc_tinh extends MY_Controller
           'model' => 'thuoc_tinh/cau_hinh_loc',
           'tieu_de' => 'Filter Config'
         ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.cho_phep_danh_sach',
+          'tieu_de' => 'Danh sách'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.cho_phep_them_sua',
+          'tieu_de' => 'Thêm sửa'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.cho_phep_loc',
+          'tieu_de' => 'Lọc'
+        ],
       ],
       'truong_them_sua' => [
         [
@@ -183,6 +201,27 @@ class Thuoc_tinh extends MY_Controller
           'tieu_de' =>  'Thứ tự',
           'model' => 'thu_tu'
         ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'checkbox',
+          'kich_co' => 24,
+          'tieu_de' =>  'Danh sách',
+          'model' => 'cho_phep_danh_sach'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'checkbox',
+          'kich_co' => 24,
+          'tieu_de' =>  'Thêm sửa',
+          'model' => 'cho_phep_them_sua'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'checkbox',
+          'kich_co' => 24,
+          'tieu_de' =>  'Lọc',
+          'model' => 'cho_phep_loc'
+        ],
       ],
       'truong_loc' => [
         [
@@ -205,17 +244,20 @@ class Thuoc_tinh extends MY_Controller
     $this->render('tong_quat/tong_quan', $data);
   }
 
-  public function cau_hinh_danh_sach($id) {
+  public function cau_hinh_danh_sach($id)
+  {
     $thuoc_tinh = $this->laramongo->get('thuoc_tinh', $id);
     $this->render('thuoc_tinh/cau_hinh_danh_sach', $thuoc_tinh);
   }
 
-  public function cau_hinh_loc($id) {
+  public function cau_hinh_loc($id)
+  {
     $thuoc_tinh = $this->laramongo->get('thuoc_tinh', $id);
     $this->render('thuoc_tinh/cau_hinh_loc', $thuoc_tinh);
   }
 
-  public function cau_hinh_them_sua($id) {
+  public function cau_hinh_them_sua($id)
+  {
     $thuoc_tinh = $this->laramongo->get('thuoc_tinh', $id);
     $this->render('thuoc_tinh/cau_hinh_them_sua', $thuoc_tinh);
   }
