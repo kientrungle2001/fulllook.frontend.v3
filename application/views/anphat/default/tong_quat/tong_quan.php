@@ -9,6 +9,9 @@ $c->js('controller/'.$module.'.js');
 <?php if(isset($du_lieu_tinh)):?>
 <span class="d-none" ng-init="du_lieu_tinh=<?= htmlentities(json_encode($du_lieu_tinh)) ?>;"></span>
 <?php endif;?>
+<?php if(isset($id_luoc_do)):?>
+<span class="d-none" ng-init="id_luoc_do=<?= htmlentities(json_encode($id_luoc_do)) ?>;"></span>
+<?php endif;?>
 <span class="d-none" ng-init="truong_danh_sach=<?= htmlentities(json_encode($truong_danh_sach)) ?>;"></span>
 <span class="d-none" ng-init="truong_them_sua=<?= htmlentities(json_encode($truong_them_sua)) ?>;"></span>
 <span class="d-none" ng-init="truong_loc=<?= htmlentities(json_encode($truong_loc)) ?>;"></span>
@@ -20,6 +23,7 @@ $c->js('controller/'.$module.'.js');
       <?php $c->view('tong_quat/loc', $data)?>
       <?php $c->view('tong_quat/sua', $data)?>
       <?php $c->view('tong_quat/danh_sach', $data)?>
+      <?php $c->view('tong_quat/modal_chon_bo_thuoc_tinh', $data)?>
     </div>
     <div class="col-md-8">
     &nbsp;

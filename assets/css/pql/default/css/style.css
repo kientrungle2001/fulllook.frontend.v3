@@ -929,11 +929,11 @@ font-weight: bold;
 #img_cate {
     float: left;
     text-align: center;
-    width: 240px;
+    width: 340px;
 }
 #img_cate img {
     border: 1px solid #ccc;
-    width: 240px;
+    width: 340px;
     height: auto;
     padding: 2px;
 }
@@ -1108,4 +1108,93 @@ img {
 
 .e-description {
 	font-size: 14px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.float-left {
+  float: left;
+}
+
+/* Product */
+.price_table tr td, .price_table tr th{
+	border-bottom: 1px solid #ccc;
+}
+
+.price_table tr th {
+	text-align: left;
+}
+
+.price_table tr th:before {
+	content: ' ';
+	display: inline-block;
+	width: 16px;
+	height: 9px;
+	background: url('/assets/css/pql/default/images/bichvan_15.png') no-repeat;
+}
+
+.price_table tr td {
+	color: #f96302;
+}
+#quantity {
+	width: 60px;
+}
+
+#product-description .product-tabs .product-tab {
+  width: 180px;
+  height: auto;
+  padding: 15px;
+  background: #ccc;
+  color: #333;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#product-description .product-tabs .product-tab-active {
+  background: #0269b6;
+  color: #fff;
+}
+
+#product-description .product-tab-contents .product-tab-content {
+  padding: 15px;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+#product-description .product-tab-contents .product-tab-content-active {
+  display: block;
+}
+
+.product-price-table {
+  width: 100%;
+}
+
+.product-price-table tr td, .product-price-table tr th{
+  border: 1px solid #ccc;
+  vertical-align: top;
+  text-align: center;
+}
+
+.product-price-table tr th {
+  padding: 10px;
+  background: #0269b6;
+  color: #fff;
+}
+
+.product-price-row .product-image, .product-price-row .product-info {
+  float: left;
+}
+
+.product-price-row .product-image {
+  margin-right: 10px;
 }

@@ -64,14 +64,36 @@ $product = $controller->posts_model->get_post($productId);
 			</table>
 		</div>
 		<hr class="clear" />
-		
-		<div class="e-description clear"><?= replace_br(wpglobus($product['post_content'], $language))?></div>
-		
+		<div id="product-description">
+			<div class="product-tabs">
+				<div class="tab-description product-tab product-tab-active" data-tab-index="0">Thông số kỹ thuật</div>
+				<div class="tab-comment product-tab" data-tab-index="1">Đánh giá sản phẩm</div>
+				<div class="clear"></div>
+			</div>
+			<div class="product-tab-contents">
+				<div class="product-tab-content product-tab-content-active">
+					<div class="e-description clear"><?= replace_br(wpglobus($product['post_content'], $language))?></div>	
+				</div>
+				<div class="product-tab-content">
+					<div id="product-comments">
+						<div class="fb-comments" data-href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="other-products">
+			<div class="product-tabs">
+				<div class="product-tab product-tab-active">Sản phẩm khác</div>
+			</div>
+			<div class="product-tab-contents">
+				<div class="product-tab-content product-tab-content-active">
+					Sản phẩm khác
+				</div>
+			</div>
+		</div>
 	</div>
-	<div style="clear:both"></div>
-	<div id="product-comments">
-	<div class="fb-comments" data-href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
-	</div>
+	<div class="clear"></div>
 </div>
 
 <?php
@@ -87,30 +109,6 @@ $jsonld = array(
 <script type="application/ld+json">
 <?= json_encode($jsonld)?>
 </script>
-<style>
-.price_table tr td, .price_table tr th{
-	border-bottom: 1px solid #ccc;
-}
-
-.price_table tr th {
-	text-align: left;
-}
-
-.price_table tr th:before {
-	content: ' ';
-	display: inline-block;
-	width: 16px;
-	height: 9px;
-	background: url('/assets/css/pql/default/images/bichvan_15.png') no-repeat;
-}
-
-.price_table tr td {
-	color: #f96302;
-}
-#quantity {
-	width: 60px;
-}
-</style>
 <script>
 	function addToCart(sku, name, price) {
 		var quantity = jQuery('#quantity').val();
@@ -131,6 +129,15 @@ $jsonld = array(
 	$(document).ready(function(){
 		$('#img_cate').zoom({
 			magnify: 1
+		});
+
+		$('.product-tab').click(function(evt) {
+			var $this = $(this);
+			var tabIndex = $this.data('tab-index');
+			$('.product-tab').removeClass('product-tab-active');
+			$this.addClass('product-tab-active');
+			$('.product-tab-content').removeClass('product-tab-content-active');
+			$('.product-tab-content:eq('+tabIndex+')').addClass('product-tab-content-active');
 		});
 	});
 </script>

@@ -30,7 +30,7 @@ class Cart extends MY_Controller {
 		));
         $this->render('cart', $data);
     }
-    public function addToCart() {
+    public function addToCart($language = 'vi') {
         $this->load->library('cart');
         $data = array(
             'id'      => $this->input->post('sku'),

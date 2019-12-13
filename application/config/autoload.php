@@ -150,6 +150,6 @@ if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-cent
 	require_once 'autoload/pql.php';
 }
 
-if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn')) {
+if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn' || $_SERVER['HTTP_HOST'] == 'demo.qlhs.nn-center.com')) {
 	require_once 'autoload/qlhs.php';
 }

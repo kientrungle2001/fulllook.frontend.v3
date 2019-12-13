@@ -77,7 +77,17 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 	<div class="b_top" style="margin-top: 15px;margin-bottom: 15px;">
 		<div class="h2">Catalog</div>
 	</div>
-	
+	<?php if(!isset($view_mode)):?>
+		<table class="product-price-table">
+			<tr>
+				<th>STT</th>
+				<th>Sản phẩm</th>
+				<th>Đơn giá</th>
+				<th>Tình trạng</th>
+				<th>Số lượng</th>
+				<th>Thêm</th>
+			</tr>
+	<?php endif;?>
 	<?php 
 	$jsonlds = [];
 	foreach($posts as $post_index => $post):
@@ -93,13 +103,35 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			"position" => ($post_index + 1)
 		);
 		?>
+	<?php if(isset($view_mode) && $view_mode=='grid'):?>
 	<div class="cate2_s item_cate2 h-product">
 		<a href="<?= $product_link?>">
 			<img title="<?= $product_title?>" src="<?= $img_url?>" width="167" height="131" border="0" class="u-photo"></a>
 		<h2><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></h2>
 		<br clear="all">
 	</div>
+	<?php else:?>
+		<tr class="product-price-row">
+			<td><?= $post_index + 1?></td>
+			<td>
+				<a href="<?= $product_link?>" class="product-image">
+					<img title="<?= $product_title?>" src="<?= $img_url?>" width="64" height="auto"" border="0" class="u-photo">
+				</a>
+				<div class="product-info text-left">
+				<h2><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></h2>
+				<p>Thương hiệu: <?= $post['brand']?></p>
+				</div>
+				
+				<div class="clear"></div>
+			</td>
+			<td><?= @$post['price']?></td>
+			<td><?= @$post['stock']?></td>
+			<td class="text-center"><input type="text" size="5" name="quantity" class="product-quantity" style="width: 80%"></td>
+			<td class="text-center"><button>Đặt mua</button></td>
+		</tr>
+	<?php endif;?>
 	<?php endforeach;?>
+	<?php if(!isset($view_mode)):?></table><?php endif;?>
 </div>
 
 <script type="application/ld+json">

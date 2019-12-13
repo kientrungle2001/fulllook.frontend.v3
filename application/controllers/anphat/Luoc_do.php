@@ -9,7 +9,7 @@ class Luoc_do extends MY_Controller
       'module' => 'luoc_do',
       'modal_size' => 'normal',
       'tieu_de' => 'Lược đồ',
-      'kich_co' => 16,
+      'kich_co' => 24,
       'kich_co_nut_them' => 6,
       'kich_co_nut_loc' => 6,
       'truong_danh_sach' => [
@@ -30,6 +30,30 @@ class Luoc_do extends MY_Controller
           'loai_truong_danh_sach' => 'van_ban',
           'model' => 'ban_ghi.thu_tu',
           'tieu_de' => 'Thứ tự'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.modal_size',
+          'tieu_de' => 'Kích cỡ modal'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.kich_co',
+          'tieu_de' => 'Kích cỡ danh sách'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.kich_co_nut_them',
+          'tieu_de' => 'Kích cỡ nút thêm'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'van_ban',
+          'model' => 'ban_ghi.kich_co_nut_loc',
+          'tieu_de' => 'Kích cỡ nút lọc'
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -65,6 +89,34 @@ class Luoc_do extends MY_Controller
           'kich_co' => 24,
           'tieu_de' =>  'Thứ tự',
           'model' => 'thu_tu'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'text',
+          'kich_co' => 24,
+          'tieu_de' =>  'Kích cỡ modal',
+          'model' => 'modal_size'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'number',
+          'kich_co' => 24,
+          'tieu_de' =>  'Kích cỡ danh sách',
+          'model' => 'kich_co'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'number',
+          'kich_co' => 24,
+          'tieu_de' =>  'Kích cỡ nút thêm',
+          'model' => 'kich_co_nut_them'
+        ],
+        [
+          'loai_truong_them_sua' => 'van_ban',
+          'kieu_du_lieu' => 'number',
+          'kich_co' => 24,
+          'tieu_de' =>  'Kích cỡ nút lọc',
+          'model' => 'kich_co_nut_loc'
         ],
       ],
       'truong_loc' => [

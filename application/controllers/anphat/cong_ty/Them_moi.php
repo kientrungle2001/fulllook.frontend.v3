@@ -1,12 +1,14 @@
 <?php
-class Chi_tiet extends MY_Action
+class Them_moi extends MY_Action
 {
-  public function execute($id)
+  public function execute($id_bo_thuoc_tinh)
   {
     $bo_thuoc_tinh = $this->controller->laramongo->get('bo_thuoc_tinh', [
-      'ma_bo_thuoc_tinh' => 'bo_thuoc_tinh_cong_ty'
+      '_id' => $id_bo_thuoc_tinh
     ]);
     $data = [
+      'id_bo_thuoc_tinh' => $bo_thuoc_tinh['_id']['$oid'],
+      'ma_bo_thuoc_tinh' => $bo_thuoc_tinh['ma_bo_thuoc_tinh'],
       'module' => $bo_thuoc_tinh['luoc_do']['ma_luoc_do'],
       'module_sub' => false,
       'modal_size' => 'lg',
@@ -84,40 +86,7 @@ class Chi_tiet extends MY_Action
       'model' => "loc_du_lieu(bo_loc);"
     ];
 
-    $cong_ty = $this->controller->laramongo->get('cong_ty', $id);
-    
-    if(isset($cong_ty['id_nhan_vien']) && $cong_ty['id_nhan_vien']) {
-      $cong_ty['nhan_vien'] = $this->controller->laramongo->get('nhan_vien', $cong_ty['id_nhan_vien']);
-    } else {
-      $cong_ty['nhan_vien'] = null;
-    }
-    if(isset($cong_ty['id_tinh']) && $cong_ty['id_tinh']) {
-      $cong_ty['tinh'] = $this->controller->laramongo->get('tinh_thanh_pho', ['id' => $cong_ty['id_tinh']]);
-    } else {
-      $cong_ty['tinh'] = null;
-    }
-    if(isset($cong_ty['id_huyen']) && $cong_ty['id_huyen']) {
-      $cong_ty['huyen'] = $this->controller->laramongo->get('quan_huyen', ['id' => $cong_ty['id_huyen']]);
-    } else {
-      $cong_ty['huyen'] = null;
-    }
-    if(isset($cong_ty['id_nha_cung_cap']) && $cong_ty['id_nha_cung_cap']) {
-      $cong_ty['nha_cung_cap'] = $this->controller->laramongo->get('nha_cung_cap', $cong_ty['id_nha_cung_cap']);
-    } else {
-      $cong_ty['nha_cung_cap'] = null;
-    }
-    if(isset($cong_ty['id_loai_danh_sach']) && $cong_ty['id_loai_danh_sach']) {
-      $cong_ty['loai_danh_sach'] = $this->controller->laramongo->get('loai_danh_sach', $cong_ty['id_loai_danh_sach']);
-    } else {
-      $cong_ty['loai_danh_sach'] = null;
-    }
-    if(isset($cong_ty['id_danh_sach_khai_thac']) && $cong_ty['id_danh_sach_khai_thac']) {
-      $cong_ty['danh_sach_khai_thac'] = $this->controller->laramongo->get('danh_sach_khai_thac', $cong_ty['id_danh_sach_khai_thac']);
-    } else {
-      $cong_ty['danh_sach_khai_thac'] = null;
-    }
-    $data['cong_ty'] = $cong_ty;
-    //echo '<pre>'; print_r($data); die();
-    $this->controller->render('cong_ty/chi_tiet', $data);
+    // echo '<pre>'; print_r($data); die();
+    $this->controller->render('tong_quat/them_moi', $data);
   }
 }

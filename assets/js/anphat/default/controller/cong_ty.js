@@ -16,7 +16,7 @@ anphatApp.controller('cong_ty_controller', ['$scope', function($scope) {
     }
   ];
   $scope.sap_xep = '_id';
-  $scope.thu_tu = 'asc';
+  $scope.thu_tu = 'desc';
 }]);
 
 anphatApp.controller('cong_ty_sub_controller', ['$scope', function($scope) {
