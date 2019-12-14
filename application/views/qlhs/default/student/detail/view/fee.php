@@ -11,14 +11,14 @@
     <th>Trạng thái</th>
     <th>Hành động</th>
   </tr>
-  <tr ng-repeat="hoc_phi in danh_sach_hoc_phi">
-    <td>{{hoc_phi.name}}</td>
-    <td>{{hoc_phi.phone}}</td>
-    <td>{{hoc_phi.address}}</td>
-    <td>{{hoc_phi.reason}}</td>
-    <td>{{hoc_phi.amount}}</td>
-    <td>{{hoc_phi.created}}</td>
-    <td>{{hoc_phi.status}}</td>
+  <tr ng-repeat="student_fee in student_fees">
+    <td>{{student_fee.name}}</td>
+    <td>{{student_fee.phone}}</td>
+    <td>{{student_fee.address}}</td>
+    <td>{{student_fee.reason}}</td>
+    <td>{{student_fee.amount}}</td>
+    <td>{{student_fee.created}}</td>
+    <td>{{student_fee.status}}</td>
     <td><a href="#" class="fa fa-eye text-success"></a> <a href="#" class="fa fa-remove text-danger"></a></td>
   </tr>
 </table>
