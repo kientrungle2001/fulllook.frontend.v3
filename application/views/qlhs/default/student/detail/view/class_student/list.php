@@ -1,5 +1,5 @@
 <div class="text-right">
-  <a href="#" onclick="return false" ng-click="get_class_schedules()" class="fa fa-refresh text-primary">Tải lại</a>
+  <a href="#" onclick="return false" ng-click="get_class_students()" class="fa fa-refresh text-primary">Tải lại</a>
 </div>
 <table class="table table-hover">
   <tr>
@@ -9,19 +9,19 @@
     <th>Ngày dừng học</th>
     <th>Hành động</th>
   </tr>
-  <tr ng-repeat="xep_lop in danh_sach_xep_lop">
-    <td>{{xep_lop.className}}</td>
-    <td>{{xep_lop.subjectName}}</td>
-    <td>{{xep_lop.startClassDate}}</td>
-    <td>{{xep_lop.endClassDate}}</td>
+  <tr ng-repeat="class_student in class_students">
+    <td>{{class_student.className}}</td>
+    <td>{{class_student.subjectName}}</td>
+    <td>{{class_student.startClassDate}}</td>
+    <td>{{class_student.endClassDate}}</td>
     <td>
-      <a class="fa fa-edit text-success" onclick="return false;" ng-click="edit_class_schedule(xep_lop)"></a>
-      <a href="#" onclick="return false;" class="fa fa-trash text-danger" ng-click="remove_class_schedule(xep_lop)"></a>
+      <a class="fa fa-edit text-success" onclick="return false;" ng-click="edit_class_student(class_student)"></a>
+      <a href="#" onclick="return false;" class="fa fa-trash text-danger" ng-click="remove_class_student(class_student)"></a>
     </td>
   </tr>
 </table>
 
-<div id="edit_class_schedule" class="modal fade" tabindex="-1" role="dialog">
+<div id="edit_class_student" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-md-3">Chọn lớp</div>
           <div class="col-md-7">
-            <select class="form-control form-control-sm" placeholder="Lớp" ng-model="selected_class_schedule.classId">
+            <select class="form-control form-control-sm" placeholder="Lớp" ng-model="selected_class_student.classId">
               <option ng-value="null">Lớp</option>
               <option ng-repeat="cl in classes" ng-value="cl.id">{{cl.name}}</option>
             </select>
@@ -43,18 +43,18 @@
         <div class="row">
           <div class="col-md-3">Ngày vào học</div>
           <div class="col-md-7">
-            <?php $c->tag('text', ['model' => 'selected_class_schedule.startClassDate']) ?>
+            <?php $c->tag('text', ['model' => 'selected_class_student.startClassDate']) ?>
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">Ngày dừng học</div>
           <div class="col-md-7">
-            <?php $c->tag('text', ['model' => 'selected_class_schedule.endClassDate']) ?>
+            <?php $c->tag('text', ['model' => 'selected_class_student.endClassDate']) ?>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="update_class_schedule(selected_class_schedule)" data-dismiss="modal">Cập nhật</button>
+        <button type="button" class="btn btn-primary" ng-click="update_class_student(selected_class_student)" data-dismiss="modal">Cập nhật</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
       </div>
     </div>

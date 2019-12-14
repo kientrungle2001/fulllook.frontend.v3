@@ -1,12 +1,20 @@
 <?php 
 $items = [
-	['link' => '/admin/test', 'label' => 'Đề thi'],
-	['link' => '/admin/category', 'label' => 'Danh mục'],
-	['link' => '/admin/question', 'label' => 'Câu hỏi'],
-	['link' => '/admin/document', 'label' => 'Tài liệu'],
-	['link' => '/admin/user', 'label' => 'Người dùng'],
-	['link' => '/admin/news', 'label' => 'Tin tức'],
-	['link' => '/admin/config', 'label' => 'Cấu hình'],
+	['link' => '/', 'label' => 'Trang tổng quan'],
+	['link' => '/home/test_schedule', 'label' => 'Thi test đầu vào', 'children' => [
+		['link' => '/', 'label' => 'Danh sách thi đầu vào'],
+		['link' => '/', 'label' => 'Kết quả thi đầu vào'],
+	]],
+	['link' => '/home/student', 'label' => 'Học sinh', 'children' => [
+		['link' => '/', 'label' => 'Danh sách học sinh'],
+		['link' => '/', 'label' => 'Danh sách chờ'],
+		['link' => '/', 'label' => 'Danh sách học sinh theo khóa học'],
+		['link' => '/', 'label' => 'Danh sách học sinh theo người phụ trách'],
+	]],
+	['link' => '/home/teacher', 'label' => 'Giáo viên'],
+	['link' => '/home/classes_outside', 'label' => 'Lớp ngoài'],
+	['link' => '/home/student_fee', 'label' => 'Học phí'],
+	['link' => '/home/order', 'label' => 'Thu chi'],
 ];
 ?>
 <header>
@@ -47,8 +55,8 @@ $items = [
 						admin
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Hồ sơ</a>
+						<a class="dropdown-item" href="#">Đổi mật khẩu</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Đăng xuất</a>
 					</div>

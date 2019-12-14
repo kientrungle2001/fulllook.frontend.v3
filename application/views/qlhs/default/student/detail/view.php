@@ -1,7 +1,7 @@
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <?php $c->tag('tab', ['id' => 'thong-tin-chi-tiet', 'cls' => 'active', 'title' => 'TT chi tiết', 'func' => 'info']); ?>
-    <?php $c->tag('tab', ['id' => 'xep-lop', 'cls' => '', 'title' => 'Xếp lớp', 'func' => 'class_schedule']); ?>
+    <?php $c->tag('tab', ['id' => 'xep-lop', 'cls' => '', 'title' => 'Xếp lớp', 'func' => 'class_student']); ?>
     <?php if(0):?>
     <?php  $c->tag('tab', ['id' => 'diem-danh', 'cls' => '', 'title' => 'Điểm danh']); ?>
     <?php endif?>
@@ -14,7 +14,7 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-thong-tin-chi-tiet" role="tabpanel" aria-labelledby="nav-thong-tin-chi-tiet-tab"><?php $controller->view('student/detail/view/info')?></div>
-  <div class="tab-pane fade" id="nav-xep-lop" role="tabpanel" aria-labelledby="nav-xep-lop-tab"><?php $controller->view('student/detail/view/class_schedule')?></div>
+  <div class="tab-pane fade" id="nav-xep-lop" role="tabpanel" aria-labelledby="nav-xep-lop-tab"><?php $controller->view('student/detail/view/class_student')?></div>
   <?php if(0):?>
   <div class="tab-pane fade" id="nav-diem-danh" role="tabpanel" aria-labelledby="nav-diem-danh-tab"><?php $controller->view('student/detail/view/muster')?></div>
   <?php endif;?>
