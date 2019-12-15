@@ -48,7 +48,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="add_advice(a_advice)">Cập nhật</button>
+        <button type="button" class="btn btn-primary" ng-click="insert_advice(a_advice)">Cập nhật</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
       </div>
     </div>

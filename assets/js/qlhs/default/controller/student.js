@@ -8,6 +8,7 @@ qlhsApp.controller('student_controller', ['$scope',
   'student_get_usings',
   'student_crud',
   'crud_class_students',
+  'crud_student_advices',
   'utils_pagination', function($scope, 
     get_teachers,
     student_get_list,
@@ -18,6 +19,7 @@ qlhsApp.controller('student_controller', ['$scope',
     student_get_usings,
     student_crud,
     crud_class_students,
+    crud_student_advices,
     utils_pagination) {
   $scope.get_list = function() {
     student_get_list($scope);
@@ -118,6 +120,8 @@ qlhsApp.controller('student_controller', ['$scope',
   student_crud($scope);
 
   crud_class_students($scope);
+
+  crud_student_advices($scope);
 
   $scope.get_list();
   $scope.get_teachers();

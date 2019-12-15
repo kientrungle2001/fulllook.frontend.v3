@@ -71,13 +71,13 @@
                 <th>Nhân viên</th>
                 <th>Hành động</th>
               </tr>
-              <tr>
+              <tr ng-repeat="thong_tin_lien_he in danh_sach_thong_tin_lien_he">
                 <td>1</td>
-                <td>Nguyên Văn A</td>
-                <td>0989123123</td>
-                <td>nguyenvana@gmail.com</td>
-                <td>TP kế toán</td>
-                <td>Nguyễn Văn Hữu</td>
+                <td>{{thong_tin_lien_he.ten_lien_he}}</td>
+                <td>{{thong_tin_lien_he.so_dien_thoai}}</td>
+                <td>{{thong_tin_lien_he.email}}</td>
+                <td>{{thong_tin_lien_he.id_chuc_vu_cu}}</td>
+                <td>{{thong_tin_lien_he.ma_nhan_vien}}</td>
                 <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
               </tr>
             </table>
@@ -98,15 +98,15 @@
                 <th>Email</th>
                 <th>Hành động</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>BHXH</td>
-                <td>11/08/2016</td>
-                <td>09/08/2019</td>
-                <td>VNPT</td>
+              <tr ng-repeat="thong_tin_han in danh_sach_thong_tin_han">
+                <td>{{$index + 1}}</td>
+                <td>{{thong_tin_han.nguon_du_lieu}}</td>
+                <td>{{thong_tin_han.ngay_bat_dau}}</td>
+                <td>{{thong_tin_han.ngay_ket_thuc}}</td>
+                <td>{{thong_tin_han.nha_cung_cap}}</td>
                 <td>Call</td>
-                <td>0663761448</td>
-                <td>nguyenvana@gmail.com</td>
+                <td>{{thong_tin_han.so_dien_thoai}}</td>
+                <td>{{thong_tin_han.email}}</td>
                 <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
               </tr>
             </table>
@@ -118,22 +118,20 @@
             <table class="table table-hover">
               <tr>
                 <th>STT</th>
-                <th>Họ và tên</th>
                 <th>Số điện thoại</th>
-                <th>Ngày liên hệ</th>
-                <th>Ngày hẹn</th>
+                <th>Ngày tạo</th>
+                <th>Ngày theo dõi</th>
                 <th>Ghi chú</th>
                 <th>Trạng thái</th>
                 <th>Hành động</th>
               </tr>
-              <tr>
+              <tr ng-repeat="cham_soc_khach_hang in danh_sach_cham_soc_khach_hang">
                 <td>1</td>
-                <td>Nguyên Văn A</td>
-                <td>0989123123</td>
-                <td>03/12/2019</td>
-                <td>05/12/2019</td>
-                <td>Hẹn trao đổi nội dung hợp đồng chữ ký số</td>
-                <td>Hẹn</td>
+                <td>{{cham_soc_khach_hang.so_dien_thoai}}</td>
+                <td>{{cham_soc_khach_hang.ngay_tao}}</td>
+                <td>{{cham_soc_khach_hang.ngay_theo_doi}}</td>
+                <td>{{cham_soc_khach_hang.ghi_chu}}</td>
+                <td>{{cham_soc_khach_hang.trang_thai}}</td>
                 <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
               </tr>
             </table>
@@ -148,7 +146,8 @@
 <!-- /.container -->
 
 <script>
-anphatApp.controller('cong_ty_chi_tiet_controller', ['$scope', function($scope){
+anphatApp.controller('cong_ty_chi_tiet_controller', ['$scope', 'tai_danh_sach', 
+    function($scope, tai_danh_sach){
   $scope.cong_ty = <?= json_encode($cong_ty);?>;
   $scope.nhan_vien = <?= json_encode($cong_ty['nhan_vien']);?>;
   $scope.tinh = <?= json_encode($cong_ty['tinh']);?>;
@@ -156,5 +155,46 @@ anphatApp.controller('cong_ty_chi_tiet_controller', ['$scope', function($scope){
   $scope.nha_cung_cap = <?= json_encode($cong_ty['nha_cung_cap']);?>;
   $scope.loai_danh_sach = <?= json_encode($cong_ty['loai_danh_sach']);?>;
   $scope.danh_sach_khai_thac = <?= json_encode($cong_ty['danh_sach_khai_thac']);?>;
+  $scope.tai_danh_sach_thong_tin_han = function() {
+    tai_danh_sach({
+      ten_bang: 'thong_tin_han',
+      dieu_kien: {
+        'ma_so_thue': $scope.cong_ty.ma_so_thue
+      }
+    }, function(ket_qua) {
+      $scope.danh_sach_thong_tin_han = ket_qua.du_lieu;
+      $scope.$apply();
+    });
+  };
+
+  $scope.tai_danh_sach_thong_tin_han();
+
+  $scope.tai_danh_sach_thong_tin_lien_he = function() {
+    tai_danh_sach({
+      ten_bang: 'thong_tin_lien_he',
+      dieu_kien: {
+        'ma_so_thue': $scope.cong_ty.ma_so_thue
+      }
+    }, function(ket_qua) {
+      $scope.danh_sach_thong_tin_lien_he = ket_qua.du_lieu;
+      $scope.$apply();
+    });
+  };
+
+  $scope.tai_danh_sach_thong_tin_lien_he();
+
+  $scope.tai_danh_sach_cham_soc_khach_hang = function() {
+    tai_danh_sach({
+      ten_bang: 'cham_soc_khach_hang',
+      dieu_kien: {
+        'ma_so_thue': $scope.cong_ty.ma_so_thue
+      }
+    }, function(ket_qua) {
+      $scope.danh_sach_cham_soc_khach_hang = ket_qua.du_lieu;
+      $scope.$apply();
+    });
+  };
+
+  $scope.tai_danh_sach_cham_soc_khach_hang();
 }]);
 </script>

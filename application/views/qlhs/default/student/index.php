@@ -7,6 +7,7 @@
 <?php $c->js('controller/student/get_usings.js')?>
 <?php $c->js('controller/student/crud.js')?>
 <?php $c->js('controller/student/crud_class_students.js')?>
+<?php $c->js('controller/student/crud_advices.js')?>
 <?php $c->js('controller/student.js')?>
 
 <?php $c->js('controller/classes.js')?>

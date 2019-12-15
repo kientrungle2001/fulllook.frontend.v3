@@ -87,7 +87,7 @@ $config['packages'][] = 	[
 				[
 					'name' => 'bootstrap',
 					'version' => '4.3.1',
-					'file' => 'dist/js/bootstrap.min.js'
+					'files' => ['dist/js/popper.min.js', 'dist/js/bootstrap.min.js']
 				],
 				[
 					'name' => 'angularjs',
