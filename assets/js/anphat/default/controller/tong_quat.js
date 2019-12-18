@@ -4,12 +4,14 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   'sua_ban_ghi',
   'xoa_ban_ghi',
   'phan_trang', 
+  'tong_quat_phan_trang',
   function($scope,  
     tai_danh_sach, 
     them_ban_ghi,
     sua_ban_ghi,
     xoa_ban_ghi,
-    phan_trang
+    phan_trang,
+    tong_quat_phan_trang
     ) {
   
   $scope.phan_trang = phan_trang;
@@ -149,6 +151,8 @@ anphatApp.controller('tong_quat_controller', ['$scope',
         return $scope.danh_sach_tinh_thanh_pho[i].quan_huyen;
     }
   };
+
+  tong_quat_phan_trang($scope);
 
   /** Them Xoa Sua */
   $scope.ban_ghi_moi = {
@@ -305,32 +309,6 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     } else {
       $scope[ten_danh_sach_thay_doi] = [];
     }
-  };
-
-  /**
-   * Phan trang
-   */
-  
-  $scope.den_trang_dau = function() {
-    $scope.phan_trang.trang_hien_thoi = 0;
-    $scope.tai_danh_sach();
-  };
-
-  $scope.den_trang_cuoi = function() {
-    $scope.phan_trang.trang_hien_thoi = $scope.tong_so_trang;
-    $scope.tai_danh_sach();
-  };
-  
-  $scope.den_trang_truoc = function() {
-    if($scope.phan_trang.trang_hien_thoi > 0) {
-      $scope.phan_trang.trang_hien_thoi--;
-      $scope.tai_danh_sach();
-    }
-  };
-
-  $scope.den_trang_tiep = function() {
-    $scope.phan_trang.trang_hien_thoi++;
-    $scope.tai_danh_sach();
   };
 
   // lay du lieu
