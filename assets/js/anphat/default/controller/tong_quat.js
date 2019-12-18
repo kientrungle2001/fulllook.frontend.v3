@@ -5,13 +5,15 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   'xoa_ban_ghi',
   'phan_trang', 
   'tong_quat_phan_trang',
+  'tong_quat_them_sua_xoa',
   function($scope,  
     tai_danh_sach, 
     them_ban_ghi,
     sua_ban_ghi,
     xoa_ban_ghi,
     phan_trang,
-    tong_quat_phan_trang
+    tong_quat_phan_trang,
+    tong_quat_them_sua_xoa
     ) {
   
   $scope.phan_trang = phan_trang;

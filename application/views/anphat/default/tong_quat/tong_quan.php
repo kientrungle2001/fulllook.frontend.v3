@@ -1,5 +1,6 @@
 <?php
-$c->js('factories/tong_quat/phan_trang.js'); 
+$c->js('factories/tong_quat/phan_trang.js');
+$c->js('factories/tong_quat/them_sua_xoa.js'); 
 $c->js('controller/tong_quat.js');
 $c->js('controller/'.$module.'.js');
 ?>
