@@ -130,4 +130,16 @@ class Luoc_do extends MY_Controller
     ];
     $this->render('tong_quat/tong_quan', $data);
   }
+
+  public function thuoc_tinh($id_luoc_do) {
+    $luoc_do = $this->laramongo->get('luoc_do', $id_luoc_do);
+    $data['luoc_do'] = $luoc_do;
+    $this->render('luoc_do/thuoc_tinh', $data);
+  }
+
+  public function bo_thuoc_tinh($id_luoc_do) {
+    $luoc_do = $this->laramongo->get('luoc_do', $id_luoc_do);
+    $data['luoc_do'] = $luoc_do;
+    $this->render('luoc_do/bo_thuoc_tinh', $data);
+  }
 }
