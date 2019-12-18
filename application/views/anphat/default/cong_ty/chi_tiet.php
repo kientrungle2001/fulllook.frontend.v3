@@ -29,7 +29,7 @@
             <div class="col-md-2 font-weight-bold">Mã số thuế</div>
             <div class="col-md-6">{{cong_ty.ma_so_thue}}</div>
             <div class="col-md-2 font-weight-bold">Ngày liên hệ</div>
-            <div class="col-md-6">{{cong_ty.ngay_lien_he}}</div>
+            <div class="col-md-6">{{cong_ty.ngay_lien_he | vn_datetime_format}}</div>
           </div>
           <div class="row">
             <div class="col-md-2 font-weight-bold">Địa chỉ</div>
@@ -52,9 +52,9 @@
             <div class="col-md-2 font-weight-bold">Danh sách khai thác</div>
             <div class="col-md-6">{{danh_sach_khai_thac.ten_danh_sach_khai_thac}}</div>
             <div class="col-md-2 font-weight-bold">Ngày tạo</div>
-            <div class="col-md-6">{{'21/12/2019'}}</div>
+            <div class="col-md-6">{{danh_sach_khai_thac.ngay_tao | vn_datetime_format}}</div>
             <div class="col-md-2 font-weight-bold">Ngày sửa</div>
-            <div class="col-md-6">{{'22/12/2019'}}</div>
+            <div class="col-md-6">{{danh_sach_khai_thac.ngay_sua | vn_datetime_format}}</div>
           </div>
           
         </div>
@@ -101,8 +101,8 @@
               <tr ng-repeat="thong_tin_han in danh_sach_thong_tin_han">
                 <td>{{$index + 1}}</td>
                 <td>{{thong_tin_han.nguon_du_lieu}}</td>
-                <td>{{thong_tin_han.ngay_bat_dau}}</td>
-                <td>{{thong_tin_han.ngay_ket_thuc}}</td>
+                <td>{{thong_tin_han.ngay_bat_dau | vn_date_format}}</td>
+                <td>{{thong_tin_han.ngay_ket_thuc | vn_date_format}}</td>
                 <td>{{thong_tin_han.nha_cung_cap}}</td>
                 <td>Call</td>
                 <td>{{thong_tin_han.so_dien_thoai}}</td>
@@ -128,8 +128,8 @@
               <tr ng-repeat="cham_soc_khach_hang in danh_sach_cham_soc_khach_hang">
                 <td>1</td>
                 <td>{{cham_soc_khach_hang.so_dien_thoai}}</td>
-                <td>{{cham_soc_khach_hang.ngay_tao}}</td>
-                <td>{{cham_soc_khach_hang.ngay_theo_doi}}</td>
+                <td>{{cham_soc_khach_hang.ngay_tao | vn_date_format}}</td>
+                <td>{{cham_soc_khach_hang.ngay_theo_doi | vn_date_format}}</td>
                 <td>{{cham_soc_khach_hang.ghi_chu}}</td>
                 <td>{{cham_soc_khach_hang.trang_thai}}</td>
                 <td><a href="#" onclick="return false;" class="fa fa-edit"></a> <a href="#" onclick="return false;" class="fa fa-remove text-danger"></a> </td>
