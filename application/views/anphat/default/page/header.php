@@ -2,8 +2,8 @@
 $items = [
 	
 	['link' => '/cong_ty/danh_sach', 'label' => 'Công ty'],
-	['link' => '/nguoi_lien_he', 'label' => 'Người liên hệ'],
-	['link' => '/thong_tin_han', 'label' => 'Thông tin hạn'],
+	['link' => '/nguoi_lien_he/danh_sach', 'label' => 'Người liên hệ'],
+	['link' => '/thong_tin_han/danh_sach', 'label' => 'Thông tin hạn'],
 	['link' => '#', 'label' => 'Quản trị', 'children' => [
 		['link' => '/dia_diem', 'label' => 'Địa điểm'],
 	]],
