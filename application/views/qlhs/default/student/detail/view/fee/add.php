@@ -47,11 +47,30 @@
               <label>Kỳ thanh toán</label>
               <select type="text" class="form-control form-control-sm" placeholder="Kỳ thanh toán" ng-model="c_fee.payment_periodId">
                 <option ng-value="null">Chọn Kỳ thanh toán</option>
-                <option ng-value="cl.id" ng-repeat="cl in classes">{{cl.name}}</option>
+                <option ng-value="pp.id" ng-repeat="pp in payment_periods">{{pp.name}}</option>
               </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label>Số buổi</label>
+              <input type="text" class="form-control form-control-sm" placeholder="Số buổi" ng-model="c_fee.quantity">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Trừ số buổi</label>
+              <input type="text" class="form-control form-control-sm" placeholder="Trừ số buổi" ng-model="c_fee.quantity_abs">
+            </div>
+            <div class="form-group col-md-4">
+              <button class="btn btn-primary" ng-click="fee_item_remove($index)">Xóa</button>
             </div>
           </div>
           <div class="form-row">
+            <div class="form-group col-md-24">
+              <button ng-click="a_fee.items.push({})" class="btn btn-primary">Thêm mục mới</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              Tổng tiền: 144.000đ
+            </div>
             <div class="form-group col-md-24">
               <label>Ghi chú</label>
               <textarea class="form-control form-control-sm" placeholder="Ghi chú" ng-model="a_advice.note"></textarea>

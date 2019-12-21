@@ -1,5 +1,6 @@
 <?php $c->js('controller/utils/pagination.js')?>
 <?php $c->js('controller/student/get_list.js')?>
+<?php $c->js('controller/general_factories/get_lists.js')?>
 <?php $c->js('controller/student/get_advices.js')?>
 <?php $c->js('controller/student/get_class_students.js')?>
 <?php $c->js('controller/student/get_fees.js')?>
@@ -8,10 +9,11 @@
 <?php $c->js('controller/student/crud.js')?>
 <?php $c->js('controller/student/crud_class_students.js')?>
 <?php $c->js('controller/student/crud_advices.js')?>
+<?php $c->js('controller/student/crud_fees.js')?>
 <?php $c->js('controller/student.js')?>
 
 <?php $c->js('controller/classes.js')?>
-<div ng-controller="classes_list_controller">
+<div>
 <div class="container-fluid content-wrapper" ng-controller="student_controller">
 <?php $c->view('student/add/form')?>
 <?php $c->view('student/edit/form')?>

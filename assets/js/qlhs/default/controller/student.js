@@ -1,5 +1,6 @@
 qlhsApp.controller('student_controller', ['$scope', 
   'get_teachers', 
+  'get_classes',
   'student_get_list',
   'student_get_advices',
   'student_get_class_students',
@@ -9,8 +10,10 @@ qlhsApp.controller('student_controller', ['$scope',
   'student_crud',
   'crud_class_students',
   'crud_student_advices',
+  'crud_fees',
   'utils_pagination', function($scope, 
     get_teachers,
+    get_classes,
     student_get_list,
     student_get_advices,
     student_get_class_students,
@@ -20,13 +23,10 @@ qlhsApp.controller('student_controller', ['$scope',
     student_crud,
     crud_class_students,
     crud_student_advices,
+    crud_fees,
     utils_pagination) {
   $scope.get_list = function() {
     student_get_list($scope);
-  };
-
-  $scope.get_teachers = function() {
-    get_teachers($scope);
   };
 
   // Phân trang
@@ -123,6 +123,9 @@ qlhsApp.controller('student_controller', ['$scope',
 
   crud_student_advices($scope);
 
+  crud_fees($scope);
+
   $scope.get_list();
-  $scope.get_teachers();
+  get_teachers($scope);
+  get_classes($scope);
 }]);
