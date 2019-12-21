@@ -35,7 +35,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 	<div id="info"> 
 		<p>© Copyrights 2013 <?= $company_name?></p>
 		<p><?= wpglobus('{:vi}Địa chỉ{:}{:en}Address{:}', $language)?>: <?= $address?></p>
-		<p><?= wpglobus('{:vi}Văn phòng giao dịch{:}{:en}Office{:}', $language)?>: <?= $office_address?></p>
+		<p><?= wpglobus('{:vi}VPDD{:}{:en}Office{:}', $language)?>: <?= $office_address?></p>
 		<p>Tel: <?= $tel?> - Fax: <?= $fax?></p>
 		<p>Email: <?= $email?></p>
 		<p><?= wpglobus('{:vi}Mã số thuế{:}{:en}Tax Code{:}', $language)?>: <?= $tax_code?></p>
@@ -78,7 +78,7 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 </div>
 <div id="sup_all">
 	<div id="ct_sup">
-		<div id="hotline_f">  <?= $hotline?>, <?= $hotline_2?>, <?= $hotline_3?></div>
+		<div id="hotline_f">  <?= $hotline?> | <?= $hotline_2?> | <?= $hotline_3?></div>
 		<div id="email_f"> <?= $email?></div>
 		<div style="width: 430px;position: absolute;top: 5px;right: 0px;">
 		<!-- AddThis Button BEGIN -->

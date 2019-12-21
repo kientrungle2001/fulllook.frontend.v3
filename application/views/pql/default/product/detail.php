@@ -33,15 +33,67 @@ $product = $controller->posts_model->get_post($productId);
 			<img class="u-photo" title="<?= wpglobus($product['post_title'],$language)?>" 
 				src="<?= $controller->links_model->get_image_url($img)?>">
 		</div>
-		<div id="text-cate" class="e-description">
-			<?= replace_br(wpglobus($product['post_content'], $language))?>	
+		<div id="text-cate-detail">
+			<table class="price_table">
+				<tr>
+					<th>Mã sản phẩm: </th>
+					<td><?= $product['sku']?></td>
+				</tr>
+				<tr>
+					<th>Giá: </th>
+					<td><?= $product['price']?></td>
+				</tr>
+				<tr>
+					<th>Thương hiệu: </th>
+					<td><?= $product['brand']?></td>
+				</tr>
+				<tr>
+					<th>Xuất xứ: </th>
+					<td><?= $product['origin']?></td>
+				</tr>
+				<tr>
+					<th>Tình trạng: </th>
+					<td><?= $product['stock']?></td>
+				</tr>
+				<tr>
+					<th>Thêm vào giỏ: </th>
+					<td>
+						Số lượng: <input type="text" name="quantity" id="quantity" size="3" value="1"> <button onclick="addToCart('<?= $product['sku']?>', '<?= wpglobus($product['post_title'], $language) ?>', '<?= $product['price']?>');">Đặt mua</button>
+					</td>
+				</tr>
+			</table>
 		</div>
-		
+		<hr class="clear" />
+		<div id="product-description">
+			<div class="product-tabs">
+				<div class="tab-description product-tab product-tab-active" data-tab-index="0">Thông số kỹ thuật</div>
+				<div class="tab-comment product-tab" data-tab-index="1">Đánh giá sản phẩm</div>
+				<div class="clear"></div>
+			</div>
+			<div class="product-tab-contents">
+				<div class="product-tab-content product-tab-content-active">
+					<div class="e-description clear"><?= replace_br(wpglobus($product['post_content'], $language))?></div>	
+				</div>
+				<div class="product-tab-content">
+					<div id="product-comments">
+						<div class="fb-comments" data-href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="other-products">
+			<div class="product-tabs">
+				<div class="product-tab product-tab-active">Sản phẩm khác</div>
+			</div>
+			<div class="product-tab-contents">
+				<div class="product-tab-content product-tab-content-active">
+					Sản phẩm khác
+				</div>
+			</div>
+		</div>
 	</div>
-	<div style="clear:both"></div>
-	<div id="product-comments">
-	<div class="fb-comments" data-href="<?= SITE_PROTOCOL?><?= $_SERVER['HTTP_HOST']?><?= $_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="5"></div>
-	</div>
+	<div class="clear"></div>
 </div>
 
 <?php
@@ -56,4 +108,36 @@ $jsonld = array(
 ?>
 <script type="application/ld+json">
 <?= json_encode($jsonld)?>
+</script>
+<script>
+	function addToCart(sku, name, price) {
+		var quantity = jQuery('#quantity').val();
+		quantity = parseFloat(quantity);
+		jQuery.ajax({
+			url: '/cart/addToCart',
+			type: 'post',
+			dataType: 'json',
+			data: {
+				sku: sku, name: name, price: price, quantity: quantity
+			},
+			success: function(resp) {
+				jQuery('#but_gh .num').text(resp);
+				alert('Bạn đã đặt hàng thành công');
+			}
+		});
+	}
+	$(document).ready(function(){
+		$('#img_cate').zoom({
+			magnify: 1
+		});
+
+		$('.product-tab').click(function(evt) {
+			var $this = $(this);
+			var tabIndex = $this.data('tab-index');
+			$('.product-tab').removeClass('product-tab-active');
+			$this.addClass('product-tab-active');
+			$('.product-tab-content').removeClass('product-tab-content-active');
+			$('.product-tab-content:eq('+tabIndex+')').addClass('product-tab-content-active');
+		});
+	});
 </script>

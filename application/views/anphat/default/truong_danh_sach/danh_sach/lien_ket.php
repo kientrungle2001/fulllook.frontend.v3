@@ -1,0 +1,1 @@
+<a href="/<?= $model?>/{{ban_ghi._id.$oid}}"><?= $tieu_de?></a>

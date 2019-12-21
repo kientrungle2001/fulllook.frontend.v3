@@ -1,6 +1,6 @@
-QLHS_API_URL = '/api';
-QLHS_API_VERSION = 'v1';
-AJAX_CONSTANTS =  {
+QU = QLHS_API_URL = '/api';
+QV = QLHS_API_VERSION = 'v1';
+AJC = AJAX_CONSTANTS =  {
   type: {
     post: 'POST',
     get: 'GET',
@@ -8,30 +8,35 @@ AJAX_CONSTANTS =  {
     del: 'DELETE'
   }
 };
-QLHS_CONSTANTS = {
+QC = QLHS_CONSTANTS = {
   api: {
     v1: {
       student: {
-        url: QLHS_API_URL + '/student'
+        url: QU + '/student'
       },
       classes: {
-        url: QLHS_API_URL + '/classes'
+        url: QU + '/classes'
       },
-      phong_ban: {
-        url: '/v1/phong_ban'
+      class_student: {
+        url: QU + '/class_student'
       },
-      chuc_vu: {
-        url: '/v1/chuc_vu'
+      advice: {
+        url: QU + '/advice'
       },
-      nha_cung_cap: {
-        url: '/v1/nha_cung_cap'
+      general_order: {
+        url: QU + '/general_order'
       },
-      loai_dich_vu: {
-        url: '/v1/loai_dich_vu'
+      student_schedule: {
+        url: QU + '/student_schedule'
       },
-      dich_vu: {
-        url: '/v1/dich_vu'
+      student_order: {
+        url: QU + '/student_order'
+      },
+      teacher: {
+        url: QU + '/teacher'
       },
     }
   }
 };
+
+QA = QC.api[QV];

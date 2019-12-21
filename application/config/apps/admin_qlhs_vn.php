@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['apps'][] = [
 	'name' => 'qlhs',
 	'host'	=>	'admin.qlhs.vn',
-	'aliases' => ['admin.qlhs.com'],
+	'aliases' => ['admin.qlhs.com','demo.qlhs.nn-center.com'],
 	'view_packages' => ['qlhs'],
 	'css_packages' => ['qlhs'],
 	'js_packages' => ['qlhs'],
@@ -87,7 +87,7 @@ $config['packages'][] = 	[
 				[
 					'name' => 'bootstrap',
 					'version' => '4.3.1',
-					'file' => 'dist/js/bootstrap.min.js'
+					'files' => ['dist/js/popper.min.js', 'dist/js/bootstrap.min.js']
 				],
 				[
 					'name' => 'angularjs',

@@ -1,20 +1,20 @@
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <?php $c->tag('tab', ['id' => 'thong-tin-chi-tiet', 'cls' => 'active', 'title' => 'TT chi tiết']); ?>
-    <?php $c->tag('tab', ['id' => 'xep-lop', 'cls' => '', 'title' => 'Xếp lớp']); ?>
+    <?php $c->tag('tab', ['id' => 'thong-tin-chi-tiet', 'cls' => 'active', 'title' => 'TT chi tiết', 'func' => 'info']); ?>
+    <?php $c->tag('tab', ['id' => 'xep-lop', 'cls' => '', 'title' => 'Xếp lớp', 'func' => 'class_student']); ?>
     <?php if(0):?>
     <?php  $c->tag('tab', ['id' => 'diem-danh', 'cls' => '', 'title' => 'Điểm danh']); ?>
     <?php endif?>
-    <?php $c->tag('tab', ['id' => 'ls-tu-van', 'cls' => '', 'title' => 'LS Tư vấn']); ?>
-    <?php $c->tag('tab', ['id' => 'ls-hoc-tap', 'cls' => '', 'title' => 'LS học tập']); ?>
-    <?php $c->tag('tab', ['id' => 'hoc-phi', 'cls' => '', 'title' => 'Học phí']); ?>
-    <?php $c->tag('tab', ['id' => 'thoi-khoa-bieu', 'cls' => '', 'title' => 'Thời khóa biểu']); ?>
-    <?php $c->tag('tab', ['id' => 'sp-da-su-dung', 'cls' => '', 'title' => 'SP đã sử dụng']); ?>
+    <?php $c->tag('tab', ['id' => 'ls-tu-van', 'cls' => '', 'title' => 'LS Tư vấn', 'func' => 'advice']); ?>
+    <?php $c->tag('tab', ['id' => 'ls-hoc-tap', 'cls' => '', 'title' => 'LS học tập', 'func' => 'history']); ?>
+    <?php $c->tag('tab', ['id' => 'hoc-phi', 'cls' => '', 'title' => 'Học phí', 'func' => 'fee']); ?>
+    <?php $c->tag('tab', ['id' => 'thoi-khoa-bieu', 'cls' => '', 'title' => 'Thời khóa biểu', 'func' => 'timesheet']); ?>
+    <?php $c->tag('tab', ['id' => 'sp-da-su-dung', 'cls' => '', 'title' => 'SP đã sử dụng', 'func' => 'using']); ?>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-thong-tin-chi-tiet" role="tabpanel" aria-labelledby="nav-thong-tin-chi-tiet-tab"><?php $controller->view('student/detail/view/info')?></div>
-  <div class="tab-pane fade" id="nav-xep-lop" role="tabpanel" aria-labelledby="nav-xep-lop-tab"><?php $controller->view('student/detail/view/class_schedule')?></div>
+  <div class="tab-pane fade" id="nav-xep-lop" role="tabpanel" aria-labelledby="nav-xep-lop-tab"><?php $controller->view('student/detail/view/class_student')?></div>
   <?php if(0):?>
   <div class="tab-pane fade" id="nav-diem-danh" role="tabpanel" aria-labelledby="nav-diem-danh-tab"><?php $controller->view('student/detail/view/muster')?></div>
   <?php endif;?>

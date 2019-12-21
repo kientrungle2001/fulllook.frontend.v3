@@ -1,6 +1,7 @@
 
 <table class="table table-sm table-bordered">
   <tr>
+  <th><input type="checkbox" ng-model="trang_thai_chon_tat_ca" ng-change="chon_tat_ca()" /></th>
     <th>ID</th>
     <?php foreach($truong_danh_sach as $truong):?>
     <th>
@@ -11,6 +12,7 @@
     <th><span class="fa fa-pencil"></span> <span class="fa fa-trash"></span></th>
   </tr>
   <tr ng-repeat="ban_ghi in danh_sach_ban_ghi">
+  <td><input type="checkbox" ng-model="cac_ban_ghi_dang_chon[ban_ghi._id.$oid]" /></td>
     <td>{{$index + 1}}</td>
     <?php foreach($truong_danh_sach as $truong):?>
       <td>
@@ -26,3 +28,18 @@
     </td>
   </tr>
 </table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+  <li class="page-item">Kích cỡ trang: <select class="btn btn-primary btn-sm" ng-model="phan_trang.kich_co_trang" ng-change="tai_danh_sach()">
+    <option ng-value="10">10</option>
+    <option ng-value="20">20</option>
+    <option ng-value="50">50</option>
+    <option ng-value="100">100</option>
+    <option ng-value="100">200</option>
+  </select></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_truoc()">Trang trước</a></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false">{{phan_trang.trang_hien_thoi + 1}}</a></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_tiep()">Trang tiếp</a></li>
+  </ul>
+</nav>

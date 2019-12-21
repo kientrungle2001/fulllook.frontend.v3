@@ -59,8 +59,20 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 $autoload['libraries'] = array('user_agent', 'session', 'detector');
-if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' || $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' || $_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'admin.qlhs.vn') {
+if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' 
+	|| $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'pql.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'pql.nn-center.com' 
+	|| $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'admin.qlhs.vn'
+	|| $_SERVER['HTTP_HOST'] == 'demo.qlhs.nn-center.com') {
 	$autoload['libraries'][] = 'database';
+}
+$autoload['libraries'][] = 'curl';
+
+if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn') {
+	$autoload['libraries'][] = 'laramongo';
 }
 
 /*
@@ -142,13 +154,9 @@ $autoload['language'] = array();
 $autoload['model'] = array();
 if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
 		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn')) {
-	$autoload['model']['pql/options_model'] = 'options_model';
-	$autoload['model']['pql/posts_model'] = 'posts_model';
-	$autoload['model']['pql/links_model'] = 'links_model';
-	$autoload['model']['pql/terms_model'] = 'terms_model';
+	require_once 'autoload/pql.php';
 }
 
-if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn')) {
-			$autoload['model']['qlhs/student_model'] = 'student_model';
-			$autoload['model']['qlhs/classes_model'] = 'classes_model';
+if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn' || $_SERVER['HTTP_HOST'] == 'demo.qlhs.nn-center.com')) {
+	require_once 'autoload/qlhs.php';
 }

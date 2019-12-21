@@ -41,6 +41,11 @@ $config['packages'][] = 	[
 					'name' => 'jquery',
 					'version' => '1.12.4',
 					'file' => 'jquery.min.js'
+				],
+				[
+					'name' => 'zoom',
+					'version' => '1.7.21',
+					'file' => 'jquery.zoom.min.js'
 				]
 			]
 		]

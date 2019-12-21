@@ -24,7 +24,7 @@ class Links_model
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cp' . $category['term_id'];
+		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cp' . $category['term_id'] . '.html';
 	}
 
 	public function get_news_link($language, $category, $news) {
@@ -41,7 +41,7 @@ class Links_model
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cn' . $category['term_id'];
+		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cn' . $category['term_id'] . '.html';
 	}
 
 	public function get_image_url($img) {

@@ -1,6 +1,15 @@
-qlhsApp.controller('classes_list_controller', ['$scope', 'tai_danh_sach_lop', function($scope, tai_danh_sach_lop) {
-  $scope.tai_danh_sach_lop = function() {
-    tai_danh_sach_lop($scope);
+qlhsApp.controller('classes_list_controller', ['$scope', 'get_classes', function($scope, get_classes) {
+  $scope.get_classes = function() {
+    get_classes($scope);
   };
-  $scope.tai_danh_sach_lop();
+  $scope.get_classes();
+  $scope.get_class_levels = function(classes) {
+    if(!classes) return [];
+    var result = [];
+    classes.forEach(function(cls) {
+      result.pushIfNotExisted(cls.level);
+    });
+    result.sort();
+    return result;
+  };
 }]);

@@ -26,7 +26,7 @@ i{
 }
 /*================== css phần header ==================*/
 body {
-	background: url(../images/dark_geometric.png) repeat;
+	/*background: url(../images/dark_geometric.png) repeat;*/
 	font-size: 12px;
 	font-family: arial;
 	line-height: 18px;
@@ -35,8 +35,12 @@ body {
 #container{
   width: 998px;
   margin: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  /*
   border-left: 1px solid #323232;
   border-right: 1px solid #323232;
+  */
   background: white;
 }
 /*==============slogan===============*/
@@ -125,7 +129,7 @@ body {
   box-shadow: 1px 1px 2px #e7e7e7;
   position: absolute;
   top: 8px;
-  left: 867px;
+  right: 10px;
   -webkit-border-radius: 4px 4px 4px 4px;
   -moz-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
@@ -392,6 +396,7 @@ body {
   width: 150px;
   margin-right: 10px;
   overflow: hidden;
+  text-align: center;
 }
 #left{
   width: 208px;
@@ -627,8 +632,9 @@ body {
   border-top: 2px solid #f1f1f1;
   border-bottom: 2px solid #f1f1f1;
   padding: 10px 5px 9px 25px;
+  position: relative;
 }
-.b_top h2 {
+.b_top h2, .b_top .h2 {
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
@@ -915,19 +921,20 @@ font-weight: bold;
 #info_cate {
     padding: 10px 20px;
 }
-#text_cate {
+#text_cate, #text-cate, #text-cate-detail {
     width: 510px;
     float: left;
+    padding-left: 15px;
 }
 #img_cate {
     float: left;
     text-align: center;
-    width: 240px;
+    width: 340px;
 }
 #img_cate img {
     border: 1px solid #ccc;
-    width: 167px;
-    height: 131px;
+    width: 340px;
+    height: auto;
     padding: 2px;
 }
 #list_orderby {
@@ -1020,7 +1027,7 @@ font-weight: bold;
 }
 
 .link_feed {
-  color: brown; float:right; font-size: 0.8em;
+  color: brown; font-size: 0.8em; position: absolute; top: 8px; right: 10px;
 }
 
 .link_feed img {
@@ -1092,4 +1099,102 @@ h3, h4, h5, h6, h7 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.e-description {
+	font-size: 14px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.float-left {
+  float: left;
+}
+
+/* Product */
+.price_table tr td, .price_table tr th{
+	border-bottom: 1px solid #ccc;
+}
+
+.price_table tr th {
+	text-align: left;
+}
+
+.price_table tr th:before {
+	content: ' ';
+	display: inline-block;
+	width: 16px;
+	height: 9px;
+	background: url('/assets/css/pql/default/images/bichvan_15.png') no-repeat;
+}
+
+.price_table tr td {
+	color: #f96302;
+}
+#quantity {
+	width: 60px;
+}
+
+#product-description .product-tabs .product-tab {
+  width: 180px;
+  height: auto;
+  padding: 15px;
+  background: #ccc;
+  color: #333;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#product-description .product-tabs .product-tab-active {
+  background: #0269b6;
+  color: #fff;
+}
+
+#product-description .product-tab-contents .product-tab-content {
+  padding: 15px;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+#product-description .product-tab-contents .product-tab-content-active {
+  display: block;
+}
+
+.product-price-table {
+  width: 100%;
+}
+
+.product-price-table tr td, .product-price-table tr th{
+  border: 1px solid #ccc;
+  vertical-align: top;
+  text-align: center;
+}
+
+.product-price-table tr th {
+  padding: 10px;
+  background: #0269b6;
+  color: #fff;
+}
+
+.product-price-row .product-image, .product-price-row .product-info {
+  float: left;
+}
+
+.product-price-row .product-image {
+  margin-right: 10px;
 }

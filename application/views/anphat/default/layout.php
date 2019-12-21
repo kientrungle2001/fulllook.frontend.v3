@@ -22,9 +22,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php $controller->js_libraries(); ?>
 
 	<?php
+	$controller->js('browser.js');
 	$controller->js('array.js');
+	$controller->js('cache.js');
 	$controller->js('constants.js');
+	$controller->js('ajax.js');
 	$controller->js('app.js');
+	$controller->js('filters.js');
+	$controller->js('factories.js');
 	$controller->js('controller/login.js');
 	?>
 </head>

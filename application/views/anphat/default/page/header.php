@@ -1,9 +1,9 @@
 <?php 
 $items = [
 	
-	['link' => '/cong_ty', 'label' => 'Công ty'],
-	['link' => '/nguoi_lien_he', 'label' => 'Người liên hệ'],
-	['link' => '/thong_tin_han', 'label' => 'Thông tin hạn'],
+	['link' => '/cong_ty/danh_sach', 'label' => 'Công ty'],
+	['link' => '/thong_tin_lien_he/danh_sach', 'label' => 'Thông tin liên hệ'],
+	['link' => '/thong_tin_han/danh_sach', 'label' => 'Thông tin hạn'],
 	['link' => '#', 'label' => 'Quản trị', 'children' => [
 		['link' => '/dia_diem', 'label' => 'Địa điểm'],
 	]],
@@ -13,13 +13,25 @@ $items = [
 		['link' => '/phong_ban', 'label' => 'Phòng ban'],
 	]],
 	['link' => '#', 'label' => 'Dịch vụ', 'children' => [
-		['link' => '/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
+		['link' => '/loai_dich_vu', 'label' => 'Loại dịch vụ'],
 		['link' => '/dich_vu', 'label' => 'Dịch vụ'],
 		['link' => '/loai_chinh_sach', 'label' => 'Loại chính sách'],
-		['link' => '/loai_dich_vu', 'label' => 'Loại dịch vụ'],
+		['link' => '/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
 		['link' => '/nha_cung_cap', 'label' => 'Nhà cung cấp'],
+		['link' => '/loai_danh_sach', 'label' => 'Loại danh sách'],
 		['link' => '/danh_sach_khai_thac', 'label' => 'Danh sách khai thác'],
-	]]
+		['link' => '/co_quan_thue', 'label' => 'Cơ quan thuế'],
+		
+	]],
+	['link' => '#', 'label' => 'Tổng quát', 'children' => [
+		['link' => '/thuc_don', 'label' => 'Thực đơn'],
+		['link' => '/luoc_do', 'label' => 'Lược đồ'],
+		['link' => '/loai_thuoc_tinh', 'label' => 'Loại thuộc tính'],
+		['link' => '/loai_thuoc_tinh_tham_so', 'label' => 'Tham số của Loại thuộc tính'],
+		['link' => '/bo_thuoc_tinh', 'label' => 'Bộ thuộc tính'],
+		['link' => '/bo_thuoc_tinh_danh_sach', 'label' => 'Bộ thuộc tính danh sách'],
+		['link' => '/thuoc_tinh', 'label' => 'Thuộc tính'],
+	]],
 ];
 ?>
 <header>

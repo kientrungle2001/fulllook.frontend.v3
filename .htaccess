@@ -5,6 +5,12 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
+
+#RewriteCond %{HTTP_HOST} ^www.mobo.com.vn [NC]
+#RewriteRule ^(.*)$ https://mobo.com.vn/$1 [L,R=301]
+
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ https://mobo.com.vn/$1 [R,L]
 </IfModule>
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>

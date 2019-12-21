@@ -15,8 +15,16 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+<<<<<<< HEAD
 #/3rdparty/
 #/assets/libraries/
 #/curl
+=======
+!/3rdparty/
+/assets/libraries/
+!/curl
+>>>>>>> d16778f63537eb7e50e286caf6f870983aba9ee6
 /tmp
 .favorites.json
+mongo
+.vscode
