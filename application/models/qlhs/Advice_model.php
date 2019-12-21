@@ -10,6 +10,7 @@ class Advice_model extends Abstract_Table_Model
 		'roomId'	=> ['type' => 'int'],
 		'subjectId'	=> ['type' => 'int'],
 		'teacherId'	=> ['type' => 'int'],
-		'teacher2Id'=> ['type' => 'int'],
+		'adviceId'=> ['type' => 'int'],
+		'type'=> ['type' => 'int'],
 	];
 }

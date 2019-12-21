@@ -23,8 +23,8 @@
     <?php $c->view('student/detail/filter');?>
     <?php $c->view('student/detail/list');?>
   </div>
-  <div class="col-md-14">
-    <h5>Chi tiết</h5>
+  <div class="col-md-14" ng-show="selected_row">
+    <h5>Chi tiết - {{selected_row.name}}</h5>
     <?php $c->view('student/detail/view')?>
   </div>
  </div> 

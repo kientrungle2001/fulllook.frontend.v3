@@ -12,7 +12,7 @@ qlhsApp.factory('student_get_advices', function() {
         }
       },
       success: function(resp) {
-        $scope.danh_sach_tu_van = resp.rows;
+        $scope.advices = resp.rows;
         $scope.$apply();
       }
     });

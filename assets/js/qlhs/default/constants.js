@@ -35,6 +35,9 @@ QC = QLHS_CONSTANTS = {
       teacher: {
         url: QU + '/teacher'
       },
+      payment_period: {
+        url: QU + '/payment_period'
+      },
     }
   }
 };

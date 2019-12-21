@@ -13,5 +13,10 @@ class Classes_model extends Abstract_Table_Model
 		'documentLevel' => ['type' => 'int'],
 		'document' => ['type' => 'bool'],
 		'display' => ['type' => 'bool'],
+		'online' => ['type' => 'int'],
+		'classed' => ['type' => 'bool'],
+		'roomId' => ['type' => 'int'],
+		'subjectId' => ['type' => 'int'],
+		'teacherId' => ['type' => 'int'],
 	];
 }
