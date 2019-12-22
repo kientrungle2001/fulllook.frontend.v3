@@ -9,9 +9,9 @@
       <th><a href="#" class="text-success fa fa-list"></a></th>
       <th><a href="#" class="text-success fa fa-edit"></a></th>
       <th><a href="#" class="text-success fa fa-filter"></a></th>
-      <th>Loại thuộc tính danh sách</th>
-      <th>Loại thuộc tính thêm sửa</th>
-      <th>Loại thuộc tính lọc</th>
+      <th>Loại TT danh sách</th>
+      <th>Loại TT thêm sửa</th>
+      <th>Loại TT lọc</th>
       <th>Thứ tự</th>
       <th><a href="#" class="text-success fa fa-circle"></a></th>
       <th><a href="#" class="fa fa-pencil text-primary"></a>
@@ -29,16 +29,16 @@
       <td><a href="#" class="fa fa-filter" 
       ng-class="{'text-success': thuoc_tinh.cho_phep_loc, 'text-dark': !thuoc_tinh.cho_phep_loc}" 
       ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_loc')"></a></td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_danh_sach, 'id_loai_thuoc_tinh_danh_sach', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_them_sua, 'id_loai_thuoc_tinh_them_sua', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_loc, 'id_loai_thuoc_tinh_loc', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
+      <td><a href="#" onclick="return false" ng-click="hien_thi_cau_hinh_danh_sach(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_danh_sach"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_danh_sach, 'id_loai_thuoc_tinh_danh_sach', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
+      <td><a href="#" onclick="return false" ng-click="hien_thi_cau_hinh_them_sua(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_them_sua"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_them_sua, 'id_loai_thuoc_tinh_them_sua', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
+      <td><a href="#" onclick="return false"  ng-click="hien_thi_cau_hinh_loc(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_loc"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_loc, 'id_loai_thuoc_tinh_loc', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
       <td>{{thuoc_tinh.thu_tu}}</td>
       <td><a href="#" class="fa fa-circle" 
       ng-class="{'text-success': thuoc_tinh.trang_thai, 'text-dark': !thuoc_tinh.trang_thai}" 
       ng-click="thay_doi_trang_thai(thuoc_tinh, 'trang_thai')"></a></td>
     <td>
-      <a href="#" class="fa fa-pencil text-primary" ng-click="mo_dialog_sua_ban_ghi(thuoc_tinh)"></a>
-      <a href="#" class="fa fa-trash text-danger" ng-click="xoa_ban_ghi(thuoc_tinh)"></a>
+      <a href="#" class="fa fa-pencil text-primary" ng-click="hien_thi_sua_thuoc_tinh(thuoc_tinh)"></a>
+      <a href="#" class="fa fa-trash text-danger" ng-click="xoa_thuoc_tinh(thuoc_tinh)"></a>
     </td>
     </tr>
   </table>
@@ -94,6 +94,32 @@ anphatApp.controller('luoc_do_thuoc_tinh_controller', [
 
   $scope.thay_doi_trang_thai = function(thuoc_tinh, model) {
     thuoc_tinh[model] = !thuoc_tinh[model];
+  };
+
+  $scope.hien_thi_cau_hinh_danh_sach = function (thuoc_tinh) {
+    $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
+    jQuery('#modal_cau_hinh_danh_sach').modal('show');
+  };
+
+  $scope.hien_thi_cau_hinh_them_sua = function (thuoc_tinh) {
+    $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
+    jQuery('#modal_cau_hinh_them_sua').modal('show');
+  };
+
+  $scope.hien_thi_cau_hinh_loc = function (thuoc_tinh) {
+    $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
+    jQuery('#modal_cau_hinh_loc').modal('show');
+  };
+
+  $scope.hien_thi_sua_thuoc_tinh = function(thuoc_tinh) {
+    $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
+    jQuery('#modal_sua_thuoc_tinh').modal('show');
+  };
+
+  $scope.xoa_thuoc_tinh = function(thuoc_tinh) {
+    if(confirm('Bạn có muốn xóa thuộc tính "'+thuoc_tinh.ten_thuoc_tinh+'"')) {
+      alert('Xóa');
+    }
   };
 }]);
 </script>
