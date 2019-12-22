@@ -6,12 +6,12 @@
     <tr>
       <th>Tên thuộc tính</th>
       <th>Mã thuộc tính</th>
-      <th>Loại thuộc tính danh sách</th>
       <th><a href="#" class="text-success fa fa-list"></a></th>
-      <th>Loại thuộc tính thêm sửa</th>
       <th><a href="#" class="text-success fa fa-edit"></a></th>
+      <th><a href="#" class="text-success fa fa-filter"></a></th>
+      <th>Loại thuộc tính danh sách</th>
+      <th>Loại thuộc tính thêm sửa</th>
       <th>Loại thuộc tính lọc</th>
-      <th><a href="#" class="fa fa-filter text-success"></a></th>
       <th>Thứ tự</th>
       <th><a href="#" class="text-success fa fa-circle"></a></th>
       <th><a href="#" class="fa fa-pencil text-primary"></a>
@@ -20,18 +20,18 @@
     <tr ng-repeat="thuoc_tinh in luoc_do.danh_sach_thuoc_tinh">
       <td>{{thuoc_tinh.ten_thuoc_tinh}}</td>
       <td>{{thuoc_tinh.ma_thuoc_tinh}}</td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_danh_sach, 'id_loai_thuoc_tinh_danh_sach', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
       <td><a href="#" class="fa fa-list" 
       ng-class="{'text-success': thuoc_tinh.cho_phep_danh_sach, 'text-dark': !thuoc_tinh.cho_phep_danh_sach}" 
       ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_danh_sach')"></a></td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_them_sua, 'id_loai_thuoc_tinh_them_sua', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
       <td><a href="#" class="fa fa-edit" 
       ng-class="{'text-success': thuoc_tinh.cho_phep_them_sua, 'text-dark': !thuoc_tinh.cho_phep_them_sua}" 
       ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_them_sua')"></a></td>
-      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_loc, 'id_loai_thuoc_tinh_loc', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
       <td><a href="#" class="fa fa-filter" 
       ng-class="{'text-success': thuoc_tinh.cho_phep_loc, 'text-dark': !thuoc_tinh.cho_phep_loc}" 
       ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_loc')"></a></td>
+      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_danh_sach, 'id_loai_thuoc_tinh_danh_sach', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
+      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_them_sua, 'id_loai_thuoc_tinh_them_sua', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
+      <td><a href="#">{{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_loc, 'id_loai_thuoc_tinh_loc', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
       <td>{{thuoc_tinh.thu_tu}}</td>
       <td><a href="#" class="fa fa-circle" 
       ng-class="{'text-success': thuoc_tinh.trang_thai, 'text-dark': !thuoc_tinh.trang_thai}" 
