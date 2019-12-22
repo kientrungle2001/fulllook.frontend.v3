@@ -48,8 +48,10 @@
 <script>
 anphatApp.controller('luoc_do_thuoc_tinh_controller', [
   '$scope',
-  'tai_danh_sach', function($scope,
-    tai_danh_sach) {
+  'tai_danh_sach',
+  'xoa_ban_ghi', function($scope,
+    tai_danh_sach,
+    xoa_ban_ghi) {
   $scope.luoc_do = <?= json_encode($luoc_do) ?>;
   
   $scope.hien_thi_tham_chieu = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
@@ -118,7 +120,10 @@ anphatApp.controller('luoc_do_thuoc_tinh_controller', [
 
   $scope.xoa_thuoc_tinh = function(thuoc_tinh) {
     if(confirm('Bạn có muốn xóa thuộc tính "'+thuoc_tinh.ten_thuoc_tinh+'"')) {
-      alert('Xóa');
+				var id = thuoc_tinh._id.$oid;
+				xoa_ban_ghi(id, { ten_bang: 'thuoc_tinh' }, function(resp) {
+					$scope.tai_danh_sach_thuoc_tinh();
+				});
     }
   };
 }]);
