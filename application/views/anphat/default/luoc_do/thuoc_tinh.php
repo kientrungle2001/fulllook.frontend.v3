@@ -17,7 +17,7 @@
       <th><a href="#" class="fa fa-pencil text-primary"></a>
       <a href="#" class="fa fa-trash text-danger"></a></th>
     </tr>
-    <tr ng-repeat="thuoc_tinh in luoc_do.danh_sach_thuoc_tinh">
+    <tr ng-repeat="thuoc_tinh in danh_sach_thuoc_tinh">
       <td>{{thuoc_tinh.ten_thuoc_tinh}}</td>
       <td>{{thuoc_tinh.ma_thuoc_tinh}}</td>
       <td><a href="#" class="fa fa-list" 
@@ -65,7 +65,9 @@ anphatApp.controller('luoc_do_thuoc_tinh_controller', [
   $scope.tai_danh_sach_loai_thuoc_tinh = function() {
     tai_danh_sach({
       ten_bang: 'loai_thuoc_tinh',
-      dieu_kien: {}
+      dieu_kien: {},
+      thu_tu: 'asc',
+      sap_xep: 'thu_tu'
     }, function(ket_qua){
       $scope.danh_sach_loai_thuoc_tinh = ket_qua.du_lieu;
       $scope.$apply();
@@ -73,6 +75,23 @@ anphatApp.controller('luoc_do_thuoc_tinh_controller', [
   };
 
   $scope.tai_danh_sach_loai_thuoc_tinh();
+
+  $scope.tai_danh_sach_thuoc_tinh = function() {
+    tai_danh_sach({
+      ten_bang: 'thuoc_tinh',
+      dieu_kien: {
+        id_luoc_do: $scope.luoc_do._id.$oid
+      },
+      thu_tu: 'asc',
+      sap_xep: 'thu_tu'
+    }, function(ket_qua){
+      $scope.danh_sach_thuoc_tinh = ket_qua.du_lieu;
+      $scope.$apply();
+    });
+  };
+
+  $scope.tai_danh_sach_thuoc_tinh();
+
   $scope.thay_doi_trang_thai = function(thuoc_tinh, model) {
     thuoc_tinh[model] = !thuoc_tinh[model];
   };
