@@ -17,54 +17,34 @@ class Danh_sach extends MY_Action
       'kich_co_nut_them' => $luoc_do['kich_co_nut_them'],
       'kich_co_nut_loc' => $luoc_do['kich_co_nut_loc'],
       'model_nut_them' => 'mo_dialog_them_theo_bo_thuoc_tinh()',
-      'model_nut_nhap_du_lieu' => 'chuyen_trang(\'/cong_ty/nhap_du_lieu\')()',
-      'model_nut_xuat_du_lieu' => 'chuyen_trang(\'/cong_ty/xuat_du_lieu\')()',
-      'du_lieu_tai_tu_dong' => [
-        [
-          'ten_danh_sach' => 'danh_sach_tinh_thanh_pho',
-          'goi_du_lieu' => [
-            'ten_bang' => 'tinh_thanh_pho',
-            'sap_xep' => 'id',
-            'thu_tu' => 'asc'
-          ]
-        ],
-        [
-          'ten_danh_sach' => 'danh_sach_nhan_vien',
-          'goi_du_lieu' => [
-            'ten_bang' => 'nhan_vien',
-            'sap_xep' => '_id',
-            'thu_tu' => 'desc'
-          ]
-        ],
-        [
-          'ten_danh_sach' => 'danh_sach_nha_cung_cap',
-          'goi_du_lieu' => [
-            'ten_bang' => 'nha_cung_cap',
-            'sap_xep' => 'id',
-            'thu_tu' => 'asc'
-          ]
-        ],
-        [
-          'ten_danh_sach' => 'danh_sach_loai_danh_sach',
-          'goi_du_lieu' => [
-            'ten_bang' => 'loai_danh_sach',
-            'sap_xep' => 'id',
-            'thu_tu' => 'asc'
-          ]
-        ],
-        [
-          'ten_danh_sach' => 'danh_sach_danh_sach_khai_thac',
-          'goi_du_lieu' => [
-            'ten_bang' => 'danh_sach_khai_thac',
-            'sap_xep' => 'id',
-            'thu_tu' => 'asc'
-          ]
-        ],
-      ],
+      'model_nut_nhap_du_lieu' => 'chuyen_trang(\'/'.$luoc_do['ma_luoc_do'].'/nhap_du_lieu\')()',
+      'model_nut_xuat_du_lieu' => 'chuyen_trang(\'/'.$luoc_do['ma_luoc_do'].'/xuat_du_lieu\')()',
+      'du_lieu_tai_tu_dong' => [],
       'truong_danh_sach' => [],
       'truong_loc' => [],
       'truong_them_sua' => []
     ];
+    $du_lieu_tai_tu_dong = $luoc_do['du_lieu_tai_tu_dong'];
+    $du_lieu_tai_tu_dong = explode(';', $du_lieu_tai_tu_dong);
+    foreach($du_lieu_tai_tu_dong as $tai_tu_dong) {
+      $tai_tu_dong = trim($tai_tu_dong);
+      if($tai_tu_dong) {
+        $tai_tu_dong = explode(':', $tai_tu_dong);
+        $ten_danh_sach = trim($tai_tu_dong[0]);
+        $goi_du_lieu = [];
+        $danh_sach_tham_so = explode(',',trim($tai_tu_dong[1]));
+        foreach($danh_sach_tham_so as $tham_so) {
+          $tham_so = explode('=', $tham_so);
+          $ten_tham_so = trim($tham_so[0]);
+          $gia_tri_tham_so = trim($tham_so[1]);
+          $goi_du_lieu[$ten_tham_so] = $gia_tri_tham_so;
+        }
+        $data['du_lieu_tai_tu_dong'][] = [
+          'ten_danh_sach' => $ten_danh_sach,
+          'goi_du_lieu' => $goi_du_lieu
+        ];
+      }
+    }
     foreach ($luoc_do['danh_sach_thuoc_tinh'] as $thuoc_tinh) {
       if ($thuoc_tinh['trang_thai']) {
         if (isset($thuoc_tinh['cau_hinh_danh_sach'])) {

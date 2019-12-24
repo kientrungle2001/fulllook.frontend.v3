@@ -130,7 +130,6 @@
       };
 
       $scope.xoa_thuoc_tinh = function(thuoc_tinh) {
-        console.log(thuoc_tinh);
         if (confirm('Ban co muon xoa thuoc tinh?')) {
           xoa_ban_ghi(thuoc_tinh._id.$oid, {
             ten_bang: 'bo_thuoc_tinh_danh_sach'

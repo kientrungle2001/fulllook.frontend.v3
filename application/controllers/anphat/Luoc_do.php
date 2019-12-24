@@ -10,8 +10,8 @@ class Luoc_do extends MY_Controller
       'modal_size' => 'normal',
       'tieu_de' => 'Lược đồ',
       'kich_co' => 24,
-      'kich_co_nut_them' => 6,
-      'kich_co_nut_loc' => 6,
+      'kich_co_nut_them' => 4,
+      'kich_co_nut_loc' => 4,
       'truong_danh_sach' => [
         [
           'loai_truong_tieu_de' => 'van_ban',
@@ -81,6 +81,13 @@ class Luoc_do extends MY_Controller
           'kich_co' => 24,
           'tieu_de' =>  'Mã Lược đồ',
           'model' => 'ma_luoc_do',
+          'kieu_du_lieu' => 'text',
+        ],
+        [
+          'loai_truong_them_sua' => 'doan_viet',
+          'kich_co' => 24,
+          'tieu_de' =>  'Dữ liệu tải tự động',
+          'model' => 'du_lieu_tai_tu_dong',
           'kieu_du_lieu' => 'text',
         ],
         [
