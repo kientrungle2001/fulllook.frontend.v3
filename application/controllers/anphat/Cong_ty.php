@@ -280,7 +280,7 @@ class Cong_ty extends MY_Controller
   }
 
   function danh_sach() {
-    require_once 'cong_ty/Danh_sach.php';
+    require_once 'tong_quat/Danh_sach.php';
     $danh_sach = new Danh_sach();
     return $this->call_action($danh_sach, 'cong_ty');
   }
