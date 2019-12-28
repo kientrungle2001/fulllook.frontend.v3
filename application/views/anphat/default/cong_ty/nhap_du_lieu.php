@@ -121,6 +121,23 @@
       $scope.danh_sach_cot_nhap_du_lieu = {};
       $scope.nhap_du_lieu = function() {
         console.log($scope.danh_sach_cot_nhap_du_lieu);
+        $.ajax({
+          url: 'http://laramongo.vn/api/v1/tong_quat/nhap_du_lieu',
+          type: 'post', dataType: 'json',
+          data: {
+            id_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon._id.$oid,
+            id_upload_du_lieu: $scope.upload_du_lieu_dang_chon._id.$oid,
+            danh_sach_cot_nhap_du_lieu: $scope.danh_sach_cot_nhap_du_lieu
+          },
+          success: function(ket_qua) {
+            var du_lieu = ket_qua.du_lieu;
+            $scope.so_ban_ghi = du_lieu.so_ban_ghi;
+            $scope.da_them = du_lieu.da_them;
+            $scope.da_cap_nhat = du_lieu.da_cap_nhat;
+            $scope.so_loi = du_lieu.so_loi;
+            $scope.$apply();
+          }
+        })
       }
     }
   ]);
