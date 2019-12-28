@@ -19,7 +19,7 @@
   <div class="tab-pane fade" id="nav-diem-danh" role="tabpanel" aria-labelledby="nav-diem-danh-tab"><?php $controller->view('student/detail/view/muster')?></div>
   <?php endif;?>
   <div class="tab-pane fade" id="nav-ls-tu-van" role="tabpanel" aria-labelledby="nav-ls-tu-van-tab"><?php $controller->view('student/detail/view/advice')?></div>
-  <div class="tab-pane fade" id="nav-ls-hoc-tap" role="tabpanel" aria-labelledby="nav-ls-hoc-tap-tab"><?php $controller->view('student/detail/view/history')?></div>
+  <div class="tab-pane fade" id="nav-ls-hoc-tap" role="tabpanel" aria-labelledby="nav-ls-hoc-tap-tab"><?php $controller->view('student/detail/view/test_schedule')?></div>
   <div class="tab-pane fade" id="nav-hoc-phi" role="tabpanel" aria-labelledby="nav-hoc-phi-tab"><?php $controller->view('student/detail/view/fee')?></div>
   <div class="tab-pane fade" id="nav-thoi-khoa-bieu" role="tabpanel" aria-labelledby="nav-thoi-khoa-bieu-tab"><?php $controller->view('student/detail/view/class_timesheet')?></div>
   <div class="tab-pane fade" id="nav-sp-da-su-dung" role="tabpanel" aria-labelledby="nav-sp-da-su-dung-tab"><?php $controller->view('student/detail/view/using')?></div>

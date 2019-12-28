@@ -2,8 +2,8 @@
 qlhsApp.factory('get_classes', function() {
 	return function($scope) {
 		proxy_get({
-      url: QLHS_CONSTANTS.api.v1.classes.url + '/items/classes',
-      type: AJAX_CONSTANTS.get, dataType: 'json',
+      url: QA.classes.url + '/items/classes',
+      type: AJC.get, dataType: 'json',
       data: {
         sort: 'id desc',
         pageNum: 0,
@@ -33,8 +33,8 @@ qlhsApp.factory('get_classes', function() {
 qlhsApp.factory('get_teachers', function() {
 	return function($scope) {
 		proxy_get({
-      url: QLHS_CONSTANTS.api.v1.teacher.url + '/items/teacher',
-      type: AJAX_CONSTANTS.get, dataType: 'json',
+      url: QA.teacher.url + '/items/teacher',
+      type: AJC.get, dataType: 'json',
       data: {
         sort: 'id desc',
         pageNum: 0,
@@ -45,6 +45,48 @@ qlhsApp.factory('get_teachers', function() {
       },
       success: function(resp) {
         $scope.teachers = resp.rows;
+        $scope.$apply();
+      }
+    });
+	};
+});
+
+qlhsApp.factory('get_subjects', function() {
+	return function($scope) {
+		proxy_get({
+      url: QA.subject.url + '/items/subject',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 30,
+        where: {
+          status: 1
+        }
+      },
+      success: function(resp) {
+        $scope.subjects = resp.rows;
+        $scope.$apply();
+      }
+    });
+	};
+});
+
+qlhsApp.factory('get_payment_periods', function() {
+	return function($scope) {
+		proxy_get({
+      url: QA.payment_period.url + '/items/payment_period',
+      type: AJC.get, dataType: 'json',
+      data: {
+        sort: 'id desc',
+        pageNum: 0,
+        pageSize: 30,
+        where: {
+          status: 1
+        }
+      },
+      success: function(resp) {
+        $scope.payment_periods = resp.rows;
         $scope.$apply();
       }
     });

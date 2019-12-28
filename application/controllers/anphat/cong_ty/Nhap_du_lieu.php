@@ -3,6 +3,9 @@ class Nhap_du_lieu extends MY_Action
 {
   public function execute($luoc_do = 'cong_ty')
   {
-    $this->controller->render('cong_ty/nhap_du_lieu');
+    $luoc_do = $this->controller->laramongo->get('luoc_do', [
+      'ma_luoc_do' => $luoc_do
+    ]);
+    $this->controller->render('cong_ty/nhap_du_lieu', ['luoc_do' => $luoc_do]);
   }
 }

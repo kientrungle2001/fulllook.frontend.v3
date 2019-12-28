@@ -5,9 +5,9 @@
         <th>Ngày học</th>
         <th>Trạng thái</th>
     </tr>
-    <tr ng-repeat="student_schedule in student_schedules">
-        <td>{{student_schedule.className}}</td>
-        <td>{{student_schedule.studyDate}}</td>
-        <td>{{student_schedule.status}}</td>
+    <tr ng-repeat="schedule in schedules">
+        <td>{{schedule.className}}</td>
+        <td>{{schedule.studyDate}}</td>
+        <td>{{schedule.status}}</td>
     </tr>
 </table>

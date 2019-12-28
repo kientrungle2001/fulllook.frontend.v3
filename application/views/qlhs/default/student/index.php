@@ -1,10 +1,12 @@
 <?php $c->js('controller/utils/pagination.js')?>
 <?php $c->js('controller/student/get_list.js')?>
 <?php $c->js('controller/general_factories/get_lists.js')?>
+<?php $c->js('controller/class/get_schedules.js')?>
 <?php $c->js('controller/student/get_advices.js')?>
 <?php $c->js('controller/student/get_class_students.js')?>
 <?php $c->js('controller/student/get_fees.js')?>
 <?php $c->js('controller/student/get_schedules.js')?>
+<?php $c->js('controller/student/get_test_schedules.js')?>
 <?php $c->js('controller/student/get_usings.js')?>
 <?php $c->js('controller/student/crud.js')?>
 <?php $c->js('controller/student/crud_class_students.js')?>

@@ -99,5 +99,8 @@ class Home extends MY_Controller {
 		$this->student_order_model->reindex('student', 'studentId', 'studentName', 'name');
 		$this->student_order_model->reindex('payment_period', 'payment_periodId', 'payment_periodName', 'name');
 		echo 'Index Student Order Done<br />';
+
+		$this->schedule_model->reindex('classes', 'classId', 'className', 'name');
+		echo 'Index Schedule Done<br />';
 	}
 }

@@ -29,11 +29,20 @@ QC = QLHS_CONSTANTS = {
       student_schedule: {
         url: QU + '/student_schedule'
       },
+      test_schedule: {
+        url: QU + '/test_schedule'
+      },
       student_order: {
         url: QU + '/student_order'
       },
       teacher: {
         url: QU + '/teacher'
+      },
+      subject: {
+        url: QU + '/subject'
+      },
+      schedule: {
+        url: QU + '/schedule'
       },
       payment_period: {
         url: QU + '/payment_period'

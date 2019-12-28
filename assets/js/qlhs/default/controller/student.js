@@ -1,11 +1,15 @@
 qlhsApp.controller('student_controller', ['$scope', 
   'get_teachers', 
   'get_classes',
+  'get_subjects',
+  'get_payment_periods',
+  'class_get_schedules',
   'student_get_list',
   'student_get_advices',
   'student_get_class_students',
   'student_get_fees',
   'student_get_schedules', 
+  'student_get_test_schedules', 
   'student_get_usings',
   'student_crud',
   'crud_class_students',
@@ -14,11 +18,15 @@ qlhsApp.controller('student_controller', ['$scope',
   'utils_pagination', function($scope, 
     get_teachers,
     get_classes,
+    get_subjects,
+    get_payment_periods,
+    class_get_schedules,
     student_get_list,
     student_get_advices,
     student_get_class_students,
     student_get_fees,
     student_get_schedules,
+    student_get_test_schedules,
     student_get_usings,
     student_crud,
     crud_class_students,
@@ -49,18 +57,26 @@ qlhsApp.controller('student_controller', ['$scope',
       }
     }
   };
+  // 
   $scope.select_tab_info = function() {
     // console.log('show_info');
   };
+
+  // 
   $scope.select_tab_class_student = function() {
     // Do Nothing
+    $scope.get_class_students();
   };
+
+  //
   $scope.select_tab_class_student_list = function() {
     $scope.get_class_students();
   };
   $scope.get_class_students = function() {
     student_get_class_students($scope);
   };
+
+  // 
   $scope.select_tab_advice = function() {
     $scope.get_advices();
   };
@@ -68,22 +84,53 @@ qlhsApp.controller('student_controller', ['$scope',
     student_get_advices($scope);
   };
 
+  //
+  $scope.select_tab_history = function() {
+    $scope.get_test_schedules();
+  }
+
+  $scope.get_test_schedules = function() {
+    student_get_test_schedules($scope);
+  }
+
+  // 
   $scope.select_tab_fee = function() {
     $scope.get_student_fees();
+    $scope.get_class_students();
+    $scope.a_fee = $scope.a_fee || {};
+    $scope.a_fee.name = $scope.selected_row.name;
+    $scope.a_fee.phone = $scope.selected_row.phone;
+    $scope.a_fee.email = $scope.selected_row.email;
+    $scope.a_fee.address = $scope.selected_row.address;
   };
   $scope.get_student_fees = function() {
     student_get_fees($scope);
   };
 
+  // 
   $scope.select_tab_timesheet = function() {
-    $scope.get_student_schedules();
+    $scope.get_class_schedules();
   };
 
-  $scope.get_student_schedules = function() {
-    student_get_schedules($scope);
-    
+  $scope.get_class_schedules = function() {
+    $scope.get_class_students();
+    setTimeout(function() {
+      class_get_schedules($scope, $scope.get_class_ids($scope.class_students));
+    }, 1000);
   };
 
+  $scope.get_class_ids = function(class_students) {
+    if(!class_students) {
+      return [];
+    }
+    var classIds = [];
+    class_students.forEach(function(class_student) {
+      classIds.push(class_student.classId);
+    });
+    return classIds;
+  }
+
+  // 
   $scope.select_tab_using = function() {
     $scope.get_usings();
   };
@@ -128,4 +175,6 @@ qlhsApp.controller('student_controller', ['$scope',
   $scope.get_list();
   get_teachers($scope);
   get_classes($scope);
+  get_subjects($scope);
+  get_payment_periods($scope);
 }]);

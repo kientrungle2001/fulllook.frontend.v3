@@ -5,7 +5,7 @@ qlhsApp.factory('student_get_list', function() {
       type: AJC.get, dataType: 'json',
       data: {
         keyword: $scope.keyword,
-        search_fields: ['name','code', 'phone', 'email'],
+        search_fields: ['id', 'name','code', 'phone', 'email'],
         sort: 'id desc',
         pageNum: $scope.pageNum,
         pageSize: $scope.pageSize,
