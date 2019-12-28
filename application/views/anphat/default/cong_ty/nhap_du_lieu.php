@@ -118,7 +118,7 @@
       };
 
       $scope.tai_danh_sach_upload_nhap_du_lieu();
-
+      $scope.danh_sach_cot_nhap_du_lieu = {};
       $scope.nhap_du_lieu = function() {
         console.log($scope.danh_sach_cot_nhap_du_lieu);
       }
