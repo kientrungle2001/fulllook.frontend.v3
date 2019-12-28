@@ -21,12 +21,15 @@
     <table class="table w-25">
       <tr ng-repeat="thuoc_tinh in bo_thuoc_tinh_dang_chon.danh_sach_thuoc_tinh">
         <td>{{thuoc_tinh.thuoc_tinh.ten_thuoc_tinh}}</td>
-        <td><select class="form-control form-control-sm">
-            <option value="Tên công ty">Tên công ty</option>
+        <td><select class="form-control form-control-sm" ng-model="danh_sach_cot_nhap_du_lieu[thuoc_tinh.thuoc_tinh.ma_thuoc_tinh]">
+            <option>No Column</option>
+            <?php for($i = 0; $i < 50; $i++):?>
+            <option ng-value="<?= $i?>">Column <?= $i+1?></option>
+            <?php endfor;?>
           </select></td>
       </tr>
     </table>
-    <button class="btn btn-primary">Nhập dữ liệu</button>
+    <button class="btn btn-primary" ng-click="nhap_du_lieu()">Nhập dữ liệu</button>
   </form>
 
   <form ng-show="ket_qua_nhap_du_lieu">
@@ -115,6 +118,10 @@
       };
 
       $scope.tai_danh_sach_upload_nhap_du_lieu();
+
+      $scope.nhap_du_lieu = function() {
+        console.log($scope.danh_sach_cot_nhap_du_lieu);
+      }
     }
   ]);
 
