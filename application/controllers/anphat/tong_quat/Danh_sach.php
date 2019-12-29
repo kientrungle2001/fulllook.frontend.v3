@@ -24,7 +24,7 @@ class Danh_sach extends MY_Action
       'truong_loc' => [],
       'truong_them_sua' => []
     ];
-    $du_lieu_tai_tu_dong = $luoc_do['du_lieu_tai_tu_dong'];
+    $du_lieu_tai_tu_dong = isset($luoc_do['du_lieu_tai_tu_dong']) ? $luoc_do['du_lieu_tai_tu_dong']: '';
     $du_lieu_tai_tu_dong = explode(';', $du_lieu_tai_tu_dong);
     foreach($du_lieu_tai_tu_dong as $tai_tu_dong) {
       $tai_tu_dong = trim($tai_tu_dong);
