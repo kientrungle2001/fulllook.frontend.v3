@@ -41,7 +41,9 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
                 goi_du_lieu: {
                     ten_dang_nhap: $scope.ten_dang_nhap,
                     mat_khau: $scope.mat_khau
-                }
+                },
+                ten_dang_nhap: $scope.ten_dang_nhap,
+                mat_khau: $scope.mat_khau
             },
             success: function(ket_qua) {
                 console.log(ket_qua);
