@@ -139,7 +139,9 @@
           data: {
             id_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon._id.$oid,
             id_upload_du_lieu: $scope.upload_du_lieu_dang_chon._id.$oid,
-            danh_sach_cot_nhap_du_lieu: $scope.danh_sach_cot_nhap_du_lieu
+            danh_sach_cot_nhap_du_lieu: $scope.danh_sach_cot_nhap_du_lieu,
+            id_luoc_do: $scope.luoc_do._id.$oid,
+            ma_luoc_do: $scope.luoc_do.ma_luoc_do
           },
           success: function(ket_qua) {
             var du_lieu = ket_qua.du_lieu;
