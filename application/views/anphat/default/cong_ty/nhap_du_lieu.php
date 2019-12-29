@@ -88,11 +88,15 @@
           url: 'http://laramongo.vn/api/v1/tong_quat/kiem_tra_nhap_du_lieu',
           data: {
             id_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon._id.$oid,
-            id_upload_du_lieu: $scope.upload_du_lieu_dang_chon._id.$oid
+            id_upload_du_lieu: $scope.upload_du_lieu_dang_chon._id.$oid,
+            duong_dan: $scope.upload_du_lieu_dang_chon.duong_dan,
+            ma_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon.ma_bo_thuoc_tinh
           },
           type: 'post',
           success: function(resp) {
             $scope.kiem_tra_nhap_du_lieu = true;
+            console.log(resp);
+            $scope.$apply();
           }
         });
         
