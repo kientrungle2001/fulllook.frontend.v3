@@ -44,8 +44,9 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
             success: function(ket_qua) {
                 ìf(ket_qua.trang_thai) {
                     localStorage.setItem('ma_token', ket_qua.token);
+                    localStorage.setItem('ten_nhan_vien', ket_qua.ten_nhan_vien);
+                    localStorage.setItem('ten_dang_nhap', ket_qua.ten_dang_nhap);
                 } else {
-                    
                 }
                 alert(ket_qua.thong_bao);
             }
