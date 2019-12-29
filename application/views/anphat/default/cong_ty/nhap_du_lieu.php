@@ -23,7 +23,7 @@
         <td>{{thuoc_tinh.thuoc_tinh.ten_thuoc_tinh}}</td>
         <td><select class="form-control form-control-sm" ng-model="danh_sach_cot_nhap_du_lieu[thuoc_tinh.thuoc_tinh.ma_thuoc_tinh]">
             <option>No Column</option>
-            <option ng-value="<?= $index?>" ng-repeat="ten_cot in dong_dau_tien">{{ten_cot}}</option>
+            <option ng-value="{{$index}}" ng-repeat="ten_cot in dong_dau_tien">{{ten_cot}}</option>
           </select></td>
       </tr>
     </table>
