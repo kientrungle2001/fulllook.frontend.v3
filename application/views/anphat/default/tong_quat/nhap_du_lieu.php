@@ -150,7 +150,6 @@
             $scope.da_cap_nhat = du_lieu.da_cap_nhat;
             $scope.so_loi = du_lieu.so_loi;
             $scope.$apply();
-            
           }
         })
       }
