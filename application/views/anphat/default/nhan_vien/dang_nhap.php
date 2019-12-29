@@ -38,15 +38,15 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
             type: 'post', dataType: 'json',
             data: {
                 ten_bang: 'nhan_vien',
-                goi_du_lieu: {
-                    ten_dang_nhap: $scope.ten_dang_nhap,
-                    mat_khau: $scope.mat_khau
-                },
                 ten_dang_nhap: $scope.ten_dang_nhap,
                 mat_khau: $scope.mat_khau
             },
             success: function(ket_qua) {
-                console.log(ket_qua);
+                ìf(ket_qua.trang_thai) {
+                    localStorage.setItem('ma_token', ket_qua.token);
+                } else {
+                    alert(ket_qua.tong_bao);
+                }
             }
         })
     };
