@@ -18,7 +18,7 @@
   </form>
   <form action="#" onsubmit="return false;" ng-show="kiem_tra_nhap_du_lieu">
     <h2>Khớp các trường</h2>
-    <table class="table w-25">
+    <table class="table w-50">
       <tr ng-repeat="thuoc_tinh in bo_thuoc_tinh_dang_chon.danh_sach_thuoc_tinh">
         <td>{{thuoc_tinh.thuoc_tinh.ten_thuoc_tinh}}</td>
         <td><select class="form-control form-control-sm" 
