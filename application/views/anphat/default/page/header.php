@@ -2,25 +2,25 @@
 $items = [
 	
 	['link' => '/tong_quat/danh_sach/cong_ty', 'label' => 'Công ty'],
-	['link' => '/thong_tin_lien_he/danh_sach', 'label' => 'Thông tin liên hệ'],
-	['link' => '/thong_tin_han/danh_sach', 'label' => 'Thông tin hạn'],
+	['link' => '/tong_quat/danh_sach/thong_tin_lien_he', 'label' => 'Thông tin liên hệ'],
+	['link' => '/tong_quat/danh_sach/thong_tin_han', 'label' => 'Thông tin hạn'],
 	['link' => '#', 'label' => 'Quản trị', 'children' => [
 		['link' => '/dia_diem', 'label' => 'Địa điểm'],
 	]],
 	['link' => '#', 'label' => 'Nhân sự', 'children' => [
-		['link' => '/chuc_vu', 'label' => 'Chức vụ'],
-		['link' => '/nhan_vien', 'label' => 'Nhân viên'],
-		['link' => '/phong_ban', 'label' => 'Phòng ban'],
+		['link' => '/tong_quat/danh_sach/chuc_vu', 'label' => 'Chức vụ'],
+		['link' => '/tong_quat/danh_sach/nhan_vien', 'label' => 'Nhân viên'],
+		['link' => '/tong_quat/danh_sach/phong_ban', 'label' => 'Phòng ban'],
 	]],
 	['link' => '#', 'label' => 'Dịch vụ', 'children' => [
-		['link' => '/loai_dich_vu', 'label' => 'Loại dịch vụ'],
-		['link' => '/dich_vu', 'label' => 'Dịch vụ'],
-		['link' => '/loai_chinh_sach', 'label' => 'Loại chính sách'],
-		['link' => '/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
-		['link' => '/nha_cung_cap', 'label' => 'Nhà cung cấp'],
-		['link' => '/loai_danh_sach', 'label' => 'Loại danh sách'],
-		['link' => '/danh_sach_khai_thac', 'label' => 'Danh sách khai thác'],
-		['link' => '/co_quan_thue', 'label' => 'Cơ quan thuế'],
+		['link' => '/tong_quat/danh_sach/loai_dich_vu', 'label' => 'Loại dịch vụ'],
+		['link' => '/tong_quat/danh_sach/dich_vu', 'label' => 'Dịch vụ'],
+		['link' => '/tong_quat/danh_sach/loai_chinh_sach', 'label' => 'Loại chính sách'],
+		['link' => '/tong_quat/danh_sach/chinh_sach_dich_vu', 'label' => 'Chính sách dịch vụ'],
+		['link' => '/tong_quat/danh_sach/nha_cung_cap', 'label' => 'Nhà cung cấp'],
+		['link' => '/tong_quat/danh_sach/loai_danh_sach', 'label' => 'Loại danh sách'],
+		['link' => '/tong_quat/danh_sach/danh_sach_khai_thac', 'label' => 'Danh sách khai thác'],
+		['link' => '/tong_quat/danh_sach/co_quan_thue', 'label' => 'Cơ quan thuế'],
 		
 	]],
 	['link' => '#', 'label' => 'Tổng quát', 'children' => [
