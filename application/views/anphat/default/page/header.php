@@ -1,7 +1,7 @@
 <?php 
 $items = [
 	
-	['link' => '/cong_ty/danh_sach', 'label' => 'Công ty'],
+	['link' => '/tong_quat/danh_sach/cong_ty', 'label' => 'Công ty'],
 	['link' => '/thong_tin_lien_he/danh_sach', 'label' => 'Thông tin liên hệ'],
 	['link' => '/thong_tin_han/danh_sach', 'label' => 'Thông tin hạn'],
 	['link' => '#', 'label' => 'Quản trị', 'children' => [
