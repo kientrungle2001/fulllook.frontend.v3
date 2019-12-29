@@ -37,8 +37,11 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
             url: 'http://laramongo.vn/api/v1/dang_nhap',
             type: 'post', dataType: 'json',
             data: {
-                ten_dang_nhap: $scope.ten_dang_nhap,
-                mat_khau: $scope.mat_khau
+                ten_bang: 'nhan_vien',
+                goi_du_lieu: {
+                    ten_dang_nhap: $scope.ten_dang_nhap,
+                    mat_khau: $scope.mat_khau
+                }
             },
             success: function(ket_qua) {
                 console.log(ket_qua);
