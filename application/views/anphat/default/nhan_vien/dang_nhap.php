@@ -45,8 +45,9 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
                 ìf(ket_qua.trang_thai) {
                     localStorage.setItem('ma_token', ket_qua.token);
                 } else {
-                    alert(ket_qua.tong_bao);
+                    
                 }
+                alert(ket_qua.thong_bao);
             }
         })
     };
