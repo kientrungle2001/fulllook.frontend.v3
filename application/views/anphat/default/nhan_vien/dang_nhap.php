@@ -34,7 +34,7 @@
 anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scope) {
     $scope.dang_nhap = function() {
         $.ajax({
-            url: 'http://laramongo.vn/api/v1/nhan_vien/dang_nhap',
+            url: 'http://laramongo.vn/api/v1/dang_nhap',
             type: 'post', dataType: 'json',
             data: {
                 ten_dang_nhap: $scope.ten_dang_nhap,
