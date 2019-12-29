@@ -23,9 +23,7 @@
         <td>{{thuoc_tinh.thuoc_tinh.ten_thuoc_tinh}}</td>
         <td><select class="form-control form-control-sm" ng-model="danh_sach_cot_nhap_du_lieu[thuoc_tinh.thuoc_tinh.ma_thuoc_tinh]">
             <option>No Column</option>
-            <?php for($i = 0; $i < 50; $i++):?>
-            <option ng-value="<?= $i?>">Column <?= $i+1?></option>
-            <?php endfor;?>
+            <option ng-value="<?= $index?>" ng-repeat="ten_cot in dong_dau_tien">{{ten_cot}}</option>
           </select></td>
       </tr>
     </table>
@@ -96,6 +94,7 @@
           success: function(resp) {
             $scope.kiem_tra_nhap_du_lieu = true;
             console.log(resp);
+            $scope.dong_dau_tien = resp.dong_dau_tien;
             $scope.$apply();
           }
         });
