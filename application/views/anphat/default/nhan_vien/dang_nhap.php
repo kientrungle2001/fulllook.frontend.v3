@@ -4,7 +4,7 @@
             <span class="logo_title mt-5"> Đăng nhập </span>
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="return false;">
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -20,7 +20,9 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" name="btn" value="Đăng nhập" class="btn btn-outline-danger float-right login_btn">
+                    <input type="submit" name="btn" value="Đăng nhập" 
+                    ng-click="dang_nhap()"
+                    class="btn btn-outline-danger float-right login_btn">
                 </div>
 
             </form>
