@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card card-login mx-auto text-center">
+<div class="container" ng-controller="nhan_vien_dang_nhap_controller">
+    <div class="card card-login mx-auto col-md-12 md-offset-6 text-center">
         <div class="card-header mx-auto">
             <span class="logo_title mt-5"> Đăng nhập </span>
         </div>
@@ -27,3 +27,11 @@
         </div>
     </div>
 </div>
+
+<script>
+anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scope) {
+    $scope.dang_nhap = function() {
+
+    };
+}]);
+</script>
