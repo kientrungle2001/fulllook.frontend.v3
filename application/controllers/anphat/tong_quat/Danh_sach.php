@@ -47,15 +47,15 @@ class Danh_sach extends MY_Action
     }
     foreach ($luoc_do['danh_sach_thuoc_tinh'] as $thuoc_tinh) {
       if ($thuoc_tinh['trang_thai']) {
-        if (isset($thuoc_tinh['cau_hinh_danh_sach'])) {
+        if (isset($thuoc_tinh['cau_hinh_danh_sach']) && isset($thuoc_tinh['cho_phep_danh_sach']) && $thuoc_tinh['cho_phep_danh_sach']) {
           $data['truong_danh_sach'][] = $thuoc_tinh['cau_hinh_danh_sach'];
         }
 
-        if (isset($thuoc_tinh['cau_hinh_them_sua'])) {
+        if (isset($thuoc_tinh['cau_hinh_them_sua']) && isset($thuoc_tinh['cho_phep_them_sua']) && $thuoc_tinh['cho_phep_them_sua']) {
           $data['truong_them_sua'][] = $thuoc_tinh['cau_hinh_them_sua'];
         }
 
-        if (isset($thuoc_tinh['cau_hinh_loc'])) {
+        if (isset($thuoc_tinh['cau_hinh_loc']) && isset($thuoc_tinh['cho_phep_loc']) && $thuoc_tinh['cho_phep_loc']) {
           $data['truong_loc'][] = $thuoc_tinh['cau_hinh_loc'];
         }
       }
