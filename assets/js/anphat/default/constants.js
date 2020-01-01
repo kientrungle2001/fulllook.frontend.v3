@@ -35,6 +35,9 @@ APC = ANPHAT_CONSTANTS = {
       dich_vu: {
         url: '/v1/dich_vu'
       },
+      index_du_lieu: {
+        url: '/v1/index_du_lieu'
+      },
     }
   }
 };

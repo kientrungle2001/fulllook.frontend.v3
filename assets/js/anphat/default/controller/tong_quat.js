@@ -7,6 +7,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   'tong_quat_phan_trang',
   'tong_quat_them_sua_xoa',
   'tong_quat_danh_sach',
+  'lap_chi_muc',
   function($scope,  
     tai_danh_sach, 
     them_ban_ghi,
@@ -15,7 +16,8 @@ anphatApp.controller('tong_quat_controller', ['$scope',
     phan_trang,
     tong_quat_phan_trang,
     tong_quat_them_sua_xoa,
-    tong_quat_danh_sach
+    tong_quat_danh_sach,
+    lap_chi_muc
     ) {
   
   $scope.phan_trang = phan_trang;
@@ -220,4 +222,10 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   };
 
   $scope.tai_danh_sach_bo_thuoc_tinh();
+
+  $scope.lap_chi_muc = function() {
+    lap_chi_muc(function() {
+      alert('Done');
+    });
+  };
 }]);

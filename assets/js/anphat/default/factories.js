@@ -135,3 +135,14 @@ anphatApp.factory('loai_thuoc_tinh', function() {
 		});
 	};
 });
+
+anphatApp.factory('lap_chi_muc', function() {
+	return function($callback) {
+		auth_get({
+			url: APC.api.v1.index_du_lieu.url + '/lap_chi_muc',
+			data: {}, success: function(ban_ghi) {
+				$callback(ban_ghi);
+			}
+		});
+	};
+});
