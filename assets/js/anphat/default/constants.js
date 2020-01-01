@@ -21,22 +21,22 @@ APC = ANPHAT_CONSTANTS = {
         url: ANPHAT_API_URL + '/v1/nhan_vien'
       },
       phong_ban: {
-        url: '/v1/phong_ban'
+        url: ANPHAT_API_URL + '/v1/phong_ban'
       },
       chuc_vu: {
-        url: '/v1/chuc_vu'
+        url: ANPHAT_API_URL + '/v1/chuc_vu'
       },
       nha_cung_cap: {
-        url: '/v1/nha_cung_cap'
+        url: ANPHAT_API_URL + '/v1/nha_cung_cap'
       },
       loai_dich_vu: {
-        url: '/v1/loai_dich_vu'
+        url: ANPHAT_API_URL + '/v1/loai_dich_vu'
       },
       dich_vu: {
-        url: '/v1/dich_vu'
+        url: ANPHAT_API_URL + '/v1/dich_vu'
       },
       index_du_lieu: {
-        url: '/v1/index_du_lieu'
+        url: ANPHAT_API_URL + '/v1/index_du_lieu'
       },
     }
   }
