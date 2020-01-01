@@ -22,6 +22,7 @@ $c->js('controller/'.$module.'.js');
   <div class="tong_quat_page" ng-controller="tong_quat_controller">
   <div class="row">
     <div class="col-md-<?= isset($kich_co) ? $kich_co : 8?>">
+      <button class="btn btn-primary" ng-click="lap_chi_muc()">Make Index</button>
       <?php $c->view('tong_quat/them', $data)?>
       <?php $c->view('tong_quat/loc', $data)?>
       <?php $c->view('tong_quat/sua', $data)?>
