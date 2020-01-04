@@ -142,6 +142,10 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   }
 
   $scope.bo_loc = {};
+  $scope.bo_loc_chi_tiet = {};
+  $scope.so_sanh = {
+    bo_loc_chi_tiet: {}
+  };
   $scope.loc_du_lieu = function() {
     for(var k in $scope.bo_loc) {
       if(null === $scope.bo_loc[k]) {
@@ -149,6 +153,15 @@ anphatApp.controller('tong_quat_controller', ['$scope',
       } else {
         if(typeof $scope.bo_loc[k] == 'object' && $scope.bo_loc[k].constructor.name == 'Array' && $scope.bo_loc[k].length == 0) {
           delete $scope.bo_loc[k];
+        }
+      }
+    }
+    for(var k in $scope.bo_loc_chi_tiet) {
+      if(null === $scope.bo_loc_chi_tiet[k]) {
+        delete $scope.bo_loc_chi_tiet[k];
+      } else {
+        if(typeof $scope.bo_loc_chi_tiet[k] == 'object' && $scope.bo_loc_chi_tiet[k].constructor.name == 'Array' && $scope.bo_loc_chi_tiet[k].length == 0) {
+          delete $scope.bo_loc_chi_tiet[k];
         }
       }
     }

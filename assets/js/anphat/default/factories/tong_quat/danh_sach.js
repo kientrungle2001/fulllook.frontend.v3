@@ -2,6 +2,14 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 	return function($scope, tai_danh_sach) {
 		/** Tai danh sach */
 		$scope.tai_danh_sach = function() {
+			var dieu_kien_chi_tiet = [];
+			for(var ten_truong in $scope.bo_loc_chi_tiet) {
+				dieu_kien_chi_tiet.push({
+					ten_truong: ten_truong,
+					so_sanh: $scope.so_sanh.bo_loc_chi_tiet[ten_truong],
+					gia_tri: $scope.bo_loc_chi_tiet[ten_truong]
+				});
+			}
 			var bo_loc = angular.copy($scope.bo_loc);
 			if (bo_loc && bo_loc.id_tinh && bo_loc.id_tinh.length == 0) {
 				delete bo_loc.id_tinh;
@@ -20,6 +28,7 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 								angular.copy($scope.dieu_kien) || {},
 								bo_loc_tinh
 							),
+							dieu_kien_chi_tiet: dieu_kien_chi_tiet,
 							kich_co_trang: $scope.phan_trang.kich_co_trang || 50,
 							trang_hien_thoi: $scope.phan_trang.trang_hien_thoi || 0,
 							sap_xep: $scope.sap_xep,
@@ -51,6 +60,7 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 							angular.copy($scope.dieu_kien) || {},
 							bo_loc
 						),
+						dieu_kien_chi_tiet: dieu_kien_chi_tiet,
 						kich_co_trang: $scope.phan_trang.kich_co_trang || 50,
 						trang_hien_thoi: $scope.phan_trang.trang_hien_thoi || 0,
 						sap_xep: $scope.sap_xep,
