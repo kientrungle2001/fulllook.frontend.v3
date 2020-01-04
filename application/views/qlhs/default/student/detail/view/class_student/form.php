@@ -9,6 +9,7 @@
   <div class="col-md-3">Ngày vào học</div>
   <div class="col-md-7">
     <?php $c->tag('text', ['model' => 'class_student_add.startClassDate'])?>
+    <?php if(0):?>
     <select ng-model="class_student_add_startClassDate.day">
       <option>Ngày</option>
       <option value="01">01</option>
@@ -64,6 +65,7 @@
     <option value="<?= $i?>"><?= $i?></option>
     <?php endfor;?>
     </select>
+    <?php endif;?>
   </div>
 
   <div class="col-md-4">
