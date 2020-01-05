@@ -29,7 +29,7 @@ class Danh_sach extends MY_Action
     foreach($du_lieu_tai_tu_dong as $tai_tu_dong) {
       $tai_tu_dong = trim($tai_tu_dong);
       if($tai_tu_dong) {
-        $tai_tu_dong = explode(':', $tai_tu_dong);
+        $tai_tu_dong = explode(':=', $tai_tu_dong);
         $ten_danh_sach = trim($tai_tu_dong[0]);
         $goi_du_lieu = [];
         $danh_sach_tham_so = explode(',',trim($tai_tu_dong[1]));
@@ -38,6 +38,9 @@ class Danh_sach extends MY_Action
           $ten_tham_so = trim($tham_so[0]);
           $gia_tri_tham_so = trim($tham_so[1]);
           $goi_du_lieu[$ten_tham_so] = $gia_tri_tham_so;
+          if($ten_tham_so == 'dieu_kien' || $ten_tham_so == 'dieu_kien_chi_tiet') {
+            $goi_du_lieu[$ten_tham_so] = json_decode($gia_tri_tham_so, true);
+          }
         }
         $data['du_lieu_tai_tu_dong'][] = [
           'ten_danh_sach' => $ten_danh_sach,

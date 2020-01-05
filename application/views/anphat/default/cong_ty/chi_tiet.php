@@ -64,7 +64,7 @@
             <table class="table table-hover">
               <tr>
                 <th>STT</th>
-                <th>Họ và tên</th>
+                <th>Nội dung liên hệ</th>
                 <th>Số điện thoại</th>
                 <th>Email</th>
                 <th>Chức vụ</th>
@@ -72,8 +72,8 @@
                 <th>Hành động</th>
               </tr>
               <tr ng-repeat="thong_tin_lien_he in danh_sach_thong_tin_lien_he">
-                <td>1</td>
-                <td>{{thong_tin_lien_he.ten_lien_he}}</td>
+                <td>{{$index + 1}}</td>
+                <td>{{thong_tin_lien_he.noi_dung_lien_he}}</td>
                 <td>{{thong_tin_lien_he.so_dien_thoai}}</td>
                 <td>{{thong_tin_lien_he.email}}</td>
                 <td>{{thong_tin_lien_he.id_chuc_vu_cu}}</td>
@@ -92,6 +92,7 @@
                 <th>Nguồn dữ liệu</th>
                 <th>Ngày bắt đầu</th>
                 <th>Ngày kết thúc</th>
+                <th>Dịch vụ</th>
                 <th>NCC</th>
                 <th>Gọi</th>
                 <th>SĐT</th>
@@ -103,6 +104,7 @@
                 <td>{{thong_tin_han.nguon_du_lieu}}</td>
                 <td>{{thong_tin_han.ngay_bat_dau | vn_date_format}}</td>
                 <td>{{thong_tin_han.ngay_ket_thuc | vn_date_format}}</td>
+                <td>{{thong_tin_han.id_dich_vu_cu}}</td>
                 <td>{{thong_tin_han.nha_cung_cap}}</td>
                 <td>Call</td>
                 <td>{{thong_tin_han.so_dien_thoai}}</td>
