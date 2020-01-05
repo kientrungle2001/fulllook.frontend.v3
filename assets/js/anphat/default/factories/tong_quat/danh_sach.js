@@ -69,7 +69,7 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 					function(danh_sach) {
 						$scope.danh_sach_ban_ghi = danh_sach.du_lieu;
 						$scope.tong_so_ban_ghi = danh_sach.tong_so_ban_ghi;
-						$scope.tong_so_trang = $scope.tong_so_ban_ghi / $scope.phan_trang.kich_co_trang;
+						$scope.tong_so_trang = Math.ceil($scope.tong_so_ban_ghi / $scope.phan_trang.kich_co_trang);
 						if ($scope.truong_danh_sach) {
 							$scope.truong_danh_sach.forEach(function(truong) {
 								$scope.tai_danh_sach_tham_chieu(truong);
