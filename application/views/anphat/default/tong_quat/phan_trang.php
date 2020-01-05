@@ -7,8 +7,11 @@
     <option ng-value="100">100</option>
     <option ng-value="100">200</option>
   </select></li>
+  <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_dau()">Trang đầu</a></li>
     <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_truoc()">Trang trước</a></li>
     <li class="page-item"><a class="page-link" href="#" onclick="return false">{{phan_trang.trang_hien_thoi + 1}}</a></li>
     <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_tiep()">Trang tiếp</a></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false" ng-click="den_trang_cuoi()">Trang cuối</a></li>
+    <li class="page-item">Tổng số bản ghi {{tong_so_ban_ghi}}, tổng số trang {{tong_so_trang}}</li>
   </ul>
 </nav>
