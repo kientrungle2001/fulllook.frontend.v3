@@ -4,7 +4,7 @@
       <div class="input-group mb-2">
         <input type="text" class="form-control form-control-sm" placeholder="Từ khóa" ng-model="tu_khoa">
         <div class="input-group-prepend">
-          <button class="input-group-text" ng-click="tai_danh_sach()"><span class="fa fa-search"></span></button>
+          <button class="input-group-text" ng-click="tim_kiem()"><span class="fa fa-search"></span></button>
         </div>
       </div>
     </form>
