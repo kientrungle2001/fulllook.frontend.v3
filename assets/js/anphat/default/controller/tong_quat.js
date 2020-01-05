@@ -165,7 +165,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
         }
       }
     }
-    $scope.den_dau_trang();
+    $scope.den_trang_dau();
   };
 
   $scope.chon_ban_ghi = function(danh_sach, id, ten_ban_ghi) {
