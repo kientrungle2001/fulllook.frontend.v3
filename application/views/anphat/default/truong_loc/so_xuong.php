@@ -1,4 +1,5 @@
 <div class="form-group col-md-<?= $kich_co ? $kich_co : ($size ? $size : 12) ?>" <?php if (isset($tham_so) && $tham_so) : ?> ng-init="tai_danh_sach_bo_loc(<?= htmlentities(json_encode($tham_so)) ?>, '<?= $ten_danh_sach ?>')" <?php endif; ?>>
+  <label><?= $tieu_de ? $tieu_de : $label ?></label>
   <select class="form-control" 
       ng-model="<?= $model ? $model : $index ?>"
       <?php if(isset($so_sanh)):?>
