@@ -146,6 +146,10 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   $scope.so_sanh = {
     bo_loc_chi_tiet: {}
   };
+  $scope.tim_kiem_bo_loc = {
+    bo_loc: {},
+    bo_loc_chi_tiet: {}
+  };
   $scope.loc_du_lieu = function() {
     for(var k in $scope.bo_loc) {
       if(null === $scope.bo_loc[k]) {
