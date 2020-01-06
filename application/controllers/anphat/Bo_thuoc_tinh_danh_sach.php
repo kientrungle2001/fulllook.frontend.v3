@@ -82,13 +82,15 @@ class Bo_thuoc_tinh_danh_sach extends MY_Controller
                     'tieu_de' =>  'Thuộc tính',
                     'model' => 'id_thuoc_tinh',
                     'repeat' => 'thuoc_tinh in danh_sach_them_sua_thuoc_tinh',
-                    'option_label' => 'thuoc_tinh.ten_thuoc_tinh',
+                    'option_label' => 'thuoc_tinh.ten_thuoc_tinh + " - " + thuoc_tinh.ten_luoc_do',
                     'option_value' => 'thuoc_tinh._id.$oid',
                     'tham_so' => [
                         'ten_bang' => 'thuoc_tinh',
                         'dieu_kien' => [
                             'trang_thai' => true,
-                        ]
+                        ],
+                        'sap_xep' => 'ma_luoc_do',
+                        'thu_tu' => 'asc'
                     ],
                     'ten_danh_sach' => 'danh_sach_them_sua_thuoc_tinh',
                     'tham_so_thay_doi' => false
