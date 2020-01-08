@@ -36,7 +36,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
 
   tong_quat_tai_tu_dong($scope, tai_danh_sach);
 
-  tong_quat_hanh_dong($scope);
+  tong_quat_hanh_dong($scope, sua_ban_ghi);
 
   /*
   loai_thuoc_tinh('so_xuong', 'truong_them_sua', function(ket_qua) {
@@ -44,7 +44,7 @@ anphatApp.controller('tong_quat_controller', ['$scope',
   });
   */
 
-  tong_quat_tham_chieu($scope);
+  tong_quat_tham_chieu($scope, tai_danh_sach);
 
   tong_quat_phan_trang($scope);
 
