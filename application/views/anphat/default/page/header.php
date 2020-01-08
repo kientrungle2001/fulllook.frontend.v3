@@ -34,7 +34,7 @@ $items = [
 	]],
 ];
 ?>
-<header>
+<header ng-controller="header_controller">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">CRM</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -93,10 +93,25 @@ $items = [
 						<a class="dropdown-item" href="#">Action</a>
 						<a class="dropdown-item" href="#">Another action</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Đăng xuất</a>
+						<a class="dropdown-item" href="#" onclick="return false;" ng-click="dang_xuat()">Đăng xuất</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
 </header>
+<script>
+	if(window.location.pathname !== '/nhan_vien/dang_nhap') {
+		if(localStorage.getItem('ma_token') === null) {
+			window.location = '/nhan_vien/dang_nhap';
+		}
+	}
+	anphatApp.controller('header_controller', ['$scope', function($scope) {
+		$scope.ten_nhan_vien = localStorage.getItem('ten_nhan_vien');
+		$scope.ten_dang_nhap = localStorage.getItem('ten_dang_nhap');
+		$scope.dang_xuat = function() {
+			localStorage.clear();
+			window.location = '/nhan_vien/dang_nhap';
+		};
+	}]);
+</script>

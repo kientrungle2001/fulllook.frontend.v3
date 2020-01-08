@@ -2,6 +2,7 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 	return function($scope, tai_danh_sach) {
 		/** Tai danh sach */
 		$scope.tai_danh_sach = function() {
+			$scope.cac_ban_ghi_dang_chon = {};
 			var dieu_kien_chi_tiet = [];
 			for(var ten_truong in $scope.bo_loc_chi_tiet) {
 				dieu_kien_chi_tiet.push({

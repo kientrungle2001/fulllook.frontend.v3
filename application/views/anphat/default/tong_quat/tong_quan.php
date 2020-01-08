@@ -1,7 +1,12 @@
 <?php
 $c->js('factories/tong_quat/phan_trang.js');
 $c->js('factories/tong_quat/them_sua_xoa.js'); 
-$c->js('factories/tong_quat/danh_sach.js'); 
+$c->js('factories/tong_quat/danh_sach.js');
+$c->js('factories/tong_quat/tham_chieu.js');
+$c->js('factories/tong_quat/bo_loc.js');
+$c->js('factories/tong_quat/hanh_dong.js');
+$c->js('factories/tong_quat/tai_tu_dong.js'); 
+$c->js('factories/tong_quat/bo_thuoc_tinh.js'); 
 $c->js('controller/tong_quat.js');
 $c->js('controller/'.$module.'.js');
 ?>
