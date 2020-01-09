@@ -1,4 +1,4 @@
-AP_API_URL = ANPHAT_API_URL = 'http://laramongo.vn/api';
+AP_API_URL = ANPHAT_API_URL = 'http://55945ce1.ngrok.io/api';
 AP_API_VERSION = ANPHAT_API_VERSION = 'v1';
 AJC = AJAX_CONSTANTS =  {
   type: {

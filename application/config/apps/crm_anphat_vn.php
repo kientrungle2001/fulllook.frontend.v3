@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['apps'][] = [
 	'name' => 'anphat',
 	'host'	=>	'crm.anphat.vn',
-	'aliases' => ['crm.anphat.com'],
+	'aliases' => ['crm.anphat.com', 'eea29813.ngrok.io'],
 	'view_packages' => ['anphat'],
 	'css_packages' => ['anphat'],
 	'js_packages' => ['anphat'],

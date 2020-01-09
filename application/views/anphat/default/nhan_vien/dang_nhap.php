@@ -36,7 +36,7 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
     
     $scope.dang_nhap = function() {
         $.ajax({
-            url: 'http://laramongo.vn/api/v1/dang_nhap',
+            url: AP_API_URL + '/v1/dang_nhap',
             type: 'post', dataType: 'json',
             data: {
                 ten_bang: 'nhan_vien',
@@ -48,6 +48,7 @@ anphatApp.controller('nhan_vien_dang_nhap_controller', ['$scope', function($scop
                     localStorage.setItem('ma_token', ket_qua.du_lieu.token);
                     localStorage.setItem('ten_nhan_vien', ket_qua.du_lieu.ten_nhan_vien);
                     localStorage.setItem('ten_dang_nhap', ket_qua.du_lieu.ten_dang_nhap);
+                    localStorage.setItem('ma_chuc_vu', ket_qua.du_lieu.ma_chuc_vu);
                     window.location = '/tong_quat/danh_sach/cong_ty';
                 } else {
                     alert(ket_qua.loi.thong_bao);

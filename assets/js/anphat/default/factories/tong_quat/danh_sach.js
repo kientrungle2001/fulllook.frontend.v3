@@ -4,6 +4,16 @@ anphatApp.factory("tong_quat_danh_sach", function() {
 		$scope.tai_danh_sach = function() {
 			$scope.cac_ban_ghi_dang_chon = {};
 			var dieu_kien_chi_tiet = [];
+			if($scope.ten_bang == 'cong_ty') {
+				if(localStorage.getItem('ma_chuc_vu') == '3') {
+					$scope.ma_chuc_vu = localStorage.getItem('ma_chuc_vu');
+					dieu_kien_chi_tiet.push({
+						ten_truong: 'nhan_vien_kinh_doanh',
+						so_sanh: 'eq',
+						gia_tri: localStorage.getItem('ten_dang_nhap')
+					});
+				}
+			}
 			for(var ten_truong in $scope.bo_loc_chi_tiet) {
 				dieu_kien_chi_tiet.push({
 					ten_truong: ten_truong,

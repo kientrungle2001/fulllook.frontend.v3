@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-hide="ma_chuc_vu=='3'">
   <div class="col-24">
     <select class="btn btn-light">
       <option ng-value="null">Chọn hành động</option>
