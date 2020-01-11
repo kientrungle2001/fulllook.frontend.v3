@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<?php $c->js('controller/general_factories/get_lists.js')?>
+<?php $c->js('controller/student_muster.js')?>
+<div class="container-fluid" ng-controller="student_muster_controller">
   <h1>Điểm danh học sinh</h1>
   <div class="row">
     <div class="col-md-6">
@@ -6,9 +8,7 @@
       <form>
         <div class="form-group">
           <label for="classId">Lớp</label>
-          <select placeholder="Lớp" class="form-control form-control-sm">
-            <option ng-value="null">Chọn lớp</option>
-          </select>
+          <?php $c->view('general/class_selector', ['class_selector_model' => 'classId', 'class_selector_change' => ''])?>
         </div>
         <div class="form-group">
           <label for="studyDate">Ngày điểm danh</label>
@@ -85,3 +85,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).on('click', '.dropdown-menu', function (e) {
+  e.stopPropagation();
+});
+</script>
