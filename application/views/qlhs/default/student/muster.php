@@ -5,15 +5,16 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="lead">Thêm điểm danh</h2>
-      <form>
+      <form onsubmit="return false;">
         <div class="form-group">
           <label for="classId">Lớp</label>
-          <?php $c->view('general/class_selector', ['class_selector_model' => 'classId', 'class_selector_change' => ''])?>
+          <?php $c->view('general/class_selector', ['class_selector_model' => 'classId', 'class_selector_change' => 'select_class()'])?>
         </div>
         <div class="form-group">
           <label for="studyDate">Ngày điểm danh</label>
-          <select class="form-control form-control-sm">
+          <select class="form-control form-control-sm" ng-model="studyDate">
             <option>Chọn ngày</option>
+            <option ng-value="class_schedule.studyDate" ng-repeat="class_schedule in class_schedules">{{class_schedule.studyDate}}</option>
           </select>
         </div>
         <div class="form-group">
@@ -26,11 +27,20 @@
                 <th>Họ và tên</th>
                 <th>Số điện thoại</th>
               </tr>
-              <tr>
+              <tr ng-repeat-start="student in students">
                 <td><input type="checkbox"></td>
-                <td>1232</td>
-                <td>Phạm Thị Phương Thu</td>
-                <td>0987554433</td>
+                <td>{{student.id}}</td>
+                <td>{{student.name}}
+                </td>
+                <td>{{student.phone}}</td>
+              </tr>
+              <tr ng-repeat-end>
+                <td>&nbsp;</td>
+                <td colspan="3">
+                  <button class="btn btn-primary">CM</button>
+                  <button class="btn btn-primary">NTT</button>
+                  <button class="btn btn-primary">NKT</button>
+                </td>
               </tr>
             </table>          
           </div>
@@ -52,9 +62,7 @@
     <div class="col-md-18">
       <div class="row">
         <div class="col-md-12">
-        <select>
-          <option ng-value="null">Chọn lớp</option>
-        </select>
+        <?php $c->view('general/class_selector', ['class_selector_model' => 'classId', 'class_selector_change' => ''])?>
         <select>
             <option>Chọn ngày</option>
           </select>
@@ -73,10 +81,10 @@
             <th>Trạng thái</th>
             <th>Hành động</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Phạm Thị Phương Thu</td>
-            <td>22/12/2019</td>
+          <tr ng-repeat="student_schedule in student_schedules">
+            <td>{{student_schedule.studentId}}</td>
+            <td>{{student_schedule.studentName}}</td>
+            <td>{{student_schedule.studyDate}}</td>
             <td>Nghỉ trừ tiền</td>
             <td><a href="#" class="fa fa-edit"></a> <a href="#" class="fa fa-remove text-danger"></a></td>
           </tr>
