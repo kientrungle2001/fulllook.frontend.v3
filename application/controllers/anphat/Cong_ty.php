@@ -305,7 +305,7 @@ class Cong_ty extends MY_Controller
   }
 
   public function nhap_du_lieu() {
-    require_once 'cong_ty/Nhap_du_lieu.php';
+    require_once 'tong_quat/Nhap_du_lieu.php';
     $nhap_du_lieu = new Nhap_du_lieu();
     return $this->call_action($nhap_du_lieu, 'cong_ty');
   }
