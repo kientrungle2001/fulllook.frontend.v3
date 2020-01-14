@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['apps'][] = [
 	'name' => 'anphat',
 	'host'	=>	'crm.anphat.vn',
-	'aliases' => ['crm.anphat.com', 'eea29813.ngrok.io'],
+	'aliases' => ['crm.anphat.com'],
 	'view_packages' => ['anphat'],
 	'css_packages' => ['anphat'],
 	'js_packages' => ['anphat'],
@@ -72,11 +72,13 @@ $config['packages'][] = 	[
 					'version' => '4.7.0',
 					'file' => 'css/font-awesome.min.css'
 				],
+				/*
 				[
 					'name' => 'select2',
 					'version' => 'latest',
 					'file' => 'dist/css/select2.min.css'
 				]
+				*/
 			],
 			'js_libraries' => [
 				[
@@ -99,6 +101,7 @@ $config['packages'][] = 	[
 					'version' => '2.5.0',
 					'files' => ['ui-bootstrap-tpls-2.5.0.min.js']
 				],
+				/*
 				[
 					'name' => 'tinymce',
 					'version' => '5.0.4',
@@ -119,7 +122,7 @@ $config['packages'][] = 	[
 					'version' => 'latest',
 					'files' => ['src/select2.js']
 				]
-
+				*/
 			]
 		]
 	]
