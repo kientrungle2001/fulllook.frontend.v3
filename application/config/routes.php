@@ -50,14 +50,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn') {
-	$route['default_controller'] = 'tong_quat/danh_sach/cong_ty';
+	$route['default_controller'] = 'tong_quat';
+	$route['/'] = 'tong_quat/danh_sach/cong_ty';
 } else {
 	$route['default_controller'] = 'home';
+	$route['/'] = 'home/index';
 }
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['/'] = 'home/index';
+
 if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
 		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
 	
