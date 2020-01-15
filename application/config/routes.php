@@ -49,7 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
+if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn') {
+	$route['default_controller'] = 'tong_quat/danh_sach/cong_ty';
+} else {
+	$route['default_controller'] = 'home';
+}
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['/'] = 'home/index';
