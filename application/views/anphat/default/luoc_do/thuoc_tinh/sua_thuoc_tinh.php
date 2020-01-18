@@ -99,11 +99,11 @@ $truong_them_sua = [
 ];
 ?>
 <span class="d-none" ng-init="truong_them_sua=<?= htmlentities(json_encode($truong_them_sua)) ?>;"></span>
-<div class="modal fade" id="modal_them_thuoc_tinh">
+<div class="modal fade" id="modal_sua_thuoc_tinh">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Thêm thuộc tính cho lược đồ <?= $luoc_do['ten_luoc_do'] ?></h4>
+        <h4 class="modal-title">Sửa thuộc tính cho lược đồ <?= $luoc_do['ten_luoc_do'] ?></h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
@@ -111,10 +111,10 @@ $truong_them_sua = [
           <div class="form-row">
             <div class="form-row">
               <?php foreach ($truong_them_sua as $truong) :
-                $truong['ban_ghi_cap_nhat'] = 'thuoc_tinh_moi';
+                $truong['ban_ghi_cap_nhat'] = 'thuoc_tinh_cap_nhat';
                 $c->view('truong/' . $truong['loai_truong_them_sua'], $truong);
               endforeach; ?>
-              <?php $c->view('truong/nut_bam', ['kich_co' => 6, 'tieu_de' => 'Thêm mới', 'model' => 'them_thuoc_tinh(thuoc_tinh_moi);']) ?>
+              <?php $c->view('truong/nut_bam', ['kich_co' => 6, 'tieu_de' => 'Cập nhật', 'model' => 'cap_nhat_thuoc_tinh(thuoc_tinh_cap_nhat);']) ?>
             </div>
           </div>
         </form>

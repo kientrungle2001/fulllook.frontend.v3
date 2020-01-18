@@ -4,6 +4,7 @@
     <div class="col-24">
       <button onclick="$('#modal_them_thuoc_tinh').modal('show')" class="btn btn-primary">Thêm thuộc tính</button>
       <?php $c->view('luoc_do/thuoc_tinh/them_thuoc_tinh', $data) ?>
+      <?php $c->view('luoc_do/thuoc_tinh/sua_thuoc_tinh', $data) ?>
       <table class="table table-hover">
         <tr>
           <th>Tên thuộc tính</th>
@@ -22,17 +23,17 @@
         <tr ng-repeat="thuoc_tinh in danh_sach_thuoc_tinh">
           <td>{{thuoc_tinh.ten_thuoc_tinh}}</td>
           <td>{{thuoc_tinh.ma_thuoc_tinh}}</td>
-          <td><a href="#" class="fa fa-list" ng-class="{'text-success': thuoc_tinh.cho_phep_danh_sach, 'text-dark': !thuoc_tinh.cho_phep_danh_sach}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_danh_sach')"></a></td>
-          <td><a href="#" class="fa fa-edit" ng-class="{'text-success': thuoc_tinh.cho_phep_them_sua, 'text-dark': !thuoc_tinh.cho_phep_them_sua}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_them_sua')"></a></td>
-          <td><a href="#" class="fa fa-filter" ng-class="{'text-success': thuoc_tinh.cho_phep_loc, 'text-dark': !thuoc_tinh.cho_phep_loc}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_loc')"></a></td>
+          <td><a href="#" onclick="return false" class="fa fa-list" ng-class="{'text-success': thuoc_tinh.cho_phep_danh_sach, 'text-dark': !thuoc_tinh.cho_phep_danh_sach}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_danh_sach')"></a></td>
+          <td><a href="#" onclick="return false" class="fa fa-edit" ng-class="{'text-success': thuoc_tinh.cho_phep_them_sua, 'text-dark': !thuoc_tinh.cho_phep_them_sua}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_them_sua')"></a></td>
+          <td><a href="#" onclick="return false" class="fa fa-filter" ng-class="{'text-success': thuoc_tinh.cho_phep_loc, 'text-dark': !thuoc_tinh.cho_phep_loc}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'cho_phep_loc')"></a></td>
           <td><a href="#" onclick="return false" ng-click="hien_thi_cau_hinh_danh_sach(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_danh_sach"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_danh_sach, 'id_loai_thuoc_tinh_danh_sach', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
           <td><a href="#" onclick="return false" ng-click="hien_thi_cau_hinh_them_sua(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_them_sua"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_them_sua, 'id_loai_thuoc_tinh_them_sua', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
           <td><a href="#" onclick="return false" ng-click="hien_thi_cau_hinh_loc(thuoc_tinh)" ng-show="thuoc_tinh.cho_phep_loc"><span class="fa fa-cog"></span> {{hien_thi_tham_chieu(thuoc_tinh.id_loai_thuoc_tinh_loc, 'id_loai_thuoc_tinh_loc', 'ten_loai_thuoc_tinh', danh_sach_loai_thuoc_tinh)}}</a></td>
           <td>{{thuoc_tinh.thu_tu}}</td>
-          <td><a href="#" class="fa fa-circle" ng-class="{'text-success': thuoc_tinh.trang_thai, 'text-dark': !thuoc_tinh.trang_thai}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'trang_thai')"></a></td>
+          <td><a href="#" onclick="return false;" class="fa fa-circle text-decoration-none" ng-class="{'text-success': thuoc_tinh.trang_thai, 'text-dark': !thuoc_tinh.trang_thai}" ng-click="thay_doi_trang_thai(thuoc_tinh, 'trang_thai')"></a></td>
           <td>
-            <a href="#" class="fa fa-pencil text-primary" ng-click="hien_thi_sua_thuoc_tinh(thuoc_tinh)"></a>
-            <a href="#" class="fa fa-trash text-danger" ng-click="xoa_thuoc_tinh(thuoc_tinh)"></a>
+            <a href="#" onclick="return false;" class="btn btn-primary fa fa-pencil" ng-click="hien_thi_sua_thuoc_tinh(thuoc_tinh)"></a>
+            <a href="#" onclick="return false;" class="btn btn-danger fa fa-trash" ng-click="xoa_thuoc_tinh(thuoc_tinh)"></a>
           </td>
         </tr>
       </table>
@@ -94,7 +95,15 @@
       $scope.tai_danh_sach_thuoc_tinh();
 
       $scope.thay_doi_trang_thai = function(thuoc_tinh, model) {
-        thuoc_tinh[model] = !thuoc_tinh[model];
+        // thuoc_tinh[model] = !thuoc_tinh[model];
+        var du_lieu = {};
+        du_lieu[model] = !thuoc_tinh[model];
+        sua_ban_ghi(thuoc_tinh._id.$oid, {
+          ten_bang: 'thuoc_tinh',
+          du_lieu: du_lieu
+        }, function(ket_qua) {
+          $scope.tai_danh_sach_thuoc_tinh();
+        });
       };
 
       $scope.hien_thi_cau_hinh_danh_sach = function(thuoc_tinh) {
@@ -110,11 +119,6 @@
       $scope.hien_thi_cau_hinh_loc = function(thuoc_tinh) {
         $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
         jQuery('#modal_cau_hinh_loc').modal('show');
-      };
-
-      $scope.hien_thi_sua_thuoc_tinh = function(thuoc_tinh) {
-        $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
-        jQuery('#modal_sua_thuoc_tinh').modal('show');
       };
 
       $scope.xoa_thuoc_tinh = function(thuoc_tinh) {
@@ -142,6 +146,24 @@
         });
       };
 
+      $scope.hien_thi_sua_thuoc_tinh = function (thuoc_tinh) {
+        $('#modal_sua_thuoc_tinh').modal('show');
+        $scope.thuoc_tinh_cap_nhat = angular.copy(thuoc_tinh);
+      };
+
+      $scope.cap_nhat_thuoc_tinh = function(thuoc_tinh) {
+        var ban_ghi_params = angular.copy(thuoc_tinh);
+        var id = ban_ghi_params._id.$oid;
+        delete ban_ghi_params._id;
+        sua_ban_ghi(
+          id,
+          { ten_bang: 'thuoc_tinh', du_lieu: ban_ghi_params },
+          function(resp) {
+            $('#modal_sua_thuoc_tinh').modal('hide');
+            $scope.tai_danh_sach_thuoc_tinh();
+          }
+        );
+      };
     }
   ]);
 </script>
