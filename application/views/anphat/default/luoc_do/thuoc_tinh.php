@@ -47,11 +47,13 @@
     'them_ban_ghi',
     'sua_ban_ghi',
     'xoa_ban_ghi',
+    'xoa_nhieu_ban_ghi',
     function($scope,
       tai_danh_sach,
       them_ban_ghi,
       sua_ban_ghi,
-      xoa_ban_ghi) {
+      xoa_ban_ghi,
+      xoa_nhieu_ban_ghi) {
       $scope.luoc_do = <?= json_encode($luoc_do) ?>;
 
       $scope.hien_thi_tham_chieu = function(id, tham_chieu, gia_tri_tham_chieu, danh_sach_tham_chieu) {
@@ -125,6 +127,14 @@
             ten_bang: 'thuoc_tinh'
           }, function(resp) {
             $scope.tai_danh_sach_thuoc_tinh();
+          });
+          xoa_nhieu_ban_ghi({
+            ten_bang: 'bo_thuoc_tinh_danh_sach',
+            dieu_kien: {
+              id_thuoc_tinh: thuoc_tinh._id.$oid
+            }
+          }, function(ket_qua) {
+            console.log(ket_qua);
           });
         }
       };
