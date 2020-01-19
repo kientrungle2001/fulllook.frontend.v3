@@ -107,18 +107,15 @@
       };
 
       $scope.hien_thi_cau_hinh_danh_sach = function(thuoc_tinh) {
-        $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
-        jQuery('#modal_cau_hinh_danh_sach').modal('show');
+        window.location = '/thuoc_tinh/cau_hinh_danh_sach/' + thuoc_tinh._id.$oid + '?quay_lai=' + encodeURIComponent(window.location.href);
       };
 
       $scope.hien_thi_cau_hinh_them_sua = function(thuoc_tinh) {
-        $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
-        jQuery('#modal_cau_hinh_them_sua').modal('show');
+        window.location = '/thuoc_tinh/cau_hinh_them_sua/' + thuoc_tinh._id.$oid + '?quay_lai=' + encodeURIComponent(window.location.href);
       };
 
       $scope.hien_thi_cau_hinh_loc = function(thuoc_tinh) {
-        $scope.thuoc_tinh_dang_chon = angular.copy(thuoc_tinh);
-        jQuery('#modal_cau_hinh_loc').modal('show');
+        window.location = '/thuoc_tinh/cau_hinh_loc/' + thuoc_tinh._id.$oid + '?quay_lai=' + encodeURIComponent(window.location.href);
       };
 
       $scope.xoa_thuoc_tinh = function(thuoc_tinh) {
