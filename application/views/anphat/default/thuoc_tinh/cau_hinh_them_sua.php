@@ -1,4 +1,3 @@
-
 <h1 class="text-center"><?= $ten_thuoc_tinh ?> - <?= $ma_thuoc_tinh ?></h1>
 <form ng-controller="thuoc_tinh_them_sua_controller">
 <?php
