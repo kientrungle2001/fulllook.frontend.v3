@@ -32,3 +32,9 @@
  </div> 
 </div>
 </div>
+
+<script>
+$(document).on('click', '.dropdown-menu', function (e) {
+  e.stopPropagation();
+});
+</script>
