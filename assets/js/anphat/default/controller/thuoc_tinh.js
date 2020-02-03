@@ -23,6 +23,6 @@ anphatApp.controller('thuoc_tinh_controller', ['$scope', function ($scope) {
             "tieu_de": "Thứ tự"
         }
     ];
-    $scope.sap_xep = '_id';
+    $scope.sap_xep = 'id_luoc_do';
     $scope.thu_tu = 'asc';
 }]);

@@ -71,7 +71,7 @@ if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com'
 }
 $autoload['libraries'][] = 'curl';
 
-if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn') {
+if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn' || $_SERVER['HTTP_HOST'] == 'eea29813.ngrok.io') {
 	$autoload['libraries'][] = 'laramongo';
 }
 

@@ -91,6 +91,12 @@ class Thuoc_tinh extends MY_Controller
         ],
         [
           'loai_truong_tieu_de' => 'van_ban',
+          'loai_truong_danh_sach' => 'lien_ket',
+          'model' => 'thuoc_tinh/them_vao_bo_thuoc_tinh',
+          'tieu_de' => 'Them vao bo thuoc tinh'
+        ],
+        [
+          'loai_truong_tieu_de' => 'van_ban',
           'loai_truong_danh_sach' => 'van_ban',
           'model' => 'ban_ghi.cho_phep_danh_sach',
           'tieu_de' => 'Danh sách'
@@ -260,5 +266,11 @@ class Thuoc_tinh extends MY_Controller
   {
     $thuoc_tinh = $this->laramongo->get('thuoc_tinh', $id);
     $this->render('thuoc_tinh/cau_hinh_them_sua', $thuoc_tinh);
+  }
+
+  public function them_vao_bo_thuoc_tinh($id)
+  {
+    $thuoc_tinh = $this->laramongo->get('thuoc_tinh', $id);
+    $this->render('thuoc_tinh/them_vao_bo_thuoc_tinh', $thuoc_tinh);
   }
 }

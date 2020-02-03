@@ -59,7 +59,12 @@ anphatApp.controller('thuoc_tinh_danh_sach_controller', ['$scope', 'sua_ban_ghi'
   };
   $scope.chuyen_trang = function(url) {
     return function() {
-      window.location = url;
+      var quay_lai = new URL(location.href).searchParams.get('quay_lai');
+      if(quay_lai) {
+        window.location = quay_lai;
+      } else {
+        window.location = url;
+      }
     };
   };
 

@@ -1,0 +1,1 @@
+<input type="hidden" class="form-control" ng-model="<?php if(isset($ban_ghi_cap_nhat)):?><?= $ban_ghi_cap_nhat ?>.<?php endif;?><?= $model? $model : $index ?>" >

@@ -181,4 +181,8 @@ class Nhan_vien extends MY_Controller {
     ];
     $this->render('tong_quat/tong_quan', $data);
   }
+
+  function dang_nhap() {
+    $this->render('nhan_vien/dang_nhap');
+  }
 }

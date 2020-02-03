@@ -9,3 +9,8 @@
 .fs-16 {
     font-size: 16px;
 }
+
+.form-control-reset {
+    display: inline-block;
+    float: none;
+}

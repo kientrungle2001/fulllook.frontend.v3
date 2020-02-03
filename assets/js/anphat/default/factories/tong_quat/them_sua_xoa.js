@@ -1,5 +1,23 @@
 anphatApp.factory("tong_quat_them_sua_xoa", function() {
 	return function($scope, them_ban_ghi, sua_ban_ghi, xoa_ban_ghi) {
+		/** Mở dialog sửa bản ghi */
+		$scope.mo_dialog_sua_ban_ghi = function(ban_ghi, ten_dialog, truong_them_sua) {
+			$scope.ban_ghi_cap_nhat = angular.copy(ban_ghi);
+			jQuery('#' + ten_dialog).modal('show');
+		};
+	
+		$scope.dong_dialog_sua_ban_ghi = function(ten_dialog) {
+			jQuery('#' + ten_dialog).modal('hide');
+		};
+	
+		$scope.mo_dialog_them_ban_ghi = function(ten_dialog) {
+			jQuery('#' + ten_dialog).modal('show');
+		};
+	
+		$scope.dong_dialog_them_ban_ghi = function(ten_dialog) {
+			jQuery('#' + ten_dialog).modal('hide');
+		};
+		
 		/** Them Xoa Sua */
 		$scope.ban_ghi_moi = {
 			trang_thai: true
@@ -74,5 +92,18 @@ anphatApp.factory("tong_quat_them_sua_xoa", function() {
 		};
 
 		$scope._xoa_ban_ghi = xoa_ban_ghi;
+
+		/** Thay đổi trạng thái */
+		$scope.thay_doi_trang_thai = function(ban_ghi, callback) {
+			ban_ghi.trang_thai = !ban_ghi.trang_thai;
+			var cap_nhat = {
+				_id: angular.copy(ban_ghi._id),
+				trang_thai: ban_ghi.trang_thai
+			};
+			$scope.sua_ban_ghi(cap_nhat, function(resp) {
+				// do nothing
+				if(callback) return callback(resp);
+			});
+		};
 	};
 });

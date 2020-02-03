@@ -1,1 +1,1 @@
-anphatApp = angular.module('anphatApp', ["ngSanitize", "ui.bootstrap", 'ui.tinymce', 'ui.select2']);
+anphatApp = angular.module('anphatApp', ["ngSanitize", "ui.bootstrap"/*, 'ui.tinymce', 'ui.select2'*/]);

@@ -93,7 +93,7 @@
           return false;
         }
         $.ajax({
-          url: 'http://laramongo.vn/api/v1/tong_quat/kiem_tra_nhap_du_lieu',
+          url:  AP_API.tong_quat.url + '/kiem_tra_nhap_du_lieu',
           data: {
             id_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon._id.$oid,
             id_upload_du_lieu: $scope.upload_du_lieu_dang_chon._id.$oid,
@@ -134,7 +134,7 @@
       $scope.nhap_du_lieu = function() {
         console.log($scope.danh_sach_cot_nhap_du_lieu);
         $.ajax({
-          url: 'http://laramongo.vn/api/v1/tong_quat/nhap_du_lieu',
+          url: AP_API.tong_quat.url + '/nhap_du_lieu',
           type: 'post', dataType: 'json',
           data: {
             id_bo_thuoc_tinh: $scope.bo_thuoc_tinh_dang_chon._id.$oid,
@@ -229,7 +229,7 @@
     var file_nhap_du_lieu = jQuery('#file_nhap_du_lieu')[0];
     if (file_nhap_du_lieu.files.length) {
       var file_upload = new Upload(file_nhap_du_lieu.files[0]);
-      file_upload.setUploadUrl('http://laramongo.vn/api/v1/tong_quat/upload_du_lieu');
+      file_upload.setUploadUrl(AP_API.tong_quat.url +'/upload_du_lieu');
       file_upload.doUpload(onSuccess, onError);
     }
   }

@@ -1,7 +1,12 @@
 <?php
 $c->js('factories/tong_quat/phan_trang.js');
 $c->js('factories/tong_quat/them_sua_xoa.js'); 
-$c->js('factories/tong_quat/danh_sach.js'); 
+$c->js('factories/tong_quat/danh_sach.js');
+$c->js('factories/tong_quat/tham_chieu.js');
+$c->js('factories/tong_quat/bo_loc.js');
+$c->js('factories/tong_quat/hanh_dong.js');
+$c->js('factories/tong_quat/tai_tu_dong.js'); 
+$c->js('factories/tong_quat/bo_thuoc_tinh.js'); 
 $c->js('controller/tong_quat.js');
 $c->js('controller/'.$module.'.js');
 ?>
@@ -22,6 +27,7 @@ $c->js('controller/'.$module.'.js');
   <div class="tong_quat_page" ng-controller="tong_quat_controller">
   <div class="row">
     <div class="col-md-<?= isset($kich_co) ? $kich_co : 8?>">
+      <button class="btn btn-primary" ng-click="lap_chi_muc()">Make Index</button>
       <?php $c->view('tong_quat/them', $data)?>
       <?php $c->view('tong_quat/loc', $data)?>
       <?php $c->view('tong_quat/sua', $data)?>

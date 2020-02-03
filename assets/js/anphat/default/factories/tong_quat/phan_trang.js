@@ -1,6 +1,14 @@
 anphatApp.factory("tong_quat_phan_trang", function() {
 	return function($scope) {
 		/**
+		 * Tim kiem
+		 */
+
+		$scope.tim_kiem = function() {
+			$scope.den_trang_dau();	
+		}
+		
+		/**
 		 * Phan trang
 		 */
 
@@ -10,7 +18,7 @@ anphatApp.factory("tong_quat_phan_trang", function() {
 		};
 
 		$scope.den_trang_cuoi = function() {
-			$scope.phan_trang.trang_hien_thoi = $scope.tong_so_trang;
+			$scope.phan_trang.trang_hien_thoi = $scope.tong_so_trang - 1;
 			$scope.tai_danh_sach();
 		};
 
