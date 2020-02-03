@@ -3,7 +3,7 @@
 <div class="container-fluid" ng-controller="student_muster_controller">
   <h1>Điểm danh học sinh</h1>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <h2 class="lead">Thêm điểm danh</h2>
       <form onsubmit="return false;">
         <div class="form-group">
@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
           <label for="studyDate">Ngày điểm danh</label>
-          <select class="form-control form-control-sm" ng-model="studyDate">
+          <select class="form-control form-control-sm col-12" ng-model="studyDate">
             <option>Chọn ngày</option>
             <option ng-value="class_schedule.studyDate" ng-repeat="class_schedule in class_schedules">{{class_schedule.studyDate}}</option>
           </select>
@@ -26,20 +26,18 @@
                 <th>ID</th>
                 <th>Họ và tên</th>
                 <th>Số điện thoại</th>
+                <th>Điểm danh</th>
               </tr>
-              <tr ng-repeat-start="student in students">
+              <tr ng-repeat="student in students">
                 <td><input type="checkbox"></td>
                 <td>{{student.id}}</td>
                 <td>{{student.name}}
                 </td>
                 <td>{{student.phone}}</td>
-              </tr>
-              <tr ng-repeat-end>
-                <td>&nbsp;</td>
-                <td colspan="3">
-                  <button class="btn btn-primary">CM</button>
-                  <button class="btn btn-primary">NTT</button>
-                  <button class="btn btn-primary">NKT</button>
+                <td>
+                <button class="btn btn-primary btn-sm">CM</button>
+                  <button class="btn btn-primary btn-sm">NTT</button>
+                  <button class="btn btn-primary btn-sm">NKT</button>
                 </td>
               </tr>
             </table>          
@@ -59,7 +57,7 @@
       </form>
 
     </div>
-    <div class="col-md-18">
+    <div class="col-md-12">
       <div class="row">
         <div class="col-md-12">
         <?php $c->view('general/class_selector', ['class_selector_model' => 'classId', 'class_selector_change' => ''])?>
