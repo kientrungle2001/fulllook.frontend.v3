@@ -1,7 +1,7 @@
 .left-toggle-button {
 	display: none;
 }
-@media (max-width: 1400px) {
+@media (max-width: 2400px) {
 
 	.menu-header ul li a {
 
@@ -18,7 +18,7 @@
 		width: 942px;
 	}
 	.sub_categories .category {
-		width: 215px;
+		width: 300px;
 	}
 	.sub_categories .category a span {
 		width: 155px;

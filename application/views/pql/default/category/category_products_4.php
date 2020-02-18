@@ -4,21 +4,21 @@ $terms_model = $controller->terms_model;
 $options_model = $controller->options_model;
 $links_model = $controller->links_model;
 #
-$third_section_category = $options_model->get_option_tree('third_section_category');
-$third_category = $terms_model->get_one($third_section_category);
-$third_category_taxonomy = $terms_model->get_term_taxonomy($third_section_category);
+$fourth_section_category = $options_model->get_option_tree('fourth_section_category');
+$fourth_category = $terms_model->get_one($fourth_section_category);
+$fourth_category_taxonomy = $terms_model->get_term_taxonomy($fourth_section_category);
 $posts = $posts_model->get_posts(array(
-	'term_taxonomy_id' => $third_category_taxonomy['term_taxonomy_id'],
+	'term_taxonomy_id' => $fourth_category_taxonomy['term_taxonomy_id'],
 	'post_type' => 'post',
 	'post_status' => 'publish'
 ), 0, 3);
-$child_categories = $terms_model->get_children($third_section_category);
+$child_categories = $terms_model->get_children($fourth_section_category);
  // print_r($child_categories);
 // die();
 ?>
 <div>
 <div class="b_top">
-	<h2><a href="<?= $links_model->get_product_category_link($language, $third_category)?>"><?= wpglobus($third_category['name'], $language) ?></a></h2>
+	<h2><a href="<?= $links_model->get_product_category_link($language, $fourth_category)?>"><?= wpglobus($fourth_category['name'], $language) ?></a></h2>
 </div>
 <br>
 <!--content-box-->
@@ -30,26 +30,25 @@ $child_categories = $terms_model->get_children($third_section_category);
 	$jsonlds[] = array(
 		"@type" => "ListItem",
 		"image"	=> $links_model->get_image_url($img),
-		"url"	=> $links_model->get_product_link($language, $third_category, $post),
+		"url"	=> $links_model->get_product_link($language, $fourth_category, $post),
 		"name" 	=> wpglobus($post['post_title'], $language),
 		"position" => ($post_index + 1)
 	);
 	?>
 	<div class="item_cate2 h-product" itemtype="http://schema.org/Product">
-		<a href="<?= $links_model->get_product_link($language, $third_category, $post)?>">
+		<a href="<?= $links_model->get_product_link($language, $fourth_category, $post)?>">
 			<?php if ($img) : ?>
 				<img src="<?= $links_model->get_image_url($img)?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo">
 			<?php else : ?>
 				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>">
 			<?php endif; ?>
 		</a>
-		<h3><a href="<?= $links_model->get_product_link($language, $third_category, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
+		<h3><a href="<?= $links_model->get_product_link($language, $fourth_category, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
 		<br clear="all">
 	</div>
 <?php endforeach;
 endif;
-foreach($child_categories as $index => $cat):
-	if($index >= 4) continue;
+foreach($child_categories as $cat):
 	// print_r($cat); die();
 	#
 $category_taxonomy = $terms_model->get_term_taxonomy($cat['term_id']);
@@ -76,7 +75,7 @@ endforeach;
 {
     "@context": "http://schema.org",
     "@type": "ItemList",
-    "url": "<?= $links_model->get_product_category_link($language, $third_category)?>",
+    "url": "<?= $links_model->get_product_category_link($language, $fourth_category)?>",
     "numberOfItems": "3",
 	"itemListElement": <?= json_encode($jsonlds);?>
 }

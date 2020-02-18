@@ -651,7 +651,7 @@ body {
   overflow: hidden;
   width: 240px;
   float: left;
-  padding-left: 17px;
+  padding-left: 3px;
 }
 .item_cate2:hover img {
   border: 1px solid #f96302;
@@ -1052,7 +1052,7 @@ font-weight: bold;
 }
 
 .sub_categories .category a img {
-  width: 60px; height: auto; display: block; float: left;
+  width: 105px; height: auto; display: block; float: left;
 }
 
 .sub_categories .category a span {

@@ -72,7 +72,7 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	
 	# product
 	$route['san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/vi/$1/$2';
-	$route['en/san-pham/[\w\d\-_]+\-c(:num)/[\w\d-_]+\-p(:num).html'] = 'product/detail/en/$1/$2';
+	$route['en/san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/en/$1/$2';
 	# short
 	$route['[\w\d\-_]+\-cp(:num)\-p(:num).html'] = 'product/detail/vi/$1/$2';
 	$route['en/[\w\d\-_]+\-cp(:num)\-p(:num).html'] = 'product/detail/en/$1/$2';
@@ -104,17 +104,17 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	
 	# news detail
 	$route['tin\-tuc/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-n(:num).html'] = 'news/detail/vi/$1/$2';
-	$route['en/tin\-tuc/[\w\d\-_]+\-c(:num)/[\w\d-_]+\-n(:num).html'] = 'news/detail/en/$1/$2';
+	$route['en/tin\-tuc/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-n(:num).html'] = 'news/detail/en/$1/$2';
 	# short
-	$route['[\w\d-_]+-cn(:num)-n(:num).html'] = 'news/detail/vi/$1/$2';
-	$route['en/[\w\d-_]+-cn(:num)-n(:num).html'] = 'news/detail/en/$1/$2';
+	$route['[\w\d\-_]+-cn(:num)-n(:num).html'] = 'news/detail/vi/$1/$2';
+	$route['en/[\w\d\-_]+-cn(:num)-n(:num).html'] = 'news/detail/en/$1/$2';
 
 	# news feed
-	$route['[\w\d-_]+-cn(:num)/feed'] = 'news/feed/vi/$1';
-	$route['en/[\w\d-_]+-cn(:num)/feed'] = 'news/feed/en/$1';
+	$route['[\w\d\-_]+-cn(:num)/feed'] = 'news/feed/vi/$1';
+	$route['en/[\w\d\-_]+-cn(:num)/feed'] = 'news/feed/en/$1';
 	# news feed with html
-	$route['[\w\d-_]+-cn(:num).html/feed'] = 'news/feed/vi/$1';
-	$route['en/[\w\d-_]+-cn(:num).html/feed'] = 'news/feed/en/$1';
+	$route['[\w\d\-_]+-cn(:num).html/feed'] = 'news/feed/vi/$1';
+	$route['en/[\w\d\-_]+-cn(:num).html/feed'] = 'news/feed/en/$1';
 
 	# search
 	$route['tim-kiem'] = 'search/result/vi';
