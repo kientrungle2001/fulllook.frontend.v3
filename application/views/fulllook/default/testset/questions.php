@@ -13,15 +13,15 @@
 				<div class="nobel-list-md choice">
 					<div class="row">
 						<div class="col" ng-show="language != 'vn'">
-							<div class="ptnn-title full" mathjax-bind="question.name"></div>
+							<div class="ptnn-title full" mathjax-bind="formatWritting(question.name)"></div>
 						</div>
 						<div class="col" ng-show="language == 'vn' || language == 'ev'">
-							<div class="ptnn-title full" mathjax-bind="question.name_vn"></div>
+							<div class="ptnn-title full" mathjax-bind="formatWritting(question.name_vn)"></div>
 							
 						</div>
 					</div>
 
-					<div ng-show="question.ref_question_answers">
+					<div ng-hide="question.ref_question_answers">
 						Điền đáp án <input type="text" ng-model="user_answers[question.id]" />
 					</div>
 
@@ -37,15 +37,15 @@
 									<div class="row">
 										<div class="col" ng-show="language != 'vn'">
 											<span class="answers_{{question.id}}_{{answer.id}}} pl10"
-												mathjax-bind="answer.content"></span>
+												mathjax-bind="formatWritting(answer.content)"></span>
 										</div>
 										<div class="col" ng-show="language=='vn'">
 											<span class="answers_{{question.id}}_{{answer.id}}} pl10"
-												mathjax-bind="answer.content_vn"></span>
+												mathjax-bind="formatWritting(answer.content_vn)"></span>
 										</div>
 										<div class="col" ng-show="language=='ev'">
 											<span class="answers_{{question.id}}_{{answer.id}}} pl10"
-												mathjax-bind="answer.content_vn"></span>
+												mathjax-bind="formatWritting(answer.content_vn)"></span>
 										</div>
 									</div>
 
