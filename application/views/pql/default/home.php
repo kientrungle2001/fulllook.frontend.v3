@@ -9,5 +9,6 @@ $controller->view('left', $data, $return, $cache, $language.$key);?>
 	<?php $controller->view('category/category_products_1', $data, $return, $cache, $language.'category_products_1');?>
 	<?php $controller->view('category/category_products_2', $data, $return, $cache, $language.'category_products_2');?>
 	<?php $controller->view('category/category_products_3', $data, $return, $cache, $language.'category_products_3');?>
+	<?php $controller->view('category/category_products_4', $data, $return, $cache, $language.'category_products_4');?>
 	<?php $controller->view('news/home_news', $data, $return, $cache, $language.'home_news');?>
 </div>

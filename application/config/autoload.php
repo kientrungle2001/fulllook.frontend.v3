@@ -70,6 +70,7 @@ if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com'
 	$autoload['libraries'][] = 'database';
 }
 $autoload['libraries'][] = 'curl';
+$autoload['libraries'][] = 'cart';
 
 if($_SERVER['HTTP_HOST'] == 'crm.anphat.vn' || $_SERVER['HTTP_HOST'] == 'eea29813.ngrok.io') {
 	$autoload['libraries'][] = 'laramongo';

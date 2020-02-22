@@ -126,8 +126,8 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			</td>
 			<td><?= @$post['price']?></td>
 			<td><?= @$post['stock']?></td>
-			<td class="text-center"><input type="text" size="5" name="quantity" class="product-quantity" style="width: 80%"></td>
-			<td class="text-center"><button>Đặt mua</button></td>
+			<td class="text-center"><input id="quantity-<?= $post['ID']?>" type="text" size="5" name="quantity" class="product-quantity" style="width: 80%" value="1"></td>
+			<td class="text-center"><button onclick="add_to_cart(<?= $post['ID']?>, '<?= html_escape($product_title)?>', <?= @$post['price']?>); return false;">Đặt mua</button></td>
 		</tr>
 	<?php endif;?>
 	<?php endforeach;?>
@@ -142,4 +142,28 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
     "numberOfItems": "<?= count($posts) ?>",
 	"itemListElement": <?= json_encode($jsonlds);?>
 }
+</script>
+
+<script type="text/javascript">
+	function add_to_cart(product_id, product_title, product_price) {
+		var quantity = jQuery('#quantity-' + product_id).val();
+		quantity = parseFloat(quantity);
+		if(!quantity) {
+			alert('Bạn cần nhập số lượng');
+		} else {
+			jQuery.ajax({
+				url: '/cart/addToCart',
+				type: 'post', dataType: 'json',
+				data: {
+					sku: product_id,
+					name: product_title,
+					quantity: quantity,
+					price: product_price
+				},
+				success: function(resp) {
+					jQuery('#but_gh .num').text(resp.total_items);
+				}
+			});
+		}
+	}
 </script>

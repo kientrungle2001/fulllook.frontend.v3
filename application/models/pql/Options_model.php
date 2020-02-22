@@ -7,6 +7,7 @@ class Options_model extends Abstract_Table_Model
 		$this->where('option_name', $key);
 		$rs = $this->get(0, 1);
 		$row = $this->row_array($rs);
+		if(!$row) return null;
 		if($type == 0) {
 			return $row['option_value'];
 		} elseif($type == 1) {
