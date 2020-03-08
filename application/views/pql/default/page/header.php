@@ -22,6 +22,9 @@ $instagram = $options_model->get_instagram();
 
 $free_shipping_note = $options_model->get_free_shipping_note();
 $online_order_note = $options_model->get_online_order_note();
+$cart_items = $c->session->cart_items;
+if(!$cart_items) $cart_items = [];
+$cart_total_items = count($cart_items);
 ?>
 <!--slogan-->
 <div id="slogan">
@@ -50,7 +53,7 @@ $online_order_note = $options_model->get_online_order_note();
 	<div class="bt_gh" id="but_gh">
 		<a href="<?= $links_model->get_language_link($language, '/cart')?>" class="cufon"><?= wpglobus('{:vi}Giỏ hàng{:}{:en}Cart{:}', $language)?></a>
 		<span id="num_order">(</span>
-		<span id="num_order" class="num"><?= $c->cart->total_items()?></span>
+		<span id="num_order" class="num"><?= $cart_total_items?></span>
 		<span id="num_order" style="padding-right:3px">)</span>
 	</div>
 	<div id="menu_s">

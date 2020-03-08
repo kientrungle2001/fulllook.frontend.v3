@@ -119,4 +119,6 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# search
 	$route['tim-kiem'] = 'search/result/vi';
 	$route['en/tim-kiem'] = 'search/result/en';
+
+	$route['en/cart'] = 'cart/index/en';
 }

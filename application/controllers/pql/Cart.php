@@ -34,24 +34,50 @@ class Cart extends MY_Controller
 	}
 	public function addToCart($language = 'vi')
 	{
-		$this->load->library('cart');
 		$data = array(
-			'id'      => $this->input->post('sku'),
-			'qty'     => $this->input->post('quantity'),
+			'sku'      => $this->input->post('sku'),
+			'qty'     => floatval($this->input->post('quantity')),
 			'price'   => $this->input->post('price'),
-			'name'    => $this->input->post('name')
+			'name'    => $this->input->post('name'),
+			'image'    => $this->input->post('image'),
+			'link'    => $this->input->post('link'),
+			'stock'    => $this->input->post('stock'),
+			'brand'    => $this->input->post('brand'),
 		);
 
-		$this->cart->insert($data);
+		$this->cart_insert($data);
 		$this->summary();
 	}
 	public function summary()
 	{
-		$this->load->library('cart');
+		if(!isset($this->session->cart_items)) {
+			$this->session->cart_items = [];
+		}
 		$rs = [
-			'total_items' => $this->cart->total_items(),
-			'total' => $this->cart->total()
+			'total_items' => count($this->session->cart_items),
+			'total' => 0,
+			'items' => $this->session->cart_items
 		];
 		echo json_encode($rs);
+	}
+
+	private function cart_insert($data) {
+		if(!isset($this->session->cart_items)) {
+			$this->session->cart_items = [];
+		}
+		$found = false;
+		$cart_items = $this->session->cart_items;
+		foreach($cart_items as &$item) {
+			if($item['sku'] == $data['sku']) {
+				$item['qty'] += $data['qty'];
+				$found = true;
+			}
+		}
+
+		if(!$found) {
+			$cart_items[] = $data;
+		}
+		
+		$this->session->cart_items = $cart_items;
 	}
 }
