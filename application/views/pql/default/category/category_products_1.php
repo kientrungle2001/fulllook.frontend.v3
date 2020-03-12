@@ -48,8 +48,9 @@ $child_categories = $terms_model->get_children($first_section_category);
 	</div>
 <?php endforeach;
 endif;
-foreach($child_categories as $cat):
+foreach($child_categories as $index => $cat):
 	// print_r($cat); die();
+	if($index >=8) continue;
 	#
 $category_taxonomy = $terms_model->get_term_taxonomy($cat['term_id']);
 #
