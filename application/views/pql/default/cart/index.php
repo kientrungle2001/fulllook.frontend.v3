@@ -36,8 +36,42 @@ $post_index = 0;
 			<td><?= @$product['price']?></td>
 			<td><?= @$product['stock']?></td>
 			<td class="text-center"><input id="quantity-<?= $product['sku']?>" type="text" size="5" name="quantity" class="product-quantity" style="width: 80%" value="<?= $product['qty']?>"></td>
-			<td class="text-center"><button onclick="update_to_cart(<?= $product['sku']?>, '<?= html_escape($product['name'])?>', <?= @$product['price']?>); return false;">Cập nhật</button></td>
+			<td class="text-center"><button onclick="update_to_cart('<?= $product['sku']?>'); return false;">Cập nhật</button> <button onclick="delete_to_cart('<?= $product['sku']?>'); return false;">Xóa</button></td>
 		</tr>
       <?php endforeach;?>
+		<?php if(!count($cart_items)):?>
+		<tr>
+			<td colspan="6"><p style="padding: 15px;">Không có sản phẩm nào trong giỏ hàng! Quay lại <a href="/<?= $language?>">trang chủ</a></p></td>
+		</tr>
+		<?php endif;?>
 </table>
 </div>
+<script>
+	function update_to_cart(sku) {
+		var quantity = parseFloat($('#quantity-' + sku).val());
+		$.ajax({
+			url: '/cart/update',
+			type: 'post', dataType: 'json',
+			data: {
+				sku: sku,
+				quantity: quantity
+			},
+			success: function() {
+				alert('Đã cập nhật giỏ hàng thành công');
+				window.location.reload();
+			}
+		});
+	}
+	function delete_to_cart(sku) {
+		$.ajax({
+			url: '/cart/remove', type: 'post', dataType: 'json',
+			data: {
+				sku: sku
+			},
+			success: function() {
+				alert('Đã cập nhật giỏ hàng thành công');
+				window.location.reload();
+			}
+		});
+	}
+</script>

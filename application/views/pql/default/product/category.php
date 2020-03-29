@@ -172,6 +172,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 				},
 				success: function(resp) {
 					jQuery('#but_gh .num').text(resp.total_items);
+					alert('Đã thêm ' + quantity + ' ' + product_title + ' vào giỏ hàng');
 				}
 			});
 		}

@@ -48,6 +48,21 @@ class Cart extends MY_Controller
 		$this->cart_insert($data);
 		$this->summary();
 	}
+	public function update() {
+		$data = array(
+			'sku'      => $this->input->post('sku'),
+			'qty'     => floatval($this->input->post('quantity'))
+		);
+		$this->cart_update($data);
+		$this->summary();
+	}
+	public function remove() {
+		$data = array(
+			'sku'      => $this->input->post('sku'),
+		);
+		$this->cart_remove($data);
+		$this->summary();
+	}
 	public function summary()
 	{
 		if(!isset($this->session->cart_items)) {
@@ -76,6 +91,47 @@ class Cart extends MY_Controller
 
 		if(!$found) {
 			$cart_items[] = $data;
+		}
+		
+		$this->session->cart_items = $cart_items;
+	}
+
+	private function cart_update($data) {
+		if(!isset($this->session->cart_items)) {
+			$this->session->cart_items = [];
+		}
+		$cart_items = $this->session->cart_items;
+		$removeIndex = null;
+		foreach($cart_items as $index => &$item) {
+			if($item['sku'] == $data['sku']) {
+				$item['qty'] = $data['qty'];
+				if($item['qty'] == 0) {
+					$removeIndex = $index;
+				}
+			}
+		}
+
+		if(null !== $removeIndex) {
+			array_splice($cart_items, $removeIndex, 1);
+		}
+		
+		$this->session->cart_items = $cart_items;
+	}
+
+	private function cart_remove($data) {
+		if(!isset($this->session->cart_items)) {
+			$this->session->cart_items = [];
+		}
+		$cart_items = $this->session->cart_items;
+		$removeIndex = null;
+		foreach($cart_items as $index => &$item) {
+			if($item['sku'] == $data['sku']) {
+				$removeIndex = $index;
+			}
+		}
+
+		if(null !== $removeIndex) {
+			array_splice($cart_items, $removeIndex, 1);
 		}
 		
 		$this->session->cart_items = $cart_items;
