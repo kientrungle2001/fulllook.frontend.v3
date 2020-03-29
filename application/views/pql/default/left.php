@@ -13,16 +13,18 @@ function toggle_menu() {
 			<br>
 			<div class="s_top"><?= wpglobus('{:vi}Tìm kiếm{:}{:en}Search{:}', $language) ?></div>
 			<div class="s_mid">
-				<form action="#/sanpham/timkiem" method="post">
+				<form action="/tim-kiem/san-pham" method="get">
 					<div class="title_search"><?= wpglobus('{:vi}Từ khóa{:}{:en}Keyword{:}', $language) ?></div>
 					<div class="input_search">
 						<input type="text" name="ten">
 					</div>
 					<div class="title_search"><?= wpglobus('{:vi}Danh Mục{:}{:en}Catalog{:}', $language) ?></div>
 					<div class="input_search">
-						<select name="danhmuc2" id="danhmuc2">
+						<select name="danh_muc" id="danhmuc2">
+							<?php if(0):?>
 							<option value="0">---<?= wpglobus('{:vi}Danh Mục{:}{:en}Catalog{:}', $language) ?>---</option>
-							<?php $controller->view('category/category_options', $data); ?>
+							<?php endif;?>
+							<?php $controller->view('category/category_options', $data, false, false); ?>
 						</select>
 					</div>
 					<div class="input_search">

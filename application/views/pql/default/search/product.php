@@ -4,14 +4,19 @@ $terms_model = $controller->terms_model;
 $options_model = $controller->options_model;
 $links_model = $controller->links_model;
 #
-$first_section_category = $options_model->get_option_tree('first_section_category');
-$first_category = $terms_model->get_one($first_section_category);
-$first_category_taxonomy = $terms_model->get_term_taxonomy($first_section_category);
-$posts = $posts_model->get_posts(array(
+if($category) {
+  $category_term = $terms_model->get_one($category);
+  $category_taxonomy = $terms_model->get_term_taxonomy($category);
+}
+#
+$search_criteria = array(
 	'post_type' => 'post',
-	'post_status' => 'publish',
-	'post_title like' => "%$keyword%"
-), 0, 20);
+  'post_status' => 'publish',
+  'post_title like' => "%$keyword%",
+  'term_taxonomy_id' => $category_taxonomy['term_taxonomy_id']
+);
+#
+$posts = $posts_model->get_posts($search_criteria, 0, 20);
 $search_title = '{:en}Search Result{:}{:vi}Kết quả tìm kiếm{:}';
 ?>
 <div>
@@ -28,20 +33,20 @@ $search_title = '{:en}Search Result{:}{:vi}Kết quả tìm kiếm{:}';
 	$jsonlds[] = array(
 		"@type" => "ListItem",
 		"image"	=> $links_model->get_image_url($img),
-		"url"	=> $links_model->get_product_link($language, $first_category, $post),
+		"url"	=> $links_model->get_product_link($language, $category_term, $post),
 		"name" 	=> wpglobus($post['post_title'], $language),
 		"position" => ($post_index + 1)
 	);
 	?>
 	<div class="item_cate2 h-product" itemtype="http://schema.org/Product">
-		<a href="<?= $links_model->get_product_link($language, $first_category, $post)?>">
+		<a href="<?= $links_model->get_product_link($language, $category_term, $post)?>">
 			<?php if ($img) : ?>
 				<img src="<?= $links_model->get_image_url($img)?>" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>" class="u-photo">
 			<?php else : ?>
 				<img src="/assets/css/pql/default/images/Ong_nhua_uPVC_thumb.png" width="230" height="134" border="0" alt="<?= wpglobus($post['post_title'], $language)  ?>">
 			<?php endif; ?>
 		</a>
-		<h3><a href="<?= $links_model->get_product_link($language, $first_category, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
+		<h3><a href="<?= $links_model->get_product_link($language, $category_term, $post)?>" class="name_cate2 p-name"><?= wpglobus($post['post_title'], $language)  ?></a></h3>
 		<br clear="all">
 	</div>
 <?php endforeach; ?>
@@ -53,7 +58,7 @@ $search_title = '{:en}Search Result{:}{:vi}Kết quả tìm kiếm{:}';
 {
     "@context": "http://schema.org",
     "@type": "ItemList",
-    "url": "<?= $links_model->get_product_category_link($language, $first_category)?>",
+    "url": "<?= $links_model->get_product_category_link($language, $category_term)?>",
     "numberOfItems": "3",
 	"itemListElement": <?= json_encode($jsonlds);?>
 }

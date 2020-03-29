@@ -671,7 +671,7 @@ body {
 .item_cate2 .name_cate2 {
   font-weight: bold;
   text-transform: uppercase;
-  float: left;
+  /*float: left;*/
   background: url(../images/bichvan_15.png) center right no-repeat;
   padding-right: 15px;
   padding-top: 2px;
@@ -1197,4 +1197,13 @@ img {
 
 .product-price-row .product-image {
   margin-right: 10px;
+}
+
+.item_cate2.h-product h3 {
+  text-align: center;
+}
+.item_cate2.h-product h3::after{
+  content: '';
+  display: block;
+  clear: both;
 }
