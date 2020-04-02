@@ -200,8 +200,8 @@ class Cart extends MY_Controller
 
 		$email->initialize($config);
 
-		$email->from('kientrungle2001@gmail.com', 'Lê Trung Kiên');
-		$email->to('kienlt@smartosc.com');
+		$email->from('root@nextnobels.com', 'Lê Trung Kiên');
+		$email->to('kientrungle2001@gmail.com');
 
 		$email->subject($emailSubject);
 		$email->message($emailContent);
