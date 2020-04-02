@@ -6,6 +6,7 @@
 <?php
 $post_index = 0;
 ?>
+<div class="order-table">
 <table class="product-price-table">
 			<tr>
 				<th>STT</th>
@@ -46,6 +47,45 @@ $post_index = 0;
 		<?php endif;?>
 </table>
 </div>
+<?php if(count($cart_items)):?>
+<div class="b_top">
+	<h2><a href="/cart"><?= wpglobus('{:vi}Thông tin đặt hàng{:}{:en}Order Information{:}', $language) ?></a></h2>
+</div>
+<br>
+<form class="order_form" id="order_information">
+	<div class="form-group">
+		<div class="form-item">
+			<label>Họ và tên (*)</label>
+			<div class="form-input">
+				<input name="name" id="customer_name" />
+			</div>
+		</div>
+		<div class="form-item">
+			<label>Số điện thoại (*)</label>
+			<div class="form-input">
+			<input name="name" id="customer_phone" />
+			</div>
+		</div>
+		<div class="form-item">
+			<label>Email</label>
+			<div class="form-input">
+			<input name="email"  id="customer_email" />
+			</div>
+		</div>
+	</div>
+	<div class="form-item">
+		<label>Nội dung</label>
+		<div class="form-input">
+		<textarea name="content" id="customer_content"></textarea>
+		</div>
+	</div>
+	<div class="form-buttons">
+		<input type="button" value="Đặt hàng">
+	</div>
+</form>
+<?php endif; ?>
+</div>
+
 <script>
 	function update_to_cart(sku) {
 		var quantity = parseFloat($('#quantity-' + sku).val());
@@ -75,3 +115,39 @@ $post_index = 0;
 		});
 	}
 </script>
+
+<style>
+	.order-table {
+		padding: 15px;
+	}
+	.order_form {
+		padding: 15px;
+		width: 75%;
+		margin: 0 auto;
+	}
+
+	.order_form .form-group::after {
+		display: block;
+		clear:both;
+		content: '';
+	}
+	.order_form .form-group .form-item {
+		float: left;
+		width: 30%;
+		padding: 1%;
+	}
+	.form-input textarea, .form-input input {
+		width: 100%;
+		padding: 5px;
+	}
+	.form-input textarea {
+		height: 80px;
+	}
+
+	.form-buttons button, .form-buttons input {
+		padding: 10px 25px;
+		background: #0269b6;
+		color: #fff;
+		border: none;
+	}
+</style>
