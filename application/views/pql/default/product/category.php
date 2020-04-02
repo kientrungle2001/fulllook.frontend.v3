@@ -168,7 +168,8 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 					price: product_price,
 					image: product_image,
 					link: product_link,
-					stock: product_stock
+					stock: product_stock,
+					brand: product_brand
 				},
 				success: function(resp) {
 					jQuery('#but_gh .num').text(resp.total_items);

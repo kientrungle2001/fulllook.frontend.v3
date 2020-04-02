@@ -157,7 +157,7 @@ class Cart extends MY_Controller
 		$emailContent .= '<strong>Email</strong>: ' . $email . '<br />';
 		$emailContent .= '<strong>Nội dung</strong>:<br /> ' . nl2br($content) . '<br />';
 		$emailContent .= '<h2>Sản phẩm đã đặt</h2>';
-		$emailContent .= '<table>';
+		$emailContent .= '<table border=1 style="border-collapse: collapsed">';
 		$emailContent .= '<tr>
 		<th>STT</th>
 		<th>Sản phẩm</th>
@@ -171,7 +171,7 @@ class Cart extends MY_Controller
 			$emailContent .= '</td>';	
 			$emailContent .= '<td>';
 			$emailContent .= '<a href="' . $product['link'] .'" class="product-image">
-			<img title="'. $product['name'] .'" src="'.$product['image'].'" width="64" height="auto"" border="0" class="u-photo">
+			<img title="'. html_escape($product['name']) .'" src="'.$product['image'].'" width="64" height="auto"" border="0" class="u-photo">
 		</a>';
 			$emailContent .= '<div class="product-info text-left">
 			<h2><a href="'. $product['link'] .'" class="name_cate2 p-name">'. $product['name'] .'</a></h2>
@@ -196,6 +196,7 @@ class Cart extends MY_Controller
 		$config['mailPath'] = '/usr/sbin/sendmail';
 		$config['charset']  = 'utf-8';
 		$config['wordWrap'] = true;
+		$config['mailtype'] = 'html'; 
 
 		$email->initialize($config);
 
