@@ -136,4 +136,79 @@ class Cart extends MY_Controller
 		
 		$this->session->cart_items = $cart_items;
 	}
+
+	public function placeorder() {
+		if(!isset($this->session->cart_items)) {
+			$this->session->cart_items = [];
+		}
+		if(count($this->session->cart_items)) {
+			$name = $this->input->post('name');
+			$email = $this->input->post('email');
+			$phone = $this->input->post('phone');
+			$content = $this->input->post('content');
+			$this->sendEmail($name, $email, $phone, $content, $this->session->cart_items);
+		}
+	}
+
+	public function sendEmail($name, $email, $phone, $content, $cart_items) {
+		$emailContent = '<h1>Thông tin đơn hàng</h1>';
+		$emailContent .= '<strong>Họ và tên</strong>: ' . $name . '<br />';
+		$emailContent .= '<strong>Số điện thoại</strong>: ' . $phone . '<br />';
+		$emailContent .= '<strong>Email</strong>: ' . $email . '<br />';
+		$emailContent .= '<strong>Nội dung</strong>:<br /> ' . nl2br($content) . '<br />';
+		$emailContent .= '<h2>Sản phẩm đã đặt</h2>';
+		$emailContent .= '<table>';
+		$emailContent .= '<tr>
+		<th>STT</th>
+		<th>Sản phẩm</th>
+		<th>Đơn giá</th>
+		<th>Số lượng</th>
+	</tr>';
+		foreach($cart_items as $index => $product) {
+			$emailContent .= '<tr>';
+			$emailContent .= '<td>';
+			$emailContent .= ($index + 1);
+			$emailContent .= '</td>';	
+			$emailContent .= '<td>';
+			$emailContent .= '<a href="' . $product['link'] .'" class="product-image">
+			<img title="'. $product['name'] .'" src="'.$product['image'].'" width="64" height="auto"" border="0" class="u-photo">
+		</a>';
+			$emailContent .= '<div class="product-info text-left">
+			<h2><a href="'. $product['link'] .'" class="name_cate2 p-name">'. $product['name'] .'</a></h2>
+			<p>Thương hiệu: '. $product['brand'] .'</p>
+			</div>';
+			$emailContent .= '</td>';	
+			$emailContent .= '<td>';
+			$emailContent .= @$product['price'];
+			$emailContent .= '</td>';	
+			$emailContent .= '<td>';
+			$emailContent .= $product['qty'];
+			$emailContent .= '</td>';	
+			$emailContent .= '</tr>';
+		}
+		$emailContent .= '</table>';
+		$emailSubject = 'Đơn hàng mới: ' . $name . ' - ' . $phone . ' - ' . $email;
+		$this->load->library('email');
+				
+		$email = $this->email;
+
+		$config['protocol'] = 'sendmail';
+		$config['mailPath'] = '/usr/sbin/sendmail';
+		$config['charset']  = 'utf-8';
+		$config['wordWrap'] = true;
+
+		$email->initialize($config);
+
+		$email->from('kientrungle2001@gmail.com', 'Lê Trung Kiên');
+		$email->to('kienlt@smartosc.com');
+
+		$email->subject($emailSubject);
+		$email->message($emailContent);
+
+		if ($email->send()) {
+			echo 'Your Email has successfully been sent.';
+	} else {
+			show_error($email->print_debugger());
+	}
+	}
 }

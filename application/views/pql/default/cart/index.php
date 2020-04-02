@@ -80,7 +80,7 @@ $post_index = 0;
 		</div>
 	</div>
 	<div class="form-buttons">
-		<input type="button" value="Đặt hàng">
+		<input type="button" value="Đặt hàng" onclick="place_order(); return false;">
 	</div>
 </form>
 <?php endif; ?>
@@ -110,6 +110,38 @@ $post_index = 0;
 			},
 			success: function() {
 				alert('Đã cập nhật giỏ hàng thành công');
+				window.location.reload();
+			}
+		});
+	}
+
+	function place_order() {
+		var name = $('#customer_name').val();
+		var phone = $('#customer_phone').val();
+		var email = $('#customer_email').val();
+		var content = $('#customer_content').val();
+		if(name == '') {
+			return alert('Vui lòng nhập họ và tên');
+		}
+		if(phone == '') {
+			return alert('Vui lòng nhập số điện thoại');
+		}
+		if(email == '') {
+			return alert('Vui lòng nhập email');
+		}
+		if(content == '') {
+			return alert('Vui lòng nhập nội dung');
+		}
+		$.ajax({
+			url: '/cart/placeorder',
+			data: {
+				name: name,
+				phone: phone,
+				email: email,
+				content: content
+			},
+			type: 'post', success: function() {
+				alert('Cảm ơn bạn đã đặt hàng, chúng tôi sẽ liên hệ với bạn sớm nhất có thể!');
 				window.location.reload();
 			}
 		});
