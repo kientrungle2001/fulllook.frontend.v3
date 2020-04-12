@@ -59,8 +59,6 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 	endforeach;?>
 	
  	<div class="box_end" style="text-align:center">
-		<a href="/assets/css/pql/default/upload/images/nha-phan-phoi-ongtienphong.png" title="sản phẩm chính hãng Tiền Phong">
-			<img src="/assets/css/pql/default/images/ongtien-phong.jpg" border="0" alt="sản phẩm chính hãng Tiền Phong" title="sản phẩm chính hãng Tiền Phong" style="width:148px"></a>
 			<a href="<?= SITE_PROTOCOL?>online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=4171" rel="nofollow" title="THông báo"><img src="/assets/css/pql/default/images/da-dang-ky-bo-cong-thuong.png" border="0" alt="Thông báo" title="Thông báo" style="width:148px">
 			</a>
 	</div>

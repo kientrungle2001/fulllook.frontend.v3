@@ -58,7 +58,15 @@ $product = $controller->posts_model->get_post($productId);
 				<tr>
 					<th>Thêm vào giỏ: </th>
 					<td>
-						Số lượng: <input type="text" name="quantity" id="quantity" size="3" value="1"> <button onclick="addToCart('<?= $product['sku']?>', '<?= wpglobus($product['post_title'], $language) ?>', '<?= $product['price']?>');">Đặt mua</button>
+						Số lượng: <input type="text" name="quantity" id="quantity-<?= $product['ID']?>" size="3" value="1"> 
+						<button onclick="add_to_cart('<?= $product['ID']?>', 
+						'<?= wpglobus($product['post_title'], $language) ?>', 
+						'<?= $product['price']?>', 
+						'<?= $product['brand']?>', 
+						'<?= $controller->links_model->get_image_url($img)?>', 
+						'<?= $controller->links_model->get_product_link($language, $category, $product)?>',
+						'<?= wpglobus($product['post_title'], $language) ?>',
+						'<?= $product['stock']?>');">Đặt mua</button>
 					</td>
 				</tr>
 			</table>
@@ -110,21 +118,31 @@ $jsonld = array(
 <?= json_encode($jsonld)?>
 </script>
 <script>
-	function addToCart(sku, name, price) {
-		var quantity = jQuery('#quantity').val();
+	function add_to_cart(product_id, product_title, product_price, product_brand, product_image, product_link, product_stock) {
+		var quantity = jQuery('#quantity-' + product_id).val();
 		quantity = parseFloat(quantity);
-		jQuery.ajax({
-			url: '/cart/addToCart',
-			type: 'post',
-			dataType: 'json',
-			data: {
-				sku: sku, name: name, price: price, quantity: quantity
-			},
-			success: function(resp) {
-				jQuery('#but_gh .num').text(resp);
-				alert('Bạn đã đặt hàng thành công');
-			}
-		});
+		if(!quantity) {
+			alert('Bạn cần nhập số lượng');
+		} else {
+			jQuery.ajax({
+				url: '/cart/addToCart',
+				type: 'post', dataType: 'json',
+				data: {
+					sku: product_id,
+					name: product_title,
+					quantity: quantity,
+					price: product_price,
+					image: product_image,
+					link: product_link,
+					stock: product_stock,
+					brand: product_brand
+				},
+				success: function(resp) {
+					jQuery('#but_gh .num').text(resp.total_items);
+					alert('Đã thêm ' + quantity + ' ' + product_title + ' vào giỏ hàng');
+				}
+			});
+		}
 	}
 	$(document).ready(function(){
 		$('#img_cate').zoom({

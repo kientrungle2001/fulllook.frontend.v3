@@ -127,7 +127,14 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			<td><?= @$post['price']?></td>
 			<td><?= @$post['stock']?></td>
 			<td class="text-center"><input id="quantity-<?= $post['ID']?>" type="text" size="5" name="quantity" class="product-quantity" style="width: 80%" value="1"></td>
-			<td class="text-center"><button onclick="add_to_cart(<?= $post['ID']?>, '<?= html_escape($product_title)?>', <?= @$post['price']?>); return false;">Đặt mua</button></td>
+			<td class="text-center"><button onclick="add_to_cart(<?= $post['ID']?>, 
+				'<?= html_escape($product_title)?>', 
+				<?= @$post['price']?>,
+				'<?= html_escape($post['brand'])?>',
+				'<?= html_escape($img_url)?>',
+				'<?= html_escape($product_link)?>',
+				'<?= html_escape(@$post['stock'])?>'
+				); return false;">Đặt mua</button></td>
 		</tr>
 	<?php endif;?>
 	<?php endforeach;?>
@@ -145,7 +152,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 </script>
 
 <script type="text/javascript">
-	function add_to_cart(product_id, product_title, product_price) {
+	function add_to_cart(product_id, product_title, product_price, product_brand, product_image, product_link, product_stock) {
 		var quantity = jQuery('#quantity-' + product_id).val();
 		quantity = parseFloat(quantity);
 		if(!quantity) {
@@ -158,10 +165,15 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 					sku: product_id,
 					name: product_title,
 					quantity: quantity,
-					price: product_price
+					price: product_price,
+					image: product_image,
+					link: product_link,
+					stock: product_stock,
+					brand: product_brand
 				},
 				success: function(resp) {
 					jQuery('#but_gh .num').text(resp.total_items);
+					alert('Đã thêm ' + quantity + ' ' + product_title + ' vào giỏ hàng');
 				}
 			});
 		}

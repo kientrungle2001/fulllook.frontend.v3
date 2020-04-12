@@ -49,7 +49,7 @@ $child_categories = $terms_model->get_children($second_section_category);
 <?php endforeach;
 endif;
 foreach($child_categories as $index => $cat):
-	if($index >= 4) continue;
+	if($index >= 8) continue;
 	// print_r($cat); die();
 	#
 $category_taxonomy = $terms_model->get_term_taxonomy($cat['term_id']);
