@@ -1207,3 +1207,18 @@ img {
   display: block;
   clear: both;
 }
+
+.btn {
+	background: #0269b6;
+	color: #fff;
+	border: 1px solid #aaa;
+	padding: 5px;
+}
+
+.input {
+	padding: 5px;
+}
+
+.btn:hover {
+	background: #aaa;
+}

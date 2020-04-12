@@ -36,8 +36,8 @@ $post_index = 0;
 			</td>
 			<td><?= @$product['price']?></td>
 			<td><?= @$product['stock']?></td>
-			<td class="text-center"><input id="quantity-<?= $product['sku']?>" type="text" size="5" name="quantity" class="product-quantity" style="width: 80%" value="<?= $product['qty']?>"></td>
-			<td class="text-center"><button onclick="update_to_cart('<?= $product['sku']?>'); return false;">Cập nhật</button> <button onclick="delete_to_cart('<?= $product['sku']?>'); return false;">Xóa</button></td>
+			<td class="text-center"><input id="quantity-<?= $product['sku']?>" type="text" size="5" name="quantity" class="input product-quantity" style="width: 80%" value="<?= $product['qty']?>"></td>
+			<td class="text-center"><button onclick="update_to_cart('<?= $product['sku']?>'); return false;" class="btn">Cập nhật</button> <button onclick="delete_to_cart('<?= $product['sku']?>'); return false;" class="btn">Xóa</button></td>
 		</tr>
       <?php endforeach;?>
 		<?php if(!count($cart_items)):?>

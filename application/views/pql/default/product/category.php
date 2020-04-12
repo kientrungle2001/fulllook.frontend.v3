@@ -126,10 +126,10 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			</td>
 			<td><?= @$post['price']?></td>
 			<td><?= @$post['stock']?></td>
-			<td class="text-center"><input id="quantity-<?= $post['ID']?>" type="text" size="5" name="quantity" class="product-quantity" style="width: 80%" value="1"></td>
-			<td class="text-center"><button onclick="add_to_cart(<?= $post['ID']?>, 
+			<td class="text-center"><input id="quantity-<?= $post['ID']?>" type="text" size="5" name="quantity" class="input product-quantity" style="width: 80%" value="1"></td>
+			<td class="text-center"><button class="btn" onclick="add_to_cart(<?= $post['ID']?>, 
 				'<?= html_escape($product_title)?>', 
-				<?= @$post['price']?>,
+				'<?= @$post['price']?>',
 				'<?= html_escape($post['brand'])?>',
 				'<?= html_escape($img_url)?>',
 				'<?= html_escape($product_link)?>',
