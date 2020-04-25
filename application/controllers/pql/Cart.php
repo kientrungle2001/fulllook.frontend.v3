@@ -145,17 +145,23 @@ class Cart extends MY_Controller
 			$name = $this->input->post('name');
 			$email = $this->input->post('email');
 			$phone = $this->input->post('phone');
+			$address = $this->input->post('address');
+			$city = $this->input->post('city');
 			$content = $this->input->post('content');
-			$this->sendEmail($name, $email, $phone, $content, $this->session->cart_items);
+			$payment_method = $this->input->post('payment_method');
+			$this->sendEmail($name, $email, $phone, $address, $city, $content, $payment_method, $this->session->cart_items);
 		}
 	}
 
-	public function sendEmail($name, $email, $phone, $content, $cart_items) {
+	public function sendEmail($name, $email, $phone, $address, $city, $content, $payment_method, $cart_items) {
 		$emailContent = '<h1>Thông tin đơn hàng</h1>';
-		$emailContent .= '<strong>Họ và tên</strong>: ' . $name . '<br />';
-		$emailContent .= '<strong>Số điện thoại</strong>: ' . $phone . '<br />';
-		$emailContent .= '<strong>Email</strong>: ' . $email . '<br />';
-		$emailContent .= '<strong>Nội dung</strong>:<br /> ' . nl2br($content) . '<br />';
+		$emailContent .= '<strong>Họ và tên</strong>: ' . html_escape($name)  . '<br />';
+		$emailContent .= '<strong>Số điện thoại</strong>: ' . html_escape($phone) . '<br />';
+		$emailContent .= '<strong>Địa chỉ</strong>: ' . html_escape($address) . '<br />';
+		$emailContent .= '<strong>Tỉnh thành</strong>: ' . html_escape($city) . '<br />';
+		$emailContent .= '<strong>Email</strong>: ' . html_escape($email) . '<br />';
+		$emailContent .= '<strong>Nội dung</strong>:<br /> ' . nl2br(html_escape($content)) . '<br />';
+		$emailContent .= '<strong>Hình thức thanh toán</strong>: ' . ($payment_method == 'bank' ? 'Chuyển khoản ngân hàng': 'Thanh toán trực tiếp') . '<br />';
 		$emailContent .= '<h2>Sản phẩm đã đặt</h2>';
 		$emailContent .= '<table border=1 style="border-collapse: collapsed">';
 		$emailContent .= '<tr>
@@ -174,20 +180,20 @@ class Cart extends MY_Controller
 			<img title="'. html_escape($product['name']) .'" src="'.$product['image'].'" width="64" height="auto"" border="0" class="u-photo">
 		</a>';
 			$emailContent .= '<div class="product-info text-left">
-			<h2><a href="'. $product['link'] .'" class="name_cate2 p-name">'. $product['name'] .'</a></h2>
-			<p>Thương hiệu: '. $product['brand'] .'</p>
+			<h2><a href="'. $product['link'] .'" class="name_cate2 p-name">'. html_escape($product['name']) .'</a></h2>
+			<p>Thương hiệu: '. html_escape($product['brand']) .'</p>
 			</div>';
 			$emailContent .= '</td>';	
 			$emailContent .= '<td>';
-			$emailContent .= @$product['price'];
+			$emailContent .= html_escape(@$product['price']);
 			$emailContent .= '</td>';	
 			$emailContent .= '<td>';
-			$emailContent .= $product['qty'];
+			$emailContent .= html_escape($product['qty']);
 			$emailContent .= '</td>';	
 			$emailContent .= '</tr>';
 		}
 		$emailContent .= '</table>';
-		$emailSubject = 'Đơn hàng mới: ' . $name . ' - ' . $phone . ' - ' . $email;
+		$emailSubject = 'Đơn hàng mới: ' . html_escape($name) . ' - ' . html_escape($phone) . ' - ' . html_escape($email);
 		$this->load->library('email');
 				
 		$email = $this->email;
