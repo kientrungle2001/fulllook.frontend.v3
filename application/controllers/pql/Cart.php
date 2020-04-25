@@ -207,7 +207,11 @@ class Cart extends MY_Controller
 		$email->initialize($config);
 
 		$email->from('root@nextnobels.com', 'MOBO');
-		$email->to('kientrungle2001@gmail.com');
+		$to_email = $this->options_model->get_option_tree('order_notification_email');
+		if(!$to_email) {
+			$to_email = 'kientrungle2001@gmail.com';
+		}
+		$email->to($to_email);
 
 		$email->subject($emailSubject);
 		$email->message($emailContent);
