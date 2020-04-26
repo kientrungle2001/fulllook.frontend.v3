@@ -22,7 +22,7 @@ $product = $controller->posts_model->get_post($productId);
 		<span>»</span>
 		<a class="p-category" href="<?= $controller->links_model->get_product_category_link($language, $category)?>"><?= wpglobus($category['name'], $language) ?></a>
 		<span>»</span>
-		<a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product)?>"><?= wpglobus($product['post_title'], $language) ?></a>
+		<h3><a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product)?>"><?= wpglobus($product['post_title'], $language) ?></a></h3>
 	</div>
 	<br clear="all">
 	<div id="info_cate">
@@ -68,6 +68,10 @@ $product = $controller->posts_model->get_post($productId);
 						'<?= wpglobus($product['post_title'], $language) ?>',
 						'<?= $product['stock']?>');">Đặt mua</button>
 					</td>
+				</tr>
+				<tr>
+					<th><a href="/<?= $language?>" style="color: red; font-size: 14px; font-weight: bold;">Liên hệ giá tốt</a> </th>
+					<td></td>
 				</tr>
 			</table>
 		</div>

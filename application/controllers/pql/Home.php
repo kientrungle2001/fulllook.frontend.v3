@@ -64,4 +64,11 @@ class Home extends MY_Controller {
 		file_put_contents(FCPATH. 'sitemap.xml', $xml);
 		echo 'sitemap.xml generated. <a href="/sitemap.xml">Link here</a>';
 	}
+	
+	public function test($language = 'vi') {
+		$post = $this->curl->get('https://mobo.com.vn/_pql/wp-json/wp/v2/posts/734?context=view');
+		echo '<pre>';
+		$post = json_decode($post, true);
+		echo json_encode($post, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}
 }

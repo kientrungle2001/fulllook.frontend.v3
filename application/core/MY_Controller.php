@@ -235,8 +235,12 @@ class MY_Controller extends CI_Controller {
 		return wpglobus($cat['name'], $language);
 	}
 
-	public function getProductCatLink($cat, $language) {
-		return $this->links_model->get_product_category_link($language, $cat);
+	public function getProductCatLink($cat, $language, $parents = []) {
+		$parents = array_reverse($parents);
+		return $this->links_model->get_product_category_link($language, $cat, 
+				isset($parents[0]) ? $parents[0]: null, 
+				isset($parents[1]) ? $parents[1]: null, 
+				isset($parents[2]) ? $parents[2]: null);
 	}
 
 	public function getNewsCatLink($cat, $language) {

@@ -70,6 +70,7 @@ foreach($tree_menu_items as $root_item) {
 	$root_object_id = $root['_menu_item_object_id'];
 	$root_object = $menu_item_object_indexeds[$root_object_id];
 	?>
+	<!-- cap 1 -->
 	<div class="list_cate_left">
 		<a href="<?= $links_model->get_product_category_link($language, $root_object) ?>" class="cate_far_left"><?= wpglobus($root_object['name'], $language) ?></a>
 	</div>
@@ -81,7 +82,8 @@ foreach($tree_menu_items as $root_item) {
 		//pre('--------' . $root_child_object['name']);
 		?>
 		<ul class="mega-menu right">
-			<li><a href="<?= $links_model->get_product_category_link($language, $root_child_object) ?>" class="dc-mega"><?= wpglobus($root_child_object['name'], $language)  ?><span class="dc-mega-icon"></span></a>
+			<!-- cap 2 -->
+			<li><a href="<?= $links_model->get_product_category_link($language, $root_child_object, $root_object) ?>" class="dc-mega"><?= wpglobus($root_child_object['name'], $language)  ?><span class="dc-mega-icon"></span></a>
 				<div class="sub-container non-mega">
 					<ul class="sub">
 		<?php
@@ -90,14 +92,16 @@ foreach($tree_menu_items as $root_item) {
 			$child_object_id = $child['_menu_item_object_id'];
 			$child_object = $menu_item_object_indexeds[$child_object_id];
 			?>
-			<li><a href="<?= $links_model->get_product_category_link($language, $child_object) ?>"><?= wpglobus($child_object['name'], $language) ?></a></li>
+			<!-- cap 3 -->
+			<li><a href="<?= $links_model->get_product_category_link($language, $child_object, $root_child_object, $root_object) ?>"><?= wpglobus($child_object['name'], $language) ?></a></li>
 			<?php
 			$sub_children = getTreeChildren($menu_item, $child);
 			foreach($sub_children as $sub_child) {
 				$sub_child_object_id = $sub_child['_menu_item_object_id'];
 				$sub_child_object = $menu_item_object_indexeds[$sub_child_object_id];
 				?>
-				<li class="cate4"><a href="<?= $links_model->get_product_category_link($language, $sub_child_object) ?>"> + <?= wpglobus($sub_child_object['name'], $language)  ?></a></li>
+				<!-- cap 4 -->
+				<li class="cate4"><a href="<?= $links_model->get_product_category_link($language, $sub_child_object, $child_object, $root_child_object, $root_object) ?>"> + <?= wpglobus($sub_child_object['name'], $language)  ?></a></li>
 				<?php
 			}
 		}

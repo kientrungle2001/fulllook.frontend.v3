@@ -82,4 +82,9 @@ class Posts_model extends Abstract_Table_Model
 		if(isset($customize[$key])) return is_string($customize[$key])?str_replace('http://', SITE_PROTOCOL, $customize[$key]):$customize[$key];
 		return null;
 	}
+	
+	public $endpoint = 'https://mobo.com.vn/_pql/wp-json/wp/v2/posts';
+	public function curl($method, $url = '', $vars = []) {
+		return $this->controller->curl->request($method, $this->endpoint . $url, $vars);
+	}
 }

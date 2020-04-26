@@ -9,7 +9,7 @@ class Product extends MY_Controller {
 		$this->render('product/index', $data);
 	}
 
-	public function category($language = 'vi', $catId = null){
+	public function category($language = 'vi', $catId = null, $catId1 = null, $catId2 = null, $catId3 = null){
 		$data = array();
 		$this->load_pql_models($data);
 		#
@@ -18,6 +18,25 @@ class Product extends MY_Controller {
 		# load category
 		$category = $this->terms_model->get_one($catId);
 		$category_taxonomy = $this->terms_model->get_term_taxonomy($catId);
+		
+		# categories
+		$categories = [$category];
+		if($catId1) {
+			$category1 = $this->terms_model->get_one($catId1);
+			$categories[] = $category1;
+		}
+		
+		if($catId2) {
+			$category2 = $this->terms_model->get_one($catId2);
+			$categories[] = $category2;
+		}
+		
+		if($catId3) {
+			$category3 = $this->terms_model->get_one($catId3);
+			$categories[] = $category3;
+		}
+		
+		$categories = array_reverse($categories);
 
 		#
 		$page_title = wpglobus($category['name'], $language) . ' | ' . wpglobus($blogname, $language);
@@ -54,7 +73,8 @@ class Product extends MY_Controller {
 			'page_title' 		=> $page_title,
 			'page_description' 	=> $page_description,
 			'page_keywords' 	=> $page_keywords,
-			'page_image' 		=> $page_image
+			'page_image' 		=> $page_image,
+			'product_categories' => $categories
 		)) ;
 		$this->render('product/category', $data);
 	}

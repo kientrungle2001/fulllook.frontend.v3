@@ -63,12 +63,22 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# category
 	$route['san-pham/[\w\d\-_]+\-c(:num)'] = 'product/category/vi/$1';
 	$route['en/san-pham/[\w\d\-_]+\-c(:num)'] = 'product/category/en/$1';
+	$route['san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)'] = 'product/category/vi/$1/$2';
+	$route['en/san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)'] = 'product/category/en/$1/$2';
+	$route['san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)'] = 'product/category/vi/$1/$2/$3';
+	$route['en/san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-c(:num)'] = 'product/category/en/$1/$2/$3';
 	# short
 	$route['[\w\d\-_]+\-cp(:num)'] = 'product/category/vi/$1';
 	$route['en/[\w\d\-_]+\-cp(:num)'] = 'product/category/en/$1';
 	# short with html
 	$route['[\w\d\-_]+\-cp(:num).html'] = 'product/category/vi/$1';
 	$route['en/[\w\d\-_]+\-cp(:num).html'] = 'product/category/en/$1';
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/vi/$2/$1';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/en/$2/$1';
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/vi/$3/$2/$1';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/en/$3/$2/$1';
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/vi/$4/$3/$2/$1';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num).html'] = 'product/category/en/$4/$3/$2/$1';
 	
 	# product
 	$route['san-pham/[\w\d\-_]+\-c(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/vi/$1/$2';

@@ -1,3 +1,4 @@
+if(0) {
 function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
 
 
@@ -46,3 +47,5 @@ $(document).bind('keydown', function(e) {
     return false;
   }
 });
+
+}

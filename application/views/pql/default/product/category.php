@@ -37,10 +37,17 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 	</div>
 	<div id="link_br">
 		<a href="/<?= $language?>"><?= $controller->getHomeTitle($language)?></a>
+		<?php foreach($product_categories as $p_index => $p_cat):
+		$p_cat_parents = [];
+		for($i = 0; $i < $p_index; $i++):
+			$p_cat_parents[] = $product_categories[$i];
+		endfor;
+		?>
 		<span>»</span>
-		<a class="a_active" href="<?= $controller->getProductCatLink($category, $language)?>">
-			<?= $controller->getCatName($category, $language)?>
+		<a class="a_active" href="<?= $controller->getProductCatLink($p_cat, $language, $p_cat_parents)?>">
+			<?= $controller->getCatName($p_cat, $language)?>
 		</a>
+		<?php endforeach; ?>
 		<br clear="all">
 	</div>
 	<div style="clear:both"></div>
@@ -54,7 +61,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			?>
 			
 			<div class="category">
-				<a href="<?= $controller->getProductCatLink($cat, $language)?>">
+				<a href="<?= $controller->getProductCatLink($cat, $language, $product_categories)?>">
 					<?php if($child_category_taxonomy_image):?>
 					<img src="<?= $child_category_taxonomy_image;?>" />
 					<?php else:?>
@@ -107,7 +114,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 	<div class="cate2_s item_cate2 h-product">
 		<a href="<?= $product_link?>">
 			<img title="<?= $product_title?>" src="<?= $img_url?>" width="167" height="131" border="0" class="u-photo"></a>
-		<h2><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></h2>
+		<p><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></p>
 		<br clear="all">
 	</div>
 	<?php else:?>
@@ -118,7 +125,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 					<img title="<?= $product_title?>" src="<?= $img_url?>" width="64" height="auto"" border="0" class="u-photo">
 				</a>
 				<div class="product-info text-left">
-				<h2><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></h2>
+				<p><strong><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></strong></p>
 				<p>Thương hiệu: <?= $post['brand']?></p>
 				</div>
 				

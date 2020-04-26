@@ -4,16 +4,22 @@ $terms_model = $controller->terms_model;
 
 #
 $roots = $terms_model->get_roots();
+$exclude_ids = [170, 171, 189, 190, 191];
 ?>
 <?php foreach ($roots as $root) :
 	if ($root['term_id'] == 1) {
 		continue;
 	}
+	if(in_array($root['term_taxonomy_id'], $exclude_ids)) {
+			continue;
+		}
 	$children = $terms_model->get_children($root['term_id']);
 	?>
 	<option value="<?= $root['term_taxonomy_id'] ?>"><?= str_repeat('&nbsp;', 4) ?><?= wpglobus($root['name'], $language) ?></option>
 	<?php foreach ($children as $child) :
-		
+		if(in_array($child['term_taxonomy_id'], $exclude_ids)) {
+			continue;
+		}
 		?>
 		<option value="<?= $child['term_taxonomy_id'] ?>"><?= str_repeat('&nbsp;', 8) ?><?= wpglobus($child['name'], $language) ?></option>
 		<?php

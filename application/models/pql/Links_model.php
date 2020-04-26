@@ -19,12 +19,24 @@ class Links_model
 		return $language_prefix . '/' . wpglobus($product['post_name'], $language) . '-p' . $product['ID'] . '.html';
 	}
 
-	public function get_product_category_link($language, $category) {
+	public function get_product_category_link($language, $category, $category1 = null, $category2 = null, $category3 = null) {
 		$language_prefix = '';
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cp' . $category['term_id'] . '.html';
+		$paths = [];
+		$paths[] = wpglobus($category['slug'], $language) . '-cp' . $category['term_id'];
+		if($category1) {
+			$paths[] = wpglobus($category1['slug'], $language) . '-cp' . $category1['term_id'];
+		}
+		if($category2) {
+			$paths[] = wpglobus($category2['slug'], $language) . '-cp' . $category2['term_id'];
+		}
+		if($category3) {
+			$paths[] = wpglobus($category3['slug'], $language) . '-cp' . $category3['term_id'];
+		}
+		$paths = array_reverse($paths);
+		return $language_prefix . '/' . implode('/', $paths) . '.html';
 	}
 
 	public function get_news_link($language, $category, $news) {

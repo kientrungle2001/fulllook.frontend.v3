@@ -57,12 +57,12 @@ $category_taxonomy = $terms_model->get_term_taxonomy($cat['term_id']);
 $category_taxonomy_image = $options_model->get_term_taxonomy_image($category_taxonomy['term_taxonomy_id']);
 ?>
 <div class="item_cate2 h-product" itemtype="http://schema.org/Product">
-		<a href="<?= $links_model->get_product_category_link($language, $cat)?>">
+		<a href="<?= $links_model->get_product_category_link($language, $cat, $second_category)?>">
 				<div style="width: 240px; height: 148px; overflow: hidden;">
 				<img src="<?= $category_taxonomy_image?>" width="230" height="134" border="0" alt="<?= wpglobus($cat['name'], $language)  ?>">
 				</div>
 		</a>
-		<h3><a href="<?= $links_model->get_product_category_link($language, $cat)?>" class="name_cate2 p-name"><?= wpglobus($cat['name'], $language)  ?></a></h3>
+		<h3><a href="<?= $links_model->get_product_category_link($language, $cat, $second_category)?>" class="name_cate2 p-name"><?= wpglobus($cat['name'], $language)  ?></a></h3>
 		<br clear="all">
 	</div>
 <?php
