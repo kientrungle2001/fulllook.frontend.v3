@@ -255,8 +255,8 @@ class MY_Controller extends CI_Controller {
 		return $this->getPostImage($product);
 	}
 
-	public function getProductLink($product, $category, $language) {
-		return $this->links_model->get_product_link($language, $category, $product);
+	public function getProductLink($product, $category, $language, $parent_categories = []) {
+		return $this->links_model->get_product_link($language, $category, $product, $parent_categories);
 	}
 
 	public function getProductTitle($product, $language) {

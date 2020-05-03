@@ -31,7 +31,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 			<?= $category_title ?> 
 			
 		</h1>
-		<a href="<?= $controller->getProductCatLink($category, $language)?>/feed" class="link_feed">
+		<a href="<?= $controller->getProductCatLink($category, $language, $product_categories)?>/feed" class="link_feed">
 				<img src="<?= $feed_img?>"> rss
 		</a>
 	</div>
@@ -100,7 +100,7 @@ $feed_img = 'https://cdn0.iconfinder.com/data/icons/stuttgart/32/feed.png';
 	foreach($posts as $post_index => $post):
 		$img = $controller->getProductImage($post);
 		$img_url = $links_model->get_image_url($img);
-		$product_link = $controller->getProductLink($post, $category, $language);
+		$product_link = $controller->getProductLink($post, $category, $language, $product_categories);
 		$product_title = $controller->getProductTitle($post, $language);
 		$jsonlds[] = array(
 			"@type" => "ListItem",

@@ -86,7 +86,7 @@ class Product extends MY_Controller {
 		$this->view('product/feed', $data);
 	}
 
-	public function detail($language = 'vi', $catId = null, $productId = null){
+	public function detail($language = 'vi', $catId = null, $productId = null, $catId1 = null, $catId2 = null, $catId3 = null){
 		$data = array();
 		$this->load_pql_models($data);
 		#
@@ -141,9 +141,16 @@ class Product extends MY_Controller {
 			$page_image = replace_host($logo);
 		}
 		 
+		#catIds
+		$catIds = [];
+		if($catId1) $catIds[] = $catId1;
+		if($catId2) $catIds[] = $catId2;
+		if($catId3) $catIds[] = $catId3;
+		$catIds[] = $catId;
 		#
 		$data = array_merge($data,
 			array('language' => $language, 'catId' => $catId, 'productId' => $productId),
+			array('catIds' => $catIds),
 			array(
 				'page_title' 		=> $page_title,
 				'page_description' 	=> $page_description,

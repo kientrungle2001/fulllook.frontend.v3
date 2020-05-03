@@ -86,6 +86,14 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	# short
 	$route['[\w\d\-_]+\-cp(:num)\-p(:num).html'] = 'product/detail/vi/$1/$2';
 	$route['en/[\w\d\-_]+\-cp(:num)\-p(:num).html'] = 'product/detail/en/$1/$2';
+	# short html with category
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/vi/$1/$2';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/en/$1/$2';
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/vi/$2/$3/$1';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/en/$2/$3/$1';
+	$route['[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/vi/$3/$4/$1/$2';
+	$route['en/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-cp(:num)/[\w\d\-_]+\-p(:num).html'] = 'product/detail/en/$3/$4/$1/$2';
+	
 
 	# product feed
 	$route['[\w\d\-_]+\-cp(:num)/feed'] = 'product/feed/vi/$1';

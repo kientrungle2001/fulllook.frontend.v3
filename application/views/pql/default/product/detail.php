@@ -10,6 +10,11 @@ $posts = $controller->posts_model->get_posts(array(
 	'term_taxonomy_id' => $category_taxonomy['term_taxonomy_id']
 ));
 #
+$product_categories = [];
+foreach($catIds as $cId) {
+	$product_categories[] = $controller->terms_model->get_one($cId);
+}
+#
 $product = $controller->posts_model->get_post($productId);
 ?>
 <?php $controller->view('left', $data); ?>
@@ -19,10 +24,19 @@ $product = $controller->posts_model->get_post($productId);
 	</div>
 	<div id="link_br" style="margin:0px;border:none">
 		<a href="/<?= $language?>"><?= $controller->getHomeTitle($language)?></a>
+		<?php foreach($product_categories as $p_index => $p_cat):
+		$p_cat_parents = [];
+		for($i = 0; $i < $p_index; $i++):
+			$p_cat_parents[] = $product_categories[$i];
+		endfor;
+		?>
 		<span>»</span>
-		<a class="p-category" href="<?= $controller->links_model->get_product_category_link($language, $category)?>"><?= wpglobus($category['name'], $language) ?></a>
+		<a class="a_active" href="<?= $controller->getProductCatLink($p_cat, $language, $p_cat_parents)?>">
+			<?= $controller->getCatName($p_cat, $language)?>
+		</a>
+		<?php endforeach; ?>
 		<span>»</span>
-		<h3><a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product)?>"><?= wpglobus($product['post_title'], $language) ?></a></h3>
+		<h3><a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product, $product_categories)?>"><?= wpglobus($product['post_title'], $language) ?></a></h3>
 	</div>
 	<br clear="all">
 	<div id="info_cate">
@@ -96,11 +110,76 @@ $product = $controller->posts_model->get_post($productId);
 
 		<div id="other-products">
 			<div class="product-tabs">
-				<div class="product-tab product-tab-active">Sản phẩm khác</div>
+				<div class="product-tab product-tab-active">
+				<div class="b_top" style="margin-top: 15px;margin-bottom: 15px;">
+					<div class="h2">Sản phẩm khác</div>
+				</div>
+				</div>
 			</div>
 			<div class="product-tab-contents">
 				<div class="product-tab-content product-tab-content-active">
-					Sản phẩm khác
+						<?php if(!isset($view_mode)):?>
+							<table class="product-price-table">
+								<tr>
+									<th>STT</th>
+									<th>Sản phẩm</th>
+									<th>Đơn giá</th>
+									<th>Tình trạng</th>
+									<th>Số lượng</th>
+									<th>Thêm</th>
+								</tr>
+						<?php endif;?>
+						<?php 
+						$jsonlds = [];
+						foreach($posts as $post_index => $post):
+							$img = $controller->getProductImage($post);
+							$img_url = $links_model->get_image_url($img);
+							$product_link = $controller->getProductLink($post, $category, $language, $product_categories);
+							$product_title = $controller->getProductTitle($post, $language);
+							$jsonlds[] = array(
+								"@type" => "ListItem",
+								"image"	=> $img_url,
+								"url"	=> $product_link,
+								"name" 	=> $product_title,
+								"position" => ($post_index + 1)
+							);
+							?>
+						<?php if(isset($view_mode) && $view_mode=='grid'):?>
+						<div class="cate2_s item_cate2 h-product">
+							<a href="<?= $product_link?>">
+								<img title="<?= $product_title?>" src="<?= $img_url?>" width="167" height="131" border="0" class="u-photo"></a>
+							<p><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></p>
+							<br clear="all">
+						</div>
+						<?php else:?>
+							<tr class="product-price-row">
+								<td><?= $post_index + 1?></td>
+								<td>
+									<a href="<?= $product_link?>" class="product-image">
+										<img title="<?= $product_title?>" src="<?= $img_url?>" width="64" height="auto"" border="0" class="u-photo">
+									</a>
+									<div class="product-info text-left">
+									<p><strong><a href="<?= $product_link?>" class="name_cate2 p-name"><?= $product_title?></a></strong></p>
+									<p>Thương hiệu: <?= $post['brand']?></p>
+									</div>
+									
+									<div class="clear"></div>
+								</td>
+								<td><?= @$post['price']?></td>
+								<td><?= @$post['stock']?></td>
+								<td class="text-center"><input id="quantity-<?= $post['ID']?>" type="text" size="5" name="quantity" class="input product-quantity" style="width: 80%" value="1"></td>
+								<td class="text-center"><button class="btn" onclick="add_to_cart_category(<?= $post['ID']?>, 
+									'<?= html_escape($product_title)?>', 
+									'<?= @$post['price']?>',
+									'<?= html_escape($post['brand'])?>',
+									'<?= html_escape($img_url)?>',
+									'<?= html_escape($product_link)?>',
+									'<?= html_escape(@$post['stock'])?>'
+									); return false;">Đặt mua</button></td>
+							</tr>
+						<?php endif;?>
+						<?php endforeach;?>
+						<?php if(!isset($view_mode)):?></table><?php endif;?>
 				</div>
 			</div>
 		</div>
@@ -162,4 +241,33 @@ $jsonld = array(
 			$('.product-tab-content:eq('+tabIndex+')').addClass('product-tab-content-active');
 		});
 	});
+</script>
+
+<script type="text/javascript">
+	function add_to_cart_category(product_id, product_title, product_price, product_brand, product_image, product_link, product_stock) {
+		var quantity = jQuery('#quantity-' + product_id).val();
+		quantity = parseFloat(quantity);
+		if(!quantity) {
+			alert('Bạn cần nhập số lượng');
+		} else {
+			jQuery.ajax({
+				url: '/cart/addToCart',
+				type: 'post', dataType: 'json',
+				data: {
+					sku: product_id,
+					name: product_title,
+					quantity: quantity,
+					price: product_price,
+					image: product_image,
+					link: product_link,
+					stock: product_stock,
+					brand: product_brand
+				},
+				success: function(resp) {
+					jQuery('#but_gh .num').text(resp.total_items);
+					alert('Đã thêm ' + quantity + ' ' + product_title + ' vào giỏ hàng');
+				}
+			});
+		}
+	}
 </script>
