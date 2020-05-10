@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Home extends MY_Controller
+{
 
-	public function index($language = 'vi'){
+	public function index($language = 'vi')
+	{
 		$data = array();
 		$this->load_pql_models($data);
 		#
@@ -12,7 +14,7 @@ class Home extends MY_Controller {
 		$logo = $this->options_model->get_logo();
 		#
 		$description = $this->options_model->get_blog_description();
-		if(!$description) {
+		if (!$description) {
 			$description = $slogan;
 		}
 		#
@@ -20,7 +22,7 @@ class Home extends MY_Controller {
 		#
 		$page_title = wpglobus('{:vi}Trang chủ{:}{:en}Home{:}', $language) . ' | ' . wpglobus($blogname, $language);
 		$page_description = wpglobus($description, $language);
-		$page_keywords = wpglobus($keywords, $language) ;
+		$page_keywords = wpglobus($keywords, $language);
 		$data = array_merge($data, array(
 			'language' 			=> $language,
 			'page_title' 		=> $page_title,
@@ -28,11 +30,12 @@ class Home extends MY_Controller {
 			'page_keywords' 	=> $page_keywords,
 			'page_image' 		=> $logo
 		));
-		
+
 		$this->render('home', $data);
 	}
 
-	public function login_callback() {
+	public function login_callback()
+	{
 		$dataUser = $this->input->get();
 		$this->session->username = $dataUser['username'];
 		$this->session->phone = $dataUser['phone'];
@@ -45,7 +48,8 @@ class Home extends MY_Controller {
 		header('Location: /');
 	}
 
-	public function logout() {
+	public function logout()
+	{
 		$this->session->username = null;
 		$this->session->phone = null;
 		$this->session->email = null;
@@ -57,18 +61,30 @@ class Home extends MY_Controller {
 		header('Location: /');
 	}
 
-	public function sitemap($language = 'vi') {
+	public function sitemap($language = 'vi')
+	{
 		$data = array('language' => $language);
 		$this->load_pql_models($data);
 		$xml = $this->view('sitemap', $data, true);
-		file_put_contents(FCPATH. 'sitemap.xml', $xml);
+		file_put_contents(FCPATH . 'sitemap.xml', $xml);
 		echo 'sitemap.xml generated. <a href="/sitemap.xml">Link here</a>';
 	}
-	
-	public function test($language = 'vi') {
+
+	public function test($language = 'vi')
+	{
 		$post = $this->curl->get('https://mobo.com.vn/_pql/wp-json/wp/v2/posts/734?context=view');
 		echo '<pre>';
 		$post = json_decode($post, true);
 		echo json_encode($post, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}
+
+	public function slug($slug, $slug2 = null)
+	{
+		$term = $this->terms_model->get_by_slug($slug);
+		var_dump($term);
+		if ($slug2) {
+			$term = $this->terms_model->get_by_slug($slug2);
+			var_dump($term);
+		}
 	}
 }

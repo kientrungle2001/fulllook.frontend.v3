@@ -36,6 +36,17 @@ class Links_model
 			$language_prefix = '/en';
 		}
 		$paths = [];
+		$paths[] = wpglobus($category['slug'], $language);
+		if($category1) {
+			$paths[] = wpglobus($category1['slug'], $language);
+		}
+		if($category2) {
+			$paths[] = wpglobus($category2['slug'], $language);
+		}
+		if($category3) {
+			$paths[] = wpglobus($category3['slug'], $language);
+		}
+		/* old with id
 		$paths[] = wpglobus($category['slug'], $language) . '-cp' . $category['term_id'];
 		if($category1) {
 			$paths[] = wpglobus($category1['slug'], $language) . '-cp' . $category1['term_id'];
@@ -46,6 +57,7 @@ class Links_model
 		if($category3) {
 			$paths[] = wpglobus($category3['slug'], $language) . '-cp' . $category3['term_id'];
 		}
+		*/
 		$paths = array_reverse($paths);
 		return $language_prefix . '/' . implode('/', $paths);
 	}
