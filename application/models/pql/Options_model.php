@@ -33,6 +33,10 @@ class Options_model extends Abstract_Table_Model
 		return $this->get_option_tree('blog_name');
 	}
 
+	public function get_blog_name_short() {
+		return $this->get_option_tree('blog_name_short');
+	}
+
 	public function get_blog_description() {
 		return $this->get_option_tree('blog_description');
 	}

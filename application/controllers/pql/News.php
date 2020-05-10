@@ -13,7 +13,7 @@ class News extends MY_Controller {
 		$data = array();
 		$this->load_pql_models($data);
 		#
-		$blogname = $this->options_model->get_blog_name();
+		$blogname = $this->options_model->get_blog_name_short();
 		$logo = replace_host($this->options_model->get_logo());
 		# load category
 		$category = $this->terms_model->get_one($catId);
@@ -64,7 +64,7 @@ class News extends MY_Controller {
 		$data = array();
 		$this->load_pql_models($data);
 		#
-		$blogname = $this->options_model->get_blog_name();
+		$blogname = $this->options_model->get_blog_name_short();
 		$slogan = $this->options_model->get_slogan();
 		$logo = $this->options_model->get_logo();
 

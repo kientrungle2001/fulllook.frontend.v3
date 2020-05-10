@@ -9,7 +9,7 @@ class Cart extends MY_Controller
 		$data = array();
 		$this->load_pql_models($data);
 		#
-		$blogname = $this->options_model->get_blog_name();
+		$blogname = $this->options_model->get_blog_name_short();
 		$slogan = $this->options_model->get_slogan();
 		$logo = $this->options_model->get_logo();
 		#
