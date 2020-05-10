@@ -26,6 +26,11 @@ class Terms_model extends Abstract_Table_Model
 		return $this;
 	}
 
+	/**
+	 * Lấy danh sách các category con của một category
+	 * @param int $parent parent term id
+	 * @return array danh sách các category term con
+	 */
 	public function get_children($parent = 0) {
 		$query = $this->select('bv_terms.*, bv_term_taxonomy.term_taxonomy_id, bv_term_taxonomy.parent');
 		$this->join('bv_term_taxonomy', 'bv_terms.term_id=bv_term_taxonomy.term_id');
@@ -35,6 +40,10 @@ class Terms_model extends Abstract_Table_Model
 		return $children;
 	}
 
+	/**
+	 * Lấy danh sách menu
+	 * @return array danh sách nav_menu
+	 */
 	public function get_nav_menus() {
 		$query = $this->select('bv_terms.*, bv_term_taxonomy.term_taxonomy_id, bv_term_taxonomy.parent');
 		$this->join('bv_term_taxonomy', 'bv_terms.term_id=bv_term_taxonomy.term_id');
@@ -43,10 +52,28 @@ class Terms_model extends Abstract_Table_Model
 		return $children;
 	}
 
+	/**
+	 * Lấy term_taxonomy từ term và loại taxanomy
+	 * @param int $term_id term id
+	 * @param string $taxonomy loại taxonomy
+	 * @return array bản ghi term_taxonomy 
+	 */
 	public function get_term_taxonomy($term_id, $taxonomy = 'category') {
 		$this->db->select('*')->where('term_id', $term_id)->where('taxonomy', $taxonomy);
 		$result = $this->db->get('bv_term_taxonomy', 0, 1);
 		$row = $result->row_array();
 		return $row;
+	}
+	
+	/**
+	 * Lấy term từ slug
+	 * @param string $slug slug của term
+	 * @return array term
+	 * 
+	 */
+	public function get_by_slug($slug) {
+		return $this->get_one_by_conds([
+			'slug' => $slug
+		]);
 	}
 }

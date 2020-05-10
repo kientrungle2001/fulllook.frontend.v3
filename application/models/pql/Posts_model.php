@@ -87,4 +87,14 @@ class Posts_model extends Abstract_Table_Model
 	public function curl($method, $url = '', $vars = []) {
 		return $this->controller->curl->request($method, $this->endpoint . $url, $vars);
 	}
+
+	/**
+	 * @param string $slug slug cua post
+	 * @return array post
+	 */
+	public function get_by_slug($slug) {
+		return $this->get_one_by_conds([
+			'post_name' => $slug
+		]);
+	}
 }
