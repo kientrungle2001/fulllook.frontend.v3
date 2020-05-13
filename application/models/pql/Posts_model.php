@@ -94,7 +94,9 @@ class Posts_model extends Abstract_Table_Model
 	 */
 	public function get_by_slug($slug) {
 		return $this->get_one_by_conds([
-			'post_name' => $slug
+			'post_name' => $slug,
+			'post_status' => 'publish',
+			'post_type' => 'post'
 		]);
 	}
 }

@@ -68,15 +68,19 @@ class Links_model
 			$language_prefix = '/en';
 		}
 		
-		return $language_prefix . '/' . wpglobus($news['post_name'], $language). '-cn' . $category['term_id'] . '-n' . $news['ID'] . '.html';
+		return $this->get_news_category_link_without_html($language, $category) . '/' . wpglobus($news['post_name'], $language). '.html';
 	}
 
 	public function get_news_category_link($language, $category) {
+		return $this->get_news_category_link_without_html($language, $category) . '.html';
+	}
+
+	public function get_news_category_link_without_html($language, $category) {
 		$language_prefix = '';
 		if($language == 'en') {
 			$language_prefix = '/en';
 		}
-		return $language_prefix . '/' . wpglobus($category['slug'], $language) . '-cn' . $category['term_id'] . '.html';
+		return $language_prefix . '/' . wpglobus($category['slug'], $language);
 	}
 
 	public function get_image_url($img) {
