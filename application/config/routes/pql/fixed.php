@@ -5,6 +5,8 @@
 	# contact
 	$route['lien-he'] = 'contact/index/vi';
 	$route['en/lien-he'] = 'contact/index/en';
+
+	$route['cart/(.*)'] = 'cart/$1';
 	
 	$route['(gioi-thieu|bang-gia|chinh-sach|tuyen-dung|tin-tuc)\.html'] = 'news/category_slug/vi/$1';
 	$route['en/(gioi-thieu|bang-gia|chinh-sach|tuyen-dung|tin-tuc)\.html'] = 'news/category_slug/en/$1';
