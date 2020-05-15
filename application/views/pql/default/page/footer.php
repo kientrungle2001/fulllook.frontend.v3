@@ -6,6 +6,7 @@ $hotline_3 = $options_model->get_hotline_3();
 $company_name = $controller->options_model->get_option_tree('company_name');
 $address = $controller->options_model->get_option_tree('address');
 $office_address = $controller->options_model->get_option_tree('office_address');
+$office_address_2 = $controller->options_model->get_option_tree('office_address_2');
 $tel = $controller->options_model->get_option_tree('tel');
 $fax = $controller->options_model->get_option_tree('fax');
 $tax_code = $controller->options_model->get_option_tree('tax_code');
@@ -36,6 +37,9 @@ $footer_link_items = $controller->posts_model->get_nav_items(174);
 		<p><?= $company_name?></p>
 		<p><?= wpglobus('{:vi}Địa chỉ{:}{:en}Address{:}', $language)?>: <?= $address?></p>
 		<p><?= wpglobus('{:vi}VPDD{:}{:en}Office{:}', $language)?>: <?= $office_address?></p>
+		<?php if($office_address_2):?>
+		<p><?= wpglobus('{:vi}VPDD 2{:}{:en}Office 2{:}', $language)?>: <?= $office_address_2?></p>
+		<?php endif;?>
 		<p>Tel: <?= $tel?> - Fax: <?= $fax?></p>
 		<p>Email: <?= $email?></p>
 		<p style="display: none;"><?= wpglobus('{:vi}Mã số thuế{:}{:en}Tax Code{:}', $language)?>: <?= $tax_code?></p>
