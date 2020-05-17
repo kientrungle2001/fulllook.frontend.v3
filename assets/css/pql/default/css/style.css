@@ -1119,6 +1119,10 @@ img {
   text-align: left !important;
 }
 
+.text-right {
+  text-align: right !important;
+}
+
 .float-left {
   float: left;
 }
@@ -1219,6 +1223,18 @@ img {
 	padding: 5px;
 }
 
+.cart-checout-btns {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.btn-checkout {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+}
+
 .input {
 	padding: 5px;
 }
@@ -1234,4 +1250,51 @@ img {
 #home_h1 {
 	margin-top: 15px !important;
 	margin-bottom: 15px !important;
+}
+
+.order-table {
+  padding: 15px;
+}
+.order_form {
+  padding: 15px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.order_form .form-group::after {
+  display: block;
+  clear:both;
+  content: '';
+}
+.order_form .form-group .form-item {
+  float: left;
+  width: 100%;
+}
+.form-input textarea, .form-input input {
+  width: 100%;
+  padding: 5px;
+}
+.form-input textarea {
+  height: 80px;
+}
+
+.form-buttons button, .form-buttons input {
+  padding: 10px 25px;
+  background: #0269b6;
+  color: #fff;
+  border: none;
+}
+
+.order_billing_information::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.order_billing_information .order_left,
+.order_billing_information .order_right {
+  float: left;
+  width: 50%;
+  padding: 15px;
+  margin: -15px;
 }
