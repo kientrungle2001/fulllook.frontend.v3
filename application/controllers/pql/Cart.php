@@ -299,4 +299,9 @@ class Cart extends MY_Controller
 		));
 		$this->render('confirm', $data);		
 	}
+
+	public function save_order($language = 'vi') {
+		$cart_items = $this->session->cart_items;
+		$checkout_info = $this->session->checkout_info;
+	}
 }
