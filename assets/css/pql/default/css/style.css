@@ -1285,6 +1285,11 @@ img {
   border: none;
 }
 
+.form-buttons .secondary {
+  background: #ccc;
+  color: #333;
+}
+
 .order_billing_information::after {
   display: block;
   content: '';

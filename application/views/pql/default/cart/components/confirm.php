@@ -10,58 +10,49 @@ if (count($cart_items)) :
       <form class="order_form" id="order_information">
         <div class="form-group">
           <div class="form-item">
-            <label>Họ và tên (*)</label>
-            <div class="form-input">
-              <input name="customer_name" id="customer_name" value="<?= html_escape(@$c->session->checkout_info['name'])?>" />
-            </div>
+            <label>Họ và tên: </label>
+              <?= html_escape($c->session->checkout_info['name'])?>
           </div>
           <div class="form-item">
-            <label>Số điện thoại (*)</label>
-            <div class="form-input">
-              <input name="customer_phone" id="customer_phone" value="<?= html_escape(@$c->session->checkout_info['phone'])?>" />
-            </div>
+            <label>Số điện thoại: </label>
+              <?= html_escape($c->session->checkout_info['phone'])?>
           </div>
           <div class="form-item">
-            <label>Địa chỉ (*)</label>
-            <div class="form-input">
-              <input name="customer_address" id="customer_address" value="<?= html_escape(@$c->session->checkout_info['address'])?>" />
-            </div>
+            <label>Địa chỉ: </label>
+              <?= html_escape($c->session->checkout_info['address'])?>
           </div>
           <div class="form-item">
-            <label>Tỉnh thành (*)</label>
-            <div class="form-input">
-              <input name="customer_city" id="customer_city" value="<?= html_escape(@$c->session->checkout_info['city'])?>" />
-            </div>
+            <label>Tỉnh thành: </label>
+              <?= html_escape($c->session->checkout_info['city'])?>
           </div>
           <div class="form-item">
-            <label>Email (*)</label>
-            <div class="form-input">
-              <input name="email" id="customer_email" value="<?= html_escape(@$c->session->checkout_info['email'])?>" />
-            </div>
+            <label>Email: </label>
+              <?= html_escape($c->session->checkout_info['email'])?>
           </div>
         </div>
         <div class="form-item">
-          <label>Nội dung lời nhắn (*)</label>
-          <div class="form-input">
-            <textarea name="content" id="customer_content"><?= html_escape(@$c->session->checkout_info['content'])?></textarea>
-          </div>
+          <label>Nội dung lời nhắn:</label>
+            <?= nl2br(html_escape($c->session->checkout_info['content']))?>
         </div>
         <div class="form-buttons">
-          <input type="button" value="Đặt hàng" onclick="place_order(); return false;">
-          <input type="button" class="secondary" value="Quay lại" onclick="edit_cart(); return false;">
+          <input type="button" value="Thanh toán" onclick="place_order(); return false;">
+          <input type="button" class="secondary" value="Quay lại" onclick="edit_checkout(); return false;">
         </div>
       </form>
     </div>
     <div class="order_right">
       <h2>Hình thức thanh toán</h2>
       <ol>
-        <li><input type="radio" name="payment_method" value="bank" id="payment_method_bank" <?= ($c->session->checkout_info['payment_method'] == 'bank') ? 'checked':''?>> <label for="payment_method_bank">Chuyển khoản ngân hàng</label>
+        <?php if($c->session->checkout_info['payment_method'] == 'bank'):?>
+        <li><input type="radio" name="payment_method" value="bank" id="payment_method_bank" disabled <?= ($c->session->checkout_info['payment_method'] == 'bank') ? 'checked':''?>> <label for="payment_method_bank">Chuyển khoản ngân hàng</label>
           <div>
             <?= $options_model->get_option_tree('bank_info') ?>
           </div>
         </li>
+        <?php endif; ?>
+        <?php if($c->session->checkout_info['payment_method'] == 'money'):?>
         <li>
-          <input type="radio" name="payment_method" value="money" id="payment_method_money" <?= ($c->session->checkout_info['payment_method'] == 'money') ? 'checked':''?>> <label for="payment_method_money">Thanh toán trực tiếp</label>
+          <input type="radio" name="payment_method" value="money" id="payment_method_money" disabled <?= ($c->session->checkout_info['payment_method'] == 'money') ? 'checked':''?>> <label for="payment_method_money">Thanh toán trực tiếp</label>
           <div>
             <p><?= $options_model->get_option_tree('company_name') ?></p>
             <p><?= wpglobus('{:vi}Địa chỉ{:}{:en}Address{:}', $language) ?>: <?= $options_model->get_option_tree('address') ?></p>
@@ -73,6 +64,7 @@ if (count($cart_items)) :
             <p><?= $options_model->get_option_tree('business_author') ?></p>
           </div>
         </li>
+        <?php endif;?>
       </ol>
     </div>
   </div>
@@ -109,26 +101,18 @@ if (count($cart_items)) :
       return alert('Vui lòng chọn hình thức thanh toán');
     }
     $.ajax({
-      url: '/cart/placeorder',
-      data: {
-        name: name,
-        phone: phone,
-        address: address,
-        city: city,
-        email: email,
-        content: content,
-        payment_method: payment_method
-      },
+      url: '/cart/save_order',
       type: 'post',
       success: function() {
         // alert('Cảm ơn bạn đã đặt hàng, chúng tôi sẽ liên hệ với bạn sớm nhất có thể!');
         // window.location.reload();
-        window.location = "<?= $links_model->get_language_link($language, '/cart/confirm')?>";
+        window.location = "<?= $links_model->get_language_link($language, '/cart/save_order')?>";
       }
     });
+
   }
 
-  function edit_cart() {
-    window.location = "<?= $links_model->get_language_link($language, '/cart')?>";
+  function edit_checkout() {
+    window.location = "<?= $links_model->get_language_link($language, '/cart/checkout')?>";
   }
 </script>

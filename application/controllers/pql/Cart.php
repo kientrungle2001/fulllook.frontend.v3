@@ -155,10 +155,22 @@ class Cart extends MY_Controller
 			$city = $this->input->post('city');
 			$content = $this->input->post('content');
 			$payment_method = $this->input->post('payment_method');
-			$this->sendEmail($name, $email, $phone, $address, $city, $content, $payment_method, $this->session->cart_items);
+			// $this->sendEmail($name, $email, $phone, $address, $city, $content, $payment_method, $this->session->cart_items);
+			$this->saveCheckoutInfo($name, $email, $phone, $address, $city, $content, $payment_method, $this->session->cart_items);
 		}
 	}
 
+	public function saveCheckoutInfo($name, $email, $phone, $address, $city, $content, $payment_method, $cart_items) {
+		$this->session->checkout_info = [
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'address' => $address,
+			'city' => $city,
+			'content' => $content,
+			'payment_method' => $payment_method
+		];
+	}
 	public function sendEmail($name, $email, $phone, $address, $city, $content, $payment_method, $cart_items)
 	{
 		$emailContent = '<h1>Thông tin đơn hàng</h1>';
@@ -257,5 +269,34 @@ class Cart extends MY_Controller
 			'page_image' 		=> $logo
 		));
 		$this->render('checkout', $data);
+	}
+
+	public function confirm($language = 'vi') {
+		$this->load->library('cart');
+		$data = array();
+		$this->load_pql_models($data);
+		#
+		$blogname = $this->options_model->get_blog_name_short();
+		$slogan = $this->options_model->get_slogan();
+		$logo = $this->options_model->get_logo();
+		#
+		$description = $this->options_model->get_blog_description();
+		if (!$description) {
+			$description = $slogan;
+		}
+		#
+		$keywords = $this->options_model->get_blog_keywords();
+		#
+		$page_title = wpglobus('{:vi}Xác nhận thanh toán{:}{:en}Confirm Checkout{:}', $language) . ' | ' . wpglobus($blogname, $language);
+		$page_description = wpglobus($description, $language);
+		$page_keywords = wpglobus($keywords, $language);
+		$data = array_merge($data, array(
+			'language' 			=> $language,
+			'page_title' 		=> $page_title,
+			'page_description' 	=> $page_description,
+			'page_keywords' 	=> $page_keywords,
+			'page_image' 		=> $logo
+		));
+		$this->render('confirm', $data);		
 	}
 }
