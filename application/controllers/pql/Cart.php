@@ -303,5 +303,12 @@ class Cart extends MY_Controller
 	public function save_order($language = 'vi') {
 		$cart_items = $this->session->cart_items;
 		$checkout_info = $this->session->checkout_info;
+		$this->db->insert([
+
+		]);
+	}
+
+	public function success($language = 'vi') {
+
 	}
 }

@@ -28,11 +28,14 @@ class MY_Controller extends CI_Controller {
 		$this->posts_model->controller = $this;
 		$this->terms_model->controller = $this;
 		$this->links_model->controller = $this;
+		$this->orders_model->controller = $this;
+		$this->order_items_model->controller = $this;
 		$data['options_model'] = $this->options_model;
 		$data['posts_model'] = $this->posts_model;
 		$data['terms_model'] = $this->terms_model;
 		$data['links_model'] = $this->links_model;
-		
+		$data['orders_model'] = $this->orders_model;
+		$data['order_items_model'] = $this->order_items_model;
 	}
 
 	public function load_config_from_db($key) {
