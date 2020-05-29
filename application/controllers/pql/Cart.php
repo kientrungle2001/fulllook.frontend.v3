@@ -160,7 +160,8 @@ class Cart extends MY_Controller
 		}
 	}
 
-	public function saveCheckoutInfo($name, $email, $phone, $address, $city, $content, $payment_method, $cart_items) {
+	public function saveCheckoutInfo($name, $email, $phone, $address, $city, $content, $payment_method, $cart_items)
+	{
 		$this->session->checkout_info = [
 			'name' => $name,
 			'email' => $email,
@@ -242,7 +243,8 @@ class Cart extends MY_Controller
 		}
 	}
 
-	public function checkout($language = 'vi') {
+	public function checkout($language = 'vi')
+	{
 		$this->load->library('cart');
 		$data = array();
 		$this->load_pql_models($data);
@@ -271,7 +273,8 @@ class Cart extends MY_Controller
 		$this->render('checkout', $data);
 	}
 
-	public function confirm($language = 'vi') {
+	public function confirm($language = 'vi')
+	{
 		$this->load->library('cart');
 		$data = array();
 		$this->load_pql_models($data);
@@ -297,18 +300,28 @@ class Cart extends MY_Controller
 			'page_keywords' 	=> $page_keywords,
 			'page_image' 		=> $logo
 		));
-		$this->render('confirm', $data);		
+		$this->render('confirm', $data);
 	}
 
-	public function save_order($language = 'vi') {
+	public function save_order($language = 'vi')
+	{
 		$cart_items = $this->session->cart_items;
 		$checkout_info = $this->session->checkout_info;
-		$this->db->insert([
-
+		$order_id = $this->orders_model->insert([
+			'name' => $name,
+			'address' => $address,
+			'email' => $email,
+			'phone' => $phone,
+			'city' => $city,
+			'content' => $content,
+			'status' => 'pending'
 		]);
+		foreach ($cart_items as $cart_item) {
+			$this->order_items_model->insert([]);
+		}
 	}
 
-	public function success($language = 'vi') {
-
+	public function success($language = 'vi')
+	{
 	}
 }

@@ -109,7 +109,8 @@ class Abstract_Table_Model extends MY_Model
 
 	public function insert($values) {
 		$this->format_update($values);
-		return $this->db->insert($this->table, $values);
+		$this->db->insert($this->table, $values);
+		return $this->db->insert_id();
 	}
 
 	public function update($id, $set) {
