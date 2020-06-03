@@ -36,7 +36,7 @@ $product = $controller->posts_model->get_post($productId);
 		</a>
 		<?php endforeach; ?>
 		<span>»</span>
-		<h3><a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product, $product_categories)?>"><?= wpglobus($product['post_title'], $language) ?></a></h3>
+		<a class="a_active p-name u-url" href="<?= $controller->links_model->get_product_link($language, $category, $product, $product_categories)?>"><?= wpglobus($product['post_title'], $language) ?></a>
 	</div>
 	<br clear="all">
 	<div id="info_cate">
