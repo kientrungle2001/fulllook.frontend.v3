@@ -9,6 +9,7 @@
 	$route['en/cart/(.*)'] = 'cart/$1/en';
 	$route['vi/cart/(.*)'] = 'cart/$1/vi';
 	$route['cart/(.*)'] = 'cart/$1';
+	$route['home/(.*)'] = 'home/$1';
 	
 	$route['(gioi-thieu|bang-gia|chinh-sach|tuyen-dung|tin-tuc)\.html'] = 'news/category_slug/vi/$1';
 	$route['en/(gioi-thieu|bang-gia|chinh-sach|tuyen-dung|tin-tuc)\.html'] = 'news/category_slug/en/$1';
