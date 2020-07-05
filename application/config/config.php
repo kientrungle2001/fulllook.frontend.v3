@@ -49,6 +49,7 @@ require_once 'apps/admin_nextnobels_vn.php';
 require_once 'apps/pql_vn.php';
 require_once 'apps/crm_anphat_vn.php';
 require_once 'apps/admin_qlhs_vn.php';
+require_once 'apps/gsmapi_com.php';
 $GLOBALS['__config'] = $config;
 
 /*
