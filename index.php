@@ -1,4 +1,12 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Accept, X-Requested-With');
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') { 
+	if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) 
+	header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+	if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) 
+		header("Access-Control-Allow-Headers:
+	{$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}"); exit(0); }
 /**
  * CodeIgniter
  *
