@@ -269,6 +269,11 @@ class MY_Controller extends CI_Controller {
 	public function getPostImage($post) {
 		return $this->posts_model->get_post_thumbnail_img($post);
 	}
+
+	public function json($arr, $status = '200') {
+		echo json_encode($arr);
+    $this->output->set_status_header($status);
+	}
 }
 
 require_once 'MY_AdminController.php';
