@@ -50,6 +50,7 @@ require_once 'apps/pql_vn.php';
 require_once 'apps/crm_anphat_vn.php';
 require_once 'apps/admin_qlhs_vn.php';
 require_once 'apps/gsmapi_com.php';
+require_once 'apps/crawler_com.php';
 $GLOBALS['__config'] = $config;
 
 /*
