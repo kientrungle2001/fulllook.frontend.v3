@@ -1,4 +1,4 @@
-<nav id="topNav" class="navbar p-3 fixed-to navbar-expand-md ">
+<nav id="topNav" class="navbar p-3 fixed-to navbar-expand-md">
 	<a class="navbar-brand mx-auto" href="/">
 		<img src="http://tdn.nextnobels.com/assets/images/logo.png" /></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">

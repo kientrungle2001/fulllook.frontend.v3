@@ -1,0 +1,1 @@
+<?php $controller->view('news/index', $data); ?>

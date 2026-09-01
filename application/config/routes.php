@@ -57,3 +57,8 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
 	require_once 'routes/pql.php';
 }
+
+if($_SERVER['HTTP_HOST'] == 'pmtv.vn' || $_SERVER['HTTP_HOST'] == 'pmtv.nn-center.com'
+		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
+	require_once 'routes/pmtv.php';
+}

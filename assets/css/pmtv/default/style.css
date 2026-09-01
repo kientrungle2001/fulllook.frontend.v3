@@ -1,0 +1,171 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(/assets/css/pmtv/default/OpenSans-Semibold.ttf);
+}
+
+body {
+    font-family: OpenSans;
+}
+
+.news-content {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.rounded-2rem {
+    border-radius: 2rem;
+}
+
+header {
+    background-color: #fff;
+    .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        .logo {
+            flex: 0 0 auto;
+            img {
+                width: 275px;
+                height: auto;
+            }
+        }
+
+        .site-title {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1 {
+                font-size: 1.25rem;
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.navbar-homepage {
+    background: #25aae1;
+    .dropdown-menu {
+        background: #25aae1;
+        margin-top: 14px;
+        li {
+            a {
+                color: #fff;
+                font-size: 0.85rem;
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+        &:before {
+            position: absolute;
+            top: -7px;
+            left: 9px;
+            display: inline-block;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #25aae1;
+            border-left: 7px solid transparent;
+            content: "";
+        }
+    }
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        a.nav-link,
+        a.nav-link.active {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        a.nav-link.active {
+            font-weight: bold;
+        }
+    }
+}
+body {
+    background-color: #f2dbff;
+}
+.background-wrapper {
+    background: url(/assets/css/pmtv/default/images/footerbg.png) no-repeat;
+    background-position: bottom center;
+}
+
+.card {
+    h2.card-header {
+        line-height: 1.5rem;
+    }
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.card-box {
+    background: transparent;
+    border: none;
+    h2.card-header {
+        background: url("/assets/css/pmtv/default/images/news-heading-background.png");
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+    .card-body {
+        background: #fff;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        .list-group-item {
+            border: none;
+        }
+        .list-group-item:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+        }
+    }
+}
+
+.card-enroll {
+    h2.card-header {
+        background: url("/assets/css/pmtv/default/images/support-subscribe-heading-background.png");
+        background-size: 100% auto;
+    }
+}
+
+.card-support {
+    h2.card-header {
+        background: url("/assets/css/pmtv/default/images/support-heading-background.png");
+        background-size: 100% auto;
+    }
+}
+
+.enroll-actions {
+    button {
+        text-transform: uppercase;
+    }
+    button,
+    a {
+        font-size: 0.785rem;
+    }
+}
+footer {
+    background: #25aae1;
+    color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    ul {
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+    h4 {
+        font-size: 1.3rem;
+    }
+}

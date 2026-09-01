@@ -61,6 +61,9 @@ $autoload['packages'] = array();
 $autoload['libraries'] = array('user_agent', 'session', 'detector');
 if($_SERVER['HTTP_HOST'] == 'phattrienngonngu.com' 
 	|| $_SERVER['HTTP_HOST'] == 'admin.nextnobels.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'pmtv.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'pmtv4.vn' 
+	|| $_SERVER['HTTP_HOST'] == 'pmtv5.vn' 
 	|| $_SERVER['HTTP_HOST'] == 'pql.vn' 
 	|| $_SERVER['HTTP_HOST'] == 'pql.nn-center.com' 
 	|| $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn' 
@@ -161,3 +164,5 @@ if(($_SERVER['HTTP_HOST'] == 'pql.vn') || ($_SERVER['HTTP_HOST'] == 'pql.nn-cent
 if(($_SERVER['HTTP_HOST'] == 'admin.qlhs.vn' || $_SERVER['HTTP_HOST'] == 'demo.qlhs.nn-center.com')) {
 	require_once 'autoload/qlhs.php';
 }
+
+$autoload['model']['table_model'] = 'table_model';

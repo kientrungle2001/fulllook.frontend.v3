@@ -1,0 +1,753 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(OpenSans-Semibold.ttf);
+}
+
+body {
+    font-family: OpenSans;
+    font-size: 0.9rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-nav {
+    background-color: #25aae1;
+}
+
+.img-pmtv {
+    aspect-ratio: 16 / 9;
+    object-fit: scale-down;
+}
+
+.row-cols-5 > * {
+    flex: 0 0 auto;
+    width: 20%;
+}
+
+.carousel .fa-chevron-left, .carousel .fa-chevron-right {
+	position: absolute;
+	top:		calc(50% - 1rem);
+	display: 	none;
+	font-size: 	30px;
+	color: 		white;
+    background-color: #999;
+    opacity: 0.3;
+    padding: 1rem;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+.carousel .fa-chevron-left {
+	left:		10px;
+}
+
+.carousel .fa-chevron-right {
+	right:		10px;
+}
+.carousel .fa-chevron-left, .carousel .fa-chevron-right {
+	display: 	inline;
+}
+
+@media (max-width: 767.98px) {
+    .row-cols-5 > * {
+        width: 50%;
+    }
+}
+
+#navbar-main {
+    .dropdown-menu {
+        background: #25aae1;
+        margin-top: 4px;
+        li {
+            a {
+                color: #fff;
+                font-size: 0.85rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+        &:before {
+            position: absolute;
+            top: -7px;
+            left: 9px;
+            display: inline-block;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #25aae1;
+            border-left: 7px solid transparent;
+            content: "";
+        }
+    }
+    li {
+        a {
+            color: #fff;
+            font-weight: bold;
+            padding: 1rem 0.5rem;
+        }
+        &.nav-item-0 {
+            border-top: 5px solid #a67ac0;
+        }
+        &.nav-item-1 {
+            border-top: 5px solid #fd006b;
+        }
+        &.nav-item-2 {
+            border-top: 5px solid #fdc600;
+        }
+
+        &.nav-item-3 {
+            border-top: 5px solid #fd006b;
+            a {
+                color: yellow !important;
+            }
+        }
+        &.nav-item-4,
+        &.nav-item-5 {
+            border-top: 5px solid #aea652;
+        }
+        &.nav-item-6 {
+            border-top: 5px solid #46b1b5;
+        }
+    }
+}
+
+.banner-home {
+    width: 100%;
+    aspect-ratio: 1920 / 600;
+
+    background-image: url("images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .container {
+        height: 100%;
+        .row {
+            height: 100%;
+            .col-12 {
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                a.site-title {
+                    text-decoration: none;
+                    color: purple;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                }
+                a.demo-preview {
+                    h2 {
+                        font-size: 1rem;
+                    }
+                }
+                .site-actions {
+                    .btn {
+                        border-radius: 0;
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#navbar-menu {
+    .dropdown-menu {
+        background: #25aae1;
+        margin-top: 4px;
+        li {
+            a {
+                color: #fff;
+                font-size: 0.85rem;
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+        &:before {
+            position: absolute;
+            top: -7px;
+            left: 9px;
+            display: inline-block;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #25aae1;
+            border-left: 7px solid transparent;
+            content: "";
+        }
+    }
+    li {
+        flex: 1;
+        text-align: center;
+        a {
+            color: #fff;
+            font-weight: bold;
+            padding: 1rem 0.5rem;
+        }
+        &.nav-item-0 {
+            background: #9c74b4;
+            border-right: 1px solid #ccc;
+        }
+        &.nav-item-1 {
+            background: #9c74b4;
+            border-right: 1px solid #ccc;
+        }
+        &.nav-item-2 {
+            background: #3e997a;
+            border-right: 1px solid #ccc;
+        }
+
+        &.nav-item-3 {
+            background: #e16c6c;
+            border-right: 1px solid #ccc;
+            .dropdown-menu {
+                background: #e16c6c;
+                text-align: left;
+                li {
+                    text-align: left;
+                    a {
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                    }
+                }
+                &:before {
+                    border-bottom: 7px solid #e16c6c;
+                }
+            }
+        }
+        &.nav-item-4 {
+            background: #e0af00;
+            border-right: 1px solid #ccc;
+        }
+        &.nav-item-5 {
+            background: #30a6d7;
+        }
+    }
+}
+
+.slider {
+    .slider-title {
+        text-decoration: none;
+        color: #fff;
+        h2 {
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+    .card {
+        border-radius: 0;
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        h3.card-header {
+            border-radius: 0;
+            font-size: 1rem;
+            border: 0;
+        }
+    }
+}
+
+.slider-luyentuvacau {
+    .slider-title {
+        h2 {
+            background-color: #9c74b4;
+        }
+    }
+    .card {
+        h3.card-header {
+            background-color: #9c74b4;
+        }
+        .card-body {
+            background-color: #ca9fe4;
+            color: #fff;
+            .card-desc {
+                padding-bottom: 0.5rem;
+                border-bottom: 5px solid #fff;
+                border-bottom-width: 25%;
+            }
+            ul.card-details {
+                list-style-type: none;
+                padding-left: 0;
+                margin-left: 0;
+                li {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.slider-morongvontu {
+    .slider-title {
+        h2 {
+            background-color: #3e997a;
+        }
+    }
+    .card {
+        h3.card-header {
+            background-color: #4bc89e;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .card-body {
+            background-color: #4bc89e;
+            color: #fff;
+        }
+    }
+}
+
+.slider-tapdochieu {
+    .slider-title {
+        h2 {
+            background-color: #e16c6c;
+        }
+    }
+    .card {
+        h3.card-header {
+            background-color: #fcacac;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.slider-taplamvan {
+    .slider-title {
+        h2 {
+            background-color: #e0af00;
+        }
+    }
+    .card {
+        h3.card-header {
+            background-color: #fdc600;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .card-body {
+            background-color: #fdc600;
+            color: #fff;
+        }
+    }
+}
+
+.slider-dethitonghop {
+    .slider-title {
+        h2 {
+            background-color: #30a6d7;
+        }
+    }
+    .card {
+        h3.card-header {
+            background-color: #7ed0f2;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    }
+}
+
+footer {
+    background: #25aae1;
+    color: #fff;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    ul {
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+    h4 {
+        font-size: 1.3rem;
+    }
+}
+
+body {
+    background: url("images/lecture-background.jpg");
+}
+
+.container-luyentuvacau {
+    border: 2rem solid #eb6d99;
+    padding: 0 !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    .border-side-grey {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 100%;
+        height: 100%;
+        border-left: 0.75rem solid #d6d6d6;
+        border-right: 0.75rem solid #d6d6d6;
+        .border-side-lightgrey {
+            width: 100%;
+            height: 100%;
+            border-left: 0.75rem solid #e0e0e0;
+            border-right: 0.75rem solid #e0e0e0;
+        }
+    }
+    .container-title {
+        position: relative;
+        top: -3.25rem;
+        left: 5rem;
+        .span1, .span2, .span3 {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .span1 {
+            background-color: #25aae1;
+            left: 0;
+        }
+        .span2 {
+            background-color: #aea652;
+            left: -1rem;
+        }
+        .span3 {
+            background-color: #9c74b4;
+            left: -2rem;
+        }
+    }
+    .card {
+        background: transparent;
+        border: none;
+        .card-body {
+            background: transparent;
+            h2 {
+                font-size: 1rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    background: url("images/background-section-color1.png");
+                }
+            }
+            .lecture-col {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                border-left: 1px solid #333;
+            }
+            .lecture-detail {
+                .lecture-title {
+                    color: #9c74b4;
+                    h3 {
+                        font-size: 1rem;
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    li {
+                        a {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-morongvontu {
+    border: 2rem solid #eb6d99;
+    padding: 0 !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    .border-side-grey {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 100%;
+        height: 100%;
+        border-left: 0.75rem solid #d6d6d6;
+        border-right: 0.75rem solid #d6d6d6;
+        .border-side-lightgrey {
+            width: 100%;
+            height: 100%;
+            border-left: 0.75rem solid #e0e0e0;
+            border-right: 0.75rem solid #e0e0e0;
+        }
+    }
+    .container-title {
+        position: relative;
+        top: -3.25rem;
+        left: 5rem;
+        .span1, .span2, .span3 {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .span1 {
+            background-color: #25aae1;
+            left: 0;
+        }
+        .span2 {
+            background-color: #aea652;
+            left: -1rem;
+        }
+        .span3 {
+            background-color: #9c74b4;
+            left: -2rem;
+        }
+    }
+    .card {
+        background: transparent;
+        border: none;
+        .card-body {
+            background: transparent;
+            h2 {
+                font-size: 1rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    background: url("images/background-section-color1.png");
+                }
+            }
+            .lecture-col {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                border-left: 1px solid #333;
+            }
+            .lecture-detail {
+                .lecture-title {
+                    color: #9c74b4;
+                    h3 {
+                        font-size: 1rem;
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    li {
+                        a {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.paper {
+    background-color: #fafaf7;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(120, 150, 200, 0.15) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(120, 150, 200, 0.15) 1px,
+            transparent 1px
+        );
+
+    background-size: 16px 16px;
+}
+
+.container-tapdochieu {
+    border: 2rem solid #eb6d99;
+    padding: 0 !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    .border-side-grey {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 100%;
+        height: 100%;
+        border-left: 0.75rem solid #d6d6d6;
+        border-right: 0.75rem solid #d6d6d6;
+        .border-side-lightgrey {
+            width: 100%;
+            height: 100%;
+            border-left: 0.75rem solid #e0e0e0;
+            border-right: 0.75rem solid #e0e0e0;
+        }
+    }
+    .container-title {
+        position: relative;
+        top: -3.25rem;
+        left: 5rem;
+        .span1, .span2, .span3 {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .span1 {
+            background-color: #25aae1;
+            left: 0;
+        }
+        .span2 {
+            background-color: #aea652;
+            left: -1rem;
+        }
+        .span3 {
+            background-color: #9c74b4;
+            left: -2rem;
+        }
+    }
+    .card {
+        background: transparent;
+        border: none;
+        .card-body {
+            background: transparent;
+            h2 {
+                font-size: 1rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    background: url("images/background-section-color1.png");
+                }
+            }
+            .lecture-col {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                border-left: 1px solid #333;
+            }
+            .lecture-detail {
+                .lecture-title {
+                    color: #9c74b4;
+                    h3 {
+                        font-size: 1rem;
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    li {
+                        a {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-taplamvan {
+    border: 2rem solid #eb6d99;
+    padding: 0 !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    .border-side-grey {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 100%;
+        height: 100%;
+        border-left: 0.75rem solid #d6d6d6;
+        border-right: 0.75rem solid #d6d6d6;
+        .border-side-lightgrey {
+            width: 100%;
+            height: 100%;
+            border-left: 0.75rem solid #e0e0e0;
+            border-right: 0.75rem solid #e0e0e0;
+        }
+    }
+    .container-title {
+        position: relative;
+        top: -3.25rem;
+        left: 5rem;
+        .span1, .span2, .span3 {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .span1 {
+            background-color: #25aae1;
+            left: 0;
+        }
+        .span2 {
+            background-color: #aea652;
+            left: -1rem;
+        }
+        .span3 {
+            background-color: #9c74b4;
+            left: -2rem;
+        }
+    }
+    .card {
+        background: transparent;
+        border: none;
+        .card-body {
+            background: transparent;
+            h2 {
+                font-size: 1rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    background: url("images/background-section-color1.png");
+                }
+            }
+            .lecture-col {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                border-left: 1px solid #333;
+            }
+            .lecture-detail {
+                .lecture-title {
+                    color: #9c74b4;
+                    h3 {
+                        font-size: 1rem;
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    li {
+                        a {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
