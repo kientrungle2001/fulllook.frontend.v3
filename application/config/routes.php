@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -53,12 +53,17 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['/'] = 'home/index';
-if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
-		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
+if (
+	$_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.com'
+	|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn'
+) {
 	require_once 'routes/pql.php';
 }
 
-if($_SERVER['HTTP_HOST'] == 'pmtv.vn' || $_SERVER['HTTP_HOST'] == 'pmtv.nn-center.com'
-		|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
+if ($_SERVER['HTTP_HOST'] == 'pmtv.vn' || $_SERVER['HTTP_HOST'] == 'pmtv.nn-center.com') {
 	require_once 'routes/pmtv.php';
+}
+
+if ($_SERVER['HTTP_HOST'] == 'pmtv4.vn' || $_SERVER['HTTP_HOST'] == 'pmtv4.nn-center.com') {
+	require_once 'routes/pmtv4.php';
 }

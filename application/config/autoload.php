@@ -113,6 +113,7 @@ if($_SERVER['HTTP_HOST'] == 'pql.vn' || $_SERVER['HTTP_HOST'] == 'pql.nn-center.
 	|| $_SERVER['HTTP_HOST'] == 'mobo.com.vn' || $_SERVER['HTTP_HOST'] == 'www.mobo.com.vn') {
 	$autoload['helper'][] = 'wpglobus';
 }
+$autoload['helper'][] = 'array';
 
 /*
 | -------------------------------------------------------------------

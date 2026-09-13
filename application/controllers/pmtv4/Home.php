@@ -86,6 +86,49 @@ class Home extends MY_Controller
 			]
 		]);
 		if ($row) {
+			if (strpos($row['router'], 'lecture/luyentuvacau') !== false) {
+				$routes = explode('/', $row['router']);
+				$main_id = $routes[2];
+				$items = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'parents like ' => "%,$main_id,%",
+						'software' => $this->app('software_id'),
+						'status' => 1
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				$items = buildTree($items, $main_id);
+				return $this->render('page/luyentuvacau', compact('row', 'items'));
+			}
+			if ($row['router'] == 'lecture/detail') {
+				$parentId = $row['parent'];
+				$others = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'parent' => $parentId,
+						'software' => $this->app('software_id'),
+						'status' => 1
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				$sections = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'router like ' => '%lecture%',
+						'software' => $this->app('software_id'),
+						'status' => 1,
+						'display' => 1,
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				$sections = buildTree($sections, 0);
+
+				return $this->render('page/detail', compact('row', 'others', 'sections'));
+			}
 			if ($row['router'] == 'news/index') {
 				$newsList = $table_model->rows([
 					'table' => 'news',

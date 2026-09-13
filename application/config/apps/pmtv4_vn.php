@@ -3,10 +3,10 @@ $config['apps'][] = [
 	'name' => 'pmtv4',
 	'host'	=>	'pmtv4.vn',
 	'aliases' => [],
-	'view_packages' => ['pmtv4'],
-	'css_packages' => ['pmtv4'],
-	'js_packages' => ['pmtv4'],
-	'media_packages' => ['pmtv4'],
+	'view_packages' => ['pmtv4', 'pmtv'],
+	'css_packages' => ['pmtv4', 'pmtv'],
+	'js_packages' => ['pmtv4', 'pmtv'],
+	'media_packages' => ['pmtv4', 'pmtv'],
 	'software_id' => 104,
 	'devices' => [
 		[

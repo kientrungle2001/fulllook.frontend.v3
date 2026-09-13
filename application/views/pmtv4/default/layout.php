@@ -174,8 +174,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 }
             });
 
-            
+            $('#slide-taplamvan').carousel({
+                size: 1,
+                childSelector: '.col-md-3',
+                mobile: {
+                    size: 1
+                },
+                desktop: {
+                    size: 4
+                }
+            });
 
+            $('#slide-dethitonghop').carousel({
+                size: 4,
+                childSelector: '.col',
+                mobile: {
+                    size: 4
+                },
+                desktop: {
+                    size: 10
+                }
+            });
             
         })(jQuery);
     </script>
