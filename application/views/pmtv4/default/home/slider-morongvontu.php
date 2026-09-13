@@ -1,5 +1,5 @@
 <div class="mt-3 slider slider-morongvontu">
-    <a href="#" class="slider-title">
+    <a href="/mo-rong-von-tu" class="slider-title">
         <h2 class="py-2">
             Mở rộng vốn từ
         </h2>

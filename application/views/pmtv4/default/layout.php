@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?php $controller->view('page/head', $data); ?>
 </head>
 
-<body>
+<body ng-app="pmtvApp">
     <?php $controller->view('page/main-nav', $data); ?>
     <main>
         <?php $controller->view('page/banner', $data); ?>

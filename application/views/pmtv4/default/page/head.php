@@ -8,3 +8,4 @@ $controller->css_libraries();
 $controller->css('style.css');
 ?>
 <?php $controller->js_libraries(); ?>
+<?php $controller->js('app.js');

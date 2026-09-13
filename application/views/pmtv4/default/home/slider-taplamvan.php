@@ -1,5 +1,5 @@
 <div class="mt-3 slider slider-taplamvan">
-    <a href="#" class="slider-title">
+    <a href="/tap-lam-van" class="slider-title">
         <h2 class="py-2">
             Tập làm văn
         </h2>

@@ -1,5 +1,5 @@
 <div class="mt-3 slider slider-tapdochieu">
-    <a href="#" class="slider-title">
+    <a href="/tap-doc-hieu" class="slider-title">
         <h2 class="py-2">
             Tập đọc hiểu
         </h2>

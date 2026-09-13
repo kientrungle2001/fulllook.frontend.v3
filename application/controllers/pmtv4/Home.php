@@ -72,8 +72,9 @@ class Home extends MY_Controller
 	/**
 	 * @param string $alias
 	 */
-	public function route($alias)
+	public function route($alias, $alias2 = null)
 	{
+		if ($alias2) $alias .= '/' . $alias2;
 		/**
 		 * @var Table_model
 		 */
@@ -86,9 +87,10 @@ class Home extends MY_Controller
 			]
 		]);
 		if ($row) {
+			$row['router'] = $row['router'] . '/' . $row['id'];
+			$routes = explode('/', $row['router']);
+			$main_id = $routes[2];
 			if (strpos($row['router'], 'lecture/luyentuvacau') !== false) {
-				$routes = explode('/', $row['router']);
-				$main_id = $routes[2];
 				$items = $table_model->rows([
 					'table' => 'categories',
 					'where' => [
@@ -102,7 +104,50 @@ class Home extends MY_Controller
 				$items = buildTree($items, $main_id);
 				return $this->render('page/luyentuvacau', compact('row', 'items'));
 			}
-			if ($row['router'] == 'lecture/detail') {
+			if (strpos($row['router'], 'lecture/morongvontu') !== false) {
+				$items = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'parent' => $main_id,
+						'software' => $this->app('software_id'),
+						'status' => 1,
+						'display' => 1,
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				return $this->render('page/morongvontu', compact('row', 'items'));
+			}
+			if (strpos($row['router'], 'lecture/tapdochieu') !== false) {
+				$items = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'parents like ' => "%,$main_id,%",
+						'software' => $this->app('software_id'),
+						'status' => 1
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				$items = buildTree($items, $main_id);
+				return $this->render('page/tapdochieu', compact('row', 'items'));
+			}
+			if (strpos($row['router'], 'lecture/taplamvan') !== false) {
+				$items = $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'parents like ' => '%,' . $main_id . ',%',
+						'software' => $this->app('software_id'),
+						'status' => 1,
+						'display' => 1,
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+				$items = buildTree($items, $main_id);
+				return $this->render('page/taplamvan', compact('row', 'items'));
+			}
+			if (strpos($row['router'], 'lecture/detail') !== false) {
 				$parentId = $row['parent'];
 				$others = $table_model->rows([
 					'table' => 'categories',
@@ -139,11 +184,13 @@ class Home extends MY_Controller
 					],
 					'orderBy' => 'id'
 				]);
-				$this->render($row['router'], [
+				return $this->render($row['router'], [
 					'category' => $row,
 					'newsList' => $newsList
 				]);
 			}
+			echo '<pre>';
+			echo json_encode($row, JSON_PRETTY_PRINT);
 		}
 		$row = $table_model->row([
 			'table' => 'news',

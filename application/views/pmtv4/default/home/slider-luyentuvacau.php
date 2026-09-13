@@ -1,5 +1,5 @@
 <div class="mt-3 slider slider-luyentuvacau">
-    <a href="#" class="slider-title">
+    <a href="/luyen-tu-va-cau" class="slider-title">
         <h2 class="py-2">
             Luyện từ và câu
         </h2>

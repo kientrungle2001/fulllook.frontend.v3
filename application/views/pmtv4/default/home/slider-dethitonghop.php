@@ -1,5 +1,5 @@
 <div class="my-3 slider slider-dethitonghop">
-    <a href="#" class="slider-title">
+    <a href="/de-thi-tong-hop" class="slider-title">
         <h2 class="py-2">
             Đề thi tổng hợp
         </h2>

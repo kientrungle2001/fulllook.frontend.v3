@@ -1,13 +1,13 @@
 FL_API_URL = 'http://api2.nextnobels.com';
 
-pmtv4App = angular.module('pmtv4App', ["ngSanitize"]);
+pmtvApp = angular.module('pmtvApp', ["ngSanitize"]);
 
-pmtv4App.filter('sanitizer', ['$sce', function ($sce) {
+pmtvApp.filter('sanitizer', ['$sce', function ($sce) {
 	return function (url) {
 		return $sce.trustAsHtml(url);
 	};
 }]);
-pmtv4App.filter('translate', ['$sce', function ($sce) {
+pmtvApp.filter('translate', ['$sce', function ($sce) {
 	return function (str) {
 		if (str) {
 			return $sce.trustAsHtml(str.replace(/\[start\](.*)\[end\]/g, '<button class="btn btn-primary" data-toggle="collapse" onclick="jQuery(this).next().collapse(\'toggle\')">Dịch</button><div class="collapse"><div class="card card-body">$1</div></div>'))
@@ -16,13 +16,13 @@ pmtv4App.filter('translate', ['$sce', function ($sce) {
 	};
 }]);
 
-pmtv4App.filter('repeat', ['$sce', function ($sce) {
+pmtvApp.filter('repeat', ['$sce', function ($sce) {
 	return function (number, str) {
 		return number ? str.repeat(number) : '';
 	};
 }]);
 
-pmtv4App.filter('toDate', function () {
+pmtvApp.filter('toDate', function () {
 	return function (input) {
 		return new Date(input);
 	}

@@ -1,2 +1,2 @@
 <?php
-$route['([\w\d\-_]+)'] = 'Home/route/$1';
+$route['([\w\d\-_\/]+)'] = 'Home/route/$1';
