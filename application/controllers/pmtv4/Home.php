@@ -72,9 +72,10 @@ class Home extends MY_Controller
 	/**
 	 * @param string $alias
 	 */
-	public function route($alias, $alias2 = null)
+	public function route($alias, $alias2 = null, $alias3 = null)
 	{
 		if ($alias2) $alias .= '/' . $alias2;
+		if ($alias3) $alias .= '/' . $alias3;
 		/**
 		 * @var Table_model
 		 */
@@ -87,7 +88,7 @@ class Home extends MY_Controller
 			]
 		]);
 		if ($row) {
-			$row['router'] = $row['router'] . '/' . $row['id'];
+			$row['router'] = trim($row['router'], '/') . '/' . $row['id'];
 			$routes = explode('/', $row['router']);
 			$main_id = $routes[2];
 			if (strpos($row['router'], 'lecture/luyentuvacau') !== false) {
@@ -119,6 +120,11 @@ class Home extends MY_Controller
 				return $this->render('page/morongvontu', compact('row', 'items'));
 			}
 			if (strpos($row['router'], 'lecture/tapdochieu') !== false) {
+				$semester_id = $routes[3];
+				$main = $table_model->row([
+					'table' => 'categories',
+					'where' => ['id' => $main_id]
+				]);
 				$items = $table_model->rows([
 					'table' => 'categories',
 					'where' => [
@@ -130,7 +136,10 @@ class Home extends MY_Controller
 					'orderDir' => 'asc'
 				]);
 				$items = buildTree($items, $main_id);
-				return $this->render('page/tapdochieu', compact('row', 'items'));
+				if ($semester_id == $main_id) {
+					$semester_id = $items[0]['id'];
+				}
+				return $this->render('page/tapdochieu', compact('row', 'main', 'items', 'routes', 'semester_id'));
 			}
 			if (strpos($row['router'], 'lecture/taplamvan') !== false) {
 				$items = $table_model->rows([

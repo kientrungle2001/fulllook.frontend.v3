@@ -33,7 +33,7 @@
                         <li><a class="dropdown-item" href="/tap-doc-hieu/bo-sach-canh-dieu">Bộ sách cánh diều</a></li>
                         <li><a class="dropdown-item" href="/tap-doc-hieu/bo-sach-ket-noi">Bộ sách kết nối</a></li>
                         <li><a class="dropdown-item" href="/tap-doc-hieu/bo-sach-chan-troi-sang-tao">Bộ sách chân trời sáng tạo</a></li>
-                        <li><a class="dropdown-item" href="/tap-doc-hieu/doc-hieu-mo-rong">Đọc hiểu mở rộng</a></li>
+                        <li><a class="dropdown-item" href="/tap-doc-hieu">Đọc hiểu mở rộng</a></li>
 
                     </ul>
                 </li>

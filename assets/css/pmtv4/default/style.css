@@ -406,7 +406,10 @@ body {
         left: 5rem;
         .span1,
         .span2,
-        .span3 {
+        .span3,
+        .span4,
+        .span5,
+        .span6 {
             font-size: 1.5rem;
             position: absolute;
             top: 0;
@@ -426,6 +429,26 @@ body {
         .span3 {
             background-color: #9c74b4;
             left: -2rem;
+        }
+
+        .span4 {
+            background-color: #25aae1;
+            left: 13rem;
+        }
+        .span5 {
+            background-color: #aea652;
+            left: 12rem;
+        }
+        .span6 {
+            background-color: #9c74b4;
+            left: 11rem;
+        }
+
+        .span-active {
+            font-weight: bolder;
+            box-shadow:
+                0 0 8px #25aae1,
+                0 0 16px #25aae1;
         }
     }
     .card {
@@ -449,7 +472,6 @@ body {
                 margin-left: 2rem;
                 margin-right: 2rem;
                 border-left: 1px solid #333;
-                
             }
             .lecture-detail {
                 &:before {
@@ -768,131 +790,131 @@ body {
     position: relative;
 }
 .lecture-detail:before {
-	position:			absolute;
-	left:				-4rem;
-	width:				44px;
-	height:				36px;
-	display:			block;
-	padding-top:		5px;
-	padding-left:		10px;
-	font-size:			18px;
-	font-weight:		bold;
-	color:				#fff;
+    position: absolute;
+    left: -4rem;
+    width: 44px;
+    height: 36px;
+    display: block;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
 }
 
 .num1:before {
-	content:			"1";
+    content: "1";
 }
 
 .num2:before {
-	content:			"2";
+    content: "2";
 }
 
 .num3:before {
-	content:			"3";
+    content: "3";
 }
 
 .num4:before {
-	content:			"4";
+    content: "4";
 }
 
 .num5:before {
-	content:			"5";
+    content: "5";
 }
 
 .num6:before {
-	content:			"6";
+    content: "6";
 }
 
 .num7:before {
-	content:			"7";
+    content: "7";
 }
 
 .num8:before {
-	content:			"8";
+    content: "8";
 }
 
 .num9:before {
-	content:			"9";
+    content: "9";
 }
 .num10:before {
-	content:			"10";
+    content: "10";
 }
 .num11:before {
-	content:			"11";
+    content: "11";
 }
 .num12:before {
-	content:			"12";
+    content: "12";
 }
 .num13:before {
-	content:			"13";
+    content: "13";
 }
 .num14:before {
-	content:			"14";
+    content: "14";
 }
 .num15:before {
-	content:			"15";
+    content: "15";
 }
 .num16:before {
-	content:			"16";
+    content: "16";
 }
 .num17:before {
-	content:			"17";
+    content: "17";
 }
 .num18:before {
-	content:			"18";
+    content: "18";
 }
 .num19:before {
-	content:			"19";
+    content: "19";
 }
 .num20:before {
-	content:			"20";
+    content: "20";
 }
 .num21:before {
-	content:			"21";
+    content: "21";
 }
 .num22:before {
-	content:			"22";
+    content: "22";
 }
 .num23:before {
-	content:			"23";
+    content: "23";
 }
 .num24:before {
-	content:			"24";
+    content: "24";
 }
 .num25:before {
-	content:			"25";
+    content: "25";
 }
 .num26:before {
-	content:			"26";
+    content: "26";
 }
 .num27:before {
-	content:			"27";
+    content: "27";
 }
 .num28:before {
-	content:			"28";
+    content: "28";
 }
 .num29:before {
-	content:			"29";
+    content: "29";
 }
 .num30:before {
-	content:			"30";
+    content: "30";
 }
 .num31:before {
-	content:			"31";
+    content: "31";
 }
 .num32:before {
-	content:			"32";
+    content: "32";
 }
 .num33:before {
-	content:			"33";
+    content: "33";
 }
 .num34:before {
-	content:			"34";
+    content: "34";
 }
 .num35:before {
-	content:			"35";
+    content: "35";
 }
 .num36:before {
-	content:			"36";
+    content: "36";
 }
