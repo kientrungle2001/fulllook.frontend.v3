@@ -11,61 +11,12 @@ class Home extends MY_Controller
 
 	public function index()
 	{
-		/**
-		 * @var Table_model
-		 */
-		$table_model = $this->table_model;
 		$data = [];
-		$data['luyen_tu_va_cau'] = $table_model->rows([
-			'table' => 'categories',
-			'where' => [
-				'parent' => 169,
-				'status' => 1,
-				'software' => $this->app('software_id')
-			],
-			'orderBy' => 'ordering',
-			'orderDir' => 'asc'
-		]);
-		$data['mo_rong_von_tu'] = $table_model->rows([
-			'table' => 'categories',
-			'where' => [
-				'parent' => 171,
-				'status' => 1,
-				'software' => $this->app('software_id')
-			],
-			'orderBy' => 'ordering',
-			'orderDir' => 'asc'
-		]);
-		$data['tap_lam_van'] = $table_model->rows([
-			'table' => 'categories',
-			'where' => [
-				'parent' => 173,
-				'status' => 1,
-				'software' => $this->app('software_id')
-			],
-			'orderBy' => 'ordering',
-			'orderDir' => 'asc'
-		]);
-		$data['tap_doc_hieu'] = $table_model->rows([
-			'table' => 'categories',
-			'where' => [
-				'parent' => 277,
-				'status' => 1,
-				'software' => $this->app('software_id')
-			],
-			'orderBy' => 'ordering',
-			'orderDir' => 'asc'
-		]);
-		$data['de_thi_tong_hop'] = $table_model->rows([
-			'table' => 'categories',
-			'where' => [
-				'parent' => 174,
-				'status' => 1,
-				'software' => $this->app('software_id')
-			],
-			'orderBy' => 'ordering',
-			'orderDir' => 'asc'
-		]);
+		$data['luyen_tu_va_cau'] = $this->getSubCategories(169);
+		$data['mo_rong_von_tu'] = $this->getSubCategories(171);
+		$data['tap_lam_van'] = $this->getSubCategories(173);
+		$data['tap_doc_hieu'] = $this->getSubCategories(277);
+		$data['de_thi_tong_hop'] = $this->getSubCategories(174);
 		$this->render('home', $data);
 	}
 
@@ -74,49 +25,26 @@ class Home extends MY_Controller
 	 */
 	public function route($alias, $alias2 = null, $alias3 = null)
 	{
-		if ($alias2) $alias .= '/' . $alias2;
-		if ($alias3) $alias .= '/' . $alias3;
+		if ($alias2)
+			$alias .= '/' . $alias2;
+		if ($alias3)
+			$alias .= '/' . $alias3;
 		/**
 		 * @var Table_model
 		 */
 		$table_model = $this->table_model;
-		$row = $table_model->row([
-			'table' => 'categories',
-			'where' => [
-				'alias' => $alias,
-				'software' => $this->app('software_id')
-			]
-		]);
+		$row = $this->getCategoryByAlias($alias);
 		if ($row) {
 			$row['router'] = trim($row['router'], '/') . '/' . $row['id'];
 			$routes = explode('/', $row['router']);
 			$main_id = $routes[2];
 			if (strpos($row['router'], 'lecture/luyentuvacau') !== false) {
-				$items = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'parents like ' => "%,$main_id,%",
-						'software' => $this->app('software_id'),
-						'status' => 1
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
+				$items = $this->getAllSubCategories($main_id);
 				$items = buildTree($items, $main_id);
 				return $this->render('page/luyentuvacau', compact('row', 'items'));
 			}
 			if (strpos($row['router'], 'lecture/morongvontu') !== false) {
-				$items = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'parent' => $main_id,
-						'software' => $this->app('software_id'),
-						'status' => 1,
-						'display' => 1,
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
+				$items = $this->getSubCategories($main_id, 1);
 				return $this->render('page/morongvontu', compact('row', 'items'));
 			}
 			if (strpos($row['router'], 'lecture/tapdochieu') !== false) {
@@ -125,16 +53,7 @@ class Home extends MY_Controller
 					'table' => 'categories',
 					'where' => ['id' => $main_id]
 				]);
-				$items = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'parents like ' => "%,$main_id,%",
-						'software' => $this->app('software_id'),
-						'status' => 1
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
+				$items = $this->getAllSubCategories($main_id);
 				$items = buildTree($items, $main_id);
 				if ($semester_id == $main_id) {
 					$semester_id = $items[0]['id'];
@@ -142,57 +61,20 @@ class Home extends MY_Controller
 				return $this->render('page/tapdochieu', compact('row', 'main', 'items', 'routes', 'semester_id'));
 			}
 			if (strpos($row['router'], 'lecture/taplamvan') !== false) {
-				$items = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'parents like ' => '%,' . $main_id . ',%',
-						'software' => $this->app('software_id'),
-						'status' => 1,
-						'display' => 1,
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
+				$items = $this->getAllSubCategories($main_id, 1);
 				$items = buildTree($items, $main_id);
 				return $this->render('page/taplamvan', compact('row', 'items'));
 			}
 			if (strpos($row['router'], 'lecture/detail') !== false) {
 				$parentId = $row['parent'];
-				$others = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'parent' => $parentId,
-						'software' => $this->app('software_id'),
-						'status' => 1
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
-				$sections = $table_model->rows([
-					'table' => 'categories',
-					'where' => [
-						'router like ' => '%lecture%',
-						'software' => $this->app('software_id'),
-						'status' => 1,
-						'display' => 1,
-					],
-					'orderBy' => 'ordering',
-					'orderDir' => 'asc'
-				]);
+				$others = $this->getSubCategories($parentId);
+				$sections = $this->getAllLectureSubCategories();
 				$sections = buildTree($sections, 0);
 
 				return $this->render('page/detail', compact('row', 'others', 'sections'));
 			}
 			if ($row['router'] == 'news/index') {
-				$newsList = $table_model->rows([
-					'table' => 'news',
-					'where' => [
-						'categoryId' => $row['id'],
-						'status' => 1,
-						'software' => $this->app('software_id')
-					],
-					'orderBy' => 'id'
-				]);
+				$newsList = $this->getNewsList($row['id']);
 				return $this->render($row['router'], [
 					'category' => $row,
 					'newsList' => $newsList
@@ -201,25 +83,9 @@ class Home extends MY_Controller
 			echo '<pre>';
 			echo json_encode($row, JSON_PRETTY_PRINT);
 		}
-		$row = $table_model->row([
-			'table' => 'news',
-			'where' => [
-				'alias' => $alias,
-				'software' => $this->app('software_id')
-			]
-		]);
+		$row = $this->getNewsByAlias($alias);
 		if ($row) {
-			$newsList = $table_model->rows([
-				'table' => 'news',
-				'where' => [
-					'categoryId' => $row['categoryId'],
-					'status' => 1,
-					'software' => $this->app('software_id'),
-					'id != ' => $row['id']
-				],
-				'orderBy' => 'id',
-				'offset' => 5
-			]);
+			$newsList = $this->getNewsList($row['categoryId'], $row['id'], 5);
 			$this->render('news/detail', ['news' => $row, 'newsList' => $newsList]);
 		}
 	}
@@ -249,5 +115,123 @@ class Home extends MY_Controller
 		$this->session->paymentDate = null;
 		$this->session->expiredDate = null;
 		header('Location: /');
+	}
+
+	protected function getSubCategories($categoryId, $display = null)
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		$where = [
+			'parent' => $categoryId,
+			'status' => 1,
+			'software' => $this->app('software_id')
+		];
+		if (null !== $display) {
+			$where['display'] = $display;
+		}
+		return $table_model->rows([
+			'table' => 'categories',
+			'where' => $where,
+			'orderBy' => 'ordering',
+			'orderDir' => 'asc'
+		]);
+	}
+
+	protected function getAllSubCategories($categoryId, $display = null)
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		$where = [
+			'parents like ' => "%,$categoryId,%",
+			'software' => $this->app('software_id'),
+			'status' => 1
+		];
+		if (null !== $display) {
+			$where['display'] = $display;
+		}
+		return $table_model->rows([
+			'table' => 'categories',
+			'where' => $where,
+			'orderBy' => 'ordering',
+			'orderDir' => 'asc'
+		]);
+	}
+
+	protected function getAllLectureSubCategories()
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		return $table_model->rows([
+					'table' => 'categories',
+					'where' => [
+						'router like ' => '%lecture%',
+						'software' => $this->app('software_id'),
+						'status' => 1,
+						'display' => 1,
+					],
+					'orderBy' => 'ordering',
+					'orderDir' => 'asc'
+				]);
+	}
+
+	protected function getCategoryByAlias($alias)
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		return $table_model->row([
+			'table' => 'categories',
+			'where' => [
+				'alias' => $alias,
+				'software' => $this->app('software_id')
+			]
+		]);
+	}
+
+	protected function getNewsList($categoryId, $id = null, $offset = null)
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		$where = [
+			'categoryId' => $categoryId,
+			'status' => 1,
+			'software' => $this->app('software_id')
+		];
+		if (null !== $id) {
+			$where['id != '] = $id;
+		}
+		$query = [
+			'table' => 'news',
+			'where' => $where,
+			'orderBy' => 'id'
+		];
+		if (null !== $offset) {
+			$query['ofsset'] = $offset;
+		}
+		return $table_model->rows($query);
+	}
+
+	protected function getNewsByAlias($alias)
+	{
+		/**
+		 * @var Table_model
+		 */
+		$table_model = $this->table_model;
+		return $table_model->row([
+			'table' => 'news',
+			'where' => [
+				'alias' => $alias,
+				'software' => $this->app('software_id')
+			]
+		]);
 	}
 }
